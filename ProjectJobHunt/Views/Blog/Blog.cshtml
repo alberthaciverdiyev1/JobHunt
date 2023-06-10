@@ -1,0 +1,85 @@
+﻿@model List<Blog>
+
+
+
+<section class="overlape">
+	<div class="block no-padding">
+		<div data-velocity="-.1" style="background: url(../assets/images/resource/mslider1.jpg) repeat scroll 50% 422.28px transparent;" class="parallax scrolly-invisible no-parallax"></div><!-- PARALLAX BACKGROUND IMAGE -->
+		<div class="container fluid">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="inner-header">
+                        <h3>Blog</h3>
+
+                    </div>
+                    </div>
+			</div>
+		</div>
+        </div>
+</section>
+
+<a asp-action="Create" asp-controller="Blog" class="btn btn-success mt-3 mr-2" style="float:right;">Create New Blog</a>
+
+
+<section>
+    
+	<div class="block">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="blog-sec">
+						<div class="row" id="masonry">
+							@foreach(Blog item in Model)
+							{
+								<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+									<div class="my-blog">
+										<div class="blog-thumb">
+											<a asp-action="Singleblog" asp-controller="Blog" asp-route-id="@item.id" title=""><img src="~/assets/images/BlogImages/@item.ImageURL" alt="" /></a>
+											<div class="blog-metas">
+												<a href="#" title="">@item.DateTime</a>
+										
+											</div>
+										</div>
+										<div class="blog-details">
+											<h3><a asp-action="Singleblog" asp-controller="Blog" asp-route-id="@item.id" title="">@item.Title</a></h3>
+											@if (item.Description.Length < 100)
+											{
+                                                <p>@item.Description</p>
+                                            }
+											else{
+											<p> @item.Description.Substring(0,100)... </p>
+
+											}
+											<a asp-action="Singleblog" asp-controller="Blog" asp-route-id="@item.id" title="">Read More <i class="la la-long-arrow-right"></i></a>
+										</div>
+									</div>
+								</div>
+
+							}
+						</div>
+					</div>
+					<div class="pagination">
+
+					@if (ViewBag.Page > 0)
+					{
+						<a asp-action="blog" asp-controller="blog" asp-route-page="@(ViewBag.Page-1)" type="button" class="btn btn-secondary ">Previous</a>
+
+					}
+						@for (int i = 0; i < ViewBag.Total; i++)
+						{
+
+							<a asp-action="blog" asp-controller="blog" asp-route-page="@(i)" type="button" class="btn btn-secondary @(i==ViewBag.Page?"disabled":"")">@(i + 1)</a>
+
+					}
+					@if (ViewBag.Page+1 < ViewBag.Total)
+					{
+							<a asp-action="blog" asp-controller="blog" asp-route-page="@(ViewBag.Page+1)" type="button" class="btn btn-secondary">Next</a>
+
+					}
+					</div><!-- Pagination -->
+				
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

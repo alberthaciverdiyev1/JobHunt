@@ -1,0 +1,54 @@
+﻿@model List<Setting>
+
+@{
+    int count = 0;
+}
+
+
+<div class="col-lg-12">
+    <div class="card   mx-auto">
+        <div class="card-body  ">
+            <h4 class="card-title">Striped rows</h4>
+            <p class="card-title-desc">Use <code>.table-striped</code> to add zebra-striping to any table row within the <code>&lt;tbody&gt;</code>.</p>
+
+            <div class="table-responsive">
+                <a asp-action="index" asp-controller="home" asp-area="ProjectJobHunt" class="btn btn-primary waves-effect waves-light">Back ToHome</a>
+
+                <table class="table table-striped">
+
+
+                    <thead>
+
+                        <tr>
+                            <th>#</th>
+                            <th>Icon</th>
+                            <th>Name</th>
+                            @* <th>Created Time</th>
+                            <th>Updated Time</th>*@
+                            <th>Setting</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (Setting item in Model)
+                        {
+                            count++;
+
+                            <tr>
+                                <td scope="row">@count</td>
+                                <td>@item.Key</td>
+                                <td>@item.Value</td>
+                                <td>
+                                    <a asp-action="update" asp-area="admin" asp-controller="setting" asp-route-id="@item.id" class="btn btn-warning waves-effect waves-light">Update</a>
+                                </td>
+                            </tr>
+
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>
