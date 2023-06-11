@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using ProjectJobHunt.DAL;
+using ProjectJobHunt.Models;
 using ProjectJobHunt.Services;
 using System;
 
@@ -10,12 +11,13 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<LayoutService>();
 builder.Services.AddDbContext<AppDbContext>(x => x.UseSqlServer(builder.Configuration.GetConnectionString("Default")));
-//builder.Services.AddIdentity<AppUser, IdentityRole>(x => {
-//    x.Password.RequiredUniqueChars = 0;
-//    x.Password.RequireNonAlphanumeric = false;
-//    x.Password.RequireUppercase = false;
-//    x.Password.RequiredLength = 4;
-//}).AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
+builder.Services.AddIdentity<AppUser, IdentityRole>(x =>
+{
+    x.Password.RequiredUniqueChars = 0;
+    x.Password.RequireNonAlphanumeric = false;
+    x.Password.RequireUppercase = false;
+    x.Password.RequiredLength = 4;
+}).AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
 
 
 var app = builder.Build();
