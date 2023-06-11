@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProjectJobHunt.DAL;
 
@@ -11,9 +12,11 @@ using ProjectJobHunt.DAL;
 namespace ProjectJobHunt.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230611123711_UpdateData")]
+    partial class UpdateData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -286,28 +289,6 @@ namespace ProjectJobHunt.Migrations
                     b.ToTable("Categories");
                 });
 
-            modelBuilder.Entity("ProjectJobHunt.Models.Position", b =>
-                {
-                    b.Property<int>("id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"));
-
-                    b.Property<int>("CategoryId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("PositionName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("id");
-
-                    b.HasIndex("CategoryId");
-
-                    b.ToTable("Positions");
-                });
-
             modelBuilder.Entity("ProjectJobHunt.Models.Profession", b =>
                 {
                     b.Property<int>("id")
@@ -451,17 +432,6 @@ namespace ProjectJobHunt.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("ProjectJobHunt.Models.Position", b =>
-                {
-                    b.HasOne("ProjectJobHunt.Models.Category", "Category")
-                        .WithMany("Positions")
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Category");
-                });
-
             modelBuilder.Entity("ProjectJobHunt.ViewModels.RegisterVM", b =>
                 {
                     b.HasOne("ProjectJobHunt.Models.Profession", "Profession")
@@ -471,11 +441,6 @@ namespace ProjectJobHunt.Migrations
                         .IsRequired();
 
                     b.Navigation("Profession");
-                });
-
-            modelBuilder.Entity("ProjectJobHunt.Models.Category", b =>
-                {
-                    b.Navigation("Positions");
                 });
 
             modelBuilder.Entity("ProjectJobHunt.Models.Profession", b =>

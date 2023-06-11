@@ -1,0 +1,25 @@
+﻿@model Position
+
+
+<div class="col-md-6 grid-margin stretch-card mt-5 mx-auto" style="margin-top:200px!important;">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title mt-3 mb-3"> Create Category</h4>
+
+            <form method="post" class="forms-sample">
+
+
+                <div class="form-group">
+                    <label for="Name">Name</label>
+                    <input asp-for="PositionName" class="form-control" id="Name" placeholder="Category Name">
+                    <span asp-validation-for="PositionName" class="text-danger"></span>
+
+                </div>
+             
+                <div asp-validation-summary="ModelOnly"></div>
+                <button type="submit" class="btn btn-primary mr-4 mt-3 ml-2">Create</button>
+                <a asp-action="index" asp-area="admin" asp-controller="category" class="btn btn-light mt-3 ml-2">Cancel</a>
+            </form>
+        </div>
+    </div>
+</div>

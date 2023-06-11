@@ -35,8 +35,9 @@ namespace ProjectJobHunt.ViewModels
         public IFormFile? Photo { get; set; }
         public int ProfessionId { get; set; }
         public Profession? Profession { get; set; }
+        [Required(ErrorMessage ="Role Is Required")]
         public bool Role { get; set; }
-        public DateTime DateTime { get; set; }
+        public DateTime DateTime = DateTime.Now;
 
 
     }

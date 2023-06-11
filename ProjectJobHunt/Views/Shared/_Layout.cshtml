@@ -58,13 +58,15 @@
                     <ul class="account-btns">
                         @if (User.Identity.IsAuthenticated)
                         {
+
+
                             <li>@User.Identity.Name</li>
                             <li><a asp-action="LogOut" asp-controller="account">Log Out</a></li>
                         }
                         else
                         {
                             <li><a asp-action="register" asp-controller="account" title="">@Html.Raw(setting["SignUpLogo"])Sign Up</a></li>
-                            <li><a asp-action="login" asp-controller="account" title="">@Html.Raw(setting["LoginLogo"]) Login</a></li>
+                            <li><a asp-action="login" asp-controller="account" asp-route-ReturnUrl="@Context.Request.Path.Value" title="">@Html.Raw(setting["LoginLogo"]) Login</a></li>
                         }
                        
                     </ul>
@@ -122,7 +124,7 @@
                         <a asp-action="index" asp-controller="home" title=""><img class="hidesticky" src="~/assets/images/resource/logo.png" alt="" /><img class="showsticky" src="~/assets/images/resource/@setting["Logo"]" alt="" /></a>
                     </div><!-- Logo -->
                     <div class="btn-extars">
-                        <a href="#" title="" class="post-job-btn"><i class="la la-plus"></i>Post Jobs</a>
+                        <a asp-action="PostJob" asp-controller="Job" title="" class="post-job-btn"><i class="la la-plus"></i>Post Jobs</a>
                         <ul class="account-btns">
                             @if (User.Identity.IsAuthenticated)
                             {

@@ -8,6 +8,7 @@ namespace ProjectJobHunt.Models
         public string Surname { get; set; }
         public int? UserProfession { get; set; }
         public string? ImageURL { get; set; }
+        public DateTime CreatedAt { get; set; }
 
     }
 }

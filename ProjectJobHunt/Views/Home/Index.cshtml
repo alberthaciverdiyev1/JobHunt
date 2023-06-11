@@ -84,7 +84,7 @@
 				</div>
 				<div class="col-lg-12">
 					<div class="browse-all-cat">
-						<a href="#" title="">Browse All Categories</a>
+						<a asp-action="Categories" asp-controller="home" title="">Browse All Categories</a>
 					</div>
 				</div>
 			</div>
@@ -118,7 +118,7 @@
                             </div>
                             <div class="col-lg-3  col-md-3 col-sm-6 col-xs-6">
                                 <div class="stats">
-                                    <span>92</span>
+                                    <span>@Model.Users.Count()</span>
                                     <h5>Members</h5>
                                 </div>
                             </div>

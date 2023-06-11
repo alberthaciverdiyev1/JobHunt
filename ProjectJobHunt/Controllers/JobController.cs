@@ -8,5 +8,9 @@ namespace ProjectJobHunt.Controllers
         {
             return View();
         }
+        public IActionResult PostJob()
+        {
+            return View();
+        }
     }
 }

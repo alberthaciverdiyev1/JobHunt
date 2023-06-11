@@ -8,5 +8,6 @@ namespace ProjectJobHunt.Models
         public string Icon { get; set; }
         [Required]
         public string Name { get; set; }
+        public List<Position>? Positions { get; set; }
     }
 }

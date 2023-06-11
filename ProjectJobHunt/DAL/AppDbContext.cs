@@ -14,6 +14,6 @@ namespace ProjectJobHunt.DAL
         public DbSet<Category> Categories { get; set; }
         public DbSet<Blog> Blogs { get; set; }
         public DbSet<Profession> Professions { get; set; }
-
-    }
+        public DbSet<Position> Positions { get; set; }
+	}
 }

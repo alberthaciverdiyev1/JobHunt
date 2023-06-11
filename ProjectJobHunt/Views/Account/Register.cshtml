@@ -37,8 +37,16 @@
 
                             <form method="post" enctype="multipart/form-data">
                                 <div class="select-user mb-4">
-                                    <span>Candidate</span>
-                                    <span>Employer</span>
+                                    <span>
+                                        <input asp-for="Role" value="true" checked>Candidate</>
+                                        <span asp-validation-for="Role"></span>
+
+                                    </span>
+                                    <span>
+                                        <input asp-for="Role" value="false">Employer</>
+                                        <span asp-validation-for="Role"></span>
+                                    </span>
+
                                 </div><div class="cfield">
                                     <input asp-for="Name" placeholder="Name" />
 
@@ -77,7 +85,7 @@
                                 <div class="dropdown-field">
 
                                     <select asp-for="ProfessionId">
-                                        @foreach(Profession item in ViewBag.Professions)
+                                        @foreach (Profession item in ViewBag.Professions)
                                         {
                                             <option value="@item.id">@item.ProfessionName</option>
                                         }
@@ -104,7 +112,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div><!-- SIGNUP POPUP -->
+                    </div>
                 </div>
             </div>
         </div>
