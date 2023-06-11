@@ -1,4 +1,4 @@
-﻿
+﻿@model JobVM
 <section class="overlape">
 	<div class="block no-padding">
 		<div data-velocity="-.1" style="background: url(../assets/images/resource/mslider1.jpg) repeat scroll 50% 422.28px transparent;" class="parallax scrolly-invisible no-parallax"></div><!-- PARALLAX BACKGROUND IMAGE -->
@@ -81,22 +81,14 @@
 					<div class="widget border">
 						<h3 class="sb-title open">Specialism</h3>
 						<div class="specialism_widget">
-							<div class="field_w_search">
-								<input type="text" placeholder="Search Spaecialisms" />
-							</div><!-- Search Widget -->
-							<div class="simple-checkbox scrollbar">
-								<p><input type="checkbox" name="spealism" id="as"><label for="as">Accountancy (2)</label></p>
-								<p><input type="checkbox" name="spealism" id="asd"><label for="asd">Banking (2)</label></p>
-								<p><input type="checkbox" name="spealism" id="errwe"><label for="errwe">Charity & Voluntary (3)</label></p>
-								<p><input type="checkbox" name="spealism" id="fdg"><label for="fdg">Digital & Creative (4)</label></p>
-								<p><input type="checkbox" name="spealism" id="sc"><label for="sc">Estate Agency (3)</label></p>
-								<p><input type="checkbox" name="spealism" id="aw"><label for="aw">Graduate (2)</label></p>
-								<p><input type="checkbox" name="spealism" id="ui"><label for="ui">IT Contractor (7)</label></p>
-								<p><input type="checkbox" name="spealism" id="saas"><label for="saas">Charity & Voluntary (3)</label></p>
-								<p><input type="checkbox" name="spealism" id="rrrt"><label for="rrrt">Digital & Creative (4)</label></p>
-								<p><input type="checkbox" name="spealism" id="eweew"><label for="eweew">Estate Agency (3)</label></p>
-								<p><input type="checkbox" name="spealism" id="bnbn"><label for="bnbn">Graduate (2)</label></p>
-								<p><input type="checkbox" name="spealism" id="ffd"><label for="ffd">IT Contractor (7)</label></p>
+						<div class="simple-checkbox">
+								@foreach (Category item in Model.Category)
+								{
+									<input type="radio" id="@item.id" name="category" value="@item.id">
+									<label for="@item.id">@item.Name</label>
+									<br>
+								}
+								
 							</div>
 						</div>
 					</div>
@@ -133,36 +125,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="widget border">
-						<h3 class="sb-title closed">Gender</h3>
-						<div class="specialism_widget">
-							<div class="simple-checkbox">
-								<p><input type="checkbox" name="smplechk" id="13"><label for="13">Male</label></p>
-								<p><input type="checkbox" name="smplechk" id="14"><label for="14">Female</label></p>
-								<p><input type="checkbox" name="smplechk" id="15"><label for="15">Others</label></p>
-							</div>
-						</div>
-					</div>
-					<div class="widget border">
-						<h3 class="sb-title closed">Industry</h3>
-						<div class="specialism_widget">
-							<div class="simple-checkbox">
-								<p><input type="checkbox" name="smplechk" id="16"><label for="16">Meezan Job</label></p>
-								<p><input type="checkbox" name="smplechk" id="17"><label for="17">Speicalize Jobs</label></p>
-								<p><input type="checkbox" name="smplechk" id="18"><label for="18">Business Jobs</label></p>
-							</div>
-						</div>
-					</div>
-					<div class="widget border">
-						<h3 class="sb-title closed">Qualification</h3>
-						<div class="specialism_widget">
-							<div class="simple-checkbox">
-								<p><input type="checkbox" name="smplechk" id="19"><label for="19">Matriculation</label></p>
-								<p><input type="checkbox" name="smplechk" id="20"><label for="20">Intermidiate</label></p>
-								<p><input type="checkbox" name="smplechk" id="21"><label for="21">Gradute</label></p>
-							</div>
-						</div>
-					</div>
+			
 					<div class="banner_widget">
 						<a href="#" title=""><img src="~/assets/images/resource/banner.png" alt="" /></a>
 					</div>
