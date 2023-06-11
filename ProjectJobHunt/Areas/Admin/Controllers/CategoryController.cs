@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using ProjectJobHunt.DAL;
 using ProjectJobHunt.Migrations;
 using ProjectJobHunt.Models;
+using ProjectJobHunt.Utilities.Extentions;
 using Category = ProjectJobHunt.Models.Category;
 
 namespace ProjectJobHunt.Areas.Admin.Controllers
@@ -40,9 +41,18 @@ namespace ProjectJobHunt.Areas.Admin.Controllers
         }
         public IActionResult Update(int id)
         {
-            if (id < 1 || id == null) return RedirectToAction("Error", "Home", new { area = "ProjectJobHunt" });
+            var check = this.CheckID(id);
+            if (check != null)
+            {
+                return check;
+            }
+
             Category category = _context.Categories.FirstOrDefault(x => x.id == id);
-            if (category == null) return RedirectToAction("Error", "Home", new { area = "ProjectJobHunt" });
+            var checkContext = this.CheckDbContext(category);
+            if (checkContext != null)
+            {
+                return checkContext;
+            }
             return View(category);
         }
         [HttpPost]
@@ -53,11 +63,18 @@ namespace ProjectJobHunt.Areas.Admin.Controllers
             {
                 return View();
             }
-            if (id < 1 || id == null) return RedirectToAction("Error", "Home", new { area = "ProjectJobHunt" });
 
+            var check = this.CheckID(id);
+            if (check != null)
+            {
+                return check;
+            }
             Category existed = _context.Categories.FirstOrDefault(x => x.id == id);
-            if (existed == null) return RedirectToAction("Error", "Home", new { area = "ProjectJobHunt" });
-
+            var checkContext = this.CheckDbContext(existed);
+            if (checkContext != null)
+            {
+                return checkContext;
+            }
             existed.Name = category.Name;
             existed.Icon = category.Icon;
             await _context.SaveChangesAsync();
@@ -65,20 +82,30 @@ namespace ProjectJobHunt.Areas.Admin.Controllers
         }
         public IActionResult Delete(int id)
         {
-            if (id < 1 || id == null) return RedirectToAction("Error", "Home", new { area = "ProjectJobHunt" });
-
+            var check = this.CheckID(id);
+            if (check != null)
+            {
+                return check;
+            }
             Category existed = _context.Categories.FirstOrDefault(x => x.id == id);
-            if (existed == null) return RedirectToAction("Error", "Home", new { area = "ProjectJobHunt" });
+            var checkContext = this.CheckDbContext(existed);
+            if (checkContext != null)
+            {
+                return checkContext;
+            }
             _context.Categories.Remove(existed);
             _context.SaveChanges();
             return RedirectToAction("Index", "Category");
 
         }
-        public async Task<IActionResult> PositionIndex(int id)
+        public async Task<IActionResult> PositionIndex()
         {
-            if (id < 1 || id == null) return RedirectToAction("Error", "Home", new { area = "ProjectJobHunt" });
-            List<Position> position = await _context.Positions.Where(x => x.id == id).ToListAsync();
-            if (position == null) return RedirectToAction("Error", "Home", new { area = "ProjectJobHunt" });
+            List<Position> position = await _context.Positions.Include(x => x.Category).ToListAsync();
+            var checkContext = this.CheckDbContext(position);
+            if (checkContext != null)
+            {
+                return checkContext;
+            }
             return View(position);
         }
 
@@ -90,20 +117,18 @@ namespace ProjectJobHunt.Areas.Admin.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> AddPosition(Position position, int id)
+        public async Task<IActionResult> AddPosition(Position position)
         {
             if (!ModelState.IsValid)
             {
                 ViewBag.Categories = _context.Categories.ToList();
                 return View();
             }
-
-            if (position == null) return RedirectToAction("Error", "Home", new { area = "ProjectJobHunt" });
-            var category = await _context.Categories.FindAsync(id);
-            if (category == null) return RedirectToAction("Error", "Home", new { area = "ProjectJobHunt" });
-
-            position.Category = category;
-
+            var checkContext = this.CheckDbContext(position);
+            if (checkContext != null)
+            {
+                return checkContext;
+            }
             await _context.AddAsync(position);
             await _context.SaveChangesAsync();
 
