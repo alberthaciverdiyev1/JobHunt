@@ -1,4 +1,5 @@
 ﻿using ProjectJobHunt.Models;
+using ProjectJobHunt.Models.Job;
 
 namespace ProjectJobHunt.ViewModels
 {

@@ -99,9 +99,9 @@ namespace ProjectJobHunt.Models
             return RedirectToAction("Index", "Category");
 
         }
-        public async Task<IActionResult> PositionIndex()
+        public async Task<IActionResult> PositionIndex(int id)
         {
-            List<Position> position = await _context.Positions.Include(x => x.Category).ToListAsync();
+            List<Position> position = await _context.Positions.Where(x=>x.CategoryId==id).ToListAsync();
             var checkContext = this.CheckDbContext(position);
             if (checkContext != null)
             {

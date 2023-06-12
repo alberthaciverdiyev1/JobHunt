@@ -1,6 +1,6 @@
 ﻿
 using System.ComponentModel.DataAnnotations;
-using ProjectJobHunt.Models;
+using ProjectJobHunt.Models.Job;
 
 namespace ProjectJobHunt.Models
 {

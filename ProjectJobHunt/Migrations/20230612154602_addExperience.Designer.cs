@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProjectJobHunt.DAL;
 
@@ -11,9 +12,11 @@ using ProjectJobHunt.DAL;
 namespace ProjectJobHunt.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230612154602_addExperience")]
+    partial class addExperience
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -177,9 +180,6 @@ namespace ProjectJobHunt.Migrations
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
 
-                    b.Property<int?>("Experienceid")
-                        .HasColumnType("int");
-
                     b.Property<string>("ImageURL")
                         .HasColumnType("nvarchar(max)");
 
@@ -228,8 +228,6 @@ namespace ProjectJobHunt.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("Experienceid");
 
                     b.HasIndex("NormalizedEmail")
                         .HasDatabaseName("EmailIndex");
@@ -485,13 +483,6 @@ namespace ProjectJobHunt.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("ProjectJobHunt.Models.AppUser", b =>
-                {
-                    b.HasOne("ProjectJobHunt.Models.Job.Experience", null)
-                        .WithMany("AppUsers")
-                        .HasForeignKey("Experienceid");
-                });
-
             modelBuilder.Entity("ProjectJobHunt.Models.Position", b =>
                 {
                     b.HasOne("ProjectJobHunt.Models.Category", "Category")
@@ -517,11 +508,6 @@ namespace ProjectJobHunt.Migrations
             modelBuilder.Entity("ProjectJobHunt.Models.Category", b =>
                 {
                     b.Navigation("Positions");
-                });
-
-            modelBuilder.Entity("ProjectJobHunt.Models.Job.Experience", b =>
-                {
-                    b.Navigation("AppUsers");
                 });
 
             modelBuilder.Entity("ProjectJobHunt.Models.Profession", b =>

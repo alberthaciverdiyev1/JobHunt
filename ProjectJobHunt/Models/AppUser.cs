@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using ProjectJobHunt.Models.Job;
 
 namespace ProjectJobHunt.Models
 {
@@ -9,6 +10,7 @@ namespace ProjectJobHunt.Models
         public int? UserProfession { get; set; }
         public string? ImageURL { get; set; }
         public DateTime CreatedAt { get; set; }
+
 
     }
 }

@@ -39,8 +39,7 @@
                             <tr>
                                 <td scope="row">@count</td>
                                 <td>@item.PositionName</td>
-                                <td>@item.Category.Name</td>
-                                <td>
+                               <td>
 
                                     <a asp-action="UpdatePosition" asp-area="admin" asp-controller="category" asp-route-id="@item.id" class="btn btn-warning waves-effect waves-light">Update</a>
                                     <a asp-action="DeletePosition" asp-area="admin" asp-controller="category" asp-route-id="@item.id" class="btn btn-danger waves-effect waves-light">Delete</a>

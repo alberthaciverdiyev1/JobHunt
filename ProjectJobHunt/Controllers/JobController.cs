@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using ProjectJobHunt.DAL;
 using ProjectJobHunt.Models;
+using ProjectJobHunt.Models.Job;
 using ProjectJobHunt.ViewModels;
 
 namespace ProjectJobHunt.Controllers
@@ -18,11 +19,12 @@ namespace ProjectJobHunt.Controllers
         {
 
             List<Category> categories = await _context.Categories.ToListAsync();
+            List<Position> positions = await _context.Positions.ToListAsync();
 
             JobVM jobVM = new JobVM
             {
                 Category = categories,
-
+                Positions = positions
             };
 
             return View(jobVM);
