@@ -33,7 +33,7 @@ namespace ProjectJobHunt.Controllers
 		public IActionResult Register()
 		{
 
-			ViewBag.Professions = _context.Professions.ToList();
+			ViewBag.Professions = _context.Positions.ToList();
 
 
 			return View();
@@ -44,7 +44,7 @@ namespace ProjectJobHunt.Controllers
 
 			if (!ModelState.IsValid)
 			{
-				ViewBag.Professions = _context.Professions.ToList();
+				ViewBag.Professions = _context.Positions.ToList();
 
 				return View();
 			}
@@ -73,7 +73,7 @@ namespace ProjectJobHunt.Controllers
 						else
 						{
 							ModelState.AddModelError(string.Empty, "Seklin olcusu 500kbdan boyuk ola bilmez");
-							ViewBag.Professions = _context.Professions.ToList();
+							ViewBag.Professions = _context.Positions.ToList();
 
 							return View();
 						}
@@ -81,7 +81,7 @@ namespace ProjectJobHunt.Controllers
 					else
 					{
 						ModelState.AddModelError(string.Empty, "Seklin formati duzgun deyil");
-						ViewBag.Professions = _context.Professions.ToList();
+						ViewBag.Professions = _context.Positions.ToList();
 
 						return View();
 					}
@@ -95,7 +95,7 @@ namespace ProjectJobHunt.Controllers
 					Name = register.Name,
 					Surname = register.Surname,
 					UserName = register.UserName,
-					UserProfession = register.ProfessionId,
+					UserProfession = register.PositionId,
 					ImageURL = register.ImageURL,
 					CreatedAt = register.DateTime
 
@@ -122,7 +122,7 @@ namespace ProjectJobHunt.Controllers
 			else
 			{
 				ModelState.AddModelError(string.Empty, "This user already exists");
-				ViewBag.Professions = _context.Professions.ToList();
+				ViewBag.Professions = _context.Positions.ToList();
 
 				return View();
 

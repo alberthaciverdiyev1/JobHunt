@@ -84,15 +84,15 @@
 
                                 <div class="dropdown-field cfield">
 
-                                    <select asp-for="ProfessionId">
-                                        @foreach (Profession item in ViewBag.Professions)
+                                    <select asp-for="PositionId">
+                                        @foreach (Position item in ViewBag.Professions)
                                         {
-                                            <option value="@item.id">@item.ProfessionName</option>
+                                            <option value="@item.id">@item.PositionName</option>
                                         }
                                         <option selected disabled>Select Profession</option>
                                     </select>
 
-                                    <span asp-validation-for="ProfessionId" class="text-danger"></span>
+                                    <span asp-validation-for="PositionId" class="text-danger"></span>
 
                                 </div>
                                 <div class="cfield">

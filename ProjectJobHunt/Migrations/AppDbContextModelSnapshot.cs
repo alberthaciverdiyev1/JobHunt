@@ -177,9 +177,6 @@ namespace ProjectJobHunt.Migrations
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
 
-                    b.Property<int?>("Experienceid")
-                        .HasColumnType("int");
-
                     b.Property<string>("ImageURL")
                         .HasColumnType("nvarchar(max)");
 
@@ -227,9 +224,10 @@ namespace ProjectJobHunt.Migrations
                     b.Property<int?>("UserProfession")
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
+                    b.Property<int?>("WorkExperienceid")
+                        .HasColumnType("int");
 
-                    b.HasIndex("Experienceid");
+                    b.HasKey("Id");
 
                     b.HasIndex("NormalizedEmail")
                         .HasDatabaseName("EmailIndex");
@@ -238,6 +236,8 @@ namespace ProjectJobHunt.Migrations
                         .IsUnique()
                         .HasDatabaseName("UserNameIndex")
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
+
+                    b.HasIndex("WorkExperienceid");
 
                     b.ToTable("AspNetUsers", (string)null);
                 });
@@ -291,7 +291,7 @@ namespace ProjectJobHunt.Migrations
                     b.ToTable("Categories");
                 });
 
-            modelBuilder.Entity("ProjectJobHunt.Models.Job.Experience", b =>
+            modelBuilder.Entity("ProjectJobHunt.Models.ExperienceYear", b =>
                 {
                     b.Property<int>("id")
                         .ValueGeneratedOnAdd()
@@ -299,25 +299,46 @@ namespace ProjectJobHunt.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"));
 
-                    b.Property<string>("Internship")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Year")
+                        .HasColumnType("int");
 
-                    b.Property<string>("Junior")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.HasKey("id");
 
-                    b.Property<string>("Middle")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.ToTable("ExperienceYears");
+                });
 
-                    b.Property<string>("Senior")
+            modelBuilder.Entity("ProjectJobHunt.Models.Job.WorkExperience", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"));
+
+                    b.Property<string>("Experience")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("id");
 
-                    b.ToTable("Experiences");
+                    b.ToTable("WorkExperiences");
+                });
+
+            modelBuilder.Entity("ProjectJobHunt.Models.JobType", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"));
+
+                    b.Property<string>("WorkType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("id");
+
+                    b.ToTable("JobTypes");
                 });
 
             modelBuilder.Entity("ProjectJobHunt.Models.Position", b =>
@@ -340,23 +361,6 @@ namespace ProjectJobHunt.Migrations
                     b.HasIndex("CategoryId");
 
                     b.ToTable("Positions");
-                });
-
-            modelBuilder.Entity("ProjectJobHunt.Models.Profession", b =>
-                {
-                    b.Property<int>("id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"));
-
-                    b.Property<string>("ProfessionName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("id");
-
-                    b.ToTable("Professions");
                 });
 
             modelBuilder.Entity("ProjectJobHunt.Models.Setting", b =>
@@ -408,7 +412,7 @@ namespace ProjectJobHunt.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ProfessionId")
+                    b.Property<int>("PositionId")
                         .HasColumnType("int");
 
                     b.Property<bool>("RememberMe")
@@ -429,7 +433,7 @@ namespace ProjectJobHunt.Migrations
 
                     b.HasKey("id");
 
-                    b.HasIndex("ProfessionId");
+                    b.HasIndex("PositionId");
 
                     b.ToTable("RegisterVM");
                 });
@@ -487,9 +491,9 @@ namespace ProjectJobHunt.Migrations
 
             modelBuilder.Entity("ProjectJobHunt.Models.AppUser", b =>
                 {
-                    b.HasOne("ProjectJobHunt.Models.Job.Experience", null)
+                    b.HasOne("ProjectJobHunt.Models.Job.WorkExperience", null)
                         .WithMany("AppUsers")
-                        .HasForeignKey("Experienceid");
+                        .HasForeignKey("WorkExperienceid");
                 });
 
             modelBuilder.Entity("ProjectJobHunt.Models.Position", b =>
@@ -505,9 +509,9 @@ namespace ProjectJobHunt.Migrations
 
             modelBuilder.Entity("ProjectJobHunt.ViewModels.RegisterVM", b =>
                 {
-                    b.HasOne("ProjectJobHunt.Models.Profession", "Profession")
+                    b.HasOne("ProjectJobHunt.Models.Position", "Profession")
                         .WithMany("RegisterVMs")
-                        .HasForeignKey("ProfessionId")
+                        .HasForeignKey("PositionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -519,12 +523,12 @@ namespace ProjectJobHunt.Migrations
                     b.Navigation("Positions");
                 });
 
-            modelBuilder.Entity("ProjectJobHunt.Models.Job.Experience", b =>
+            modelBuilder.Entity("ProjectJobHunt.Models.Job.WorkExperience", b =>
                 {
                     b.Navigation("AppUsers");
                 });
 
-            modelBuilder.Entity("ProjectJobHunt.Models.Profession", b =>
+            modelBuilder.Entity("ProjectJobHunt.Models.Position", b =>
                 {
                     b.Navigation("RegisterVMs");
                 });

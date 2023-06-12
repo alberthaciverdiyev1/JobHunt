@@ -2,7 +2,6 @@
 using Microsoft.EntityFrameworkCore;
 using ProjectJobHunt.DAL;
 using ProjectJobHunt.Models;
-using ProjectJobHunt.Models.Job;
 using ProjectJobHunt.ViewModels;
 using System.Diagnostics;
 

@@ -33,8 +33,8 @@ namespace ProjectJobHunt.ViewModels
         public string? ImageURL { get; set; }
         [NotMapped]
         public IFormFile? Photo { get; set; }
-        public int ProfessionId { get; set; }
-        public Profession? Profession { get; set; }
+        public int PositionId { get; set; }
+        public Position? Profession { get; set; }
         [Required(ErrorMessage ="Role Is Required")]
         public bool Role { get; set; }
         public DateTime DateTime = DateTime.Now;

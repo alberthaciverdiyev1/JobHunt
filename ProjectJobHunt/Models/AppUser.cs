@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Identity;
-using ProjectJobHunt.Models.Job;
 
 namespace ProjectJobHunt.Models
 {

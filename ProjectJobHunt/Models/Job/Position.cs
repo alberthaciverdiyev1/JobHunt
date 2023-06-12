@@ -1,6 +1,7 @@
 ﻿
+using ProjectJobHunt.ViewModels;
 using System.ComponentModel.DataAnnotations;
-using ProjectJobHunt.Models.Job;
+
 
 namespace ProjectJobHunt.Models
 {
@@ -11,5 +12,7 @@ namespace ProjectJobHunt.Models
         public Category? Category { get; set; }
         [Required]
         public int CategoryId { get; set; }
+        public List<RegisterVM> RegisterVMs { get; set; }
+
     }
 }
