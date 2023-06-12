@@ -224,9 +224,6 @@ namespace ProjectJobHunt.Migrations
                     b.Property<int?>("UserProfession")
                         .HasColumnType("int");
 
-                    b.Property<int?>("WorkExperienceid")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.HasIndex("NormalizedEmail")
@@ -236,8 +233,6 @@ namespace ProjectJobHunt.Migrations
                         .IsUnique()
                         .HasDatabaseName("UserNameIndex")
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
-
-                    b.HasIndex("WorkExperienceid");
 
                     b.ToTable("AspNetUsers", (string)null);
                 });
@@ -305,6 +300,42 @@ namespace ProjectJobHunt.Migrations
                     b.HasKey("id");
 
                     b.ToTable("ExperienceYears");
+                });
+
+            modelBuilder.Entity("ProjectJobHunt.Models.Job.PostJob", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"));
+
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ExperienceYearId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("JobTypeId")
+                        .HasColumnType("int");
+
+                    b.Property<decimal?>("Salary")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("WorkExperienceId")
+                        .HasColumnType("int");
+
+                    b.HasKey("id");
+
+                    b.HasIndex("CategoryId");
+
+                    b.HasIndex("ExperienceYearId");
+
+                    b.HasIndex("JobTypeId");
+
+                    b.HasIndex("WorkExperienceId");
+
+                    b.ToTable("PostJobs");
                 });
 
             modelBuilder.Entity("ProjectJobHunt.Models.Job.WorkExperience", b =>
@@ -489,11 +520,39 @@ namespace ProjectJobHunt.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("ProjectJobHunt.Models.AppUser", b =>
+            modelBuilder.Entity("ProjectJobHunt.Models.Job.PostJob", b =>
                 {
-                    b.HasOne("ProjectJobHunt.Models.Job.WorkExperience", null)
-                        .WithMany("AppUsers")
-                        .HasForeignKey("WorkExperienceid");
+                    b.HasOne("ProjectJobHunt.Models.Category", "Category")
+                        .WithMany("PostJobs")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ProjectJobHunt.Models.ExperienceYear", "ExperienceYear")
+                        .WithMany("PostJobs")
+                        .HasForeignKey("ExperienceYearId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ProjectJobHunt.Models.JobType", "JobType")
+                        .WithMany("PostJobs")
+                        .HasForeignKey("JobTypeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ProjectJobHunt.Models.Job.WorkExperience", "WorkExperience")
+                        .WithMany("PostJobs")
+                        .HasForeignKey("WorkExperienceId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Category");
+
+                    b.Navigation("ExperienceYear");
+
+                    b.Navigation("JobType");
+
+                    b.Navigation("WorkExperience");
                 });
 
             modelBuilder.Entity("ProjectJobHunt.Models.Position", b =>
@@ -521,11 +580,23 @@ namespace ProjectJobHunt.Migrations
             modelBuilder.Entity("ProjectJobHunt.Models.Category", b =>
                 {
                     b.Navigation("Positions");
+
+                    b.Navigation("PostJobs");
+                });
+
+            modelBuilder.Entity("ProjectJobHunt.Models.ExperienceYear", b =>
+                {
+                    b.Navigation("PostJobs");
                 });
 
             modelBuilder.Entity("ProjectJobHunt.Models.Job.WorkExperience", b =>
                 {
-                    b.Navigation("AppUsers");
+                    b.Navigation("PostJobs");
+                });
+
+            modelBuilder.Entity("ProjectJobHunt.Models.JobType", b =>
+                {
+                    b.Navigation("PostJobs");
                 });
 
             modelBuilder.Entity("ProjectJobHunt.Models.Position", b =>

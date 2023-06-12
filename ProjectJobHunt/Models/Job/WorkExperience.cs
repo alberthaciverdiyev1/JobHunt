@@ -4,6 +4,6 @@
     {
         public string Experience { get; set; }
 
-        public List<AppUser>? AppUsers { get; set; }
+        public List<PostJob>? PostJobs { get; set; }
     }
 }

@@ -18,5 +18,6 @@ namespace ProjectJobHunt.DAL
         public DbSet<ExperienceYear> ExperienceYears { get; set; }
         public DbSet<JobType> JobTypes { get; set; }
         public DbSet<Position> Positions { get; set; }
+        public DbSet<PostJob> PostJobs { get; set; }
 	}
 }
