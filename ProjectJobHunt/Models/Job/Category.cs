@@ -11,6 +11,7 @@ namespace ProjectJobHunt.Models
         public string Name { get; set; }
         public List<PostJob>? PostJobs { get; set; }
         public List<Position>? Positions { get; set; }
+        public List<Try>? Try { get; set; }
 
     }
 }

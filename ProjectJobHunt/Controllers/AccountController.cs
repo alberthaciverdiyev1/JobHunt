@@ -90,7 +90,6 @@ namespace ProjectJobHunt.Controllers
 				AppUser user = new AppUser
 				{
 
-
 					Email = register.Email,
 					Name = register.Name,
 					Surname = register.Surname,

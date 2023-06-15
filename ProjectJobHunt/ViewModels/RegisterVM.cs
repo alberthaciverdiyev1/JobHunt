@@ -34,7 +34,7 @@ namespace ProjectJobHunt.ViewModels
         [NotMapped]
         public IFormFile? Photo { get; set; }
         public int PositionId { get; set; }
-        public Position? Profession { get; set; }
+        public Position? Position { get; set; }
         [Required(ErrorMessage ="Role Is Required")]
         public bool Role { get; set; }
         public DateTime DateTime = DateTime.Now;

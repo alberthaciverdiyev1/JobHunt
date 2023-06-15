@@ -82,13 +82,13 @@
                         <h3 class="sb-title open">Specialism</h3>
                         <div class="specialism_widget">
                             <div class="simple-checkbox">
-                                @foreach (Category item in Model.Category)
+@*                                @foreach (Category item in Model.Category)
                                 {  
                                          <div class="row">
                                         <div class="col-lg-12">
                                             <span class="pf-title">
                                                 <input type="radio" id="@item.id" name="category" value="@item.id">
-                                                <label for="@item.id">@item.Name</label>
+                                                <label asp-for="@item.id">@item.Name</label>
                                                 <br>
                                             </span>
                                             <div class="pf-field">
@@ -106,7 +106,7 @@
                                         </div>
                                     </div>
                                 }
-                            </div>
+*@                            </div>
                         </div>
                     </div>
 

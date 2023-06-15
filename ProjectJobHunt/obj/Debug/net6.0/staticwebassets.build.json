@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "RHsdZH0AxG1CTSneTQTv4j+DciN8NceTk6OEbThsLP8=",
+  "Hash": "NObms+PgclXMlNIyttua3lO6+mRRZAYXR31NrJSTaCY=",
   "Source": "ProjectJobHunt",
   "BasePath": "_content/ProjectJobHunt",
   "Mode": "Default",
@@ -3993,6 +3993,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\images\\BlogImages\\e56b4830-ca78-4e9a-ae4c-dc095d61ca053twoperson.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\ASUS\\Desktop\\ProjectJobHunt\\ProjectJobHunt\\wwwroot\\assets\\images\\BlogImages\\ed5bcaaf-2f54-4d68-8277-cb2f1211ce0a5 brokoli.jpg",
+      "SourceId": "ProjectJobHunt",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ASUS\\Desktop\\ProjectJobHunt\\ProjectJobHunt\\wwwroot\\",
+      "BasePath": "_content/ProjectJobHunt",
+      "RelativePath": "assets/images/BlogImages/ed5bcaaf-2f54-4d68-8277-cb2f1211ce0a5 brokoli.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\images\\BlogImages\\ed5bcaaf-2f54-4d68-8277-cb2f1211ce0a5 brokoli.jpg"
     },
     {
       "Identity": "C:\\Users\\ASUS\\Desktop\\ProjectJobHunt\\ProjectJobHunt\\wwwroot\\assets\\images\\BlogImages\\eef8dc0c-03ac-4131-b32f-1275503c7a27maxresdefault.jpg",

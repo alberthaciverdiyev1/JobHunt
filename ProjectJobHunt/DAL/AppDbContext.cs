@@ -19,5 +19,9 @@ namespace ProjectJobHunt.DAL
         public DbSet<JobType> JobTypes { get; set; }
         public DbSet<Position> Positions { get; set; }
         public DbSet<PostJob> PostJobs { get; set; }
-	}
+        public DbSet<City> Cities { get; set; }
+        public DbSet<Education> Educations { get; set; }
+        public DbSet<Language> Languages { get; set; }
+        public DbSet<Try> Tries { get; set; }
+    }
 }
