@@ -1,0 +1,1881 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\Job.bundle.scp.css",
+      "PackagePath": "staticwebassets\\Job.bundle.scp.css"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\css\\app-dark.min.css",
+      "PackagePath": "staticwebassets\\adminAssets\\css\\app-dark.min.css"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\css\\app-rtl.min.css",
+      "PackagePath": "staticwebassets\\adminAssets\\css\\app-rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\css\\app.min.css",
+      "PackagePath": "staticwebassets\\adminAssets\\css\\app.min.css"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\adminAssets\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\css\\icons.min.css",
+      "PackagePath": "staticwebassets\\adminAssets\\css\\icons.min.css"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\fonts\\dripicons-v2.eot",
+      "PackagePath": "staticwebassets\\adminAssets\\fonts\\dripicons-v2.eot"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\fonts\\dripicons-v2.svg",
+      "PackagePath": "staticwebassets\\adminAssets\\fonts\\dripicons-v2.svg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\fonts\\dripicons-v2.ttf",
+      "PackagePath": "staticwebassets\\adminAssets\\fonts\\dripicons-v2.ttf"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\fonts\\dripicons-v2.woff",
+      "PackagePath": "staticwebassets\\adminAssets\\fonts\\dripicons-v2.woff"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\fonts\\dripicons-v2d41d.eot",
+      "PackagePath": "staticwebassets\\adminAssets\\fonts\\dripicons-v2d41d.eot"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\fonts\\fa-brands-400.eot",
+      "PackagePath": "staticwebassets\\adminAssets\\fonts\\fa-brands-400.eot"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\fonts\\fa-brands-400.html",
+      "PackagePath": "staticwebassets\\adminAssets\\fonts\\fa-brands-400.html"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\fonts\\fa-brands-400.svg",
+      "PackagePath": "staticwebassets\\adminAssets\\fonts\\fa-brands-400.svg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\fonts\\fa-brands-400.ttf",
+      "PackagePath": "staticwebassets\\adminAssets\\fonts\\fa-brands-400.ttf"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\fonts\\fa-brands-400.woff",
+      "PackagePath": "staticwebassets\\adminAssets\\fonts\\fa-brands-400.woff"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\fonts\\fa-brands-400d41d.eot",
+      "PackagePath": "staticwebassets\\adminAssets\\fonts\\fa-brands-400d41d.eot"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\fonts\\fa-regular-400.eot",
+      "PackagePath": "staticwebassets\\adminAssets\\fonts\\fa-regular-400.eot"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\fonts\\fa-regular-400.html",
+      "PackagePath": "staticwebassets\\adminAssets\\fonts\\fa-regular-400.html"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\fonts\\fa-regular-400.svg",
+      "PackagePath": "staticwebassets\\adminAssets\\fonts\\fa-regular-400.svg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\fonts\\fa-regular-400.ttf",
+      "PackagePath": "staticwebassets\\adminAssets\\fonts\\fa-regular-400.ttf"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\fonts\\fa-regular-400.woff",
+      "PackagePath": "staticwebassets\\adminAssets\\fonts\\fa-regular-400.woff"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\fonts\\fa-regular-400d41d.eot",
+      "PackagePath": "staticwebassets\\adminAssets\\fonts\\fa-regular-400d41d.eot"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\fonts\\fa-solid-900.eot",
+      "PackagePath": "staticwebassets\\adminAssets\\fonts\\fa-solid-900.eot"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\fonts\\fa-solid-900.html",
+      "PackagePath": "staticwebassets\\adminAssets\\fonts\\fa-solid-900.html"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\fonts\\fa-solid-900.svg",
+      "PackagePath": "staticwebassets\\adminAssets\\fonts\\fa-solid-900.svg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\fonts\\fa-solid-900.ttf",
+      "PackagePath": "staticwebassets\\adminAssets\\fonts\\fa-solid-900.ttf"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\fonts\\fa-solid-900.woff",
+      "PackagePath": "staticwebassets\\adminAssets\\fonts\\fa-solid-900.woff"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\fonts\\fa-solid-900d41d.eot",
+      "PackagePath": "staticwebassets\\adminAssets\\fonts\\fa-solid-900d41d.eot"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\fonts\\ioniconsde33.eot",
+      "PackagePath": "staticwebassets\\adminAssets\\fonts\\ioniconsde33.eot"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\fonts\\ioniconsde33.html",
+      "PackagePath": "staticwebassets\\adminAssets\\fonts\\ioniconsde33.html"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\fonts\\ioniconsde33.svg",
+      "PackagePath": "staticwebassets\\adminAssets\\fonts\\ioniconsde33.svg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\fonts\\ioniconsde33.ttf",
+      "PackagePath": "staticwebassets\\adminAssets\\fonts\\ioniconsde33.ttf"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\fonts\\ioniconsde33.woff",
+      "PackagePath": "staticwebassets\\adminAssets\\fonts\\ioniconsde33.woff"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\fonts\\materialdesignicons-webfontd41d.eot",
+      "PackagePath": "staticwebassets\\adminAssets\\fonts\\materialdesignicons-webfontd41d.eot"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\fonts\\materialdesignicons-webfonte910.eot",
+      "PackagePath": "staticwebassets\\adminAssets\\fonts\\materialdesignicons-webfonte910.eot"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\fonts\\materialdesignicons-webfonte910.html",
+      "PackagePath": "staticwebassets\\adminAssets\\fonts\\materialdesignicons-webfonte910.html"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\fonts\\materialdesignicons-webfonte910.ttf",
+      "PackagePath": "staticwebassets\\adminAssets\\fonts\\materialdesignicons-webfonte910.ttf"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\fonts\\materialdesignicons-webfonte910.woff",
+      "PackagePath": "staticwebassets\\adminAssets\\fonts\\materialdesignicons-webfonte910.woff"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\fonts\\themify9f24.eot",
+      "PackagePath": "staticwebassets\\adminAssets\\fonts\\themify9f24.eot"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\fonts\\themify9f24.svg",
+      "PackagePath": "staticwebassets\\adminAssets\\fonts\\themify9f24.svg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\fonts\\themify9f24.ttf",
+      "PackagePath": "staticwebassets\\adminAssets\\fonts\\themify9f24.ttf"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\fonts\\themify9f24.woff",
+      "PackagePath": "staticwebassets\\adminAssets\\fonts\\themify9f24.woff"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\fonts\\themifyd41d.eot",
+      "PackagePath": "staticwebassets\\adminAssets\\fonts\\themifyd41d.eot"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\fonts\\typicons.eot",
+      "PackagePath": "staticwebassets\\adminAssets\\fonts\\typicons.eot"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\fonts\\typicons.svg",
+      "PackagePath": "staticwebassets\\adminAssets\\fonts\\typicons.svg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\fonts\\typicons.ttf",
+      "PackagePath": "staticwebassets\\adminAssets\\fonts\\typicons.ttf"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\fonts\\typicons.woff",
+      "PackagePath": "staticwebassets\\adminAssets\\fonts\\typicons.woff"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\fonts\\typiconsd41d.eot",
+      "PackagePath": "staticwebassets\\adminAssets\\fonts\\typiconsd41d.eot"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\images\\bg-1.png",
+      "PackagePath": "staticwebassets\\adminAssets\\images\\bg-1.png"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\images\\directory-bg.jpg",
+      "PackagePath": "staticwebassets\\adminAssets\\images\\directory-bg.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\images\\favicon.ico",
+      "PackagePath": "staticwebassets\\adminAssets\\images\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\images\\flags\\french_flag.jpg",
+      "PackagePath": "staticwebassets\\adminAssets\\images\\flags\\french_flag.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\images\\flags\\germany_flag.jpg",
+      "PackagePath": "staticwebassets\\adminAssets\\images\\flags\\germany_flag.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\images\\flags\\italy_flag.jpg",
+      "PackagePath": "staticwebassets\\adminAssets\\images\\flags\\italy_flag.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\images\\flags\\russia_flag.jpg",
+      "PackagePath": "staticwebassets\\adminAssets\\images\\flags\\russia_flag.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\images\\flags\\spain_flag.jpg",
+      "PackagePath": "staticwebassets\\adminAssets\\images\\flags\\spain_flag.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\images\\flags\\us_flag.jpg",
+      "PackagePath": "staticwebassets\\adminAssets\\images\\flags\\us_flag.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\images\\layouts\\layout-1.jpg",
+      "PackagePath": "staticwebassets\\adminAssets\\images\\layouts\\layout-1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\images\\layouts\\layout-2.jpg",
+      "PackagePath": "staticwebassets\\adminAssets\\images\\layouts\\layout-2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\images\\layouts\\layout-3.jpg",
+      "PackagePath": "staticwebassets\\adminAssets\\images\\layouts\\layout-3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\images\\logo-dark.png",
+      "PackagePath": "staticwebassets\\adminAssets\\images\\logo-dark.png"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\images\\logo-light.png",
+      "PackagePath": "staticwebassets\\adminAssets\\images\\logo-light.png"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\images\\logo-sm.png",
+      "PackagePath": "staticwebassets\\adminAssets\\images\\logo-sm.png"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\images\\small\\img-1.jpg",
+      "PackagePath": "staticwebassets\\adminAssets\\images\\small\\img-1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\images\\small\\img-2.jpg",
+      "PackagePath": "staticwebassets\\adminAssets\\images\\small\\img-2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\images\\small\\img-3.jpg",
+      "PackagePath": "staticwebassets\\adminAssets\\images\\small\\img-3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\images\\small\\img-4.jpg",
+      "PackagePath": "staticwebassets\\adminAssets\\images\\small\\img-4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\images\\small\\img-5.jpg",
+      "PackagePath": "staticwebassets\\adminAssets\\images\\small\\img-5.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\images\\small\\img-6.jpg",
+      "PackagePath": "staticwebassets\\adminAssets\\images\\small\\img-6.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\images\\small\\img-7.jpg",
+      "PackagePath": "staticwebassets\\adminAssets\\images\\small\\img-7.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\images\\users\\user-1.jpg",
+      "PackagePath": "staticwebassets\\adminAssets\\images\\users\\user-1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\images\\users\\user-2.jpg",
+      "PackagePath": "staticwebassets\\adminAssets\\images\\users\\user-2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\images\\users\\user-3.jpg",
+      "PackagePath": "staticwebassets\\adminAssets\\images\\users\\user-3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\images\\users\\user-4.jpg",
+      "PackagePath": "staticwebassets\\adminAssets\\images\\users\\user-4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\images\\users\\user-5.jpg",
+      "PackagePath": "staticwebassets\\adminAssets\\images\\users\\user-5.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\images\\users\\user-6.jpg",
+      "PackagePath": "staticwebassets\\adminAssets\\images\\users\\user-6.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\images\\users\\user-7.jpg",
+      "PackagePath": "staticwebassets\\adminAssets\\images\\users\\user-7.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\js\\app.js",
+      "PackagePath": "staticwebassets\\adminAssets\\js\\app.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\js\\pages\\c3-chart.init.js",
+      "PackagePath": "staticwebassets\\adminAssets\\js\\pages\\c3-chart.init.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\js\\pages\\calendar.init.js",
+      "PackagePath": "staticwebassets\\adminAssets\\js\\pages\\calendar.init.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\js\\pages\\chartist.init.js",
+      "PackagePath": "staticwebassets\\adminAssets\\js\\pages\\chartist.init.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\js\\pages\\chartjs.init.js",
+      "PackagePath": "staticwebassets\\adminAssets\\js\\pages\\chartjs.init.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\js\\pages\\dashboard.init.js",
+      "PackagePath": "staticwebassets\\adminAssets\\js\\pages\\dashboard.init.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\js\\pages\\datatables.init.js",
+      "PackagePath": "staticwebassets\\adminAssets\\js\\pages\\datatables.init.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\js\\pages\\email-editor.init.js",
+      "PackagePath": "staticwebassets\\adminAssets\\js\\pages\\email-editor.init.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\js\\pages\\flot.init.js",
+      "PackagePath": "staticwebassets\\adminAssets\\js\\pages\\flot.init.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\js\\pages\\fontawesome.init.js",
+      "PackagePath": "staticwebassets\\adminAssets\\js\\pages\\fontawesome.init.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\js\\pages\\form-advanced.init.js",
+      "PackagePath": "staticwebassets\\adminAssets\\js\\pages\\form-advanced.init.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\js\\pages\\form-editor.init.js",
+      "PackagePath": "staticwebassets\\adminAssets\\js\\pages\\form-editor.init.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\js\\pages\\form-validation.init.js",
+      "PackagePath": "staticwebassets\\adminAssets\\js\\pages\\form-validation.init.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\js\\pages\\form-xeditable.init.js",
+      "PackagePath": "staticwebassets\\adminAssets\\js\\pages\\form-xeditable.init.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\js\\pages\\gmaps.init.js",
+      "PackagePath": "staticwebassets\\adminAssets\\js\\pages\\gmaps.init.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\js\\pages\\jquery-knob.init.js",
+      "PackagePath": "staticwebassets\\adminAssets\\js\\pages\\jquery-knob.init.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\js\\pages\\lightbox.init.js",
+      "PackagePath": "staticwebassets\\adminAssets\\js\\pages\\lightbox.init.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\js\\pages\\materialdesign.init.js",
+      "PackagePath": "staticwebassets\\adminAssets\\js\\pages\\materialdesign.init.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\js\\pages\\morris.init.js",
+      "PackagePath": "staticwebassets\\adminAssets\\js\\pages\\morris.init.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\js\\pages\\range-sliders.init.js",
+      "PackagePath": "staticwebassets\\adminAssets\\js\\pages\\range-sliders.init.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\js\\pages\\session-timeout.init.js",
+      "PackagePath": "staticwebassets\\adminAssets\\js\\pages\\session-timeout.init.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\js\\pages\\sweet-alerts.init.js",
+      "PackagePath": "staticwebassets\\adminAssets\\js\\pages\\sweet-alerts.init.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\js\\pages\\table-editable.int.js",
+      "PackagePath": "staticwebassets\\adminAssets\\js\\pages\\table-editable.int.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\js\\pages\\table-responsive.init.js",
+      "PackagePath": "staticwebassets\\adminAssets\\js\\pages\\table-responsive.init.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\js\\pages\\vector-maps.init.js",
+      "PackagePath": "staticwebassets\\adminAssets\\js\\pages\\vector-maps.init.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\libs\\@curiosityx\\bootstrap-session-timeout\\index.js",
+      "PackagePath": "staticwebassets\\adminAssets\\libs\\@curiosityx\\bootstrap-session-timeout\\index.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\libs\\@fullcalendar\\bootstrap\\main.min.css",
+      "PackagePath": "staticwebassets\\adminAssets\\libs\\@fullcalendar\\bootstrap\\main.min.css"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\libs\\@fullcalendar\\bootstrap\\main.min.js",
+      "PackagePath": "staticwebassets\\adminAssets\\libs\\@fullcalendar\\bootstrap\\main.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\libs\\@fullcalendar\\core\\main.min.css",
+      "PackagePath": "staticwebassets\\adminAssets\\libs\\@fullcalendar\\core\\main.min.css"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\libs\\@fullcalendar\\core\\main.min.js",
+      "PackagePath": "staticwebassets\\adminAssets\\libs\\@fullcalendar\\core\\main.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\libs\\@fullcalendar\\daygrid\\main.min.css",
+      "PackagePath": "staticwebassets\\adminAssets\\libs\\@fullcalendar\\daygrid\\main.min.css"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\libs\\@fullcalendar\\daygrid\\main.min.js",
+      "PackagePath": "staticwebassets\\adminAssets\\libs\\@fullcalendar\\daygrid\\main.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\libs\\@fullcalendar\\interaction\\main.min.js",
+      "PackagePath": "staticwebassets\\adminAssets\\libs\\@fullcalendar\\interaction\\main.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\libs\\@fullcalendar\\timegrid\\main.min.css",
+      "PackagePath": "staticwebassets\\adminAssets\\libs\\@fullcalendar\\timegrid\\main.min.css"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\libs\\@fullcalendar\\timegrid\\main.min.js",
+      "PackagePath": "staticwebassets\\adminAssets\\libs\\@fullcalendar\\timegrid\\main.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\libs\\admin-resources\\bootstrap-filestyle\\bootstrap-filestyle.min.js",
+      "PackagePath": "staticwebassets\\adminAssets\\libs\\admin-resources\\bootstrap-filestyle\\bootstrap-filestyle.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\libs\\admin-resources\\jquery.vectormap\\jquery-jvectormap-1.2.2.css",
+      "PackagePath": "staticwebassets\\adminAssets\\libs\\admin-resources\\jquery.vectormap\\jquery-jvectormap-1.2.2.css"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\libs\\admin-resources\\jquery.vectormap\\jquery-jvectormap-1.2.2.min.js",
+      "PackagePath": "staticwebassets\\adminAssets\\libs\\admin-resources\\jquery.vectormap\\jquery-jvectormap-1.2.2.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\libs\\admin-resources\\jquery.vectormap\\maps\\jquery-jvectormap-au-mill-en.js",
+      "PackagePath": "staticwebassets\\adminAssets\\libs\\admin-resources\\jquery.vectormap\\maps\\jquery-jvectormap-au-mill-en.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\libs\\admin-resources\\jquery.vectormap\\maps\\jquery-jvectormap-ca-lcc-en.js",
+      "PackagePath": "staticwebassets\\adminAssets\\libs\\admin-resources\\jquery.vectormap\\maps\\jquery-jvectormap-ca-lcc-en.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\libs\\admin-resources\\jquery.vectormap\\maps\\jquery-jvectormap-in-mill-en.js",
+      "PackagePath": "staticwebassets\\adminAssets\\libs\\admin-resources\\jquery.vectormap\\maps\\jquery-jvectormap-in-mill-en.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\libs\\admin-resources\\jquery.vectormap\\maps\\jquery-jvectormap-uk-mill-en.js",
+      "PackagePath": "staticwebassets\\adminAssets\\libs\\admin-resources\\jquery.vectormap\\maps\\jquery-jvectormap-uk-mill-en.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\libs\\admin-resources\\jquery.vectormap\\maps\\jquery-jvectormap-us-il-chicago-mill-en.js",
+      "PackagePath": "staticwebassets\\adminAssets\\libs\\admin-resources\\jquery.vectormap\\maps\\jquery-jvectormap-us-il-chicago-mill-en.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\libs\\admin-resources\\jquery.vectormap\\maps\\jquery-jvectormap-us-merc-en.js",
+      "PackagePath": "staticwebassets\\adminAssets\\libs\\admin-resources\\jquery.vectormap\\maps\\jquery-jvectormap-us-merc-en.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\libs\\admin-resources\\jquery.vectormap\\maps\\jquery-jvectormap-world-mill-en.js",
+      "PackagePath": "staticwebassets\\adminAssets\\libs\\admin-resources\\jquery.vectormap\\maps\\jquery-jvectormap-world-mill-en.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\libs\\admin-resources\\rwd-table\\rwd-table.min.css",
+      "PackagePath": "staticwebassets\\adminAssets\\libs\\admin-resources\\rwd-table\\rwd-table.min.css"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\libs\\admin-resources\\rwd-table\\rwd-table.min.js",
+      "PackagePath": "staticwebassets\\adminAssets\\libs\\admin-resources\\rwd-table\\rwd-table.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\libs\\bootstrap-datepicker\\css\\bootstrap-datepicker.min.css",
+      "PackagePath": "staticwebassets\\adminAssets\\libs\\bootstrap-datepicker\\css\\bootstrap-datepicker.min.css"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\libs\\bootstrap-datepicker\\js\\bootstrap-datepicker.min.js",
+      "PackagePath": "staticwebassets\\adminAssets\\libs\\bootstrap-datepicker\\js\\bootstrap-datepicker.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\libs\\bootstrap-editable\\css\\bootstrap-editable.css",
+      "PackagePath": "staticwebassets\\adminAssets\\libs\\bootstrap-editable\\css\\bootstrap-editable.css"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\libs\\bootstrap-editable\\img\\clear.png",
+      "PackagePath": "staticwebassets\\adminAssets\\libs\\bootstrap-editable\\img\\clear.png"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\libs\\bootstrap-editable\\img\\loading.gif",
+      "PackagePath": "staticwebassets\\adminAssets\\libs\\bootstrap-editable\\img\\loading.gif"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\libs\\bootstrap-editable\\js\\index.js",
+      "PackagePath": "staticwebassets\\adminAssets\\libs\\bootstrap-editable\\js\\index.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\libs\\bootstrap-maxlength\\bootstrap-maxlength.min.js",
+      "PackagePath": "staticwebassets\\adminAssets\\libs\\bootstrap-maxlength\\bootstrap-maxlength.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\libs\\bootstrap-touchspin\\jquery.bootstrap-touchspin.min.css",
+      "PackagePath": "staticwebassets\\adminAssets\\libs\\bootstrap-touchspin\\jquery.bootstrap-touchspin.min.css"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\libs\\bootstrap-touchspin\\jquery.bootstrap-touchspin.min.js",
+      "PackagePath": "staticwebassets\\adminAssets\\libs\\bootstrap-touchspin\\jquery.bootstrap-touchspin.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\libs\\bootstrap\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\adminAssets\\libs\\bootstrap\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\libs\\c3\\c3.min.css",
+      "PackagePath": "staticwebassets\\adminAssets\\libs\\c3\\c3.min.css"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\libs\\c3\\c3.min.js",
+      "PackagePath": "staticwebassets\\adminAssets\\libs\\c3\\c3.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\libs\\chart.js\\Chart.bundle.min.js",
+      "PackagePath": "staticwebassets\\adminAssets\\libs\\chart.js\\Chart.bundle.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\libs\\chartist-plugin-tooltips\\chartist-plugin-tooltip.min.js",
+      "PackagePath": "staticwebassets\\adminAssets\\libs\\chartist-plugin-tooltips\\chartist-plugin-tooltip.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\libs\\chartist\\chartist.min.css",
+      "PackagePath": "staticwebassets\\adminAssets\\libs\\chartist\\chartist.min.css"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\libs\\chartist\\chartist.min.js",
+      "PackagePath": "staticwebassets\\adminAssets\\libs\\chartist\\chartist.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\libs\\d3\\d3.min.js",
+      "PackagePath": "staticwebassets\\adminAssets\\libs\\d3\\d3.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\libs\\datatables.net-bs4\\css\\dataTables.bootstrap4.min.css",
+      "PackagePath": "staticwebassets\\adminAssets\\libs\\datatables.net-bs4\\css\\dataTables.bootstrap4.min.css"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\libs\\datatables.net-bs4\\js\\dataTables.bootstrap4.min.js",
+      "PackagePath": "staticwebassets\\adminAssets\\libs\\datatables.net-bs4\\js\\dataTables.bootstrap4.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\libs\\datatables.net-buttons-bs4\\css\\buttons.bootstrap4.min.css",
+      "PackagePath": "staticwebassets\\adminAssets\\libs\\datatables.net-buttons-bs4\\css\\buttons.bootstrap4.min.css"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\libs\\datatables.net-buttons-bs4\\js\\buttons.bootstrap4.min.js",
+      "PackagePath": "staticwebassets\\adminAssets\\libs\\datatables.net-buttons-bs4\\js\\buttons.bootstrap4.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\libs\\datatables.net-buttons\\js\\buttons.colVis.min.js",
+      "PackagePath": "staticwebassets\\adminAssets\\libs\\datatables.net-buttons\\js\\buttons.colVis.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\libs\\datatables.net-buttons\\js\\buttons.html5.min.js",
+      "PackagePath": "staticwebassets\\adminAssets\\libs\\datatables.net-buttons\\js\\buttons.html5.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\libs\\datatables.net-buttons\\js\\buttons.print.min.js",
+      "PackagePath": "staticwebassets\\adminAssets\\libs\\datatables.net-buttons\\js\\buttons.print.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\libs\\datatables.net-buttons\\js\\dataTables.buttons.min.js",
+      "PackagePath": "staticwebassets\\adminAssets\\libs\\datatables.net-buttons\\js\\dataTables.buttons.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\libs\\datatables.net-responsive-bs4\\css\\responsive.bootstrap4.min.css",
+      "PackagePath": "staticwebassets\\adminAssets\\libs\\datatables.net-responsive-bs4\\css\\responsive.bootstrap4.min.css"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\libs\\datatables.net-responsive-bs4\\js\\responsive.bootstrap4.min.js",
+      "PackagePath": "staticwebassets\\adminAssets\\libs\\datatables.net-responsive-bs4\\js\\responsive.bootstrap4.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\libs\\datatables.net-responsive\\js\\dataTables.responsive.min.js",
+      "PackagePath": "staticwebassets\\adminAssets\\libs\\datatables.net-responsive\\js\\dataTables.responsive.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\libs\\datatables.net\\js\\jquery.dataTables.min.js",
+      "PackagePath": "staticwebassets\\adminAssets\\libs\\datatables.net\\js\\jquery.dataTables.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\libs\\dropzone\\min\\dropzone.min.css",
+      "PackagePath": "staticwebassets\\adminAssets\\libs\\dropzone\\min\\dropzone.min.css"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\libs\\dropzone\\min\\dropzone.min.js",
+      "PackagePath": "staticwebassets\\adminAssets\\libs\\dropzone\\min\\dropzone.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\libs\\flot-charts\\jquery.flot.crosshair.js",
+      "PackagePath": "staticwebassets\\adminAssets\\libs\\flot-charts\\jquery.flot.crosshair.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\libs\\flot-charts\\jquery.flot.js",
+      "PackagePath": "staticwebassets\\adminAssets\\libs\\flot-charts\\jquery.flot.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\libs\\flot-charts\\jquery.flot.pie.js",
+      "PackagePath": "staticwebassets\\adminAssets\\libs\\flot-charts\\jquery.flot.pie.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\libs\\flot-charts\\jquery.flot.resize.js",
+      "PackagePath": "staticwebassets\\adminAssets\\libs\\flot-charts\\jquery.flot.resize.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\libs\\flot-charts\\jquery.flot.selection.js",
+      "PackagePath": "staticwebassets\\adminAssets\\libs\\flot-charts\\jquery.flot.selection.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\libs\\flot-charts\\jquery.flot.stack.js",
+      "PackagePath": "staticwebassets\\adminAssets\\libs\\flot-charts\\jquery.flot.stack.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\libs\\flot-charts\\jquery.flot.time.js",
+      "PackagePath": "staticwebassets\\adminAssets\\libs\\flot-charts\\jquery.flot.time.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\libs\\flot.curvedlines\\curvedLines.js",
+      "PackagePath": "staticwebassets\\adminAssets\\libs\\flot.curvedlines\\curvedLines.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\libs\\gmaps\\gmaps.min.js",
+      "PackagePath": "staticwebassets\\adminAssets\\libs\\gmaps\\gmaps.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\libs\\ion-rangeslider\\css\\ion.rangeSlider.min.css",
+      "PackagePath": "staticwebassets\\adminAssets\\libs\\ion-rangeslider\\css\\ion.rangeSlider.min.css"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\libs\\ion-rangeslider\\js\\ion.rangeSlider.min.js",
+      "PackagePath": "staticwebassets\\adminAssets\\libs\\ion-rangeslider\\js\\ion.rangeSlider.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\libs\\jquery-knob\\jquery.knob.min.js",
+      "PackagePath": "staticwebassets\\adminAssets\\libs\\jquery-knob\\jquery.knob.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\libs\\jquery-sparkline\\jquery.sparkline.min.js",
+      "PackagePath": "staticwebassets\\adminAssets\\libs\\jquery-sparkline\\jquery.sparkline.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\libs\\jquery-ui-dist\\jquery-ui.min.js",
+      "PackagePath": "staticwebassets\\adminAssets\\libs\\jquery-ui-dist\\jquery-ui.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\libs\\jquery.flot.tooltip\\js\\jquery.flot.tooltip.min.js",
+      "PackagePath": "staticwebassets\\adminAssets\\libs\\jquery.flot.tooltip\\js\\jquery.flot.tooltip.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\libs\\jquery\\jquery.min.js",
+      "PackagePath": "staticwebassets\\adminAssets\\libs\\jquery\\jquery.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\libs\\jszip\\jszip.min.js",
+      "PackagePath": "staticwebassets\\adminAssets\\libs\\jszip\\jszip.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\libs\\magnific-popup\\jquery.magnific-popup.min.js",
+      "PackagePath": "staticwebassets\\adminAssets\\libs\\magnific-popup\\jquery.magnific-popup.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\libs\\magnific-popup\\magnific-popup.css",
+      "PackagePath": "staticwebassets\\adminAssets\\libs\\magnific-popup\\magnific-popup.css"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\libs\\metismenu\\metisMenu.min.js",
+      "PackagePath": "staticwebassets\\adminAssets\\libs\\metismenu\\metisMenu.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\libs\\moment\\min\\moment.min.js",
+      "PackagePath": "staticwebassets\\adminAssets\\libs\\moment\\min\\moment.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\libs\\morris.js\\morris.min.js",
+      "PackagePath": "staticwebassets\\adminAssets\\libs\\morris.js\\morris.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\libs\\node-waves\\waves.min.js",
+      "PackagePath": "staticwebassets\\adminAssets\\libs\\node-waves\\waves.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\libs\\parsleyjs\\parsley.min.js",
+      "PackagePath": "staticwebassets\\adminAssets\\libs\\parsleyjs\\parsley.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\libs\\pdfmake\\build\\pdfmake.min.js",
+      "PackagePath": "staticwebassets\\adminAssets\\libs\\pdfmake\\build\\pdfmake.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\libs\\pdfmake\\build\\vfs_fonts.js",
+      "PackagePath": "staticwebassets\\adminAssets\\libs\\pdfmake\\build\\vfs_fonts.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\libs\\raphael\\raphael.min.js",
+      "PackagePath": "staticwebassets\\adminAssets\\libs\\raphael\\raphael.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\libs\\select2\\css\\select2.min.css",
+      "PackagePath": "staticwebassets\\adminAssets\\libs\\select2\\css\\select2.min.css"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\libs\\select2\\js\\select2.min.js",
+      "PackagePath": "staticwebassets\\adminAssets\\libs\\select2\\js\\select2.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\libs\\simplebar\\simplebar.min.js",
+      "PackagePath": "staticwebassets\\adminAssets\\libs\\simplebar\\simplebar.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\libs\\spectrum-colorpicker2\\spectrum.min.css",
+      "PackagePath": "staticwebassets\\adminAssets\\libs\\spectrum-colorpicker2\\spectrum.min.css"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\libs\\spectrum-colorpicker2\\spectrum.min.js",
+      "PackagePath": "staticwebassets\\adminAssets\\libs\\spectrum-colorpicker2\\spectrum.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\libs\\sweetalert2\\sweetalert2.min.css",
+      "PackagePath": "staticwebassets\\adminAssets\\libs\\sweetalert2\\sweetalert2.min.css"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\libs\\sweetalert2\\sweetalert2.min.js",
+      "PackagePath": "staticwebassets\\adminAssets\\libs\\sweetalert2\\sweetalert2.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\libs\\table-edits\\build\\table-edits.min.js",
+      "PackagePath": "staticwebassets\\adminAssets\\libs\\table-edits\\build\\table-edits.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\adminAssets\\libs\\tinymce\\tinymce.min.js",
+      "PackagePath": "staticwebassets\\adminAssets\\libs\\tinymce\\tinymce.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\css\\animate.min.css",
+      "PackagePath": "staticwebassets\\assets\\css\\animate.min.css"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\css\\bootstrap-datepicker.css",
+      "PackagePath": "staticwebassets\\assets\\css\\bootstrap-datepicker.css"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\assets\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\assets\\css\\bootstrap.css"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\css\\chosen-sprite.png",
+      "PackagePath": "staticwebassets\\assets\\css\\chosen-sprite.png"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\css\\chosen-sprite@2x.html",
+      "PackagePath": "staticwebassets\\assets\\css\\chosen-sprite@2x.html"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\css\\chosen.css",
+      "PackagePath": "staticwebassets\\assets\\css\\chosen.css"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\css\\colors\\colors.css",
+      "PackagePath": "staticwebassets\\assets\\css\\colors\\colors.css"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\css\\fonts\\line-awesome0176.eot",
+      "PackagePath": "staticwebassets\\assets\\css\\fonts\\line-awesome0176.eot"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\css\\fonts\\line-awesomeeb4f.eot",
+      "PackagePath": "staticwebassets\\assets\\css\\fonts\\line-awesomeeb4f.eot"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\css\\fonts\\line-awesomeeb4f.svg",
+      "PackagePath": "staticwebassets\\assets\\css\\fonts\\line-awesomeeb4f.svg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\css\\fonts\\line-awesomeeb4f.ttf",
+      "PackagePath": "staticwebassets\\assets\\css\\fonts\\line-awesomeeb4f.ttf"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\css\\fonts\\line-awesomeeb4f.woff",
+      "PackagePath": "staticwebassets\\assets\\css\\fonts\\line-awesomeeb4f.woff"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\css\\fonts\\line-awesomeeb4f.woff2",
+      "PackagePath": "staticwebassets\\assets\\css\\fonts\\line-awesomeeb4f.woff2"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\css\\icons.css",
+      "PackagePath": "staticwebassets\\assets\\css\\icons.css"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\css\\responsive.css",
+      "PackagePath": "staticwebassets\\assets\\css\\responsive.css"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\css\\style.css",
+      "PackagePath": "staticwebassets\\assets\\css\\style.css"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\404.png",
+      "PackagePath": "staticwebassets\\assets\\images\\404.png"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\BlogImages\\09a918bf-c9f4-49d1-bb29-7e3eacdf56441655043591.jpeg",
+      "PackagePath": "staticwebassets\\assets\\images\\BlogImages\\09a918bf-c9f4-49d1-bb29-7e3eacdf56441655043591.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\BlogImages\\13e27629-52e9-473d-9791-4ed574feda571647550725.jpeg",
+      "PackagePath": "staticwebassets\\assets\\images\\BlogImages\\13e27629-52e9-473d-9791-4ed574feda571647550725.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\BlogImages\\17fefa9a-cd4f-4694-9c54-ab0b2a7bb9375 brokoli.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\BlogImages\\17fefa9a-cd4f-4694-9c54-ab0b2a7bb9375 brokoli.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\BlogImages\\19124cba-8349-4dc5-8139-344d3828094cBig-Data-Analyticsq.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\BlogImages\\19124cba-8349-4dc5-8139-344d3828094cBig-Data-Analyticsq.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\BlogImages\\1ae3018d-d781-4693-8328-99b738172651photo_2023-06-02_12-51-28.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\BlogImages\\1ae3018d-d781-4693-8328-99b738172651photo_2023-06-02_12-51-28.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\BlogImages\\1b725cbb-3444-4377-bba0-ca1eb458f5011655043591.jpeg",
+      "PackagePath": "staticwebassets\\assets\\images\\BlogImages\\1b725cbb-3444-4377-bba0-ca1eb458f5011655043591.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\BlogImages\\1e9a881b-4e75-4669-9c45-53a80b494e431647550725.jpeg",
+      "PackagePath": "staticwebassets\\assets\\images\\BlogImages\\1e9a881b-4e75-4669-9c45-53a80b494e431647550725.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\BlogImages\\1f1c532a-aa97-4013-8465-eb34b7e1c05a1647550725.jpeg",
+      "PackagePath": "staticwebassets\\assets\\images\\BlogImages\\1f1c532a-aa97-4013-8465-eb34b7e1c05a1647550725.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\BlogImages\\3e06d059-c423-4459-8d3e-311aca1146521647550725.jpeg",
+      "PackagePath": "staticwebassets\\assets\\images\\BlogImages\\3e06d059-c423-4459-8d3e-311aca1146521647550725.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\BlogImages\\577e7d6c-36b0-41b2-85b5-deddb7e3cc14maxresdefault.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\BlogImages\\577e7d6c-36b0-41b2-85b5-deddb7e3cc14maxresdefault.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\BlogImages\\63540250-c9b1-4197-b41e-d47b4deb44effreelance-is.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\BlogImages\\63540250-c9b1-4197-b41e-d47b4deb44effreelance-is.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\BlogImages\\81d7afe2-3a35-4a7e-98a4-387185eab2b11647550725.jpeg",
+      "PackagePath": "staticwebassets\\assets\\images\\BlogImages\\81d7afe2-3a35-4a7e-98a4-387185eab2b11647550725.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\BlogImages\\859f49e2-eea4-419f-9e57-bb31e677a69eBig-Data-Analyticsq.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\BlogImages\\859f49e2-eea4-419f-9e57-bb31e677a69eBig-Data-Analyticsq.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\BlogImages\\96015848-0ce7-4d5d-86ec-ea13a12cef6fMonster.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\BlogImages\\96015848-0ce7-4d5d-86ec-ea13a12cef6fMonster.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\BlogImages\\99afd50e-c3ae-4680-9e16-ede5893081ccBig-Data-Analyticsq.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\BlogImages\\99afd50e-c3ae-4680-9e16-ede5893081ccBig-Data-Analyticsq.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\BlogImages\\Monster.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\BlogImages\\Monster.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\BlogImages\\a6788932-0bb0-4472-abf6-dce3980c5fc5Big-Data-Analyticsq.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\BlogImages\\a6788932-0bb0-4472-abf6-dce3980c5fc5Big-Data-Analyticsq.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\BlogImages\\aa43e7ce-1119-4351-b3df-4f469d0a339dMonster.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\BlogImages\\aa43e7ce-1119-4351-b3df-4f469d0a339dMonster.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\BlogImages\\ab5e2290-7cbe-4710-a422-cefcbaa468f7Big-Data-Analyticsq.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\BlogImages\\ab5e2290-7cbe-4710-a422-cefcbaa468f7Big-Data-Analyticsq.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\BlogImages\\ba015af7-f701-4121-9650-f1261e9140051655043591.jpeg",
+      "PackagePath": "staticwebassets\\assets\\images\\BlogImages\\ba015af7-f701-4121-9650-f1261e9140051655043591.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\BlogImages\\bb7c6c58-fa07-4692-a43c-4fc82cfbd9b1Big-Data-Analyticsq.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\BlogImages\\bb7c6c58-fa07-4692-a43c-4fc82cfbd9b1Big-Data-Analyticsq.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\BlogImages\\c4edffb7-909a-44ee-ade9-809647d7dd711655043591.jpeg",
+      "PackagePath": "staticwebassets\\assets\\images\\BlogImages\\c4edffb7-909a-44ee-ade9-809647d7dd711655043591.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\BlogImages\\c765fa3a-383c-49fa-b8ca-27ff6fb765ab1655043591.jpeg",
+      "PackagePath": "staticwebassets\\assets\\images\\BlogImages\\c765fa3a-383c-49fa-b8ca-27ff6fb765ab1655043591.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\BlogImages\\de2f3c3a-f2f5-4d8b-9da2-10b3491855941655043591.jpeg",
+      "PackagePath": "staticwebassets\\assets\\images\\BlogImages\\de2f3c3a-f2f5-4d8b-9da2-10b3491855941655043591.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\BlogImages\\e56b4830-ca78-4e9a-ae4c-dc095d61ca053twoperson.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\BlogImages\\e56b4830-ca78-4e9a-ae4c-dc095d61ca053twoperson.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\BlogImages\\ed5bcaaf-2f54-4d68-8277-cb2f1211ce0a5 brokoli.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\BlogImages\\ed5bcaaf-2f54-4d68-8277-cb2f1211ce0a5 brokoli.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\BlogImages\\eef8dc0c-03ac-4131-b32f-1275503c7a27maxresdefault.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\BlogImages\\eef8dc0c-03ac-4131-b32f-1275503c7a27maxresdefault.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\User\\a6c3c2ca-2228-47a1-9ad0-3f171f37cb051655043591.jpeg",
+      "PackagePath": "staticwebassets\\assets\\images\\User\\a6c3c2ca-2228-47a1-9ad0-3f171f37cb051655043591.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\icon.png",
+      "PackagePath": "staticwebassets\\assets\\images\\icon.png"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\icon2.png",
+      "PackagePath": "staticwebassets\\assets\\images\\icon2.png"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\icon5.png",
+      "PackagePath": "staticwebassets\\assets\\images\\icon5.png"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\icon6.png",
+      "PackagePath": "staticwebassets\\assets\\images\\icon6.png"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\line1.png",
+      "PackagePath": "staticwebassets\\assets\\images\\line1.png"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\line2.png",
+      "PackagePath": "staticwebassets\\assets\\images\\line2.png"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\line3.png",
+      "PackagePath": "staticwebassets\\assets\\images\\line3.png"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\line4.png",
+      "PackagePath": "staticwebassets\\assets\\images\\line4.png"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\lines.png",
+      "PackagePath": "staticwebassets\\assets\\images\\lines.png"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\loader.gif",
+      "PackagePath": "staticwebassets\\assets\\images\\loader.gif"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\admin.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\admin.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\b1.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\b1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\b2.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\b2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\b3.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\b3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\b4.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\b4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\b5.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\b5.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\b6.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\b6.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\b7.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\b7.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\b8.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\b8.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\b9.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\b9.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\banner.png",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\banner.png"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\bg3.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\bg3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\bl1.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\bl1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\bl2.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\bl2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\bl3.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\bl3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\bl4.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\bl4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\bl5.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\bl5.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\blog1.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\blog1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\blog2.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\blog2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\blog3.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\blog3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\bs1.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\bs1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\bsd1.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\bsd1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\cc1.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\cc1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\cc2.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\cc2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\cc3.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\cc3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\cc4.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\cc4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\cc5.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\cc5.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\di.png",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\di.png"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\di2.png",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\di2.png"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\dw1.png",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\dw1.png"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\dw2.png",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\dw2.png"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\dw3.png",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\dw3.png"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\dw4.png",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\dw4.png"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\em1.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\em1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\em2.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\em2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\em3.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\em3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\em4.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\em4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\em5.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\em5.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\em6.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\em6.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\em7.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\em7.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\er1.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\er1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\er2.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\er2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\er3.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\er3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\er4.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\er4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\er5.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\er5.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\er6.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\er6.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\er7.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\er7.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\er8.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\er8.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\er9.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\er9.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\err1.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\err1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\err2.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\err2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\err3.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\err3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\err4.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\err4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\err5.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\err5.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\err6.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\err6.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\err7.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\err7.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\err8.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\err8.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\err9.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\err9.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\es1.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\es1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\hw1.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\hw1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\hw2.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\hw2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\hw3.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\hw3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\iconmove.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\iconmove.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\jg1.png",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\jg1.png"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\jg2.png",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\jg2.png"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\jg3.png",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\jg3.png"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\jg4.png",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\jg4.png"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\jg5.png",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\jg5.png"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\jg6.png",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\jg6.png"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\jg7.png",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\jg7.png"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\jg8.png",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\jg8.png"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\jg9.png",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\jg9.png"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\l1.png",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\l1.png"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\l2.png",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\l2.png"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\l3.png",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\l3.png"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\l4.png",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\l4.png"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\l5.png",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\l5.png"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\l6.png",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\l6.png"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\logo.png",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\logo.png"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\logo10.png",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\logo10.png"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\logo2.png",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\logo2.png"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\logo3.png",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\logo3.png"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\logo4.png",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\logo4.png"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\logo5.png",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\logo5.png"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\logo6.png",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\logo6.png"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\logo7.png",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\logo7.png"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\logo8.png",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\logo8.png"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\logo9.png",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\logo9.png"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\mb1.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\mb1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\mb2.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\mb2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\mb3.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\mb3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\mockup.png",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\mockup.png"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\mockup2.png",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\mockup2.png"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\mockup3.png",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\mockup3.png"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\mockup4.png",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\mockup4.png"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\mp1.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\mp1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\mpf1.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\mpf1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\mslider1.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\mslider1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\mslider2.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\mslider2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\mslider3.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\mslider3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\op1.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\op1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\op2.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\op2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\op3.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\op3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\op4.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\op4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\op5.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\op5.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\op6.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\op6.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\p1.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\p1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\p2.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\p2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\p3.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\p3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\p4.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\p4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\parallax1.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\parallax1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\parallax2.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\parallax2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\parallax3.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\parallax3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\parallax5.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\parallax5.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\parallax6.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\parallax6.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\parallax7.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\parallax7.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\profile.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\profile.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\r1.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\r1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\r2.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\r2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\sdf.png",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\sdf.png"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\sj.png",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\sj.png"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\sjs.png",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\sjs.png"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\sn1.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\sn1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\sn2.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\sn2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\sn3.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\sn3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\t1.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\t1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\t2.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\t2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\t3.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\t3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\t4.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\t4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\tc1.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\tc1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\tc2.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\tc2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\tc3.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\tc3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\tc4.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\tc4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\up1.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\up1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\up2.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\up2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\vector-1.png",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\vector-1.png"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\vector-2.png",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\vector-2.png"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\resource\\vector-4.png",
+      "PackagePath": "staticwebassets\\assets\\images\\resource\\vector-4.png"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\js\\bootstrap-datepicker.js",
+      "PackagePath": "staticwebassets\\assets\\js\\bootstrap-datepicker.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\js\\circle-progress.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\circle-progress.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\js\\counter.js",
+      "PackagePath": "staticwebassets\\assets\\js\\counter.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\js\\isotop.js",
+      "PackagePath": "staticwebassets\\assets\\js\\isotop.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\js\\jquery.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\jquery.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\js\\jquery.scrollbar.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\jquery.scrollbar.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\js\\maps.js",
+      "PackagePath": "staticwebassets\\assets\\js\\maps.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\js\\maps2.js",
+      "PackagePath": "staticwebassets\\assets\\js\\maps2.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\js\\maps3.js",
+      "PackagePath": "staticwebassets\\assets\\js\\maps3.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\js\\modernizr.js",
+      "PackagePath": "staticwebassets\\assets\\js\\modernizr.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\js\\mouse.js",
+      "PackagePath": "staticwebassets\\assets\\js\\mouse.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\js\\parallax.js",
+      "PackagePath": "staticwebassets\\assets\\js\\parallax.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\js\\rslider.js",
+      "PackagePath": "staticwebassets\\assets\\js\\rslider.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\js\\script.js",
+      "PackagePath": "staticwebassets\\assets\\js\\script.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\js\\select-chosen.js",
+      "PackagePath": "staticwebassets\\assets\\js\\select-chosen.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\js\\slick.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\slick.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\js\\tag.js",
+      "PackagePath": "staticwebassets\\assets\\js\\tag.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\js\\wow.min.js",
+      "PackagePath": "staticwebassets\\assets\\js\\wow.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\bootstrap"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.Job.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.build.Job.props",
+      "PackagePath": "build\\Job.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildMultiTargeting.Job.props",
+      "PackagePath": "buildMultiTargeting\\Job.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildTransitive.Job.props",
+      "PackagePath": "buildTransitive\\Job.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
