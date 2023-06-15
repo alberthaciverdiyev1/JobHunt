@@ -2,9 +2,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Job.DAL;
 using Job.Models;
-using Job.Utilities.Enums;
 using Job.ViewModels;
 using System.Reflection.Metadata;
+using Job.Utilities.Enums;
 
 namespace Job.Controllers
 {
@@ -107,17 +107,19 @@ namespace Job.Controllers
 						ModelState.AddModelError(string.Empty, error.Description);
 					}
 				}
+		
 				if (register.Role == false) 
 				{
-				await _userManager.AddToRoleAsync(user,UserRole.Employer.ToString());
-				}
-				else
-				{
-					await _userManager.AddToRoleAsync(user, UserRole.Employee.ToString());
 
+					await _userManager.AddToRoleAsync(user,Roles.Employer.ToString());
 				}
-				await _signInManager.SignInAsync(user, isPersistent: true);
-			}
+
+				else 
+				{
+					await _userManager.AddToRoleAsync(user, Roles.Employee.ToString());
+				}
+					await _signInManager.SignInAsync(user, isPersistent: true);
+				}
 			else
 			{
 				ModelState.AddModelError(string.Empty, "This user already exists");
@@ -139,11 +141,11 @@ namespace Job.Controllers
 		[HttpPost]
 		public async Task<IActionResult> Login(LoginVM login, string ReturnUrl)
 		{
-			if (!ModelState.IsValid)
-			{
-				ModelState.AddModelError(string.Empty, "Username , Email or Password is Inccorrect");
-				return View();
-			}
+			//if (!ModelState.IsValid)
+			//{
+			//	ModelState.AddModelError(string.Empty, "Username , Email or Password is Inccorrect");
+			//	return View();
+			//}
 			AppUser user = await _userManager.FindByNameAsync(login.UsernameOrEmail);
 			if (user == null)
 			{
@@ -160,9 +162,15 @@ namespace Job.Controllers
 				ModelState.AddModelError(string.Empty, "Username , Email or Password is Inccorrect");
 			}
 
-			if (ReturnUrl != null) { return Redirect(ReturnUrl); }
+			if (!string.IsNullOrEmpty(ReturnUrl) && Url.IsLocalUrl(ReturnUrl))
+			{
+				return LocalRedirect(ReturnUrl);
+			}
+		
+				return RedirectToAction("Index", "Home");
+			
 
-			return RedirectToAction("Index", "Home");
+
 
 		}
 		public async Task<IActionResult> Logout()
@@ -177,19 +185,19 @@ namespace Job.Controllers
 		{
 			return View();
 		}
-		public async Task<IActionResult> CreateRole()
-		{
-			foreach (var role in Enum.GetValues(typeof(UserRole)))
-			{
-				if (!await _roleManager.RoleExistsAsync(role.ToString()))
-				{
-					await _roleManager.CreateAsync(new IdentityRole { Name = role.ToString() });
+		//public async Task<IActionResult> CreateRole()
+		//{
+		//	foreach (var role in Enum.GetValues(typeof(Roles)))
+		//	{
+		//		if (!await _roleManager.RoleExistsAsync(role.ToString()))
+		//		{
+		//			await _roleManager.CreateAsync(new IdentityRole { Name = role.ToString()});
 
-				}
-			}
-			return RedirectToAction("Index", "Home");
+		//		}
+		//	}
+		//	return RedirectToAction("Index", "Home");
 
 
-		}
+		//}
 	}
 }

@@ -69,6 +69,11 @@ namespace Job.Controllers
         [HttpPost]
         public async Task<IActionResult> PostJob(JobVM job)
         {
+            if (!ModelState.IsValid)
+            {
+                ModelState.AddModelError(string.Empty,"Bu Model State Errorudur");
+                return View();
+            }
 
             PostJob postJob = new PostJob
             {

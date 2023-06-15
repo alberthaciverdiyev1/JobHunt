@@ -46,15 +46,17 @@
                                         <span class="pf-title">Categories</span>
                                         <div class="pf-field">
 
-                                            <select asp-for="CategoryId" data-placeholder="Allow In Search" asp-validation-for="CategoryId" class="chosen" style="display: none;">
+                                                <select asp-for="CategoryId" data-placeholder="Allow In Search" asp-validation-for="CategoryId" class="chosen" style="display: none;" required>
+
                                                 <option value="">-- Select Category --</option>
 
                                                 @foreach (var category in Model.Category)
                                                 {
                                                     <option value="@category.id">@category.Name</option>
                                                 }
-
                                             </select>
+                                            <span class="text-danger" asp-validation-for="CategoryId"></span>
+
                                         </div>
                                     </div>
 
