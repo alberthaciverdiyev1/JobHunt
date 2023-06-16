@@ -36,18 +36,20 @@
                             <span>Lorem ipsum dolor sit amet consectetur adipiscing elit odio duis risus at lobortis ullamcorper</span>
 
                             <form method="post" enctype="multipart/form-data">
+
                                 <div class="select-user mb-4">
                                     <span>
-                                        <input asp-for="Role" value="true" checked>Candidate</>
+                                        <input asp-for="Role" value="true" checked="@(!Model.Role)">Candidate</>
                                         <span asp-validation-for="Role"></span>
-
                                     </span>
                                     <span>
-                                        <input asp-for="Role" value="false">Employer</>
+                                        <input asp-for="Role" value="false" checked="@(Model.Role)">Employer</>
                                         <span asp-validation-for="Role"></span>
                                     </span>
+                                </div>
 
-                                </div><div class="cfield">
+
+                                <div class="cfield">
                                     <input asp-for="Name" placeholder="Name" />
 
                                     <i class="la la-user"></i>

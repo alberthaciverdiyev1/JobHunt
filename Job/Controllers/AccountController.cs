@@ -118,6 +118,8 @@ namespace Job.Controllers
 				{
 					await _userManager.AddToRoleAsync(user, Roles.Employee.ToString());
 				}
+
+
 					await _signInManager.SignInAsync(user, isPersistent: true);
 				}
 			else
