@@ -1,5 +1,6 @@
 ﻿
 using Job.Models;
+using Job.Models.Job;
 using System.ComponentModel.DataAnnotations;
 
 namespace Job.ViewModels
@@ -12,7 +13,7 @@ namespace Job.ViewModels
         public List<Education>? Educations { get; set; }
         public List<Language>? Languages { get; set; }
         public List<JobType>? JobTypes { get; set; }
-        public List<PostJob>? PostJobs { get; set; }
+        public List<UserPostJob>? UserPostJobs { get; set; }
         public List<WorkExperience>? WorkExperiences { get; set; }
 
         [Required]

@@ -937,6 +937,10 @@
       "PackagePath": "staticwebassets\\assets\\images\\BlogImages\\c765fa3a-383c-49fa-b8ca-27ff6fb765ab1655043591.jpeg"
     },
     {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\BlogImages\\c8491ac8-651f-419c-9ed7-1204a67066f2freelance-is.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\BlogImages\\c8491ac8-651f-419c-9ed7-1204a67066f2freelance-is.jpg"
+    },
+    {
       "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\BlogImages\\cad63b91-7de5-4655-81fd-bca0684eef7fMonster.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\BlogImages\\cad63b91-7de5-4655-81fd-bca0684eef7fMonster.jpg"
     },
@@ -957,8 +961,20 @@
       "PackagePath": "staticwebassets\\assets\\images\\BlogImages\\eef8dc0c-03ac-4131-b32f-1275503c7a27maxresdefault.jpg"
     },
     {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\User\\1146b5e3-2d8b-400d-a64b-eec706103a2a1647550725.jpeg",
+      "PackagePath": "staticwebassets\\assets\\images\\User\\1146b5e3-2d8b-400d-a64b-eec706103a2a1647550725.jpeg"
+    },
+    {
       "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\User\\1447e325-5a71-4b76-ab50-83b4f5d41d621647550725.jpeg",
       "PackagePath": "staticwebassets\\assets\\images\\User\\1447e325-5a71-4b76-ab50-83b4f5d41d621647550725.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\User\\1a78e606-2675-4656-b03e-d346bd1019a4Big-Data-Analyticsq.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\User\\1a78e606-2675-4656-b03e-d346bd1019a4Big-Data-Analyticsq.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\User\\1faa4f89-b289-4a18-95ce-eaa00c8001b1freelance-is.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\User\\1faa4f89-b289-4a18-95ce-eaa00c8001b1freelance-is.jpg"
     },
     {
       "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\User\\241b6e47-0ff1-4546-b303-bc3219a3bb74freelance-is.jpg",
@@ -967,6 +983,10 @@
     {
       "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\User\\2eaaebac-4500-416e-84c1-14022a38e8fcfreelance-is.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\User\\2eaaebac-4500-416e-84c1-14022a38e8fcfreelance-is.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\User\\5d035e76-8c3a-4f32-a085-fdebd3ac5732freelance-is.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\User\\5d035e76-8c3a-4f32-a085-fdebd3ac5732freelance-is.jpg"
     },
     {
       "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\User\\5d3afb76-ea98-448c-9481-957b169775101647550725.jpeg",
@@ -981,12 +1001,24 @@
       "PackagePath": "staticwebassets\\assets\\images\\User\\6d647782-3808-46b6-a653-2089e717cabf1655043591.jpeg"
     },
     {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\User\\87dc2c3c-e349-4f83-81ef-efa92df179ad1655043591.jpeg",
+      "PackagePath": "staticwebassets\\assets\\images\\User\\87dc2c3c-e349-4f83-81ef-efa92df179ad1655043591.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\User\\8ed86315-6373-4724-b11b-be4df863ff70Big-Data-Analyticsq.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\User\\8ed86315-6373-4724-b11b-be4df863ff70Big-Data-Analyticsq.jpg"
+    },
+    {
       "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\User\\9ef23950-7263-4227-9634-d7821c93c3a7Monster.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\User\\9ef23950-7263-4227-9634-d7821c93c3a7Monster.jpg"
     },
     {
       "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\User\\a6c3c2ca-2228-47a1-9ad0-3f171f37cb051655043591.jpeg",
       "PackagePath": "staticwebassets\\assets\\images\\User\\a6c3c2ca-2228-47a1-9ad0-3f171f37cb051655043591.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\User\\ad693015-c9ea-41c2-b1c6-903007d0fe3bBig-Data-Analyticsq.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\User\\ad693015-c9ea-41c2-b1c6-903007d0fe3bBig-Data-Analyticsq.jpg"
     },
     {
       "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\User\\b09ad66a-86d4-458f-9a6f-4607e63079a9Monster.jpg",
@@ -997,8 +1029,16 @@
       "PackagePath": "staticwebassets\\assets\\images\\User\\b54b4847-2be8-4195-b7c8-6ff1da352659freelance-is.jpg"
     },
     {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\User\\cad4366a-2a49-4e8b-97e1-180e6f5195acBig-Data-Analyticsq.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\User\\cad4366a-2a49-4e8b-97e1-180e6f5195acBig-Data-Analyticsq.jpg"
+    },
+    {
       "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\User\\cfa70d24-e22e-4085-b5af-c653a687bfd41655043591.jpeg",
       "PackagePath": "staticwebassets\\assets\\images\\User\\cfa70d24-e22e-4085-b5af-c653a687bfd41655043591.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\User\\d1152fe9-2be4-4464-b090-635df30929f61655043591.jpeg",
+      "PackagePath": "staticwebassets\\assets\\images\\User\\d1152fe9-2be4-4464-b090-635df30929f61655043591.jpeg"
     },
     {
       "Id": "C:\\Users\\ASUS\\Desktop\\Job\\Job\\wwwroot\\assets\\images\\User\\d9ad1a59-243d-41e2-8d8c-48e49a4ec3151647550725.jpeg",

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Job.Models;
+using Job.Models.Job;
 
 namespace Job.DAL
 {
@@ -21,6 +22,6 @@ namespace Job.DAL
         public DbSet<City> Cities { get; set; }
         public DbSet<Education> Educations { get; set; }
         public DbSet<Language> Languages { get; set; }
-        public DbSet<Try> Tries { get; set; }
+        public DbSet<UserPostJob> UserPostJobs { get; set; }
     }
 }

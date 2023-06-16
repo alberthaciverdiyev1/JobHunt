@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Job.Models.Job;
+using Microsoft.AspNetCore.Identity;
 
 namespace Job.Models
 {
@@ -9,6 +10,7 @@ namespace Job.Models
         public int? UserProfession { get; set; }
         public string? ImageURL { get; set; }
         public DateTime CreatedAt { get; set; }
+        public List<UserPostJob>?UserPostJobs { get; set; }
 
     }
 }

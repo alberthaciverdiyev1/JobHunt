@@ -12,7 +12,6 @@ namespace Job.Models
         public Category? Category { get; set; }
         [Required]
         public int CategoryId { get; set; }
-        public List<RegisterVM> RegisterVMs { get; set; }
 
     }
 }

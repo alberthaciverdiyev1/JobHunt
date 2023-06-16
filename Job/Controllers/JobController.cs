@@ -6,6 +6,7 @@ using Job.ViewModels;
 using Job.Models.Job;
 using Job.Utilities.Enums;
 using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 
 namespace Job.Controllers
 {
@@ -17,10 +18,9 @@ namespace Job.Controllers
         {
             _context = context;
         }
-        [Authorize(Roles = "Employer")]
-
         public async Task<IActionResult> Index(int page)
         {
+         
             ViewBag.Page = page;
             ViewBag.Total = Math.Ceiling((decimal)_context.PostJobs.Count() / 6);
 
@@ -42,37 +42,62 @@ namespace Job.Controllers
             return View(jobVM);
         }
 
-        [Authorize(Roles = "Employee")]
 
         public async Task<IActionResult> UserIndex(int page)
         {
             ViewBag.Page = page;
-            ViewBag.Total = Math.Ceiling((decimal)_context.PostJobs.Count() / 6);
+            ViewBag.Total = Math.Ceiling((decimal)_context.UserPostJobs.Count() / 6);
 
             List<Category> categories = await _context.Categories.ToListAsync();
             List<Position> positions = await _context.Positions.ToListAsync();
-            List<PostJob> postJobs = await _context.PostJobs
-                .Include(x => x.JobType).Skip(page * 6).Take(6)
+            List<UserPostJob> postJobs = await _context.UserPostJobs
+                .Include(x => x.JobType)
+                .Skip(page * 6).Take(6)
                 .Include(x => x.City)
                 .Include(x => x.Category).ToListAsync();
+         
 
             UserPostJobVM jobVM = new UserPostJobVM
             {
                 Category = categories,
                 Positions = positions,
-                PostJobs = postJobs,
+                UserPostJobs = postJobs,
                 
-
             };
 
             return View(jobVM);
         }
-
-
-        [Authorize(Roles = "Employee")]
-        public async Task<IActionResult> PostJob()
+    public async Task<IActionResult>Detail(int id)
         {
 
+            UserPostJob singleJob =await _context.UserPostJobs
+                .Include(x => x.Education)
+                .Include(x => x.WorkExperience)
+                .Include(x => x.Category)
+                .Include(x => x.JobType)
+                .Include(x => x.City)
+                .FirstOrDefaultAsync(x => x.id == id);
+            AppUser appUser = await _context.Users.FirstOrDefaultAsync(u => u.Id == singleJob.id.ToString());
+
+            DetailVM detail = new DetailVM
+            { 
+            UserPostJob=singleJob,
+            AppUser=appUser
+            
+            };
+            return View(detail);
+        }
+
+        public async Task<IActionResult> PostJob()
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                string role = User.FindFirst(ClaimTypes.Role)?.Value;
+                if (role == "Employer")
+                {
+                    return RedirectToAction("UserPostJob");
+                }
+            }
 
             List<Category> categories = await _context.Categories.ToListAsync();
             List<City> cities = await _context.Cities.ToListAsync();

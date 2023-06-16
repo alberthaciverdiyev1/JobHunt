@@ -98,17 +98,16 @@ namespace Job.Areas.Admin.Controllers
             return RedirectToAction("Index", "Category");
 
         }
-        //public async Task<IActionResult> PositionIndex()
-        //{
-        //    List<Position> position = await _context.Positions.Where(x => x.CategoryId == id).ToListAsync();
-        //    List<Position> position = await _context.Positions.Include(x => x.Category).ToListAsync();
-        //    var checkContext = this.CheckDbContext(position);
-        //    if (checkContext != null)
-        //    {
-        //        return checkContext;
-        //    }
-        //    return View(position);
-        //}
+        public async Task<IActionResult> PositionIndex(int id)
+        {
+            List<Position> position = await _context.Positions.Where(x => x.CategoryId == id).Include(x => x.Category).ToListAsync();
+            var checkContext = this.CheckDbContext(position);
+            if (checkContext != null)
+            {
+                return checkContext;
+            }
+            return View(position);
+        }
 
 
         public IActionResult AddPosition()

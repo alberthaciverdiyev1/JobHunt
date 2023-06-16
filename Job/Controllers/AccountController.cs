@@ -141,13 +141,13 @@ namespace Job.Controllers
 			return View();
 		}
 		[HttpPost]
-		public async Task<IActionResult> Login(LoginVM login, string ReturnUrl)
+		public async Task<IActionResult> Login(LoginVM login, string? ReturnUrl)
 		{
-			//if (!ModelState.IsValid)
-			//{
-			//	ModelState.AddModelError(string.Empty, "Username , Email or Password is Inccorrect");
-			//	return View();
-			//}
+			if (!ModelState.IsValid)
+			{
+				ModelState.AddModelError(string.Empty, "Username , Email or Password is Inccorrect");
+				return View();
+			}
 			AppUser user = await _userManager.FindByNameAsync(login.UsernameOrEmail);
 			if (user == null)
 			{

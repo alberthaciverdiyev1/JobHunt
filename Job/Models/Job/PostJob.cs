@@ -4,8 +4,6 @@ namespace Job.Models
 {
     public class PostJob:BaseEntity
     {
-
-
         public int CategoryId { get; set; }
         public Category? Category { get; set; }
 

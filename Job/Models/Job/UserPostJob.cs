@@ -25,5 +25,7 @@
         public string Description { get; set; }
         public int Age { get; set; }
         public DateTime Created { get; set; }
+        public int AppUserId { get; set; }
+        public AppUser? AppUser { get; set; }
     }
 }

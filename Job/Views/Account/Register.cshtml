@@ -37,18 +37,20 @@
 
                             <form method="post" enctype="multipart/form-data">
 
-                                <div class="select-user mb-4">
+                              @*  <div class="select-user mb-4">
                                     <span>
-                                        <input asp-for="Role" value="true" checked="@(!Model.Role)">Candidate</>
+                                        <input asp-for="Role" value="true" checked />Candidate</>
                                         <span asp-validation-for="Role"></span>
                                     </span>
                                     <span>
-                                        <input asp-for="Role" value="false" checked="@(Model.Role)">Employer</>
+                                        <input asp-for="Role" value="false">Employer</>
                                         <span asp-validation-for="Role"></span>
                                     </span>
                                 </div>
-
-
+*@
+                                <p class="remember-label">
+                                    <input asp-for="Role" id="cb1"><label for="cb1">Im Emrployer</label>
+                                </p>
                                 <div class="cfield">
                                     <input asp-for="Name" placeholder="Name" />
 

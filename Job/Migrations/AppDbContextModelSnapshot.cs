@@ -187,6 +187,78 @@ namespace Job.Migrations
                     b.ToTable("Educations");
                 });
 
+            modelBuilder.Entity("Job.Models.Job.UserPostJob", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"));
+
+                    b.Property<int>("Age")
+                        .HasColumnType("int");
+
+                    b.Property<string>("AppUserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("CityId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("Created")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("EducationId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("Experience")
+                        .HasColumnType("int");
+
+                    b.Property<int>("JobTypeId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("LanguageId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("PhoneNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal?>("Salary")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int?>("WorkExperienceId")
+                        .HasColumnType("int");
+
+                    b.HasKey("id");
+
+                    b.HasIndex("AppUserId");
+
+                    b.HasIndex("CategoryId");
+
+                    b.HasIndex("CityId");
+
+                    b.HasIndex("EducationId");
+
+                    b.HasIndex("JobTypeId");
+
+                    b.HasIndex("LanguageId");
+
+                    b.HasIndex("WorkExperienceId");
+
+                    b.ToTable("UserPostJobs");
+                });
+
             modelBuilder.Entity("Job.Models.JobType", b =>
                 {
                     b.Property<int>("id")
@@ -336,27 +408,6 @@ namespace Job.Migrations
                     b.ToTable("Settings");
                 });
 
-            modelBuilder.Entity("Job.Models.Try", b =>
-                {
-                    b.Property<int>("id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"));
-
-                    b.Property<int?>("Categoryid")
-                        .HasColumnType("int");
-
-                    b.Property<int>("MyProperty")
-                        .HasColumnType("int");
-
-                    b.HasKey("id");
-
-                    b.HasIndex("Categoryid");
-
-                    b.ToTable("Tries");
-                });
-
             modelBuilder.Entity("Job.Models.WorkExperience", b =>
                 {
                     b.Property<int>("id")
@@ -372,60 +423,6 @@ namespace Job.Migrations
                     b.HasKey("id");
 
                     b.ToTable("WorkExperiences");
-                });
-
-            modelBuilder.Entity("Job.ViewModels.RegisterVM", b =>
-                {
-                    b.Property<int>("id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"));
-
-                    b.Property<string>("ConfirmPassword")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ImageURL")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<string>("Password")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("PositionId")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("RememberMe")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("Role")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Surname")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<string>("UserName")
-                        .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
-
-                    b.HasKey("id");
-
-                    b.HasIndex("PositionId");
-
-                    b.ToTable("RegisterVM");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -561,6 +558,57 @@ namespace Job.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("Job.Models.Job.UserPostJob", b =>
+                {
+                    b.HasOne("Job.Models.AppUser", "AppUser")
+                        .WithMany("UserPostJobs")
+                        .HasForeignKey("AppUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Job.Models.Category", "Category")
+                        .WithMany()
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Job.Models.City", "City")
+                        .WithMany()
+                        .HasForeignKey("CityId");
+
+                    b.HasOne("Job.Models.Education", "Education")
+                        .WithMany()
+                        .HasForeignKey("EducationId");
+
+                    b.HasOne("Job.Models.JobType", "JobType")
+                        .WithMany()
+                        .HasForeignKey("JobTypeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Job.Models.Language", "Language")
+                        .WithMany()
+                        .HasForeignKey("LanguageId");
+
+                    b.HasOne("Job.Models.WorkExperience", "WorkExperience")
+                        .WithMany()
+                        .HasForeignKey("WorkExperienceId");
+
+                    b.Navigation("AppUser");
+
+                    b.Navigation("Category");
+
+                    b.Navigation("City");
+
+                    b.Navigation("Education");
+
+                    b.Navigation("JobType");
+
+                    b.Navigation("Language");
+
+                    b.Navigation("WorkExperience");
+                });
+
             modelBuilder.Entity("Job.Models.Position", b =>
                 {
                     b.HasOne("Job.Models.Category", "Category")
@@ -615,24 +663,6 @@ namespace Job.Migrations
                     b.Navigation("WorkExperience");
                 });
 
-            modelBuilder.Entity("Job.Models.Try", b =>
-                {
-                    b.HasOne("Job.Models.Category", null)
-                        .WithMany("Try")
-                        .HasForeignKey("Categoryid");
-                });
-
-            modelBuilder.Entity("Job.ViewModels.RegisterVM", b =>
-                {
-                    b.HasOne("Job.Models.Position", "Position")
-                        .WithMany("RegisterVMs")
-                        .HasForeignKey("PositionId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Position");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -684,13 +714,16 @@ namespace Job.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("Job.Models.AppUser", b =>
+                {
+                    b.Navigation("UserPostJobs");
+                });
+
             modelBuilder.Entity("Job.Models.Category", b =>
                 {
                     b.Navigation("Positions");
 
                     b.Navigation("PostJobs");
-
-                    b.Navigation("Try");
                 });
 
             modelBuilder.Entity("Job.Models.City", b =>
@@ -711,11 +744,6 @@ namespace Job.Migrations
             modelBuilder.Entity("Job.Models.Language", b =>
                 {
                     b.Navigation("PostJobs");
-                });
-
-            modelBuilder.Entity("Job.Models.Position", b =>
-                {
-                    b.Navigation("RegisterVMs");
                 });
 
             modelBuilder.Entity("Job.Models.WorkExperience", b =>
