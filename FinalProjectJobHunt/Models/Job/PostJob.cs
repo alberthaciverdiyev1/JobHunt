@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FinalProjectJobHunt.Models
 {
@@ -29,5 +30,9 @@ namespace FinalProjectJobHunt.Models
         public int MinAge { get; set; }
         public int MaxAge { get; set; }
         public DateTime Created { get; set;}
+        public int AppUserId { get; set; }
+        [ForeignKey("AppUserId")]
+        public AppUser? AppUser { get; set; }
+
     }
 }

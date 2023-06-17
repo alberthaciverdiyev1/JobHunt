@@ -32,20 +32,20 @@ namespace JobHuntProject.Controllers
 		}
 
 	
-		public async Task<IActionResult> CreateRole()
-		{
-			string[] rolenames = { UserRole.ADMIN, UserRole.MODERATOR, UserRole.EMPLOYEE, UserRole.EMPLOYER };
-			foreach(var role in rolenames)
-			{
-				if (!await _roleManager.RoleExistsAsync(role))
-				{
-					await _roleManager.CreateAsync(new UserRole { Name = role });
+		//public async Task<IActionResult> CreateRole()
+		//{
+		//	string[] rolenames = { UserRole.ADMIN, UserRole.MODERATOR, UserRole.EMPLOYEE, UserRole.EMPLOYER };
+		//	foreach(var role in rolenames)
+		//	{
+		//		if (!await _roleManager.RoleExistsAsync(role))
+		//		{
+		//			await _roleManager.CreateAsync(new UserRole { Name = role });
 
-				}
-			}
-			return RedirectToAction("Index", "Home");
+		//		}
+		//	}
+		//	return RedirectToAction("Index", "Home");
 
-		}
+		//}
 		public IActionResult Register()
 		{
 			
@@ -101,6 +101,13 @@ namespace JobHuntProject.Controllers
 
 						return View();
 					}
+				}
+				else
+				{
+					string filename = "NoImage.png";
+		
+					register.DateTime = DateTime.Now;
+					register.ImageURL = filename;
 				}
 
 				AppUser user = new AppUser
@@ -178,6 +185,7 @@ namespace JobHuntProject.Controllers
 			if (!result.Succeeded)
 			{
 				ModelState.AddModelError(string.Empty, "Username , Email or Password is Inccorrect");
+				return View();
 			}
 
 			if (!string.IsNullOrEmpty(ReturnUrl) && Url.IsLocalUrl(ReturnUrl))

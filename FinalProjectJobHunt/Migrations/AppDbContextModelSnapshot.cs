@@ -325,6 +325,9 @@ namespace FinalProjectJobHunt.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"));
 
+                    b.Property<int>("AppUserId")
+                        .HasColumnType("int");
+
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
@@ -373,6 +376,8 @@ namespace FinalProjectJobHunt.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("id");
+
+                    b.HasIndex("AppUserId");
 
                     b.HasIndex("CategoryId");
 
@@ -624,6 +629,12 @@ namespace FinalProjectJobHunt.Migrations
 
             modelBuilder.Entity("FinalProjectJobHunt.Models.PostJob", b =>
                 {
+                    b.HasOne("FinalProjectJobHunt.Models.AppUser", "AppUser")
+                        .WithMany("PostJobs")
+                        .HasForeignKey("AppUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("FinalProjectJobHunt.Models.Category", "Category")
                         .WithMany("PostJobs")
                         .HasForeignKey("CategoryId")
@@ -651,6 +662,8 @@ namespace FinalProjectJobHunt.Migrations
                     b.HasOne("FinalProjectJobHunt.Models.WorkExperience", "WorkExperience")
                         .WithMany("PostJobs")
                         .HasForeignKey("WorkExperienceId");
+
+                    b.Navigation("AppUser");
 
                     b.Navigation("Category");
 
@@ -718,6 +731,8 @@ namespace FinalProjectJobHunt.Migrations
 
             modelBuilder.Entity("FinalProjectJobHunt.Models.AppUser", b =>
                 {
+                    b.Navigation("PostJobs");
+
                     b.Navigation("UserPostJobs");
                 });
 

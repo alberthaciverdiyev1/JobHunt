@@ -8,17 +8,20 @@ using FinalProjectJobHunt.Utilities.Enums;
 using Microsoft.AspNetCore.Authorization;
 using System.Security.Claims;
 using FinalProjectJobHunt.ViewModels;
+using Microsoft.AspNetCore.Identity;
 
 namespace FinalProjectJobHunt.Controllers
 {
     public class JobController : Controller
     {
         private readonly AppDbContext _context;
+		private readonly UserManager<AppUser> _userManager;
 
-        public JobController(AppDbContext context)
+		public JobController(AppDbContext context, UserManager<AppUser> userManager)
         {
             _context = context;
-        }
+			_userManager = userManager;
+		}
         public async Task<IActionResult> Index(int page)
         {
          
@@ -68,33 +71,54 @@ namespace FinalProjectJobHunt.Controllers
 
             return View(jobVM);
       }
-    //public async Task<IActionResult>Detail(int id)
-    //    {
+        public async Task<IActionResult> Detail(int id)
+        {
 
-    //        UserPostJob singleJob =await _context.UserPostJobs
-    //            .Include(x => x.Education)
-    //            .Include(x => x.WorkExperience)
-    //            .Include(x => x.Category)
-    //            .Include(x => x.JobType)
-    //            .Include(x => x.City)
-    //            .FirstOrDefaultAsync(x => x.id == id);
-    //        AppUser appUser = await _context.Users.FirstOrDefaultAsync(u => u.Id == singleJob.id.ToString());
+            UserPostJob singleJob = await _context.UserPostJobs
+                .Include(x => x.Education)
+                .Include(x => x.WorkExperience)
+                .Include(x => x.Category)
+                .Include(x => x.JobType)
+                .Include(x => x.City)
+                .FirstOrDefaultAsync(x => x.id == id);
+            AppUser appUser = await _context.Users.FirstOrDefaultAsync(u => u.Id == singleJob.AppUserId);
 
-    //        DetailVM detail = new DetailVM
-    //        { 
-    //        UserPostJob=singleJob,
-    //        AppUser=appUser
-            
-    //        };
-    //        return View(detail);
-    //    }
+            DetailVM detail = new DetailVM
+            {
+                UserPostJob = singleJob,
+                AppUser = appUser
 
-        public async Task<IActionResult> PostJob()
+            };
+            return View(detail);
+		}
+		public async Task<IActionResult> CompanyJobDetail(int id)
+		{
+
+			PostJob singleJob = await _context.PostJobs
+				.Include(x => x.Education)
+				.Include(x => x.WorkExperience)
+				.Include(x => x.Category)
+				.Include(x => x.JobType)
+				.Include(x => x.City)
+				.FirstOrDefaultAsync(x => x.id == id);
+			AppUser appUser = await _context.Users.FirstOrDefaultAsync(u => u.Id == singleJob.AppUserId);
+
+			DetailVM detail = new DetailVM
+			{
+				PostJob = singleJob,
+				AppUser = appUser
+
+			};
+			return View(detail);
+		}
+		[Authorize]
+
+		public async Task<IActionResult> PostJob()
         {
             if (User.Identity.IsAuthenticated)
             {
                 string role = User.FindFirst(ClaimTypes.Role)?.Value;
-                if (role == "Employer")
+                if (role == "EMPLOYER")
                 {
                     return RedirectToAction("UserPostJob");
                 }
@@ -135,8 +159,9 @@ namespace FinalProjectJobHunt.Controllers
                 ModelState.AddModelError(string.Empty, "Bu Model State Errorudur");
                 return View();
             }
+			var currentUser = await _userManager.GetUserAsync(User);
 
-            PostJob postJob = new PostJob
+			PostJob postJob = new PostJob
             {
                 PhoneNumber = job.PhoneNumber,
                 LanguageId = job.LanguageId,
@@ -152,7 +177,8 @@ namespace FinalProjectJobHunt.Controllers
                 Website = job.Website,
                 JobTypeId = job.JobTypeId,
                 Description = job.Description,
-                Created = DateTime.Now
+                Created = DateTime.Now,
+                AppUserId=currentUser.Id
             };
             await _context.AddAsync(postJob);
             await _context.SaveChangesAsync();
@@ -163,7 +189,6 @@ namespace FinalProjectJobHunt.Controllers
         }
 
 
-        [Authorize(Roles = "Employer")]
         public async Task<IActionResult> UserPostJob()
         {
 
@@ -195,10 +220,11 @@ namespace FinalProjectJobHunt.Controllers
             if (!ModelState.IsValid)
             {
                 ModelState.AddModelError(string.Empty, "Bu Model State Errorudur");
-                return View();
+				return View();
             }
+			var currentUser = await _userManager.GetUserAsync(User);
 
-            UserPostJob postJob = new UserPostJob
+			UserPostJob postJob = new UserPostJob
             {
                 PhoneNumber = job.PhoneNumber,
                 LanguageId = job.LanguageId,
@@ -212,7 +238,9 @@ namespace FinalProjectJobHunt.Controllers
                 CityId = job.CityId,
                 JobTypeId = job.JobTypeId,
                 Description = job.Description,
-                Created = DateTime.Now
+                Created = DateTime.Now,
+                AppUserId=currentUser.Id,   
+
             };
             await _context.AddAsync(postJob);
             await _context.SaveChangesAsync();

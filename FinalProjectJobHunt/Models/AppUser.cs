@@ -16,6 +16,7 @@ namespace FinalProjectJobHunt.Models
         public string? ImageURL { get; set; }
         public DateTime CreatedAt { get; set; }
         public List<UserPostJob>? UserPostJobs { get; set; }
+        public List<PostJob>? PostJobs { get; set; }
 
     }
 }
