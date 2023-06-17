@@ -1,0 +1,99 @@
+﻿@model Blog
+<section class="overlape">
+    <div class="block no-padding">
+        <div data-velocity="-.1" style="background: url(../assets/images/resource/mslider1.jpg) repeat scroll 50% 422.28px transparent;" class="parallax scrolly-invisible no-parallax"></div><!-- PARALLAX BACKGROUND IMAGE -->
+        <div class="container fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="inner-header">
+                        <h3>Blog</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="block">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9 column">
+                    <div class="blog-single">
+                        <a asp-action="Update" asp-controller="Blog" asp-route-id="@Model.id" class="btn btn-warning mt-2 mb-2">Update Blog</a>
+
+                        <div class="bs-thumb"><img src="~/assets/images/BlogImages/@Model.ImageURL" alt="" /></div>
+                        <ul class="post-metas">
+                            <li><a href="#" title=""><img src="~/assets/images/resource/admin.jpg" alt="" />Ali TUFAN</a></li>
+                            <li><a href="#" title=""><i class="la la-calendar-o"></i>@Model.DateTime</a></li>
+                        </ul>
+                        <h2>@Model.Title</h2>
+                       <p>@Model.Description</p>
+                        <div class="tags-share">
+                            <div class="tags_widget">
+                                <span>Tags</span>
+                                <a href="#" title="">Adwords</a>
+                                <a href="#" title="">Sales</a>
+                                <a href="#" title="">Travel</a>
+                            </div>
+                            <div class="share-bar">
+                                <a href="#" title="" class="share-fb"><i class="fa fa-facebook"></i></a><a href="#" title="" class="share-twitter"><i class="fa fa-twitter"></i></a><a href="#" title="" class="share-google"><i class="la la-google"></i></a><span>Share</span>
+                            </div>
+                        </div>
+                        <div class="post-navigation ">
+                            <div class="post-hist prev">
+                                <a asp-action="Singleblog" asp-controller="Blog" asp-route-id="@(Model.id-1)" title=""><i class="la la-arrow-left"></i><span class="post-histext">Prev Post</span></a>
+                            </div>
+                            <div class="post-hist next">
+                              <a asp-action="Singleblog" asp-controller="Blog" asp-route-id="@(Model.id+1)" title=""><span class="post-histext">Next Post</span><i class="la la-arrow-right"></i></a>
+                            </div>
+                        </div>
+              
+                    </div>
+                </div>
+                <aside class="col-lg-3 column">
+                    <div class="widget">
+                        <div class="search_widget_job no-margin">
+                            <div class="field_w_search">
+                                <input placeholder="Search Keywords" type="text">
+                                <i class="la la-search"></i>
+                            </div><!-- Search Widget -->
+                        </div>
+                    </div>
+         
+                    <div class="widget">
+                        <h3>Recent Posts</h3>
+                        <div class="post_widget">
+                            @foreach (Blog item in ViewBag.Recent)
+                            {
+                                <div class="mini-blog">
+                                    <span><a asp-action="Singleblog" asp-controller="Blog" asp-route-id="@item.id" title=""><img src="~/assets/images/BlogImages/@item.ImageURL" alt="" /></a></span>
+                                    <div class="mb-info">
+                                        <h3><a asp-action="Singleblog" asp-controller="Blog" asp-route-id="@item.id" title="">@item.Title</a></h3>
+                                        <span>@item.DateTime</span>
+                                    </div>
+                                </div>
+
+                            }
+               
+                        </div>
+                    </div>
+                  
+                   
+                    <div class="widget">
+                        <h3>Tags</h3>
+                        <div class="tags_widget">
+                            <a href="#" title="">Adwords</a>
+                            <a href="#" title="">Sales</a>
+                            <a href="#" title="">Travel</a>
+                            <a href="#" title="">Our Blog</a>
+                            <a href="#" title="">Trade</a>
+                            <a href="#" title="">Traffic</a>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </div>
+</section>
