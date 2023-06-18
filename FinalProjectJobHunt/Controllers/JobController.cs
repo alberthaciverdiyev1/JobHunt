@@ -9,22 +9,23 @@ using Microsoft.AspNetCore.Authorization;
 using System.Security.Claims;
 using FinalProjectJobHunt.ViewModels;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace FinalProjectJobHunt.Controllers
 {
     public class JobController : Controller
     {
         private readonly AppDbContext _context;
-		private readonly UserManager<AppUser> _userManager;
+        private readonly UserManager<AppUser> _userManager;
 
-		public JobController(AppDbContext context, UserManager<AppUser> userManager)
+        public JobController(AppDbContext context, UserManager<AppUser> userManager)
         {
             _context = context;
-			_userManager = userManager;
-		}
+            _userManager = userManager;
+        }
         public async Task<IActionResult> Index(int page)
         {
-         
+
             ViewBag.Page = page;
             ViewBag.Total = Math.Ceiling((decimal)_context.PostJobs.Count() / 6);
 
@@ -59,18 +60,18 @@ namespace FinalProjectJobHunt.Controllers
                 .Skip(page * 6).Take(6)
                 .Include(x => x.City)
                 .Include(x => x.Category).ToListAsync();
-         
+
 
             UserPostJobVM jobVM = new UserPostJobVM
             {
                 Category = categories,
                 Positions = positions,
                 UserPostJobs = postJobs,
-                
+
             };
 
             return View(jobVM);
-      }
+        }
         public async Task<IActionResult> Detail(int id)
         {
 
@@ -90,30 +91,30 @@ namespace FinalProjectJobHunt.Controllers
 
             };
             return View(detail);
-		}
-		public async Task<IActionResult> CompanyJobDetail(int id)
-		{
+        }
+        public async Task<IActionResult> CompanyJobDetail(int id)
+        {
 
-			PostJob singleJob = await _context.PostJobs
-				.Include(x => x.Education)
-				.Include(x => x.WorkExperience)
-				.Include(x => x.Category)
-				.Include(x => x.JobType)
-				.Include(x => x.City)
-				.FirstOrDefaultAsync(x => x.id == id);
-			AppUser appUser = await _context.Users.FirstOrDefaultAsync(u => u.Id == singleJob.AppUserId);
+            PostJob singleJob = await _context.PostJobs
+                .Include(x => x.Education)
+                .Include(x => x.WorkExperience)
+                .Include(x => x.Category)
+                .Include(x => x.JobType)
+                .Include(x => x.City)
+                .FirstOrDefaultAsync(x => x.id == id);
+            AppUser appUser = await _context.Users.FirstOrDefaultAsync(u => u.Id == singleJob.AppUserId);
 
-			DetailVM detail = new DetailVM
-			{
-				PostJob = singleJob,
-				AppUser = appUser
+            DetailVM detail = new DetailVM
+            {
+                PostJob = singleJob,
+                AppUser = appUser
 
-			};
-			return View(detail);
-		}
-		[Authorize]
+            };
+            return View(detail);
+        }
+        [Authorize]
 
-		public async Task<IActionResult> PostJob()
+        public async Task<IActionResult> PostJob()
         {
             if (User.Identity.IsAuthenticated)
             {
@@ -123,6 +124,7 @@ namespace FinalProjectJobHunt.Controllers
                     return RedirectToAction("UserPostJob");
                 }
             }
+            ViewBag.Categories = new SelectList(_context.Categories, "id", "Name");
 
             List<Category> categories = await _context.Categories.ToListAsync();
             List<City> cities = await _context.Cities.ToListAsync();
@@ -159,9 +161,9 @@ namespace FinalProjectJobHunt.Controllers
                 ModelState.AddModelError(string.Empty, "Bu Model State Errorudur");
                 return View();
             }
-			var currentUser = await _userManager.GetUserAsync(User);
+            var currentUser = await _userManager.GetUserAsync(User);
 
-			PostJob postJob = new PostJob
+            PostJob postJob = new PostJob
             {
                 PhoneNumber = job.PhoneNumber,
                 LanguageId = job.LanguageId,
@@ -178,7 +180,8 @@ namespace FinalProjectJobHunt.Controllers
                 JobTypeId = job.JobTypeId,
                 Description = job.Description,
                 Created = DateTime.Now,
-                AppUserId=currentUser.Id
+                PositionId = job.PositionId,
+                AppUserId = currentUser.Id
             };
             await _context.AddAsync(postJob);
             await _context.SaveChangesAsync();
@@ -192,6 +195,7 @@ namespace FinalProjectJobHunt.Controllers
         public async Task<IActionResult> UserPostJob()
         {
 
+            ViewBag.Categories = new SelectList(_context.Categories, "id", "Name");
 
             List<Category> categories = await _context.Categories.ToListAsync();
             List<City> cities = await _context.Cities.ToListAsync();
@@ -220,11 +224,11 @@ namespace FinalProjectJobHunt.Controllers
             if (!ModelState.IsValid)
             {
                 ModelState.AddModelError(string.Empty, "Bu Model State Errorudur");
-				return View();
+                return View();
             }
-			var currentUser = await _userManager.GetUserAsync(User);
+            var currentUser = await _userManager.GetUserAsync(User);
 
-			UserPostJob postJob = new UserPostJob
+            UserPostJob postJob = new UserPostJob
             {
                 PhoneNumber = job.PhoneNumber,
                 LanguageId = job.LanguageId,
@@ -239,17 +243,30 @@ namespace FinalProjectJobHunt.Controllers
                 JobTypeId = job.JobTypeId,
                 Description = job.Description,
                 Created = DateTime.Now,
-                AppUserId=currentUser.Id,   
+                AppUserId = currentUser.Id,
+                PositionId = job.PositionId,
 
             };
             await _context.AddAsync(postJob);
             await _context.SaveChangesAsync();
 
+            return RedirectToAction("UserIndex", "Job");
+        }
+        [HttpPost]
+        public JsonResult GetProfessionsByCategory(int id)
+        {
 
+            try
+            {
+                List<Position> positions = _context.Positions.Where(p => p.CategoryId == id).ToList();
 
-            return RedirectToAction("Index", "Job");
+                return Json(new SelectList(positions, "id", "PositionName"));
 
-
+            }
+            catch (Exception ex)
+            {
+                return Json(new { error = ex.Message });
+            }
 
 
         }

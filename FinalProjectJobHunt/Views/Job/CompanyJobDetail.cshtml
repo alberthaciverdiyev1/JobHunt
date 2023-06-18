@@ -22,24 +22,24 @@
                 <div class="col-lg-8 column">
                     <div class="job-single-sec">
                         <div class="job-single-head2">
-                            <div class="job-title2"><h3>@Model.UserPostJob.Category.Name</h3><span class="job-is ft">@Model.UserPostJob.JobType.WorkType</span><i class="la la-heart-o"></i></div>
+                            <div class="job-title2"><h3>@Model.PostJob.Category.Name</h3><span class="job-is ft">@Model.PostJob.JobType.WorkType</span><i class="la la-heart-o"></i></div>
                             <ul class="tags-jobs">
-                                <li><i class="la la-map-marker"></i> @Model.UserPostJob.City.CityName</li>
-                                <li><i class="la la-money"></i> Monthly Salary : <span>$@Model.UserPostJob.Salary</span></li>
-                                <li><i class="la la-calendar-o"></i> Post Date: @Model.UserPostJob.Created</li>
+                                <li><i class="la la-map-marker"></i> @Model.PostJob.City.CityName</li>
+                                <li><i class="la la-money"></i> Monthly Salary : <span>$@Model.PostJob.Salary</span></li>
+                                <li><i class="la la-calendar-o"></i> Post Date: @Model.PostJob.Created</li>
                             </ul>
                             <span><strong>Roles</strong> : UX/UI Designer, Web Designer, Graphic Designer</span>
                         </div><!-- Job Head -->
                         <div class="job-details">
                             <h3>Job Description</h3>
-                            <span>@Model.UserPostJob.Description</span>
+                            <span>@Model.PostJob.Description</span>
                             <div class="job-overview">
                                 <h3>Job Overview</h3>
                                 <ul>
-                                    <li><i class="la la-money"></i><h3>Offerd Salary</h3><span>£@Model.UserPostJob.Salary</span></li>
-                                    <li><i class="la la-thumb-tack"></i><h3>Career Level</h3><span>@Model.UserPostJob.WorkExperience.Experience</span></li>
+                                    <li><i class="la la-money"></i><h3>Offerd Salary</h3><span>£@Model.PostJob.Salary</span></li>
+                                    <li><i class="la la-thumb-tack"></i><h3>Career Level</h3><span>@Model.PostJob.WorkExperience.Experience</span></li>
                                     <li><i class="la la-puzzle-piece"></i><h3>Industry</h3><span>Management</span></li>
-                                    <li><i class="la la-shield"></i><h3>Experience</h3><span>@Model.UserPostJob.Experience Year</span></li>
+                                    <li><i class="la la-shield"></i><h3>Experience</h3><span>@Model.PostJob.Experience Year</span></li>
                                     @*                                   <li><i class="la la-line-chart "></i><h3>Qualification</h3><span>@Model.UserPostJobs.Profession</span></li>
                                     *@
                                 </ul>
@@ -60,8 +60,8 @@
                         <div class="job-head-info">
                             <h4>@Model.AppUser.Name @Model.AppUser.Surname</h4>
                             <!--<span>274 Seven Sisters Road, London, N4 2HY</span>-->
-                            <p><i class="la la-phone"></i> @Model.UserPostJob.PhoneNumber</p>
-                            <p><i class="la la-envelope-o"></i> @Model.UserPostJob.Email</p>
+                            <p><i class="la la-phone"></i> @Model.PostJob.PhoneNumber</p>
+                            <p><i class="la la-envelope-o"></i> @Model.PostJob.Email</p>
                         </div>
                         <a href="#" title="" class="apply-job-btn"><i class="la la-paper-plane"></i>Apply For Job</a>
                         <a href="#" title="" class="apply-job-linkedin"><i class="fa-brands fa-linkedin"></i>Apply with Linkedin</a>

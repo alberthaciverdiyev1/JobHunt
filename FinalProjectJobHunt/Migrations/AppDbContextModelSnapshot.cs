@@ -236,6 +236,9 @@ namespace FinalProjectJobHunt.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("PositionId")
+                        .HasColumnType("int");
+
                     b.Property<decimal?>("Salary")
                         .HasColumnType("decimal(18,2)");
 
@@ -365,6 +368,9 @@ namespace FinalProjectJobHunt.Migrations
                     b.Property<string>("PhoneNumber")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("PositionId")
+                        .HasColumnType("int");
 
                     b.Property<decimal?>("Salary")
                         .HasColumnType("decimal(18,2)");

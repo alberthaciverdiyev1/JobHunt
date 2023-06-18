@@ -7,6 +7,7 @@
 
         public int JobTypeId { get; set; }
         public JobType? JobType { get; set; }
+        public int PositionId { get; set; }
 
         public int? Experience { get; set; }
         public int? WorkExperienceId { get; set; }

@@ -1,5 +1,8 @@
 ﻿@using FinalProjectJobHunt.Models;
 @model JobVM
+
+
+
 <section class="overlape">
     <div class="block no-padding">
         <div data-velocity="-.1" style="background: url(../assets/images/resource/mslider1.jpg) repeat scroll 50% 422.28px transparent;" class="parallax scrolly-invisible no-parallax"></div><!-- PARALLAX BACKGROUND IMAGE -->
@@ -28,38 +31,42 @@
                         <div class="profile-form-edit">
                             <form method="post">
                                 <div class="row">
-
-
-                                    @*    <div>
-                                    <select data-placeholder="Allow In Search">
-                                    @foreach (Category item in Model.Category)
-                                    {
-                                    {
-                                    <option value="@item.id">@item.Name</option>
-                                    <span asp-validation-for="CategoryId" class="text-danger"></span>
-                                    }
+                                    @* <div class="col-lg-5">
+                                    <span class="pf-title">Categories</span>
+                                    <div class="pf-field">
+                                    <select id="ChooseCategory" asp-items="ViewBag.Categories" data-placeholder="Allow In Search" asp-validation-for="CategoryId" class="chosen" style="display: none;" required>
+                                    <option value="">-- Select Category --</option>
 
                                     </select>
-                                    </div>*@
+                                    <span class="text-danger" asp-validation-for="CategoryId"></span>
+                                    </div>
+                                    </div>
 
                                     <div class="col-lg-5">
+                                    <span class="pf-title">Position</span>
+                                    <div class="pf-field">
+                                    <select id="PositionList" data-placeholder="Allow In Search" asp-validation-for="PositionId" class="chosen" style="display: none;" required>
+                                    <option value="">-- Select Position --</option>
+                                    </select>
+                                    <span class="text-danger" asp-validation-for="PositionId"></span>
+                                    </div>
+                                    </div>*@
+                                    <div class="col-lg-6">
                                         <span class="pf-title">Categories</span>
                                         <div class="pf-field">
-
-                                                <select asp-for="CategoryId" data-placeholder="Allow In Search" asp-validation-for="CategoryId" class="chosen" style="display: none;" required>
-
+                                            <select id="ChooseCategory" asp-items="ViewBag.Categories" asp-for="CategoryId" class="chosen" style="display: none;" required>
                                                 <option value="">-- Select Category --</option>
-
-                                                @foreach (var category in Model.Category)
-                                                {
-                                                    <option value="@category.id">@category.Name</option>
-                                                }
                                             </select>
-                                            <span class="text-danger" asp-validation-for="CategoryId"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <span class="pf-title">Position</span>
+                                        <div class="pf-field">
+                                            <select id="PositionList" asp-for="PositionId" required></select>
+                                            @*class="chosen" style="display: none;"*@
 
                                         </div>
                                     </div>
-
                                     <div class="col-lg-2">
                                         <span class="pf-title">Min Age</span>
                                         <div class="pf-field">
@@ -71,7 +78,6 @@
                                         <span class="pf-title">MaxAge</span>
                                         <div class="pf-field">
                                             <input asp-for="MaxAge" placeholder="MaxAge" />
-
                                             <span asp-validation-for="MaxAge" style="color:rebeccapurple;"></span>
                                         </div>
                                     </div>
@@ -79,12 +85,10 @@
                                         <span class="pf-title">Salary</span>
                                         <div class="pf-field">
                                             <input asp-for="Salary" placeholder="Salary" />
-
                                             <i class="la la-money"></i>
                                             <span asp-validation-for="Salary" style="color:rebeccapurple;"></span>
                                         </div>
                                     </div>
-
 
                                     <div class="col-lg-3">
                                         <span class="pf-title">Job Type</span>
@@ -97,41 +101,39 @@
                                                 }
                                             </select>
                                             <span asp-validation-for="JobTypeId" class="text-danger"></span>
-
                                         </div>
                                     </div>
                                     <div class="col-lg-3">
                                         <span class="pf-title">Education</span>
                                         <div class="pf-field">
-                                            <select asp-for="EducationId" data-placeholder="Allow In Search" asp-validation-for="CategoryId" class="chosen">
+                                            <select asp-for="EducationId" data-placeholder="Allow In Search" asp-validation-for="EducationId" class="chosen">
                                                 <option value="">-- Select Your Education --</option>
                                                 @foreach (var category in Model.Educations)
                                                 {
                                                     <option value="@category.id">@category.EducationName</option>
                                                 }
                                             </select>
-                                            <span asp-validation-for="CategoryId" class="text-danger"></span>
+                                            <span asp-validation-for="EducationId" class="text-danger"></span>
                                         </div>
                                     </div>
                                     <div class="col-lg-3">
                                         <span class="pf-title">Language</span>
                                         <div class="pf-field">
-                                            <select asp-for="LanguageId" data-placeholder="Allow In Search" class="chosen">
-                                                <option value="">-- Select Category --</option>
+                                            <select asp-for="LanguageId" data-placeholder="Allow In Search" asp-validation-for="LanguageId" class="chosen">
+                                                <option value="">-- Select Language --</option>
                                                 @foreach (var category in Model.Languages)
                                                 {
                                                     <option value="@category.id">@category.LanguageName</option>
                                                 }
                                             </select>
-                                            <span asp-validation-for="CategoryId" class="text-danger"></span>
+                                            <span asp-validation-for="LanguageId" class="text-danger"></span>
                                         </div>
                                     </div>
-
 
                                     <div class="col-lg-3">
                                         <span class="pf-title">City</span>
                                         <div class="pf-field">
-                                            <select asp-for="CityId" data-placeholder="Allow In Search" asp-validation-for="CategoryId" class="chosen">
+                                            <select asp-for="CityId" data-placeholder="Allow In Search" asp-validation-for="CityId" class="chosen">
                                                 <option value="">-- Select City --</option>
                                                 @foreach (var category in Model.Cities)
                                                 {
@@ -142,12 +144,10 @@
                                         </div>
                                     </div>
 
-
-
                                     <div class="col-lg-3">
                                         <span class="pf-title">Experience</span>
                                         <div class="pf-field">
-                                            <select asp-for="WorkExperienceId" data-placeholder="Allow In Search" asp-validation-for="CategoryId" class="chosen">
+                                            <select asp-for="WorkExperienceId" data-placeholder="Allow In Search" asp-validation-for="WorkExperienceId" class="chosen">
                                                 <option value="">-- Select Experience --</option>
                                                 @foreach (var category in Model.WorkExperiences)
                                                 {
@@ -155,65 +155,90 @@
                                                 }
                                             </select>
                                             <span asp-validation-for="WorkExperienceId" class="text-danger"></span>
-
                                         </div>
                                     </div>
                                     <div class="col-lg-3">
                                         <span class="pf-title">Work Experience (Year)</span>
                                         <div class="pf-field">
                                             <input asp-for="Experience" placeholder="Experience" />
-
                                             <span asp-validation-for="Experience" style="color:rebeccapurple;"></span>
                                         </div>
                                     </div>
-                              
 
                                     <div class="col-lg-12 my-3">
-
                                         <h3>Contact</h3>
-
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="pf-field">
-                                            <input asp-for="PhoneNumber" placeholder="Phone Number">
-                                            <span asp-validation-for="PhoneNumber"></span>
-                                        </div>
-
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <div class="pf-field">
-                                            <input asp-for="Email" placeholder="Email">
-                                            <span asp-validation-for="Email"></span>
-
+                                            <input asp-for="PhoneNumber" placeholder="PhoneNumber" />
+                                            <i class="la la-phone"></i>
+                                            <span asp-validation-for="PhoneNumber" style="color:rebeccapurple;"></span>
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
-
-
                                         <div class="pf-field">
-                                            <input asp-for="Website" placeholder="Website">
+                                            <input asp-for="Email" placeholder="Email" />
+                                            <i class="la la-envelope-o"></i>
+                                            <span asp-validation-for="Email" style="color:rebeccapurple;"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="pf-field">
+                                            <input asp-for="Website" placeholder="Website" />
+                                            <i class="la la-globe"></i>
+                                            <span asp-validation-for="Website" style="color:rebeccapurple;"></span>
                                         </div>
                                     </div>
 
                                     <div class="col-lg-12">
-                                        <span class="pf-title">Description</span>
+                                        <span class="pf-title">Job Description</span>
                                         <div class="pf-field">
-                                            <textarea asp-for="Description"></textarea>
-                                            <span asp-validation-for="Description"></span>
-
+                                            <textarea asp-for="Description" placeholder="Description"></textarea>
+                                            <span asp-validation-for="Description" style="color:rebeccapurple;"></span>
                                         </div>
                                     </div>
                                     <div class="col-lg-12">
-                                        <button type="submit">Post Job</button>
+                                        <ul>
+                                            <li><button class="active" type="submit" value="post">Add Job</button></li>
+                                        </ul>
                                     </div>
-
                                 </div>
                             </form>
                         </div>
-
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
 </section>
+
+
+
+<script>
+
+    $(function () {
+        $("#ChooseCategory").change(function () {
+            $("#PositionList").empty();
+
+            $.ajax({
+                url: '/Job/GetProfessionsByCategory',
+                type: 'POST',
+                dataType: 'json',
+                data: { id: $("#ChooseCategory").val() },
+                success: function (data) {
+                    console.log("AJAX isteği başarılı oldu!");
+
+                    $("#PositionList").append("<option value=-1> Choose Profession</option>");
+                    $.each(data, (index, value) => {
+                        $("#PositionList").append(`<option value="${value.value}">${value.text}</option>`);
+                    });
+                }
+            })
+        });
+    })
+
+</script>
+
+
+

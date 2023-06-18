@@ -17,8 +17,8 @@ namespace FinalProjectJobHunt.ViewModels
 
         [Required]
         public int CategoryId { get; set; }
-        //[Required]
-        //public int PositionId { get; set; }
+        [Required]
+        public int PositionId { get; set; }
         public int CityId { get; set; }
         public int? LanguageId { get; set; }
         public int? EducationId { get; set; }

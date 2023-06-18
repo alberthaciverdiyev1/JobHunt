@@ -42,26 +42,25 @@
                                     </select>
                                     </div>*@
 
-                                    <div class="col-lg-5">
+                                    <div class="col-lg-6">
                                         <span class="pf-title">Categories</span>
                                         <div class="pf-field">
-
-                                            <select asp-for="CategoryId" data-placeholder="Allow In Search" asp-validation-for="CategoryId" class="chosen" style="display: none;" >
-
+                                            <select id="ChooseCategory" asp-items="ViewBag.Categories" asp-for="CategoryId" class="chosen" style="display: none;" required>
                                                 <option value="">-- Select Category --</option>
-
-                                                @foreach (var category in Model.Category)
-                                                {
-                                                    <option value="@category.id">@category.Name</option>
-                                                }
                                             </select>
-                                            <span class="text-danger" asp-validation-for="CategoryId"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <span class="pf-title">Position</span>
+                                        <div class="pf-field">
+                                            <select id="PositionList" asp-for="PositionId" required></select>
+                                            @*class="chosen" style="display: none;"*@
 
                                         </div>
                                     </div>
 
                                     <div class="col-lg-2">
-                                        <span class="pf-title">Min Age</span>
+                                        <span class="pf-title">Age</span>
                                         <div class="pf-field">
                                             <input asp-for="Age" placeholder="Age" />
                                             <span asp-validation-for="Age" style="color:rebeccapurple;"></span>
@@ -203,3 +202,28 @@
         </div>
     </div>
 </section>
+
+<script>
+
+    $(function () {
+        $("#ChooseCategory").change(function () {
+            $("#PositionList").empty();
+
+            $.ajax({
+                url: '/Job/GetProfessionsByCategory',
+                type: 'POST',
+                dataType: 'json',
+                data: { id: $("#ChooseCategory").val() },
+                success: function (data) {
+                    console.log("AJAX isteği başarılı oldu!");
+
+                    $("#PositionList").append("<option value=-1> Choose Profession</option>");
+                    $.each(data, (index, value) => {
+                        $("#PositionList").append(`<option value="${value.value}">${value.text}</option>`);
+                    });
+                }
+            })
+        });
+    })
+
+</script>
