@@ -14,6 +14,7 @@ namespace FinalProjectJobHunt.ViewModels
         public List<Language>? Languages { get; set; }
         public List<JobType>? JobTypes { get; set; }
         public List<UserPostJob>? UserPostJobs { get; set; }
+        public List<AppUser>? AppUsers { get; set; }
         public List<WorkExperience>? WorkExperiences { get; set; }
 
         [Required]

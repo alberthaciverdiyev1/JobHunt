@@ -22,7 +22,7 @@
                 <div class="col-lg-8 column">
                     <div class="job-single-sec">
                         <div class="job-single-head2">
-                            <div class="job-title2"><h3>@Model.UserPostJob.Category.Name</h3><span class="job-is ft">@Model.UserPostJob.JobType.WorkType</span><i class="la la-heart-o"></i></div>
+                            <div class="job-title2"><h3>@Model.UserPostJob.Category.Name / @Model.Position.PositionName</h3><span class="job-is ft">@Model.UserPostJob.JobType.WorkType</span><i class="la la-heart-o"></i></div>
                             <ul class="tags-jobs">
                                 <li><i class="la la-map-marker"></i> @Model.UserPostJob.City.CityName</li>
                                 <li><i class="la la-money"></i> Monthly Salary : <span>$@Model.UserPostJob.Salary</span></li>
@@ -37,12 +37,11 @@
                                 <ul>
                                     <li><i class="la la-money"></i><h3>Offerd Salary</h3><span>£@Model.UserPostJob.Salary</span></li>
                                     <li><i class="la la-thumb-tack"></i><h3>Career Level</h3><span>@Model.UserPostJob.WorkExperience.Experience</span></li>
-                                    <li><i class="la la-puzzle-piece"></i><h3>Industry</h3><span>Management</span></li>
                                     <li><i class="la la-shield"></i><h3>Experience</h3><span>@Model.UserPostJob.Experience Year</span></li>
-                                    <li><i class="fa-solid fa-child-reaching"></i><h3>Age</h3><span>@Model.UserPostJob.Age Years Old</span>
-                                    </li>
-@*                                   <li><i class="la la-line-chart "></i><h3>Qualification</h3><span>@Model.UserPostJobs.Profession</span></li>
-                                    *@
+                                    <li><i class="fa-solid fa-child-reaching"></i><h3>Age</h3><span>@Model.UserPostJob.Age Years Old</span> </li>
+                                    <li><i class="la la-puzzle-piece"></i><h3>Industry</h3><span>@Model.UserPostJob.Category.Name</span></li>
+                                    <li><i class="la la-line-chart "></i><h3>Qualification</h3><span>@Model.Position.PositionName</span></li>
+                                   
                                 </ul>
                             </div><!-- Job Overview -->
                             <div class="share-bar">
@@ -63,6 +62,7 @@
                             <!--<span>274 Seven Sisters Road, London, N4 2HY</span>-->
                             <p><i class="la la-phone"></i> @Model.UserPostJob.PhoneNumber</p>
                             <p><i class="la la-envelope-o"></i> @Model.UserPostJob.Email</p>
+
                         </div>
                         <a href="#" title="" class="apply-job-btn"><i class="la la-paper-plane"></i>Invite To Work</a>
                         <a href="#" title="" class="apply-job-linkedin"><i class="fa-brands fa-linkedin"></i>Apply with Linkedin</a>

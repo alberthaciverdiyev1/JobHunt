@@ -1,5 +1,6 @@
 ﻿@using FinalProjectJobHunt.Models.Job;
 @model UserPostJobVM
+
 <section class="overlape">
 	<div class="block no-padding">
 		<div data-velocity="-.1" style="background: url(../assets/images/resource/mslider1.jpg) repeat scroll 50% 422.28px transparent;" class="parallax scrolly-invisible no-parallax"></div><!-- PARALLAX BACKGROUND IMAGE -->
@@ -156,29 +157,36 @@
 					</div><!-- MOdern Job LIst -->
 					<div class="job-list-modern">
 						<div class="job-listings-sec no-border">
-
-							@foreach (UserPostJob item in Model.UserPostJobs)
+							@foreach (var item in Model.UserPostJobs)
 							{
-								
-									<div class="job-listing wtabs" onclick="location.href='@Url.Action("detail", "job", new { id = item.id })'" style=" cursor: pointer;">
-										<div class="job-title-sec">
-												<div class="c-logo">
-													<img src="~/assets/images/resource/l1.png" alt="" />
-												</div>
-										
-											<h3>@item.Category.Name</h3>
-											<span>Massimo Artemisis</span>
-											<div class="job-lctn"><i class="la la-map-marker"></i>@item.City.CityName</div>
+								var userImageURL = Model.AppUsers.FirstOrDefault(x => x.Id == item.AppUserId)?.ImageURL ?? "NoImage.png";
+								var positionName = Model.Positions.FirstOrDefault(x => x.id == item.PositionId)?.PositionName ?? string.Empty;
+								var username = Model.AppUsers.FirstOrDefault(x => x.Id == item.AppUserId).Name;
+								<div class="job-listing wtabs" onclick="location.href='@Url.Action("CompanyJobDetail", "job", new { id = item.id })'" style="cursor: pointer;">
+									<div class="job-title-sec">
+										<div class="c-logo">
+											<img src="~/assets/images/User/@userImageURL" alt="" style="width:100%; height:90px;" />
 										</div>
-										<div class="job-style-bx">
-											<span class="job-is ft">@item.JobType.WorkType</span>
-											<span class="fav-job"><i class="la la-heart-o"></i></span>
-											<i>@item.Created</i>
-										</div>
-									</div>
-							
-							}
+										<h3 class="mr-4"> @positionName / @item.Category.Name</h3>
+										<span>@username</span>
+										@if (item.Description.Length < 100)
+										{
+											<p>@item.Description</p>
+										}
+										else
+										{
+											<p> @item.Description.Substring(0,50)... </p>
 
+										}
+										<div class="job-lctn"><i class="la la-map-marker CustomLeft"></i>@item.City.CityName</div>
+									</div>
+									<div class="job-style-bx">
+										<span class="job-is ft">@item.JobType.WorkType</span>
+										<span class="fav-job"><i class="la la-heart-o"></i></span>
+										<i>@item.Created</i>
+									</div>
+								</div>
+							}
 
 						</div>
 						<div class="pagination">

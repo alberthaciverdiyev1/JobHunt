@@ -18,6 +18,7 @@ namespace FinalProjectJobHunt.ViewModels
 		public AppUser AppUser { get; set; }
 		public UserPostJob UserPostJob { get; set; }
 		public PostJob PostJob { get; set; }
-	
-	}
+        public Position Position { get; set; }
+
+    }
 }

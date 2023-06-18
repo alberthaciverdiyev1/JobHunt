@@ -42,7 +42,7 @@
 
         <div class="responsive-header">
             <div class="responsive-menubar">
-                <div class="res-logo"><a asp-action="index" asp-controller="home" title=""><img src="~/assets/images/resource/logo.png" alt="" /></a></div>
+                <div class="res-logo"><a asp-action="index" asp-controller="home" title=""><img src="~/assets/images/resource/@setting["Logo"]" alt="" /></a></div>
                 <div class="menu-resaction">
                     <div class="res-openmenu">
                         <img src="~/assets/images/icon.png" alt="" /> Menu
@@ -85,10 +85,7 @@
                             <a asp-action="index" asp-controller="Employer" title="">Employers</a>
                          
                         </li>
-                        <li >
-                            <a asp-action="index" asp-controller="candidate" title="">Candidates</a>
-                        
-                        </li>
+                     
                         <li>
                             <a asp-action="blog" asp-controller="blog" title="">Blog</a>
                            
@@ -111,7 +108,7 @@
             <div class="menu-sec">
                 <div class="container">
                     <div class="logo">
-                        <a asp-action="index" asp-controller="home" title=""><img class="hidesticky" src="~/assets/images/resource/logo.png" alt="" /><img class="showsticky" src="~/assets/images/resource/@setting["Logo"]" alt="" /></a>
+                        <a asp-action="index" asp-controller="home" title=""><img class="hidesticky" src="~/assets/images/resource/@setting["Logo"]" alt="" /><img class="showsticky" src="~/assets/images/resource/@setting["Logo"]" alt="" /></a>
                     </div><!-- Logo -->
                     <div class="btn-extars">
                         <a asp-action="PostJob" asp-controller="Job" title="" class="post-job-btn"><i class="la la-plus"></i>Post Jobs</a>
@@ -138,11 +135,7 @@
                                 <a asp-action="index" asp-area="Admin" asp-controller="Home" title="">Admin</a>
 
                             </li>
-                          
-                            <li>
-                                <a asp-action="index" asp-controller="candidate" title="">Candidates</a>
-                          
-                            </li>
+                 
                             <li>
                                 <a asp-action="blog" asp-controller="blog" title="">Blog</a>
 

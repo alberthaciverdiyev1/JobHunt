@@ -22,28 +22,29 @@ namespace FinalProjectJobHunt.Areas.Admin.Controllers
             List<AppUser> users = await _context.Users.ToListAsync();
             return View(users);
         }
-        //public IActionResult Delete(string id)
-        //{
-          
+        public IActionResult Delete(int id)
+        {
 
-        //    AppUser user = _context.Users.FirstOrDefault(x => x.Id == id);
 
-            
-        //    var check=this.CheckDbContext(user);
-        //    if (check!=null)
-        //    {
-        //        return check;
-        //    }
-        //    if(user.ImageURL!=null)
-        //    {   string filename=Guid.NewGuid().ToString()+user.ImageURL;
-        //        string path = Path.Combine(_env.WebRootPath, "assets/images/User", filename);
-        //        System.IO.File.Delete(path);
-               
-        //    }
-        //    _context.Users.Remove(user);
-        //    _context.SaveChanges();
-        //    return RedirectToAction("Index", "AppUser");
+            AppUser user = _context.Users.FirstOrDefault(x => x.Id == id);
 
-        //}
+
+            var check = this.CheckDbContext(user);
+            if (check != null)
+            {
+                return check;
+            }
+            if (user.ImageURL != null)
+            {
+                string filename = Guid.NewGuid().ToString() + user.ImageURL;
+                string path = Path.Combine(_env.WebRootPath, "assets/images/User", filename);
+                System.IO.File.Delete(path);
+
+            }
+            _context.Users.Remove(user);
+            _context.SaveChanges();
+            return RedirectToAction("Index", "AppUser");
+
+        }
     }
 }

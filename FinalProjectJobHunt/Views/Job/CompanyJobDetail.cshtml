@@ -2,7 +2,7 @@
 
 <section class="overlape">
     <div class="block no-padding">
-        <div data-velocity="-.1" style="background: url(../assets/images/mslider1.jpg) repeat scroll 50% 422.28px transparent;" class="parallax scrolly-invisible no-parallax"></div><!-- PARALLAX BACKGROUND IMAGE -->
+        <div data-velocity="-.1" style="background: url(~/assets/images/resource/parallax1.jpg) repeat scroll 50% 422.28px transparent;" class="parallax scrolly-invisible no-parallax"></div><!-- PARALLAX BACKGROUND IMAGE -->
         <div class="container fluid">
             <div class="row">
                 <div class="col-lg-12">
@@ -22,7 +22,7 @@
                 <div class="col-lg-8 column">
                     <div class="job-single-sec">
                         <div class="job-single-head2">
-                            <div class="job-title2"><h3>@Model.PostJob.Category.Name</h3><span class="job-is ft">@Model.PostJob.JobType.WorkType</span><i class="la la-heart-o"></i></div>
+                            <div class="job-title2"><h3>@Model.PostJob.Category.Name / @Model.Position.PositionName</h3><span class="job-is ft">@Model.PostJob.JobType.WorkType</span><i class="la la-heart-o"></i></div>
                             <ul class="tags-jobs">
                                 <li><i class="la la-map-marker"></i> @Model.PostJob.City.CityName</li>
                                 <li><i class="la la-money"></i> Monthly Salary : <span>$@Model.PostJob.Salary</span></li>
@@ -38,15 +38,17 @@
                                 <ul>
                                     <li><i class="la la-money"></i><h3>Offerd Salary</h3><span>£@Model.PostJob.Salary</span></li>
                                     <li><i class="la la-thumb-tack"></i><h3>Career Level</h3><span>@Model.PostJob.WorkExperience.Experience</span></li>
-                                    <li><i class="la la-puzzle-piece"></i><h3>Industry</h3><span>Management</span></li>
                                     <li><i class="la la-shield"></i><h3>Experience</h3><span>@Model.PostJob.Experience Year</span></li>
-                                    @*                                   <li><i class="la la-line-chart "></i><h3>Qualification</h3><span>@Model.UserPostJobs.Profession</span></li>
-                                    *@
+                                    <li><i class="fa-solid fa-child-reaching"></i><h3>Age</h3><span>@Model.PostJob.MinAge - @Model.PostJob.MaxAge Years </span></li>
+                                    <li><i class="la la-puzzle-piece"></i><h3>Industry</h3><span>@Model.PostJob.Category.Name</span></li>
+                                    <li><i class="la la-line-chart "></i><h3>Qualification</h3><span>@Model.Position.PositionName</span></li>
+                                    
                                 </ul>
                             </div><!-- Job Overview -->
                             <div class="share-bar">
-                                <span>Share</span><a href="#" title="" class="share-fb"><i class="fa-brands fa-facebook"></i></a>
-                                <a href="#" title="" class="share-twitter"><i class="fa-brands fa-twitter"></i></a>
+                                <span>Share</span>
+                                <a href="https://www.facebook.com" title="" class="share-fb"><i class="fa-brands fa-facebook"></i></a>
+                                <a href="https://twitter.com" title="" class="share-twitter"><i class="fa-brands fa-twitter"></i></a>
                             </div>
                         </div>
                     </div>
@@ -71,4 +73,5 @@
             </div>
         </div>
     </div>
-</section>
+
+</section>								
