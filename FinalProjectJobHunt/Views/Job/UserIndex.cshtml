@@ -162,7 +162,7 @@
 								var userImageURL = Model.AppUsers.FirstOrDefault(x => x.Id == item.AppUserId)?.ImageURL ?? "NoImage.png";
 								var positionName = Model.Positions.FirstOrDefault(x => x.id == item.PositionId)?.PositionName ?? string.Empty;
 								var username = Model.AppUsers.FirstOrDefault(x => x.Id == item.AppUserId).Name;
-								<div class="job-listing wtabs" onclick="location.href='@Url.Action("CompanyJobDetail", "job", new { id = item.id })'" style="cursor: pointer;">
+								<div class="job-listing wtabs" onclick="location.href='@Url.Action("Detail", "job", new { id = item.id })'" style="cursor: pointer;">
 									<div class="job-title-sec">
 										<div class="c-logo">
 											<img src="~/assets/images/User/@userImageURL" alt="" style="width:100%; height:90px;" />

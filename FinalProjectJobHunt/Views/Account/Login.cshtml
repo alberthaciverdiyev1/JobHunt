@@ -35,7 +35,8 @@
 					<div class="account-popup-area signin-popup-box static">
 						<div class="account-popup">
 							<span>Lorem ipsum dolor sit amet consectetur adipiscing elit odio duis risus at lobortis ullamcorper</span>
-							<form method="post">
+							<form method="post" asp-controller="Account" asp-action="Login">
+								<div asp-validation-summary="ModelOnly" style="color:rebeccapurple;"></div>
 								<div class="cfield">
 									<input asp-for="UsernameOrEmail" placeholder="Username" />
 									<i class="la la-user"></i>
@@ -44,7 +45,6 @@
 									<input asp-for="Password" placeholder="********" />
 									<i class="la la-key"></i>
 								</div>
-								<div asp-validation-summary="ModelOnly" style="color:rebeccapurple;"></div>
 
 
 

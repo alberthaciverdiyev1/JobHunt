@@ -215,7 +215,7 @@
                 dataType: 'json',
                 data: { id: $("#ChooseCategory").val() },
                 success: function (data) {
-                    console.log("AJAX isteği başarılı oldu!");
+                    console.log("Success");
 
                     $("#PositionList").append("<option value=-1> Choose Profession</option>");
                     $.each(data, (index, value) => {

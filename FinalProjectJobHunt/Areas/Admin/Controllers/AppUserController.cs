@@ -34,13 +34,15 @@ namespace FinalProjectJobHunt.Areas.Admin.Controllers
             {
                 return check;
             }
-            if (user.ImageURL != null)
-            {
-                string filename = Guid.NewGuid().ToString() + user.ImageURL;
+          string filename = Guid.NewGuid().ToString() + user.ImageURL;
                 string path = Path.Combine(_env.WebRootPath, "assets/images/User", filename);
+            if(System.IO.File.Exists(path))
+            {
                 System.IO.File.Delete(path);
 
             }
+
+            
             _context.Users.Remove(user);
             _context.SaveChanges();
             return RedirectToAction("Index", "AppUser");

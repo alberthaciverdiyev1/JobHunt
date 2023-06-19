@@ -28,11 +28,15 @@
                                 <li><i class="la la-money"></i> Monthly Salary : <span>$@Model.PostJob.Salary</span></li>
                                 <li><i class="la la-calendar-o"></i> Post Date: @Model.PostJob.Created</li>
                             </ul>
-                            <span><strong>Roles</strong> : UX/UI Designer, Web Designer, Graphic Designer</span>
+                         
                         </div><!-- Job Head -->
                         <div class="job-details">
                             <h3>Job Description</h3>
-                            <span>@Model.PostJob.Description</span>
+                          <div class="row">
+                              <div class="col-lg-6">
+                                    <span style="width:40%;">@Model.PostJob.Description</span>
+                              </div>
+                          </div>
                             <div class="job-overview">
                                 <h3>Job Overview</h3>
                                 <ul>

@@ -62,7 +62,9 @@
                                     <div class="col-lg-6">
                                         <span class="pf-title">Position</span>
                                         <div class="pf-field">
-                                            <select id="PositionList" asp-for="PositionId" required></select>
+                                            <select id="PositionList" asp-for="PositionId" required>
+                                                <option value="">-- Select Position --</option>
+                                            </select>
                                             @*class="chosen" style="display: none;"*@
 
                                         </div>
@@ -227,7 +229,7 @@
                 dataType: 'json',
                 data: { id: $("#ChooseCategory").val() },
                 success: function (data) {
-                    console.log("AJAX isteği başarılı oldu!");
+                    console.log("Success");
 
                     $("#PositionList").append("<option value=-1> Choose Profession</option>");
                     $.each(data, (index, value) => {
