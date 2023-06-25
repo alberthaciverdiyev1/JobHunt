@@ -6,5 +6,7 @@ namespace FinalProjectJobHunt.Models
     {
         public string EducationName { get; set; }
         public List<PostJob>? PostJobs { get; set; }
-    }
+		public List<AppUser>? AppUsers { get; set; }
+
+	}
 }

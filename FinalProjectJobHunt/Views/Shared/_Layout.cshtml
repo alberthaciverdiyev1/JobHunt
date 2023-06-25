@@ -1,4 +1,6 @@
-﻿@inject LayoutService service
+﻿@*@using Microsoft.AspNetCore.Identity;
+@inject SignInManager<IdentityUser> SignInManager*@
+@inject LayoutService service
 
 @{
 
@@ -60,7 +62,7 @@
                         {
 
 
-                            <li>@User.Identity.Name</li>
+                            <li><a asp-action="index" asp-controller="User">@User.Identity.Name</a></li>
                             <li><a asp-action="LogOut" asp-controller="account">Log Out</a></li>
                         }
                         else
@@ -113,10 +115,17 @@
                     <div class="btn-extars">
                         <a asp-action="PostJob" asp-controller="Job" title="" class="post-job-btn"><i class="la la-plus"></i>Post Jobs</a>
                         <ul class="account-btns">
+
                             @if (User.Identity.IsAuthenticated)
                             {
-                                <li>@User.Identity.Name</li>
-                                <li><a asp-action="LogOut" asp-controller="account"> Log Out</a></li>
+                               @* var user = await SignInManager.UserManager.GetUserAsync(User);
+                                if (user != null)*@
+                                {@*asp-route-id="@userId"*@
+@*                                    var userId = user.Id;
+*@                                    <li><a asp-action="index" asp-controller="User" >@User.Identity.Name</a></li>
+                                    <li><a asp-action="LogOut" asp-controller="account"> Log Out</a></li>
+                                }
+                                
                             }
                             else
                             {
@@ -129,11 +138,9 @@
                         <ul>
                             <li>
                                 <a asp-action="index" asp-controller="home" title="">Home</a>
-
                             </li>
                             <li>
                                 <a asp-action="index" asp-area="Admin" asp-controller="Home" title="">Admin</a>
-
                             </li>
                  
                             <li>

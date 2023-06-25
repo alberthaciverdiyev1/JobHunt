@@ -274,3 +274,10 @@ C:\Users\ASUS\Desktop\Job\d\FinalProjectJobHunt\obj\Debug\net6.0\refint\FinalPro
 C:\Users\ASUS\Desktop\Job\d\FinalProjectJobHunt\obj\Debug\net6.0\FinalProjectJobHunt.pdb
 C:\Users\ASUS\Desktop\Job\d\FinalProjectJobHunt\obj\Debug\net6.0\FinalProjectJobHunt.genruntimeconfig.cache
 C:\Users\ASUS\Desktop\Job\d\FinalProjectJobHunt\obj\Debug\net6.0\ref\FinalProjectJobHunt.dll
+C:\Users\ASUS\Desktop\Job\FinalProjectJobHunt\bin\Debug\net6.0\System.Web.Mvc.dll
+C:\Users\ASUS\Desktop\Job\FinalProjectJobHunt\bin\Debug\net6.0\System.Web.Razor.dll
+C:\Users\ASUS\Desktop\Job\FinalProjectJobHunt\bin\Debug\net6.0\System.Web.Helpers.dll
+C:\Users\ASUS\Desktop\Job\FinalProjectJobHunt\bin\Debug\net6.0\System.Web.WebPages.Deployment.dll
+C:\Users\ASUS\Desktop\Job\FinalProjectJobHunt\bin\Debug\net6.0\System.Web.WebPages.Razor.dll
+C:\Users\ASUS\Desktop\Job\FinalProjectJobHunt\bin\Debug\net6.0\System.Web.WebPages.dll
+C:\Users\ASUS\Desktop\Job\FinalProjectJobHunt\bin\Debug\net6.0\Microsoft.Web.Infrastructure.dll

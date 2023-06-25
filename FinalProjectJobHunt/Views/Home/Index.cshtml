@@ -16,7 +16,8 @@
 									<div class="row">
 										<div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
 											<div class="job-field">
-												<input type="text" placeholder="Job title, keywords or company name" />
+												<input type="text" id="searchInput" placeholder="Job title, keywords or company name" />
+												<button type="button" onclick="search()">Search</button>
 												<i class="la la-keyboard-o"></i>
 											</div>
 										</div>
@@ -59,6 +60,7 @@
 				<div class="col-lg-12">
 					<div class="heading">
 						<h2>Popular Categories</h2>
+					
 						<span>37 jobs live - 0 added today.</span>
 					</div><!-- Heading -->
 					<div class="cat-sec">
@@ -351,3 +353,9 @@ else
 		</div>
 	</div>
 </section>
+<script>
+	function search() {
+		var value = document.getElementById('searchInput').value;
+		window.location.href = '/home/search?value=' + encodeURIComponent(value);
+	}
+</script>

@@ -31,8 +31,9 @@ namespace FinalProjectJobHunt.Models
         public int MaxAge { get; set; }
         public DateTime Created { get; set;}
         public int AppUserId { get; set; }
-        [ForeignKey("AppUserId")]
         public AppUser? AppUser { get; set; }
+        public List<BasketItem>? BasketItems { get; set; }
+
 
     }
 }

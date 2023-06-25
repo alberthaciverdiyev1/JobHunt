@@ -12,6 +12,10 @@ namespace FinalProjectJobHunt.DAL
 {
 	public class AppDbContext : IdentityDbContext<AppUser, UserRole, int>
 	{
+		public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
+		{
+
+		}
 		public DbSet<Setting> Settings { get; set; }
 		public DbSet<Category> Categories { get; set; }
 		public DbSet<Blog> Blogs { get; set; }
@@ -23,11 +27,10 @@ namespace FinalProjectJobHunt.DAL
 		public DbSet<Education> Educations { get; set; }
 		public DbSet<Language> Languages { get; set; }
 		public DbSet<UserPostJob> UserPostJobs { get; set; }
+		public DbSet<BasketItem> BasketItems { get; set; }
 
-		public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
-		{
 
-		}
+
 
 
 

@@ -215,9 +215,9 @@
                 dataType: 'json',
                 data: { id: $("#ChooseCategory").val() },
                 success: function (data) {
-                    console.log("Success");
+                    console.log("Prenses");
 
-                    $("#PositionList").append("<option value=-1> Choose Profession</option>");
+                    $("#PositionList").append("<option value=-1> Select Profession</option>");
                     $.each(data, (index, value) => {
                         $("#PositionList").append(`<option value="${value.value}">${value.text}</option>`);
                     });

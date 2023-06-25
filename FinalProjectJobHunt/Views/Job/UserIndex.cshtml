@@ -22,10 +22,10 @@
 										<div class="col-lg-4">
 											<div class="job-field">
 												<select data-placeholder="City, province or region" class="chosen-city">
-													<option>Instambul</option>
-													<option>New York</option>
-													<option>London</option>
-													<option>Russia</option>
+													@foreach (City item in Model.Cities)
+													{
+														<option>@item.CityName</option>
+													}
 												</select>
 												<i class="la la-map-marker"></i>
 											</div>
@@ -35,15 +35,6 @@
 										</div>
 									</div>
 								</form>
-								<div class="tags-bar">
-									<span>Full Time<i class="close-tag">x</i></span>
-									<span>UX/UI Design<i class="close-tag">x</i></span>
-									<span>Istanbul<i class="close-tag">x</i></span>
-									<div class="action-tags">
-										<a href="#" title=""><i class="la la-cloud-download"></i> Save</a>
-										<a href="#" title=""><i class="la la-trash-o"></i> Clean</a>
-									</div>
-								</div><!-- Tags Bar -->
 							</div>
 						</div>
 					</div>
@@ -73,12 +64,24 @@
 					<div class="widget border">
 						<h3 class="sb-title open">Job Type</h3>
 						<div class="type_widget">
-							<p class="flchek"><input type="checkbox" name="choosetype" id="33r"><label for="33r">Freelance (9)</label></p>
-							<p class="ftchek"><input type="checkbox" name="choosetype" id="dsf"><label for="dsf">Full Time (8)</label></p>
-							<p class="ischek"><input type="checkbox" name="choosetype" id="sdd"><label for="sdd">Internship (8)</label></p>
-							<p class="ptchek"><input type="checkbox" name="choosetype" id="sadd"><label for="sadd">Part Time (5)</label></p>
-							<p class="tpchek"><input type="checkbox" name="choosetype" id="assa"><label for="assa">Temporary (5)</label></p>
-							<p class="vtchek"><input type="checkbox" name="choosetype" id="ghgf"><label for="ghgf">Volunteer (8)</label></p>
+							
+	@*						@foreach(JobType item in Model.JobTypes)
+							{
+								<p class="flchek"><input type="checkbox" name="choosetype" id="@item.id" value="@item.id" /><label for="@item.id">@item.WorkType</label></p>
+
+							}*@
+							<form class="filterForm">
+							<div class="job-types">
+								<ul>
+									@foreach (var jobType in Model.JobTypes)
+									{
+										<li>
+											<a type="checkbox" class="flchek" href="@Url.Action("UserIndex", new { page = 1, jobType = jobType.WorkType })">@jobType.WorkType</a>
+										</li>
+									}
+								</ul>
+                                </div>
+                            </form>
 						</div>
 					</div>
 					<div class="widget border">
@@ -193,18 +196,18 @@
 
 							@if (ViewBag.Page > 0)
 							{
-								<a asp-action="index" asp-controller="Job" asp-route-page="@(ViewBag.Page-1)" type="button" class="btn btn-secondary ">Previous</a>
+								<a asp-action="userindex" asp-controller="Job" asp-route-page="@(ViewBag.Page-1)" type="button" class="btn btn-secondary ">Previous</a>
 
 							}
 							@for (int i = 0; i < ViewBag.Total; i++)
 							{
 
-								<a asp-action="index" asp-controller="job" asp-route-page="@(i)" type="button" class="btn btn-secondary @(i==ViewBag.Page?"disabled":"")">@(i + 1)</a>
+								<a asp-action="userindex" asp-controller="job" asp-route-page="@(i)" type="button" class="btn btn-secondary @(i==ViewBag.Page?"disabled":"")">@(i + 1)</a>
 
 							}
 							@if (ViewBag.Page + 1 < ViewBag.Total)
 							{
-								<a asp-action="index" asp-controller="job" asp-route-page="@(ViewBag.Page+1)" type="button" class="btn btn-secondary">Next</a>
+								<a asp-action="userindex" asp-controller="job" asp-route-page="@(ViewBag.Page+1)" type="button" class="btn btn-secondary">Next</a>
 
 							}
 						</div><!-- Pagination -->
@@ -214,3 +217,25 @@
 		</div>
 	</div>
 </section>
+<script>
+	$(document).ready(function () {
+		$('#filterForm').submit(function (e) {
+			e.preventDefault();
+			var formData = $(this).serialize();
+			$.ajax({
+				url: '@Url.Action("UserIndex", "Job")',
+				type: 'POST',
+				data: formData,
+				beforeSend: function () {
+				},
+				success: function (response) {
+					// Handle the response from the server
+					console.log("gbkjhbkjhb");
+				},
+				error: function (xhr, status, error) {
+					// Handle any error that occurs during the request
+				}
+			});
+		});
+	});
+</script>

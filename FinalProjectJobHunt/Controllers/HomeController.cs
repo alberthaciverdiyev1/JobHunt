@@ -37,9 +37,11 @@ namespace FinalProjectJobHunt.Controllers
 		
 		return View(categories);
 		}
-		public IActionResult Error()
+		public async Task<IActionResult> Search( string value)
 		{
-			return View();
+			var Values=await _context.Categories.Where(x=>x.Name.Contains(value))
+				.Include(x=>x.Positions).Where(x => x.Name.Contains(value)).ToListAsync();	
+			return View(Values);
 		}
 
 	}

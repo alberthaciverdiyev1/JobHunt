@@ -8,14 +8,14 @@ namespace FinalProjectJobHunt.ViewModels
 
         public List<Category>? Category { get; set; }
         public List<Position>? Positions { get; set; }
-        public List<City>? Cities { get; set; }
+     
         public List<Education>? Educations { get; set; }
         public List<Language>? Languages { get; set; }
         public List<JobType>? JobTypes { get; set; }
         public List<PostJob>? PostJobs { get; set; }
         public List<AppUser>? AppUsers { get; set; }
         public List<WorkExperience>? WorkExperiences { get; set; }
-
+   public List<City>? Cities { get; set; }
         [Required]
         public int CategoryId { get; set; }
         [Required]

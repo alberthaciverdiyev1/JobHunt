@@ -4,6 +4,7 @@ using FinalProjectJobHunt.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Web.Mvc;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -38,5 +39,7 @@ app.UseEndpoints(endpoints =>
 app.MapControllerRoute(
 	name: "default",
 	pattern: "{controller=Home}/{action=Index}/{id?}");
+
+
 
 app.Run();

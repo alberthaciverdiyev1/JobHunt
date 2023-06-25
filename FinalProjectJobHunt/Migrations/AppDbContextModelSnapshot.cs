@@ -33,12 +33,24 @@ namespace FinalProjectJobHunt.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
+                    b.Property<byte?>("Age")
+                        .HasColumnType("tinyint");
+
+                    b.Property<int?>("CategoryId")
+                        .HasColumnType("int");
+
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("EducationId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Email")
                         .HasMaxLength(256)
@@ -71,6 +83,9 @@ namespace FinalProjectJobHunt.Migrations
                     b.Property<string>("PasswordHash")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Phone")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("PhoneNumber")
                         .HasColumnType("nvarchar(max)");
 
@@ -96,6 +111,10 @@ namespace FinalProjectJobHunt.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("CategoryId");
+
+                    b.HasIndex("EducationId");
+
                     b.HasIndex("NormalizedEmail")
                         .HasDatabaseName("EmailIndex");
 
@@ -105,6 +124,34 @@ namespace FinalProjectJobHunt.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
+                });
+
+            modelBuilder.Entity("FinalProjectJobHunt.Models.BasketItem", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"));
+
+                    b.Property<int?>("AppUserId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("PostJobId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("UserPostJobId")
+                        .HasColumnType("int");
+
+                    b.HasKey("id");
+
+                    b.HasIndex("AppUserId");
+
+                    b.HasIndex("PostJobId");
+
+                    b.HasIndex("UserPostJobId");
+
+                    b.ToTable("BasketItems");
                 });
 
             modelBuilder.Entity("FinalProjectJobHunt.Models.Blog", b =>
@@ -571,6 +618,42 @@ namespace FinalProjectJobHunt.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("FinalProjectJobHunt.Models.AppUser", b =>
+                {
+                    b.HasOne("FinalProjectJobHunt.Models.Category", "Category")
+                        .WithMany("AppUsers")
+                        .HasForeignKey("CategoryId");
+
+                    b.HasOne("FinalProjectJobHunt.Models.Education", "Education")
+                        .WithMany("AppUsers")
+                        .HasForeignKey("EducationId");
+
+                    b.Navigation("Category");
+
+                    b.Navigation("Education");
+                });
+
+            modelBuilder.Entity("FinalProjectJobHunt.Models.BasketItem", b =>
+                {
+                    b.HasOne("FinalProjectJobHunt.Models.AppUser", "AppUser")
+                        .WithMany("BasketItems")
+                        .HasForeignKey("AppUserId");
+
+                    b.HasOne("FinalProjectJobHunt.Models.PostJob", "PostJob")
+                        .WithMany("BasketItems")
+                        .HasForeignKey("PostJobId");
+
+                    b.HasOne("FinalProjectJobHunt.Models.Job.UserPostJob", "UserPostJob")
+                        .WithMany("BasketItems")
+                        .HasForeignKey("UserPostJobId");
+
+                    b.Navigation("AppUser");
+
+                    b.Navigation("PostJob");
+
+                    b.Navigation("UserPostJob");
+                });
+
             modelBuilder.Entity("FinalProjectJobHunt.Models.Job.UserPostJob", b =>
                 {
                     b.HasOne("FinalProjectJobHunt.Models.AppUser", "AppUser")
@@ -737,6 +820,8 @@ namespace FinalProjectJobHunt.Migrations
 
             modelBuilder.Entity("FinalProjectJobHunt.Models.AppUser", b =>
                 {
+                    b.Navigation("BasketItems");
+
                     b.Navigation("PostJobs");
 
                     b.Navigation("UserPostJobs");
@@ -744,6 +829,8 @@ namespace FinalProjectJobHunt.Migrations
 
             modelBuilder.Entity("FinalProjectJobHunt.Models.Category", b =>
                 {
+                    b.Navigation("AppUsers");
+
                     b.Navigation("Positions");
 
                     b.Navigation("PostJobs");
@@ -756,7 +843,14 @@ namespace FinalProjectJobHunt.Migrations
 
             modelBuilder.Entity("FinalProjectJobHunt.Models.Education", b =>
                 {
+                    b.Navigation("AppUsers");
+
                     b.Navigation("PostJobs");
+                });
+
+            modelBuilder.Entity("FinalProjectJobHunt.Models.Job.UserPostJob", b =>
+                {
+                    b.Navigation("BasketItems");
                 });
 
             modelBuilder.Entity("FinalProjectJobHunt.Models.JobType", b =>
@@ -767,6 +861,11 @@ namespace FinalProjectJobHunt.Migrations
             modelBuilder.Entity("FinalProjectJobHunt.Models.Language", b =>
                 {
                     b.Navigation("PostJobs");
+                });
+
+            modelBuilder.Entity("FinalProjectJobHunt.Models.PostJob", b =>
+                {
+                    b.Navigation("BasketItems");
                 });
 
             modelBuilder.Entity("FinalProjectJobHunt.Models.WorkExperience", b =>

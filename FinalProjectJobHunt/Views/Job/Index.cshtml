@@ -13,17 +13,18 @@
                                     <div class="row">
                                         <div class="col-lg-7">
                                             <div class="job-field">
-                                                <input type="text" placeholder="Job title, keywords or company name" />
+                                                <input type="text" id="SearchBox" placeholder="Job title, keywords or company name" />
                                                 <i class="la la-keyboard-o"></i>
                                             </div>
                                         </div>
                                         <div class="col-lg-4">
                                             <div class="job-field">
                                                 <select data-placeholder="City, province or region" class="chosen-city">
-                                                    <option>Instambul</option>
-                                                    <option>New York</option>
-                                                    <option>London</option>
-                                                    <option>Russia</option>
+                                                    <option value="">Select City</option>
+                                                    @foreach(City item in Model.Cities)
+                                                    {
+                                                        <option>@item.CityName</option>
+                                                    }
                                                 </select>
                                                 <i class="la la-map-marker"></i>
                                             </div>
@@ -33,15 +34,6 @@
                                         </div>
                                     </div>
                                 </form>
-                                <div class="tags-bar">
-                                    <span>Full Time<i class="close-tag">x</i></span>
-                                    <span>UX/UI Design<i class="close-tag">x</i></span>
-                                    <span>Istanbul<i class="close-tag">x</i></span>
-                                    <div class="action-tags">
-                                        <a href="#" title=""><i class="la la-cloud-download"></i> Save</a>
-                                        <a href="#" title=""><i class="la la-trash-o"></i> Clean</a>
-                                    </div>
-                                </div><!-- Tags Bar -->
                             </div>
                         </div>
                     </div>

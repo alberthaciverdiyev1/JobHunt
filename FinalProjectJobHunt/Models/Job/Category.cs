@@ -10,6 +10,7 @@ namespace FinalProjectJobHunt.Models
         public string Name { get; set; }
         public List<PostJob>? PostJobs { get; set; }
         public List<Position>? Positions { get; set; }
+        public List<AppUser>? AppUsers { get; set; }
 
-    }
+	}
 }

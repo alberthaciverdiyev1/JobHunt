@@ -13,10 +13,18 @@ namespace FinalProjectJobHunt.Models
         public string Name { get; set; }
         public string Surname { get; set; }
         public int? UserProfession { get; set; }
+        public byte? Age { get; set; }
+        public string? Phone { get; set; }
+        public string? Description { get; set; }
         public string? ImageURL { get; set; }
         public DateTime CreatedAt { get; set; }
+        public int? CategoryId { get; set; }
+        public Category? Category { get; set; }
+        public int? EducationId { get; set; }
+        public Education? Education { get; set; }
         public List<UserPostJob>? UserPostJobs { get; set; }
         public List<PostJob>? PostJobs { get; set; }
+        public List<BasketItem> BasketItems { get; set; }
 
     }
 }

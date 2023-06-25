@@ -10,6 +10,9 @@ using System.Security.Claims;
 using FinalProjectJobHunt.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Data;
+using System.Text.Json.Serialization;
+using System.Text.Json;
 
 namespace FinalProjectJobHunt.Controllers
 {
@@ -32,6 +35,7 @@ namespace FinalProjectJobHunt.Controllers
 			List<Category> categories = await _context.Categories.ToListAsync();
 			List<Position> positions = await _context.Positions.ToListAsync();
 			List<AppUser> users = await _context.Users.ToListAsync();
+			List<City> cities = await _context.Cities.ToListAsync();
 			List<PostJob> postJobs = await _context.PostJobs
 				.Include(x => x.JobType).Skip(page * 6).Take(6)
 				.Include(x => x.City)
@@ -42,41 +46,51 @@ namespace FinalProjectJobHunt.Controllers
 				Category = categories,
 				Positions = positions,
 				PostJobs = postJobs,
-				AppUsers = users
+				AppUsers = users,
+				Cities = cities,
 
 			};
 
 			return View(jobVM);
 		}
 
-
-		public async Task<IActionResult> UserIndex(int page)
+		public async Task<IActionResult> UserIndex(int page, string jobType)
 		{
 			ViewBag.Page = page;
-			ViewBag.Total = Math.Ceiling((decimal)_context.UserPostJobs.Count() / 6);
-			ViewBag.Users = await _context.Users.ToListAsync();
+			ViewBag.Total = Math.Ceiling((decimal)_context.PostJobs.Count() / 6);
+
+			IQueryable<UserPostJob> postJobsQuery = _context.UserPostJobs
+				.Include(x => x.JobType)
+				.Include(x => x.City)
+				.Include(x => x.Category);
+
+			if (!string.IsNullOrEmpty(jobType))
+			{
+				postJobsQuery = postJobsQuery.Where(x => x.JobType.WorkType == jobType);
+			}
+
+			List<UserPostJob> postJobs = await postJobsQuery.ToListAsync();
+
 			List<Category> categories = await _context.Categories.ToListAsync();
 			List<Position> positions = await _context.Positions.ToListAsync();
 			List<AppUser> users = await _context.Users.ToListAsync();
-			List<UserPostJob> postJobs = await _context.UserPostJobs
-				.Include(x => x.JobType)
-				.Skip(page * 6).Take(6)
-				.Include(x => x.City)
-				.Include(x => x.Category)
-				.ToListAsync();
-
+			List<City> cities = await _context.Cities.ToListAsync();
+			List<JobType> jobTypes = await _context.JobTypes.ToListAsync();
 
 			UserPostJobVM jobVM = new UserPostJobVM
 			{
 				Category = categories,
 				Positions = positions,
 				UserPostJobs = postJobs,
-				AppUsers = users
-
+				AppUsers = users,
+				Cities = cities,
+				JobTypes = jobTypes
 			};
+			Console.WriteLine("Job Type: " + jobType);
 
 			return View(jobVM);
 		}
+
 
 		public async Task<IActionResult> Detail(int id)
 		{
