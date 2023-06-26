@@ -1,4 +1,9 @@
-﻿@model AppUser
+﻿@using System.Security.Claims;
+@model Profile
+@{
+    string role = User.FindFirst(ClaimTypes.Role)?.Value;
+
+}
 <section class="overlape">
     <div class="block no-padding">
         <div data-velocity="-.1" style="background: url(images/resource/mslider1.jpg) repeat scroll 50% 422.28px transparent;" class="parallax scrolly-invisible no-parallax"></div><!-- PARALLAX BACKGROUND IMAGE -->
@@ -13,134 +18,228 @@
         </div>
     </div>
 </section>
-
 <section>
     <div class="block no-padding">
-        <div class="container">
-            <div class="row no-gape">
+        <div class="container mr-5">
+            <div class="row">
+                <div class="profile-title">
+                    <h3>My Profile</h3>
+                    <div class="col-lg-3">
+                        <div class="upload-img-bar">
+                            <span class="upload-img-bar"><img src="~/assets/images/User/@Model.ImageURL" alt="" /><i></i></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <span class="pf-title text-danger">Username</span>
+                    <p>@Model.Username</p>
+                </div>
+                <div class="col-lg-4">
+                    <span class="pf-title text-danger">Name</span>
+                    <p>@Model.Name</p>
+                </div>
+                <div class="col-lg-4">
+                    <span class="pf-title text-danger">Surname</span>
+                    <p>@Model.Surname</p>
+                </div>
+                @if (role == "EMPLOYEE")
+                {
+                }
+                else
+                {
+                    if (Model.Age == null)
+                    {
+                        <p></p>
+                    }
+                    else
+                    {
 
-                <div class="col-lg-12 column">
-                    <div class="padding-left">
-                        <div class="profile-title">
-                            <h3>My Profile</h3>
+                        <div class="col-lg-4">
+                            <span class="pf-title text-danger">Age</span>
+                            <p>@Model.Age</p>
+                        </div>
+                    }
+                }
+                @if (role == "EMPLOYEE")
+                {
+                }
+                else
+                {
+                    if (Model.Education == null)
+                    {
+                        <p></p>
+                    }
+                    else
+                    {
+                        <div class="col-lg-4">
+                            <span class="pf-title text-danger">Education Levels</span>
+                            <p>@Model.Education.EducationName</p>
+                        </div>
+                    }
+                }
 
-                            <div class="upload-img-bar">
-                                <span class="round upload-img-bar"><img src="~/assets/images/resource/mpf1.jpg" alt="" /><i></i></span>
+                @if (role == "EMPLOYEE")
+                {
+                }
+                else
+                {
+                    if (Model.Category == null)
+                    {
+                        <p></p>
+                    }
+                    else
+                    {
+                        <div class="col-lg-4">
+                            <span class="pf-title text-danger">Categories</span>
+                            <p>@Model.Category.Name</p>
+                        </div>
+                    }
+                }
 
+                @if (role == "EMPLOYEE")
+                {
+                }
+                else
+                {
+                    if (ViewBag.Position == null)
+                    {
+                        <p></p>
+                    }
+                    else
+                    {
+                        <div class="col-lg-4">
+                            <span class="pf-title text-danger">Profession</span>
+                            <div class="pf-field">
+                                <p>@ViewBag.Position</p>
                             </div>
                         </div>
+                    }
+                }
 
-
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <span class="pf-title">Full Name</span>
-                                <p>@Model.Name</p>
-                            </div>
-                            <div class="col-lg-6">
-                                <span class="pf-title">Surname</span>
-                                <p>@Model.Surname</p>
-                            </div>
-
-                            <div class="col-lg-6">
-                                <span class="pf-title">Experience</span>
-                                <p>@Model year</p>
-                            </div>
-
-                            @if (Model.Age == null)
-                            {
-                                <p></p>
-                            }
-                            else
-                            {
-                                <div class="col-lg-6">
-                                    <span class="pf-title">Age</span>
-                                    <p>22</p>
-
-                                </div>
-                            }
-                            @if (Model.EducationId == null)
-                            {
-                                <p></p>
-                            }
-                            else
-                            {
-                                   <div class="col-lg-6">
-                                <span class="pf-title">Education Levels</span>
-                                <p>@Model.Education.EducationName</p>
-
-                            </div> 
-                            }
-                            @if (Model.CategoryId == null)
-                            {
-                                <p></p>
-                            }
-                            else
-                            {
-                                   <div class="col-lg-6">
-                                <span class="pf-title">Categories</span>
-                                <p>@Model.Category.Name</p>
-
-                            </div>  
-                            }
-                            @if (Model.Description == null)
-                            {
-                                <p></p>
-                            }
-                            else
-                            {
-                                          <div class="col-lg-8">
-                                <span class="pf-title">Description</span>
-
-                                <p>
-                                  @Model.Description  </p>
-
-                            </div>
-                            }
-                  
-
+                @if (role == "EMPLOYEE")
+                {
+                }
+                else
+                {
+                    if (Model.Description == null)
+                    {
+                        <p></p>
+                    }
+                    else
+                    {
+                        <div class="col-lg-8">
+                            <span class="pf-title text-danger">Description</span>
+                            <p>@Model.Description</p>
                         </div>
-                        <div class="contact-edit">
-                            <h3>Contact</h3>
+                    }
 
-                            <div class="row">
-                               
-                                @if (Model.Phone == null)
-                                {
-                                    <p></p>
-                                }
-                                else
-                                {
-                                     <div class="col-lg-6">
-                                    <span class="pf-title">Phone Number</span>
-                                    <p> @Model.Phone <p />
-                                </div> 
-                                }
-                                <div class="col-lg-6">
-                                    <span class="pf-title">Email</span>
-                                    <p>@Model.Email<p />
-                                </div>
-                                @if (Model.UserProfession == null)
-                                {
-                                    <p></p>
-                                }
-                                else
-                                {
-                                       <div class="col-lg-6">
-                                    <span class="pf-title">Profession</span>
-                                    <div class="pf-field">
-                                        <p>@Model.UserProfession</p>
+                }
 
+
+            </div>
+            <div class="contact-edit">
+                <h3 class="text-danger">Contact</h3>
+                <div class="row">
+                    @if (Model.Phone == null)
+                    {
+                        <p></p>
+                    }
+                    else
+                    {
+                        <div class="col-lg-6">
+                            <span class="pf-title text-danger">Phone Number</span>
+                            <p>@Model.Phone</p>
+                        </div>
+                    }
+                    @if (Model.UserEmail == null)
+                    {
+                        <p></p>
+                    }
+                    else
+                    {
+                        <div class="col-lg-6">
+                            <span class="pf-title text-danger">Email</span>
+                            <p>@Model.UserEmail</p>
+                        </div>
+                    }
+
+                    @if (role == "EMPLOYEE")
+                    {
+                        @foreach (PostJob item in Model.PostJobs)
+                        {
+                            var positionName = Model.Positions.FirstOrDefault(x => x.id == item.PositionId)?.PositionName ?? string.Empty;
+                            var CategoryName = Model.Categories.FirstOrDefault(x => x.id == item.CategoryId)?.Name ?? string.Empty;
+                            <div class="job-listing wtabs" onclick="location.href='@Url.Action("CompanyJobDetail", "job", new { id = item.id })'" style="cursor: pointer;">
+                                <div class="job-title-sec">
+                                    <div class="c-logo">
+                                        <img src="~/assets/images/User/@Model.ImageURL" alt="" />
                                     </div>
-                                </div> 
-                                }
-                            
+                                    <h3> @positionName / @CategoryName</h3>
+                                    <span>@Model.Name</span>
+                                    @if (item.Description.Length < 100)
+                                    {
+                                        <p class="job-lctn">@item.Description</p>
 
-                                <div class="col-lg-12">
-                                    <a asp-action="Update" asp-controller="User" class="btn btn-warning mt-3 mr-2" style="float:right;">Edit Profile</a>
+                                        <br />
+                                    }
+                                    else
+                                    {
+                                        <p class="job-lctn"> @item.Description.Substring(0,50)... </p>
+
+                                        <br />
+
+                                    }
+                                </div>
+
+                                <div>
+                                    <p>@item.Created</p>
+                                    <a asp-action="Delete" asp-controller="User" asp-route-id="@item.id" class="btn btn-danger waves-effect waves-light">Delete</a>
+
                                 </div>
                             </div>
+                        }
+                    }
+                    else
+                    {
 
-                        </div>
+                        @foreach (var item in Model.UserPostJobs)
+                        {
+                            var positionName = Model.Positions.FirstOrDefault(x => x.id == item.PositionId)?.PositionName ?? string.Empty;
+                            var CategoryName = Model.Categories.FirstOrDefault(x => x.id == item.CategoryId)?.Name ?? string.Empty;
+                            <div class="job-listing wtabs" onclick="location.href='@Url.Action("Detail", "job", new { id = item.id })'" style="cursor: pointer;">
+                                <div class="job-title-sec">
+                                    <div class="c-logo">
+                                        <img src="~/assets/images/User/@Model.ImageURL" alt="" />
+                                    </div>
+                                    <h3> @positionName / @CategoryName</h3>
+                                    <span>@Model.Name</span>
+                                    @if (item.Description.Length < 100)
+                                    {
+                                        <p class="job-lctn">@item.Description</p>
+
+                                        <br />
+                                    }
+                                    else
+                                    {
+                                        <p class="job-lctn"> @item.Description.Substring(0,50)... </p>
+
+                                        <br />
+
+                                    }
+                                </div>
+
+                                <div>
+                                    <p>@item.Created</p> 
+                                    <a asp-action="Delete" asp-controller="User" asp-route-id="@item.id" class="btn btn-danger waves-effect waves-light">Delete</a>
+
+                                </div>
+
+                            </div>
+                        }
+                    }
+
+                    <div class="col-lg-12">
+                        <a asp-action="Update" asp-controller="User" class="btn btn-warning mt-3 mr-2" style="float:right;">Edit Profile</a>
                     </div>
                 </div>
             </div>

@@ -24,7 +24,7 @@ namespace FinalProjectJobHunt.Models
         public Education? Education { get; set; }
         public List<UserPostJob>? UserPostJobs { get; set; }
         public List<PostJob>? PostJobs { get; set; }
-        public List<BasketItem> BasketItems { get; set; }
+        public List<BasketItem>? BasketItems { get; set; }
 
     }
 }

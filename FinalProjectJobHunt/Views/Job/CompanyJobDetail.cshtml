@@ -61,13 +61,13 @@
                 <div class="col-lg-4 column">
                     <div class="job-single-head style2">
                         <div class="ias" style="display: flex; justify-content: center; align-items: center; height: 50%;  border: 2px solid #FB236A;">
-                            <img src="~/assets/images/User/@Model.AppUser.ImageURL" alt="" style="max-width: 100%; max-height: 100%; object-fit: contain;" />
+                         <a asp-action="UserInfo" asp-controller="User" asp-route-id="@Model.AppUser.Id">    <img src="~/assets/images/User/@Model.AppUser.ImageURL" alt="" style="max-width: 100%; max-height: 100%; object-fit: contain;" /></a>
                         </div>
                         <div class="job-head-info">
-                            <h4>@Model.AppUser.Name @Model.AppUser.Surname</h4>
+                         <a asp-action="UserInfo" asp-controller="User" asp-route-id="@Model.AppUser.Id">    <h4>@Model.AppUser.Name @Model.AppUser.Surname</h4></a>
                             <!--<span>274 Seven Sisters Road, London, N4 2HY</span>-->
-                            <p><i class="la la-phone"></i> @Model.PostJob.PhoneNumber</p>
-                            <p><i class="la la-envelope-o"></i> @Model.PostJob.Email</p>
+                            <a asp-action="UserInfo" asp-controller="User" asp-route-id="@Model.AppUser.Id">    <p><i class="la la-phone"></i> @Model.PostJob.PhoneNumber</p></a>
+                          <a asp-action="UserInfo" asp-controller="User" asp-route-id="@Model.AppUser.Id">   <p><i class="la la-envelope-o"></i> @Model.PostJob.Email</p></a>
                         </div>
                         <a href="#" title="" class="apply-job-btn"><i class="la la-paper-plane"></i>Apply For Job</a>
                         <a href="#" title="" class="apply-job-linkedin"><i class="fa-brands fa-linkedin"></i>Apply with Linkedin</a>
