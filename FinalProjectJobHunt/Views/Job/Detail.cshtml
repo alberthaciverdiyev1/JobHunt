@@ -1,4 +1,5 @@
-﻿@model DetailVM
+﻿
+@model DetailVM
 
 <section class="overlape">
     <div class="block no-padding">
@@ -22,7 +23,11 @@
                 <div class="col-lg-8 column">
                     <div class="job-single-sec">
                         <div class="job-single-head2">
-                            <div class="job-title2"><h3>@Model.UserPostJob.Category.Name / @Model.Position.PositionName</h3><span class="job-is ft">@Model.UserPostJob.JobType.WorkType</span><i class="la la-heart-o"></i></div>
+                            <div class="job-title2">
+                                <h3>@Model.UserPostJob.Category.Name / @Model.Position.PositionName</h3>
+                                <span class="job-is ft">@Model.UserPostJob.JobType.WorkType</span>
+                                <i class="la la-heart-o"></i>
+                            </div>
                             <ul class="tags-jobs">
                                 <li><i class="la la-map-marker"></i> @Model.UserPostJob.City.CityName</li>
                                 <li><i class="la la-money"></i> Monthly Salary : <span>$@Model.UserPostJob.Salary</span></li>
@@ -34,7 +39,6 @@
                             <div class="row">
                                 <div class="col-lg-6">
                                     <p>@Model.UserPostJob.Description</p>
-s
                                 </div>
                             </div>
                             <div class="job-overview">
@@ -43,38 +47,110 @@ s
                                     <li><i class="la la-money"></i><h3>Offerd Salary</h3><span>£@Model.UserPostJob.Salary</span></li>
                                     <li><i class="la la-thumb-tack"></i><h3>Career Level</h3><span>@Model.UserPostJob.WorkExperience.Experience</span></li>
                                     <li><i class="la la-shield"></i><h3>Experience</h3><span>@Model.UserPostJob.Experience Year</span></li>
-                                    <li><i class="fa-solid fa-child-reaching"></i><h3>Age</h3><span>@Model.UserPostJob.Age Years Old</span> </li>
+                                    <li><i class="fa-solid fa-child-reaching"></i><h3>Age</h3><span>@Model.UserPostJob.Age Years Old</span></li>
                                     <li><i class="la la-puzzle-piece"></i><h3>Industry</h3><span>@Model.UserPostJob.Category.Name</span></li>
                                     <li><i class="la la-line-chart "></i><h3>Qualification</h3><span>@Model.Position.PositionName</span></li>
-                                   
                                 </ul>
                             </div><!-- Job Overview -->
                             <div class="share-bar">
-                                <span>Share</span><a href="#" title="" class="share-fb"><i class="fa-brands fa-facebook"></i></a>
+                                <span>Share</span>
+                                <a href="#" title="" class="share-fb"><i class="fa-brands fa-facebook"></i></a>
                                 <a href="#" title="" class="share-twitter"><i class="fa-brands fa-twitter"></i></a>
                             </div>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="col-lg-4 column">
                     <div class="job-single-head style2">
                         <div class="ias" style="display: flex; justify-content: center; align-items: center; height: 50%;  border: 2px solid #FB236A;">
-                            <a asp-action="UserInfo" asp-controller="User" asp-route-id="@Model.AppUser.Id"> <img src="~/assets/images/User/@Model.AppUser.ImageURL" alt="" style="max-width: 100%; max-height: 100%; object-fit: contain;" /></a>
+                            <a asp-action="UserInfo" asp-controller="User" asp-route-id="@Model.AppUser.Id">
+                                <img src="~/assets/images/User/@Model.AppUser.ImageURL" alt="" style="max-width: 100%; max-height: 100%; object-fit: contain;" />
+                            </a>
                         </div>
                         <div class="job-head-info">
-                          <a asp-action="UserInfo" asp-controller="User" asp-route-id="@Model.AppUser.Id">   <h4>@Model.AppUser.Name @Model.AppUser.Surname</h4></a>
+                            <a asp-action="UserInfo" asp-controller="User" asp-route-id="@Model.AppUser.Id">
+                                <h4>@Model.AppUser.Name @Model.AppUser.Surname</h4>
+                            </a>
                             <!--<span>274 Seven Sisters Road, London, N4 2HY</span>-->
-                            <a asp-action="UserInfo" asp-controller="User" asp-route-id="@Model.AppUser.Id"> <p><i class="la la-phone"></i> @Model.UserPostJob.PhoneNumber</p></a>
-                           <a asp-action="UserInfo" asp-controller="User" asp-route-id="@Model.AppUser.Id">  <p><i class="la la-envelope-o"></i> @Model.UserPostJob.Email</p></a>
-
+                            <a asp-action="UserInfo" asp-controller="User" asp-route-id="@Model.AppUser.Id">
+                                <p><i class="la la-phone"></i> @Model.UserPostJob.PhoneNumber</p>
+                            </a>
+                            <a asp-action="UserInfo" asp-controller="User" asp-route-id="@Model.AppUser.Id">
+                                <p><i class="la la-envelope-o"></i> @Model.UserPostJob.Email</p>
+                            </a>
                         </div>
-                        <a href="#" title="" class="apply-job-btn"><i class="la la-paper-plane"></i>Invite To Work</a>
-                        <a href="#" title="" class="apply-job-linkedin"><i class="fa-brands fa-linkedin"></i>Apply with Linkedin</a>
+                        <a asp-route-id="@Model.AppUser.Id" class="apply-job-btn" data-toggle="modal" data-target="#inviteModal"><i class="la la-paper-plane"></i>Invite To Job</a>
                     </div><!-- Job Head -->
                 </div>
-
             </div>
         </div>
     </div>
 </section>
+<!-- Modal -->
+<div id="inviteModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Invite to Job</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Enter your message to send to the user:</p>
+                <textarea id="inviteMessage" class="form-control" rows="5"></textarea>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" onclick="sendInvite()">Send</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Success Modal -->
+<div id="successModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Success</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Your invitation has been sent successfully!</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+  
+    function sendInvite() {
+        var inviteMessage = document.getElementById("inviteMessage").value;
+        var recipientId = @Model.UserPostJob.AppUserId; 
+
+        $.ajax({
+            url: "/Message/SendMessage",
+            type: "POST",
+            data: {
+                send: {
+                    Description: inviteMessage,
+                    ReceiverId: recipientId
+                }
+            },
+            success: function (response) {
+                $("#successModal").modal("show");
+            },
+            error: function (error) {
+            }
+        });
+
+        $("#inviteModal").modal("hide");
+    }
+
+</script>
+

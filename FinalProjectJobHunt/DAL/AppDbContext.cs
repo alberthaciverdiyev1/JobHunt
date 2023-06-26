@@ -28,13 +28,16 @@ namespace FinalProjectJobHunt.DAL
 		public DbSet<Language> Languages { get; set; }
 		public DbSet<UserPostJob> UserPostJobs { get; set; }
 		public DbSet<BasketItem> BasketItems { get; set; }
+		public DbSet<Message> Messages { get; set; }
 
 
 
 
 
 
-		protected override void OnModelCreating(ModelBuilder modelBuilder)
+
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
 			base.OnModelCreating(modelBuilder);
 

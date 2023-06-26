@@ -69,70 +69,55 @@
                                     </div>
                                 </div>
 
-                                @if (role == "EMPLOYEE")
-                                {
-                                }
-                                else
-                                {
-                                      <div class="col-lg-2">
-                                    <span class="pf-title text-danger">Age</span>
-                                    <div class="pf-field">
-                                        <input asp-for="@Model.Age" value="@Model.Age" />
-                                    </div>
-                                </div>
-                                }
+
 
                                 @if (role == "EMPLOYEE")
                                 {
                                 }
                                 else
                                 {
-                                      <div class="col-lg-6">
-                                    <span class="pf-title text-danger">Categories</span>
-                                    <div class="pf-field">
-                                        <select id="ChooseCategory" asp-items="ViewBag.Categories" asp-for="CategoryId" class="chosen" style="display: none;" required>
-                                            <option value="">-- Select Category --</option>
-                                        </select>
+                                    <div class="col-lg-2">
+                                        <span class="pf-title text-danger">Age</span>
+                                        <div class="pf-field">
+                                            <input asp-for="@Model.Age" value="@Model.Age" />
+                                        </div>
                                     </div>
-                                </div>
-                                }
-                                @if (role == "EMPLOYEE")
-                                {
-                                }
-                                else
-                                {
+
                                     <div class="col-lg-6">
-                                    <span class="pf-title text-danger">Position</span>
-                                    <div class="pf-field">
-                                        <select id="PositionList" asp-for="UserProfession" required>
-                                            <option value="">-- Select Position --</option>
-                                        </select>
-
+                                        <span class="pf-title text-danger">Categories</span>
+                                        <div class="pf-field">
+                                            <select id="ChooseCategory" asp-items="ViewBag.Categories" asp-for="CategoryId" class="chosen" style="display: none;" required>
+                                                <option value="">-- Select Category --</option>
+                                            </select>
+                                        </div>
                                     </div>
-                                </div> 
+                                    <div class="col-lg-6">
+                                        <span class="pf-title text-danger">Position</span>
+                                        <div class="pf-field">
+                                            <select id="PositionList" asp-for="UserProfession" required>
+                                                <option value="">-- Select Position --</option>
+                                            </select>
 
-                                }
-                             
-                                @if (role == "EMPLOYEE")
-                                {
-                                }
-                                else
-                                {
-                                <div class="col-lg-6">
-                                    <span class="pf-title text-danger">Education Levels</span>
-                                    <div class="pf-field">
-                                        <select asp-for="EducationId" class="chosen">
-                                            <option value="">-- Select Education --</option>
-                                            @foreach (Education item in ViewBag.Education)
-                                            {
-                                                <option value="@item.id">@item.EducationName</option>
-
-                                            }
-                                        </select>
+                                        </div>
                                     </div>
-                                </div>
+                                    <div class="col-lg-6">
+                                        <span class="pf-title text-danger">Education Levels</span>
+                                        <div class="pf-field">
+                                            <select asp-for="EducationId" class="chosen">
+                                                <option value="">-- Select Education --</option>
+                                                @foreach (Education item in ViewBag.Education)
+                                                {
+                                                    <option value="@item.id">@item.EducationName</option>
 
+                                                }
+                                            </select>
+                                        </div>
+                                    </div>
                                 }
+
+
+
+
 
 
                                 <div class="col-lg-4">

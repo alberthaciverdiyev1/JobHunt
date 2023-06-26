@@ -32,7 +32,7 @@ namespace FinalProjectJobHunt.Controllers
             List<Blog> portfolios = await _context.Blogs.Skip(page * 6).Take(6).ToListAsync();
             return View(portfolios);
         }
-        public async Task<IActionResult> Create()
+        public IActionResult Create()
         {
             return View();
         }

@@ -10,39 +10,53 @@ namespace FinalProjectJobHunt.Controllers
     public class HomeController : Controller
     {
 
-		private readonly AppDbContext _context;
+        private readonly AppDbContext _context;
 
-		public HomeController(AppDbContext context)
-		{
-			_context = context;
-		}
-		public IActionResult Index(int count)
-		{
+        public HomeController(AppDbContext context)
+        {
+            _context = context;
+        }
+        public IActionResult Index(int count)
+        {
+            var user = _context.Users.FirstOrDefault(u => u.UserName == User.Identity!.Name);
+            if (User.Identity.IsAuthenticated)
+            {
+                var messages = _context.Messages.Where(x => x.ReceiverId == user.Id).Count();
 
-			List<Category> categories = _context.Categories.Take(8).ToList();
-			List<Blog>blogs=_context.Blogs.ToList();
-			List<AppUser>users=_context.Users.ToList();
+                if (messages != null)
+                {
+                    ViewBag.Messages = messages;
 
-			HomeVM homeVM= new HomeVM { 
-			
-			Categories = categories,
-			Blogs=blogs,
-			Users=users
-			};
-			return View(homeVM);
-		}
-		public async Task<ActionResult> Categories() { 
-		
-		List<Category>categories=await _context.Categories.ToListAsync();
-		
-		return View(categories);
-		}
-		public async Task<IActionResult> Search( string value)
-		{
-			var Values=await _context.Categories.Where(x=>x.Name.Contains(value))
-				.Include(x=>x.Positions).Where(x => x.Name.Contains(value)).ToListAsync();	
-			return View(Values);
-		}
 
-	}
+                }
+            }
+
+            //ViewBag.User = _context.Users.FirstOrDefault(u => u.UserName == User.Identity!.Name).ImageURL;
+            List<Category> categories = _context.Categories.Take(8).ToList();
+            List<Blog> blogs = _context.Blogs.ToList();
+            List<AppUser> users = _context.Users.ToList();
+            HomeVM homeVM = new HomeVM
+            {
+
+                Categories = categories,
+                Blogs = blogs,
+                Users = users,
+            };
+            return View(homeVM);
+        }
+        public async Task<ActionResult> Categories()
+        {
+
+            List<Category> categories = await _context.Categories.ToListAsync();
+
+            return View(categories);
+        }
+        public async Task<IActionResult> Search(string value)
+        {
+            var Values = await _context.Categories.Where(x => x.Name.Contains(value))
+                .Include(x => x.Positions).Where(x => x.Name.Contains(value)).ToListAsync();
+            return View(Values);
+        }
+
+    }
 }

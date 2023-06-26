@@ -12,5 +12,5 @@ namespace FinalProjectJobHunt.Models
         public List<Position>? Positions { get; set; }
         public List<AppUser>? AppUsers { get; set; }
 
-	}
+    }
 }

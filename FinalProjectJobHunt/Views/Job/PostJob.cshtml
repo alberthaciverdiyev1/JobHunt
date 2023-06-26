@@ -1,5 +1,5 @@
 ﻿@using FinalProjectJobHunt.Models;
-@model JobVM
+@model PostJobVM
 
 
 
@@ -31,17 +31,7 @@
                         <div class="profile-form-edit">
                             <form method="post">
                                 <div class="row">
-                                    @* <div class="col-lg-5">
-                                    <span class="pf-title">Categories</span>
-                                    <div class="pf-field">
-                                    <select id="ChooseCategory" asp-items="ViewBag.Categories" data-placeholder="Allow In Search" asp-validation-for="CategoryId" class="chosen" style="display: none;" required>
-                                    <option value="">-- Select Category --</option>
-
-                                    </select>
-                                    <span class="text-danger" asp-validation-for="CategoryId"></span>
-                                    </div>
-                                    </div>
-
+                                    @* 
                                     <div class="col-lg-5">
                                     <span class="pf-title">Position</span>
                                     <div class="pf-field">
@@ -131,21 +121,21 @@
                                             <span asp-validation-for="LanguageId" class="text-danger"></span>
                                         </div>
                                     </div>
-
                                     <div class="col-lg-3">
                                         <span class="pf-title">City</span>
                                         <div class="pf-field">
-                                            <select asp-for="CityId" data-placeholder="Allow In Search" asp-validation-for="CityId" class="chosen">
+                                            <select asp-for="CityId" class="chosen">
                                                 <option value="">-- Select City --</option>
-                                                @foreach (var category in Model.Cities)
+                                                @foreach (var city in Model.Cities)
                                                 {
-                                                    <option value="@category.id">@category.CityName</option>
+                                                    <option value="@city.id">@city.CityName</option>
                                                 }
                                             </select>
                                             <span asp-validation-for="CityId" class="text-danger"></span>
                                         </div>
                                     </div>
 
+                    
                                     <div class="col-lg-3">
                                         <span class="pf-title">Experience</span>
                                         <div class="pf-field">

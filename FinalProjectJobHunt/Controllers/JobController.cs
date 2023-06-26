@@ -36,20 +36,22 @@ namespace FinalProjectJobHunt.Controllers
 			List<Position> positions = await _context.Positions.ToListAsync();
 			List<AppUser> users = await _context.Users.ToListAsync();
 			List<City> cities = await _context.Cities.ToListAsync();
-			List<PostJob> postJobs = await _context.PostJobs
+            List<JobType> jobTypes = await _context.JobTypes.ToListAsync();
+            List<PostJob> postJobs = await _context.PostJobs
 				.Include(x => x.JobType).Skip(page * 6).Take(6)
 				.Include(x => x.City)
 				.Include(x => x.Category).ToListAsync();
-
-			JobVM jobVM = new JobVM
+      
+            PostJobVM jobVM = new PostJobVM
 			{
 				Category = categories,
 				Positions = positions,
 				PostJobs = postJobs,
 				AppUsers = users,
 				Cities = cities,
+                JobTypes= jobTypes
 
-			};
+            };
 
 			return View(jobVM);
 		}
@@ -84,9 +86,8 @@ namespace FinalProjectJobHunt.Controllers
 				UserPostJobs = postJobs,
 				AppUsers = users,
 				Cities = cities,
-				JobTypes = jobTypes
+				JobTypes = jobTypes,
 			};
-			Console.WriteLine("Job Type: " + jobType);
 
 			return View(jobVM);
 		}
@@ -148,6 +149,7 @@ namespace FinalProjectJobHunt.Controllers
 				}
 			}
 			ViewBag.Categories = new SelectList(_context.Categories, "id", "Name");
+			ViewBag.City = new SelectList(_context.Cities, "id", "CityName");
 
 			List<Category> categories = await _context.Categories.ToListAsync();
 			List<City> cities = await _context.Cities.ToListAsync();
@@ -155,7 +157,7 @@ namespace FinalProjectJobHunt.Controllers
 			List<Education> education = await _context.Educations.ToListAsync();
 			List<WorkExperience> workExperiences = _context.WorkExperiences.ToList();
 			List<JobType> jobTypes = _context.JobTypes.ToList();
-			JobVM jobVM = new JobVM
+			PostJobVM jobVM = new PostJobVM
 			{
 				Category = categories,
 				Languages = languages,
@@ -177,7 +179,7 @@ namespace FinalProjectJobHunt.Controllers
 			return View(jobVM);
 		}
 		[HttpPost]
-		public async Task<IActionResult> PostJob(JobVM job)
+		public async Task<IActionResult> PostJob(PostJobVM job)
 		{
 			if (!ModelState.IsValid)
 			{
@@ -293,7 +295,46 @@ namespace FinalProjectJobHunt.Controllers
 
 
 		}
-	}
+        public async Task<IActionResult> Search(string searchText, int cityId, string[] jobTypes)
+        {
+            List<Category> categories = await _context.Categories.ToListAsync();
+            List<Position> positions = await _context.Positions.ToListAsync();
+            List<AppUser> users = await _context.Users.ToListAsync();
+            List<City> cities = await _context.Cities.ToListAsync();
+
+            var query = _context.PostJobs
+                .Include(x => x.JobType)
+                .Include(x => x.City)
+                .Include(x => x.Category)
+                .Where(x => x.Description.Contains(searchText));
+
+            if (cityId != 0)
+            {
+                query = query.Where(x => x.CityId == cityId);
+            }
+
+            if (jobTypes != null && jobTypes.Length > 0)
+            {
+                query = query.Where(x => jobTypes.Contains(x.JobType.WorkType));
+            }
+
+            List<PostJob> searchResults = await query.ToListAsync();
+
+            PostJobVM jobVM = new PostJobVM
+            {
+                Category = categories,
+                Positions = positions,
+                PostJobs = searchResults,
+                AppUsers = users,
+                Cities = cities
+            };
+
+            return PartialView("_SearchResultsPartial", jobVM);
+        }
+
+
+
+    }
 
 
 }

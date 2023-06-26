@@ -1,4 +1,4 @@
-﻿@model JobVM
+﻿@model PostJobVM
 <section class="overlape">
     <div class="block no-padding">
         <div data-velocity="-.1" style="background: url(../assets/images/resource/mslider1.jpg) repeat scroll 50% 422.28px transparent;" class="parallax scrolly-invisible no-parallax"></div><!-- PARALLAX BACKGROUND IMAGE -->
@@ -9,7 +9,8 @@
                         <div class="job-search-sec">
                             <div class="job-search">
                                 <h4>Explore Thousand Of Jobs With Just Simple Search...</h4>
-                                <form>
+                                <div id="searchResults"></div>
+                                <div id="searchForm">
                                     <div class="row">
                                         <div class="col-lg-7">
                                             <div class="job-field">
@@ -21,7 +22,7 @@
                                             <div class="job-field">
                                                 <select data-placeholder="City, province or region" class="chosen-city">
                                                     <option value="">Select City</option>
-                                                    @foreach(City item in Model.Cities)
+                                                    @foreach (City item in Model.Cities)
                                                     {
                                                         <option>@item.CityName</option>
                                                     }
@@ -30,10 +31,10 @@
                                             </div>
                                         </div>
                                         <div class="col-lg-1">
-                                            <button type="submit"><i class="la la-search"></i></button>
+                                            <button type="submit" onclick="searchJobs()"><i class="la la-search"></i></button>
                                         </div>
                                     </div>
-                                </form>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -63,12 +64,13 @@
                     <div class="widget border">
                         <h3 class="sb-title open">Job Type</h3>
                         <div class="type_widget">
-                            <p class="flchek"><input type="checkbox" name="choosetype" id="33r"><label for="33r">Freelance (9)</label></p>
-                            <p class="ftchek"><input type="checkbox" name="choosetype" id="dsf"><label for="dsf">Full Time (8)</label></p>
-                            <p class="ischek"><input type="checkbox" name="choosetype" id="sdd"><label for="sdd">Internship (8)</label></p>
-                            <p class="ptchek"><input type="checkbox" name="choosetype" id="sadd"><label for="sadd">Part Time (5)</label></p>
-                            <p class="tpchek"><input type="checkbox" name="choosetype" id="assa"><label for="assa">Temporary (5)</label></p>
-                            <p class="vtchek"><input type="checkbox" name="choosetype" id="ghgf"><label for="ghgf">Volunteer (8)</label></p>
+                            @foreach (var jobType in Model.JobTypes)
+                            {
+                                <p class="flchek">
+                                    <input type="checkbox" name="choosetype" id="@jobType.id">
+                                    <label for="@jobType.id">@jobType.WorkType ()</label>
+                                </p>
+                            }
                         </div>
                     </div>
                     <div class="widget border">
@@ -206,3 +208,39 @@
         </div>
     </div>
 </section>
+<script>
+    function searchJobs() {
+        var searchBoxValue = document.getElementById("SearchBox").value;
+        var selectedCity = document.querySelector(".chosen-city").value;
+
+        fetch(`/Job/Search?searchText=${searchBoxValue}&city=${selectedCity}`)
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("searchResults").innerHTML = data;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    }
+</script>
+<script>
+    function searchJobs() {
+        var searchBoxValue = document.getElementById("SearchBox").value;
+        var selectedCity = document.querySelector(".chosen-city").value;
+
+        var selectedJobTypes = [];
+        var checkboxes = document.querySelectorAll('.flchek:checked');
+        checkboxes.forEach(function (checkbox) {
+            selectedJobTypes.push(checkbox.getAttribute('data-job-type'));
+        });
+
+        fetch(`/Job/Search?searchText=${searchBoxValue}&cityId=${selectedCity}&jobTypes=${selectedJobTypes.join(',')}`)
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("searchResults").innerHTML = data;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    }
+</script>

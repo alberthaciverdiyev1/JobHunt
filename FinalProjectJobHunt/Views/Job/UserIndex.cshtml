@@ -2,240 +2,262 @@
 @model UserPostJobVM
 
 <section class="overlape">
-	<div class="block no-padding">
-		<div data-velocity="-.1" style="background: url(../assets/images/resource/mslider1.jpg) repeat scroll 50% 422.28px transparent;" class="parallax scrolly-invisible no-parallax"></div><!-- PARALLAX BACKGROUND IMAGE -->
-		<div class="container fluid">
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="inner-header wform">
-						<div class="job-search-sec">
-							<div class="job-search">
-								<h4>Explore Thousand Of Jobs With Just Simple Search...</h4>
-								<form>
-									<div class="row">
-										<div class="col-lg-7">
-											<div class="job-field">
-												<input type="text" placeholder="Job title, keywords or company name" />
-												<i class="la la-keyboard-o"></i>
-											</div>
-										</div>
-										<div class="col-lg-4">
-											<div class="job-field">
-												<select data-placeholder="City, province or region" class="chosen-city">
-													@foreach (City item in Model.Cities)
-													{
-														<option>@item.CityName</option>
-													}
-												</select>
-												<i class="la la-map-marker"></i>
-											</div>
-										</div>
-										<div class="col-lg-1">
-											<button type="submit"><i class="la la-search"></i></button>
-										</div>
-									</div>
-								</form>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
+    <div class="block no-padding">
+        <div data-velocity="-.1" style="background: url(../assets/images/resource/mslider1.jpg) repeat scroll 50% 422.28px transparent;" class="parallax scrolly-invisible no-parallax"></div><!-- PARALLAX BACKGROUND IMAGE -->
+        <div class="container fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="inner-header wform">
+                        <div class="job-search-sec">
+                            <div class="job-search">
+                                <h4>Explore Thousand Of Jobs With Just Simple Search...</h4>
+                            
+                                <div id="searchForm">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="job-field">
+                                                <input type="text" id="SearchBox" placeholder="Job title, keywords or company name" />
+                                                <i class="la la-keyboard-o"></i>
 
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="job-field">
+                                                <select data-placeholder="City, province or region" class="chosen-city">
+                                                    <option value="">Select City</option>
+                                                    @foreach (City item in Model.Cities)
+                                                    {
+                                                        <option>@item.CityName</option>
+                                                    }
+                                                </select>
+                                                <i class="la la-map-marker"></i>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-2">
+                                            <button type="submit" onclick="searchJobs()"><i class="la la-search"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 <section>
 
-	<div class="block remove-top">
-		<div class="container">
-			<div class="row no-gape">
-				<aside class="col-lg-3 column">
-					<div class="widget border">
-						<h3 class="sb-title open">Date Posted</h3>
-						<div class="posted_widget">
-							<input type="radio" name="choose" id="232"><label for="232">Last Hour</label><br />
-							<input type="radio" name="choose" id="wwqe"><label for="wwqe">Last 24 hours</label><br />
-							<input type="radio" name="choose" id="erewr"><label for="erewr">Last 7 days</label><br />
-							<input type="radio" name="choose" id="qwe"><label for="qwe">Last 14 days</label><br />
-							<input type="radio" name="choose" id="wqe"><label for="wqe">Last 30 days</label><br />
-							<input type="radio" name="choose" id="qweqw"><label class="nm" for="qweqw">All</label><br />
-						</div>
-					</div>
-					<div class="widget border">
-						<h3 class="sb-title open">Job Type</h3>
-						<div class="type_widget">
-							
-	@*						@foreach(JobType item in Model.JobTypes)
-							{
-								<p class="flchek"><input type="checkbox" name="choosetype" id="@item.id" value="@item.id" /><label for="@item.id">@item.WorkType</label></p>
+  
 
-							}*@
-							<form class="filterForm">
-							<div class="job-types">
-								<ul>
-									@foreach (var jobType in Model.JobTypes)
-									{
-										<li>
-											<a type="checkbox" class="flchek" href="@Url.Action("UserIndex", new { page = 1, jobType = jobType.WorkType })">@jobType.WorkType</a>
-										</li>
-									}
-								</ul>
+</section>
+<section>
+
+    <div class="block remove-top">
+        <div class="container">
+            <div class="row no-gape">
+                <aside class="col-lg-3 column">
+                    <div class="widget border">
+                        <h3 class="sb-title open">Date Posted</h3>
+                        <div class="posted_widget">
+                            <input type="radio" name="choose" id="232"><label for="232">Last Hour</label><br />
+                            <input type="radio" name="choose" id="wwqe"><label for="wwqe">Last 24 hours</label><br />
+                            <input type="radio" name="choose" id="erewr"><label for="erewr">Last 7 days</label><br />
+                            <input type="radio" name="choose" id="qwe"><label for="qwe">Last 14 days</label><br />
+                            <input type="radio" name="choose" id="wqe"><label for="wqe">Last 30 days</label><br />
+                            <input type="radio" name="choose" id="qweqw"><label class="nm" for="qweqw">All</label><br />
+                        </div>
+                    </div>
+                @*    <div class="widget border">
+                        <h3 class="sb-title open">Job Type</h3>
+                        <div class="type_widget">
+
+                          
+                            <form class="filterForm">
+                                <div class="job-types">
+                                    <ul>
+                                        @foreach (var jobType in Model.JobTypes)
+                                        {
+                                            <li>
+                                                <input type="checkbox" class="flchek" name="jobTypes" value="@jobType.WorkType">
+                                                <label>@jobType.WorkType</label>
+                                            </li>
+                                        }
+                                    </ul>
                                 </div>
                             </form>
-						</div>
-					</div>
-					<div class="widget border">
-						<h3 class="sb-title open">Specialism</h3>
-						<div class="specialism_widget">
-							<div class="simple-checkbox">
-								@foreach (Category item in Model.Category)
-								{
-									<input type="radio" id="@item.id" name="category" value="@item.id">
-									<label for="@item.id">@item.Name</label>
-									<br>
-								}
+                        </div>
+                    </div>*@
+                    <div class="widget border">
+                        <h3 class="sb-title open">Job Type</h3>
+                        <div class="type_widget">
+                            @foreach (var jobType in Model.JobTypes)
+                            {
+                                <p class="flchek">
+                                    <input type="checkbox" name="choosetype" id="@jobType.id" data-job-type="@jobType.WorkType">
+                                    <label for="@jobType.id">@jobType.WorkType</label>
+                                </p>
+                            }
+                        </div>
+                    </div>
 
-							</div>
-						</div>
-					</div>
-					<div class="widget border">
-						<h3 class="sb-title closed">Offerd Salary</h3>
-						<div class="specialism_widget">
-							<div class="simple-checkbox">
-								<p><input type="checkbox" name="smplechk" id="1"><label for="1">10k - 20k</label></p>
-								<p><input type="checkbox" name="smplechk" id="2"><label for="2">20k - 30k</label></p>
-								<p><input type="checkbox" name="smplechk" id="3"><label for="3">30k - 40k</label></p>
-								<p><input type="checkbox" name="smplechk" id="4"><label for="4">40k - 50k</label></p>
-							</div>
-						</div>
-					</div>
-					<div class="widget border">
-						<h3 class="sb-title closed">Career Level</h3>
-						<div class="specialism_widget">
-							<div class="simple-checkbox">
-								<p><input type="checkbox" name="smplechk" id="5"><label for="5">Intermediate</label></p>
-								<p><input type="checkbox" name="smplechk" id="6"><label for="6">Normal</label></p>
-								<p><input type="checkbox" name="smplechk" id="7"><label for="7">Special</label></p>
-								<p><input type="checkbox" name="smplechk" id="8"><label for="8">Experienced</label></p>
-							</div>
-						</div>
-					</div>
-					<div class="widget border">
-						<h3 class="sb-title closed">Experince</h3>
-						<div class="specialism_widget">
-							<div class="simple-checkbox">
-								<p><input type="checkbox" name="smplechk" id="9"><label for="9">1Year to 2Year</label></p>
-								<p><input type="checkbox" name="smplechk" id="10"><label for="10">2Year to 3Year</label></p>
-								<p><input type="checkbox" name="smplechk" id="11"><label for="11">3Year to 4Year</label></p>
-								<p><input type="checkbox" name="smplechk" id="12"><label for="12">4Year to 5Year</label></p>
-							</div>
-						</div>
-					</div>
 
-					<div class="banner_widget">
-						<a href="#" title=""><img src="~/assets/images/resource/banner.png" alt="" /></a>
-					</div>
-				</aside>
-				<div class="col-lg-9 column">
-					<div class="modrn-joblist np">
-						<div class="filterbar">
-							<span class="emlthis"><a href="mailto:example.com" title=""><i class="la la-envelope-o"></i> Email me Jobs Like These</a></span>
-							<div class="sortby-sec">
-								<span>Sort by</span>
-								<select data-placeholder="Most Recent" class="chosen">
-									<option>Most Recent</option>
-									<option>Most Recent</option>
-									<option>Most Recent</option>
-									<option>Most Recent</option>
-								</select>
-								<select data-placeholder="20 Per Page" class="chosen">
-									<option>30 Per Page</option>
-									<option>40 Per Page</option>
-									<option>50 Per Page</option>
-									<option>60 Per Page</option>
-								</select>
-							</div>
-							<h5>@Model.UserPostJobs.Count() Jobs & Vacancies</h5>
-						</div>
-					</div><!-- MOdern Job LIst -->
-					<div class="job-list-modern">
-						<div class="job-listings-sec no-border">
-							@foreach (var item in Model.UserPostJobs)
-							{
-								var userImageURL = Model.AppUsers.FirstOrDefault(x => x.Id == item.AppUserId)?.ImageURL ?? "NoImage.png";
-								var positionName = Model.Positions.FirstOrDefault(x => x.id == item.PositionId)?.PositionName ?? string.Empty;
-								var username = Model.AppUsers.FirstOrDefault(x => x.Id == item.AppUserId).Name;
-								<div class="job-listing wtabs" onclick="location.href='@Url.Action("Detail", "job", new { id = item.id })'" style="cursor: pointer;">
-									<div class="job-title-sec">
-										<div class="c-logo">
-											<img src="~/assets/images/User/@userImageURL" alt="" style="width:100%; height:90px;" />
-										</div>
-										<h3 class="mr-4"> @positionName / @item.Category.Name</h3>
-										<span>@username</span>
-										@if (item.Description.Length < 100)
-										{
-											<p>@item.Description</p>
-										}
-										else
-										{
-											<p> @item.Description.Substring(0,50)... </p>
+                    <div class="widget border">
+                        <h3 class="sb-title open">Specialism</h3>
+                        <div class="specialism_widget">
+                            <div class="simple-checkbox">
+                                @foreach (Category item in Model.Category)
+                                {
+                                    <label>
+                                        <input type="checkbox" id="@item.id" name="selectedCategories" value="@item.id">
+                                        @item.Name
+                                    </label>
+                                    <br>
+                                }
+                            </div>
+                        </div>
+                    </div>
 
-										}
-										<div class="job-lctn"><i class="la la-map-marker CustomLeft"></i>@item.City.CityName</div>
-									</div>
-									<div class="job-style-bx">
-										<span class="job-is ft">@item.JobType.WorkType</span>
-										<span class="fav-job"><i class="la la-heart-o"></i></span>
-										<i>@item.Created</i>
-									</div>
-								</div>
-							}
+                    <div class="widget border">
+                        <h3 class="sb-title closed">Offerd Salary</h3>
+                        <div class="specialism_widget">
+                            <div class="simple-checkbox">
+                                <p><input type="checkbox" name="smplechk" id="1"><label for="1">10k - 20k</label></p>
+                                <p><input type="checkbox" name="smplechk" id="2"><label for="2">20k - 30k</label></p>
+                                <p><input type="checkbox" name="smplechk" id="3"><label for="3">30k - 40k</label></p>
+                                <p><input type="checkbox" name="smplechk" id="4"><label for="4">40k - 50k</label></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="widget border">
+                        <h3 class="sb-title closed">Career Level</h3>
+                        <div class="specialism_widget">
+                            <div class="simple-checkbox">
+                                <p><input type="checkbox" name="smplechk" id="5"><label for="5">Intermediate</label></p>
+                                <p><input type="checkbox" name="smplechk" id="6"><label for="6">Normal</label></p>
+                                <p><input type="checkbox" name="smplechk" id="7"><label for="7">Special</label></p>
+                                <p><input type="checkbox" name="smplechk" id="8"><label for="8">Experienced</label></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="widget border">
+                        <h3 class="sb-title closed">Experince</h3>
+                        <div class="specialism_widget">
+                            <div class="simple-checkbox">
+                                <p><input type="checkbox" name="smplechk" id="9"><label for="9">1Year to 2Year</label></p>
+                                <p><input type="checkbox" name="smplechk" id="10"><label for="10">2Year to 3Year</label></p>
+                                <p><input type="checkbox" name="smplechk" id="11"><label for="11">3Year to 4Year</label></p>
+                                <p><input type="checkbox" name="smplechk" id="12"><label for="12">4Year to 5Year</label></p>
+                            </div>
+                        </div>
+                    </div>
 
-						</div>
-						<div class="pagination">
+                    <div class="banner_widget">
+                        <a href="#" title=""><img src="~/assets/images/resource/banner.png" alt="" /></a>
+                    </div>
+                </aside>
+                <div class="col-lg-9 column">
+                    <div class="modrn-joblist np">
+                        <div class="filterbar">
+                            <span class="emlthis"><a href="mailto:example.com" title=""><i class="la la-envelope-o"></i> Email me Jobs Like These</a></span>
+                            <div class="sortby-sec">
+                                <span>Sort by</span>
+                                <select data-placeholder="Most Recent" class="chosen">
+                                    <option>Most Recent</option>
+                                    <option>Most Recent</option>
+                                    <option>Most Recent</option>
+                                    <option>Most Recent</option>
+                                </select>
+                                <select data-placeholder="20 Per Page" class="chosen">
+                                    <option>30 Per Page</option>
+                                    <option>40 Per Page</option>
+                                    <option>50 Per Page</option>
+                                    <option>60 Per Page</option>
+                                </select>
+                            </div>
+                            <h5>@Model.UserPostJobs.Count() Jobs & Vacancies</h5>
+                        </div>
+                    </div><!-- MOdern Job LIst -->
+                    <div class="job-list-modern">
+                        <div class="job-listings-sec no-border">
+                            <div id="searchResults"></div>
+                            @foreach (var item in Model.UserPostJobs)
+                            {
+                                var userImageURL = Model.AppUsers.FirstOrDefault(x => x.Id == item.AppUserId)?.ImageURL ?? "NoImage.png";
+                                var positionName = Model.Positions.FirstOrDefault(x => x.id == item.PositionId)?.PositionName ?? string.Empty;
+                                var username = Model.AppUsers.FirstOrDefault(x => x.Id == item.AppUserId).Name;
+                                <div class="job-listing wtabs" onclick="location.href='@Url.Action("Detail", "job", new { id = item.id })'" style="cursor: pointer;">
+                                    <div class="job-title-sec">
+                                        <div class="c-logo">
+                                            <img src="~/assets/images/User/@userImageURL" alt="" style="width:100%; height:90px;" />
+                                        </div>
+                                        <h3 class="mr-4"> @positionName / @item.Category.Name</h3>
+                                        <span>@username</span>
+                                        @if (item.Description.Length < 100)
+                                        {
+                                            <p>@item.Description</p>
+                                        }
+                                        else
+                                        {
+                                            <p> @item.Description.Substring(0,50)... </p>
 
-							@if (ViewBag.Page > 0)
-							{
-								<a asp-action="userindex" asp-controller="Job" asp-route-page="@(ViewBag.Page-1)" type="button" class="btn btn-secondary ">Previous</a>
+                                        }
+                                        <div class="job-lctn"><i class="la la-map-marker CustomLeft"></i>@item.City.CityName</div>
+                                    </div>
+                                    <div class="job-style-bx">
+                                        <span class="job-is ft">@item.JobType.WorkType</span>
+                                        <span class="fav-job"><i class="la la-heart-o"></i></span>
+                                        <i>@item.Created</i>
+                                    </div>
+                                </div>
+                            }
+                       
+                        </div>
+                        <div class="pagination">
 
-							}
-							@for (int i = 0; i < ViewBag.Total; i++)
-							{
+                            @if (ViewBag.Page > 0)
+                            {
+                                <a asp-action="userindex" asp-controller="Job" asp-route-page="@(ViewBag.Page-1)" type="button" class="btn btn-secondary ">Previous</a>
 
-								<a asp-action="userindex" asp-controller="job" asp-route-page="@(i)" type="button" class="btn btn-secondary @(i==ViewBag.Page?"disabled":"")">@(i + 1)</a>
+                            }
+                            @for (int i = 0; i < ViewBag.Total; i++)
+                            {
 
-							}
-							@if (ViewBag.Page + 1 < ViewBag.Total)
-							{
-								<a asp-action="userindex" asp-controller="job" asp-route-page="@(ViewBag.Page+1)" type="button" class="btn btn-secondary">Next</a>
+                                <a asp-action="userindex" asp-controller="job" asp-route-page="@(i)" type="button" class="btn btn-secondary @(i==ViewBag.Page?"disabled":"")">@(i + 1)</a>
 
-							}
-						</div><!-- Pagination -->
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+                            }
+                            @if (ViewBag.Page + 1 < ViewBag.Total)
+                            {
+                                <a asp-action="userindex" asp-controller="job" asp-route-page="@(ViewBag.Page+1)" type="button" class="btn btn-secondary">Next</a>
+
+                            }
+                        </div><!-- Pagination -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 <script>
-	$(document).ready(function () {
-		$('#filterForm').submit(function (e) {
-			e.preventDefault();
-			var formData = $(this).serialize();
-			$.ajax({
-				url: '@Url.Action("UserIndex", "Job")',
-				type: 'POST',
-				data: formData,
-				beforeSend: function () {
-				},
-				success: function (response) {
-					// Handle the response from the server
-					console.log("gbkjhbkjhb");
-				},
-				error: function (xhr, status, error) {
-					// Handle any error that occurs during the request
-				}
-			});
-		});
-	});
+    function searchJobs() {
+        var searchBoxValue = document.getElementById("SearchBox").value;
+        var selectedCity = document.querySelector(".chosen-city").value;
+
+        var selectedJobTypes = [];
+        var checkboxes = document.querySelectorAll('.flchek:checked');
+        checkboxes.forEach(function (checkbox) {
+            selectedJobTypes.push(checkbox.getAttribute('data-job-type'));
+        });
+
+        fetch(`/Job/Search?searchText=${searchBoxValue}&cityId=${selectedCity}&jobTypes=${selectedJobTypes.join(',')}`)
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("searchResults").innerHTML = data;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    }
 </script>
+
+

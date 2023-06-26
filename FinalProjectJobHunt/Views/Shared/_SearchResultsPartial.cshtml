@@ -1,0 +1,37 @@
+﻿@model PostJobVM
+@if (Model.PostJobs != null && Model.PostJobs.Any())
+{
+    foreach (var item in Model.PostJobs)
+    {
+        var userImageURL = Model.AppUsers.FirstOrDefault(x => x.Id == item.AppUserId)?.ImageURL ?? "NoImage.png";
+        var positionName = Model.Positions.FirstOrDefault(x => x.id == item.PositionId)?.PositionName ?? string.Empty;
+        var username = Model.AppUsers.FirstOrDefault(x => x.Id == item.AppUserId).Name;
+        <div class="job-listing wtabs" onclick="location.href='@Url.Action("Detail", "job", new { id = item.id })'" style="cursor: pointer;">
+            <div class="job-title-sec">
+                <div class="c-logo">
+                    <img src="~/assets/images/User/@userImageURL" alt="" style="width:100%; height:90px;" />
+                </div>
+                <h3 class="mr-4"> @positionName / @item.Category.Name</h3>
+                <span>@username</span>
+                @if (item.Description.Length < 100)
+                {
+                    <p>@item.Description</p>
+                }
+                else
+                {
+                    <p> @item.Description.Substring(0,50)... </p>
+
+                }
+                <div class="job-lctn"><i class="la la-map-marker CustomLeft"></i>@item.City.CityName</div>
+            </div>
+            <div class="job-style-bx">
+@*                <span class="job-is ft">@item.JobType.WorkType</span>
+*@                <i>@item.Created</i>
+            </div>
+        </div>
+    }
+}
+else
+{
+    <p>No results found.</p>
+}

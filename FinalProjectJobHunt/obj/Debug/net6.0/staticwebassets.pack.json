@@ -1613,6 +1613,10 @@
       "PackagePath": "staticwebassets\\assets\\images\\resource\\vector-4.png"
     },
     {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\FinalProjectJobHunt\\wwwroot\\assets\\js\\SendMessage.js",
+      "PackagePath": "staticwebassets\\assets\\js\\SendMessage.js"
+    },
+    {
       "Id": "C:\\Users\\ASUS\\Desktop\\Job\\FinalProjectJobHunt\\wwwroot\\assets\\js\\bootstrap-datepicker.js",
       "PackagePath": "staticwebassets\\assets\\js\\bootstrap-datepicker.js"
     },
