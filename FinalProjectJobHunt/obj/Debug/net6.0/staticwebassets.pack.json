@@ -1693,6 +1693,10 @@
       "PackagePath": "staticwebassets\\assets\\js\\wow.min.js"
     },
     {
+      "Id": "C:\\Users\\ASUS\\Desktop\\Job\\FinalProjectJobHunt\\wwwroot\\css\\CustomStyle.css",
+      "PackagePath": "staticwebassets\\css\\CustomStyle.css"
+    },
+    {
       "Id": "C:\\Users\\ASUS\\Desktop\\Job\\FinalProjectJobHunt\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },

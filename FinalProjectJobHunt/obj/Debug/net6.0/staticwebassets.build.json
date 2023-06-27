@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "LTQWvGgG4klOeAY8TdsPhHTlLLH8PEDcYbGZFrFKgK8=",
+  "Hash": "qkwDerA7zVX5kQnsu259atLZSuTB7KdcKb4m9JdgIiw=",
   "Source": "FinalProjectJobHunt",
   "BasePath": "_content/FinalProjectJobHunt",
   "Mode": "Default",
@@ -7223,6 +7223,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\js\\wow.min.js"
+    },
+    {
+      "Identity": "C:\\Users\\ASUS\\Desktop\\Job\\FinalProjectJobHunt\\wwwroot\\css\\CustomStyle.css",
+      "SourceId": "FinalProjectJobHunt",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ASUS\\Desktop\\Job\\FinalProjectJobHunt\\wwwroot\\",
+      "BasePath": "_content/FinalProjectJobHunt",
+      "RelativePath": "css/CustomStyle.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\CustomStyle.css"
     },
     {
       "Identity": "C:\\Users\\ASUS\\Desktop\\Job\\FinalProjectJobHunt\\wwwroot\\css\\site.css",

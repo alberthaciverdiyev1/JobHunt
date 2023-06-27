@@ -69,7 +69,10 @@
                             <a asp-action="UserInfo" asp-controller="User" asp-route-id="@Model.AppUser.Id">    <p><i class="la la-phone"></i> @Model.PostJob.PhoneNumber</p></a>
                           <a asp-action="UserInfo" asp-controller="User" asp-route-id="@Model.AppUser.Id">   <p><i class="la la-envelope-o"></i> @Model.PostJob.Email</p></a>
                         </div>
+
                         <a asp-route-id="@Model.AppUser.Id" class="apply-job-btn" data-toggle="modal" data-target="#inviteModal"><i class="la la-paper-plane"></i>Apply For Job</a>
+                        <div asp-validation-summary="ModelOnly" style="color:rebeccapurple;"></div>
+
                     </div><!-- Job Head -->
                 </div>
 
