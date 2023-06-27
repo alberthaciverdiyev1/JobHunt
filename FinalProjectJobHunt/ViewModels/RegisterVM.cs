@@ -17,7 +17,7 @@ namespace FinalProjectJobHunt.ViewModels
         public string Surname { get; set; }
         [Required]
         [MaxLength(20, ErrorMessage = "The Name Is Too Long")]
-        [MinLength(3, ErrorMessage = "Name Can't Be Shorter Than Three Letters")]
+        [MinLength(3, ErrorMessage = "Username Can't Be Shorter Than Three Letters")]
         public string UserName { get; set; }
         [Required]
         [DataType(DataType.Password)]
@@ -31,7 +31,6 @@ namespace FinalProjectJobHunt.ViewModels
         public string Email { get; set; }
         public bool RememberMe { get; set; }
         public string? ImageURL { get; set; }
-        [NotMapped]
         public IFormFile? Photo { get; set; }
         public int PositionId { get; set; }
         public Position? Position { get; set; }

@@ -366,6 +366,9 @@ namespace FinalProjectJobHunt.Migrations
                     b.Property<int?>("PositionId")
                         .HasColumnType("int");
 
+                    b.Property<int?>("PostJobId")
+                        .HasColumnType("int");
+
                     b.Property<string>("ReceiverEmail")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -394,7 +397,14 @@ namespace FinalProjectJobHunt.Migrations
                     b.Property<string>("SenderPhone")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("UserPostJobId")
+                        .HasColumnType("int");
+
                     b.HasKey("id");
+
+                    b.HasIndex("PostJobId");
+
+                    b.HasIndex("UserPostJobId");
 
                     b.ToTable("Messages");
                 });
@@ -759,6 +769,17 @@ namespace FinalProjectJobHunt.Migrations
                     b.Navigation("WorkExperience");
                 });
 
+            modelBuilder.Entity("FinalProjectJobHunt.Models.Message", b =>
+                {
+                    b.HasOne("FinalProjectJobHunt.Models.PostJob", null)
+                        .WithMany("Messages")
+                        .HasForeignKey("PostJobId");
+
+                    b.HasOne("FinalProjectJobHunt.Models.Job.UserPostJob", null)
+                        .WithMany("Messages")
+                        .HasForeignKey("UserPostJobId");
+                });
+
             modelBuilder.Entity("FinalProjectJobHunt.Models.Position", b =>
                 {
                     b.HasOne("FinalProjectJobHunt.Models.Category", "Category")
@@ -905,6 +926,8 @@ namespace FinalProjectJobHunt.Migrations
             modelBuilder.Entity("FinalProjectJobHunt.Models.Job.UserPostJob", b =>
                 {
                     b.Navigation("BasketItems");
+
+                    b.Navigation("Messages");
                 });
 
             modelBuilder.Entity("FinalProjectJobHunt.Models.JobType", b =>
@@ -920,6 +943,8 @@ namespace FinalProjectJobHunt.Migrations
             modelBuilder.Entity("FinalProjectJobHunt.Models.PostJob", b =>
                 {
                     b.Navigation("BasketItems");
+
+                    b.Navigation("Messages");
                 });
 
             modelBuilder.Entity("FinalProjectJobHunt.Models.WorkExperience", b =>

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using FinalProjectJobHunt.Models.Job;
+using System.ComponentModel.DataAnnotations;
 
 namespace FinalProjectJobHunt.Models
 {
@@ -22,5 +23,9 @@ namespace FinalProjectJobHunt.Models
         public int? ReceiverId { get; set; }
         public int? PositionId { get; set; }
         public int? CategoryId { get; set; }
+        public int? PostJobId { get; set; }
+        public int? UserPostJobId { get; set; }
+
+
     }
 }

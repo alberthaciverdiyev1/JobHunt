@@ -4,7 +4,6 @@ using FinalProjectJobHunt.DAL;
 using FinalProjectJobHunt.Models;
 using FinalProjectJobHunt.ViewModels;
 using FinalProjectJobHunt.Models.Job;
-using FinalProjectJobHunt.Utilities.Enums;
 using Microsoft.AspNetCore.Authorization;
 using System.Security.Claims;
 using FinalProjectJobHunt.ViewModels;

@@ -26,7 +26,6 @@
                             <th>Name</th>
                             <th>Surname</th>
                             <th>Created Time</th>
-                            
                             <th>Setting</th>
 
                         </tr>
@@ -39,11 +38,12 @@
                             <tr>
                                 <td scope="row">@count</td>
 
-                                <td>        <img class="rounded-circle header-profile-user" src="~/assets/images/User/@item.ImageURL" alt="Header Avatar"></td>
+                                <td> <img class="rounded-circle header-profile-user" src="~/assets/images/User/@item.ImageURL" alt="Header Avatar"></td>
                                 <td>@item.UserName</td>
                                 <td>@item.Name</td>
                                 <td>@item.Name</td>
                                 <td>@item.CreatedAt</td>
+
                                 <td>
                                     <a asp-action="delete" asp-area="admin" asp-controller="AppUser" asp-route-id="@item.Id" class="btn btn-danger waves-effect waves-light">Delete</a>
                                 </td>

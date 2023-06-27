@@ -1,5 +1,6 @@
 ﻿using FinalProjectJobHunt.DAL;
 using FinalProjectJobHunt.Models;
+using FinalProjectJobHunt.Models.Job;
 using FinalProjectJobHunt.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -22,14 +23,17 @@ namespace FinalProjectJobHunt.Controllers
         public async Task<IActionResult> Index()
         {
             var user = await _context.Users.FirstOrDefaultAsync(u => u.UserName == User.Identity!.Name);
-            List<Message> messages = await _context.Messages.Where(u => u.ReceiverId == user.Id).ToListAsync();
+            List<Message>recievemessages = await _context.Messages.Where(u => u.ReceiverId == user.Id).ToListAsync();
+            List<Message>sendmessages = await _context.Messages.Where(u => u.SenderId == user.Id).ToListAsync();
             List<Position> positions = await _context.Positions.ToListAsync();
             List<AppUser> users = await _context.Users.ToListAsync();
             List<Category> categories = await _context.Categories.ToListAsync();
 
+
             MessagesVM messagesVM = new MessagesVM
             {
-                Messages = messages,
+                RecieveMessages = recievemessages,
+                SendMessages = sendmessages,
                 AppUsers = users,
                 Positions = positions,
                 Categories = categories,
@@ -43,10 +47,11 @@ namespace FinalProjectJobHunt.Controllers
         {
             var sender = await _context.Users.FirstOrDefaultAsync(u => u.UserName == User.Identity!.Name);
             var receiver = await _context.Users.FirstOrDefaultAsync(u => u.Id == send.ReceiverId);
-            string role = User.FindFirst(ClaimTypes.Role)?.Value;
+            string? role = User.FindFirst(ClaimTypes.Role)?.Value;
             if (role == "EMPLOYEE")
             {
                 var job = await _context.UserPostJobs.FirstOrDefaultAsync(x => x.AppUserId == send.ReceiverId);
+
                 if (job == null || sender == null || receiver == null) { return NotFound(); }
                 Message message = new Message
                 {
@@ -61,29 +66,32 @@ namespace FinalProjectJobHunt.Controllers
                     Description = send.Description,
                     PositionId = job.PositionId,
                     CategoryId = job.CategoryId,
-                    Created = DateTime.Now
+                    Created = DateTime.Now,
+                    UserPostJobId = job.id,
+
                 };
                 await _context.Messages.AddAsync(message);
-
             }
             else
             {
                 var job = await _context.PostJobs.FirstOrDefaultAsync(x => x.AppUserId == send.ReceiverId);
+                var userPostJob = _context.UserPostJobs.FirstOrDefault(x => x.AppUserId == sender.Id);
                 if (job == null || sender == null || receiver == null) { return NotFound(); }
 
                 Message message = new Message
                 {
                     SenderName = sender.UserName,
-                    ReceiverName = receiver.UserName,
-                    ReceiverEmail = receiver.Email,
                     SenderEmail = sender.Email,
-                    ReceiverId = receiver.Id,
                     SenderId = sender.Id,
                     SenderPhone = sender.Phone,
-                    ReceiverPhone = receiver.Phone,
                     Description = send.Description,
+                    ReceiverId = receiver.Id,
+                    ReceiverName = receiver.UserName,
+                    ReceiverEmail = receiver.Email,
+                    ReceiverPhone = receiver.Phone,
                     PositionId = job.PositionId,
                     CategoryId = job.CategoryId,
+                    PostJobId = job.id,
                     Created = DateTime.Now
                 };
                 await _context.Messages.AddAsync(message);
@@ -98,12 +106,9 @@ namespace FinalProjectJobHunt.Controllers
                 ModelState.AddModelError(string.Empty, "It Is Your Job");
                 return View();
             }
-
             await _context.SaveChangesAsync();
 
-            return View(); // Assuming you have a view named "Success.cshtml" to show the success message
-
-
+            return View();
         }
         public IActionResult Delete(int? id)
         {

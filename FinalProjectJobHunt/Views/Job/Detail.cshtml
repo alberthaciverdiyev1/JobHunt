@@ -1,6 +1,8 @@
 ﻿
 @model DetailVM
-
+@{
+    string role = User.FindFirst(ClaimTypes.Role)?.Value;
+}
 <section class="overlape">
     <div class="block no-padding">
         <div data-velocity="-.1" style="background: url(../assets/images/mslider1.jpg) repeat scroll 50% 422.28px transparent;" class="parallax scrolly-invisible no-parallax"></div><!-- PARALLAX BACKGROUND IMAGE -->
@@ -80,8 +82,11 @@
                                 <p><i class="la la-envelope-o"></i> @Model.UserPostJob.Email</p>
                             </a>
                         </div>
-                        <a asp-route-id="@Model.AppUser.Id" class="apply-job-btn" data-toggle="modal" data-target="#inviteModal"><i class="la la-paper-plane"></i>Invite To Job</a>
-                        <div asp-validation-summary="ModelOnly" style="color:rebeccapurple;"></div>
+                          @if (role == "EMPLOYEE")
+                        {
+                            <a asp-route-id="@Model.AppUser.Id" class="apply-job-btn" data-toggle="modal" data-target="#inviteModal"><i class="la la-paper-plane"></i>Invite To Job</a>
+                            <div asp-validation-summary="ModelOnly" style="color:rebeccapurple;"></div>
+                        }
                     </div><!-- Job Head -->
                 </div>
             </div>

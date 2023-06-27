@@ -127,10 +127,10 @@ namespace FinalProjectJobHunt.Controllers
         public async Task<IActionResult> Update(Profile profile)
         {
             var user = await _context.Users.FirstOrDefaultAsync(u => u.UserName == User.Identity!.Name);
-            if (!ModelState.IsValid)
-            {
-                return View();
-            }
+            //if (!ModelState.IsValid)
+            //{
+            //    return View();
+            //}
 
             string filename = Guid.NewGuid().ToString() + profile.ImageURL;
             string path = Path.Combine(_env.WebRootPath, "assets/images/User", filename);
