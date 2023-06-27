@@ -25,32 +25,75 @@ namespace FinalProjectJobHunt.Controllers
 			_context = context;
 			_userManager = userManager;
 		}
-		public async Task<IActionResult> Index(int page)
+
+
+		//public async Task<IActionResult> Index(int page, string? search)
+		//{
+		//	ViewBag.Page = page;
+		//	ViewBag.Total = Math.Ceiling((decimal)_context.PostJobs.Count() / 6);
+
+		//	List<Category> categories = await _context.Categories.ToListAsync();
+		//	List<Position> positions = await _context.Positions.ToListAsync();
+		//	List<AppUser> users = await _context.Users.ToListAsync();
+		//	List<City> cities = await _context.Cities.ToListAsync();
+		//	List<JobType> jobTypes = await _context.JobTypes.ToListAsync();
+
+		//	var postJobsQuery = _context.PostJobs.Include(x => x.JobType)
+		//										.Include(x => x.City)
+		//										.Include(x => x.Category)
+		//										.AsQueryable();
+
+		//	if (!string.IsNullOrEmpty(search))
+		//	{
+		//		postJobsQuery = postJobsQuery.Where(x => x.Description.Contains(search));
+		//	}
+
+
+		//	List<PostJob> postJobs = await postJobsQuery.Skip(page * 6).Take(6).ToListAsync();
+
+		//	PostJobVM jobVM = new PostJobVM
+		//	{
+		//		Category = categories,
+		//		Positions = positions,
+		//		PostJobs = postJobs,
+		//		AppUsers = users,
+		//		Cities = cities,
+		//		JobTypes = jobTypes
+		//	};
+
+		//	return View(jobVM);
+		//}
+
+
+		public async Task<IActionResult> Index(int page, string? search)
 		{
-
-			ViewBag.Page = page;
+		        IQueryable<PostJob> query = _context.PostJobs
+				.Include(p => p.AppUser).Include(x=>x.Category).ThenInclude(x=>x.Positions)
+				.Include(x => x.JobType).Skip(page * 6).Take(6)
+                .Include(x => x.City).AsQueryable();
+            if (search != null)
+            {
+                query = query.Where(p => p.Description.ToLower().Contains(search.ToLower()) ||
+                                         p.Category.Name.ToLower().Contains(search.ToLower())||
+										 p.City.CityName.ToLower().Contains(search.ToLower())||
+										 p.JobType.WorkType.ToLower().Contains(search.ToLower()));
+            }
+            ViewBag.Page = page;
 			ViewBag.Total = Math.Ceiling((decimal)_context.PostJobs.Count() / 6);
-
-			List<Category> categories = await _context.Categories.ToListAsync();
-			List<Position> positions = await _context.Positions.ToListAsync();
+            List<Position> positions = await _context.Positions.ToListAsync();
 			List<AppUser> users = await _context.Users.ToListAsync();
 			List<City> cities = await _context.Cities.ToListAsync();
-            List<JobType> jobTypes = await _context.JobTypes.ToListAsync();
-            List<PostJob> postJobs = await _context.PostJobs
-				.Include(x => x.JobType).Skip(page * 6).Take(6)
-				.Include(x => x.City)
-				.Include(x => x.Category).ToListAsync();
-      
-            PostJobVM jobVM = new PostJobVM
+			List<JobType> jobTypes = await _context.JobTypes.ToListAsync();
+			PostJobVM jobVM = new PostJobVM
 			{
-				Category = categories,
+				Category = await _context.Categories.Include(x => x.Positions).ToListAsync(),
 				Positions = positions,
-				PostJobs = postJobs,
-				AppUsers = users,
+				PostJobs = await query.ToListAsync(),
+                AppUsers = users,
 				Cities = cities,
-                JobTypes= jobTypes
+				JobTypes = jobTypes
 
-            };
+			};
 
 			return View(jobVM);
 		}
@@ -294,43 +337,7 @@ namespace FinalProjectJobHunt.Controllers
 
 
 		}
-        public async Task<IActionResult> Search(string searchText, int cityId, string[] jobTypes)
-        {
-            List<Category> categories = await _context.Categories.ToListAsync();
-            List<Position> positions = await _context.Positions.ToListAsync();
-            List<AppUser> users = await _context.Users.ToListAsync();
-            List<City> cities = await _context.Cities.ToListAsync();
-
-            var query = _context.PostJobs
-                .Include(x => x.JobType)
-                .Include(x => x.City)
-                .Include(x => x.Category)
-                .Where(x => x.Description.Contains(searchText));
-
-            if (cityId != 0)
-            {
-                query = query.Where(x => x.CityId == cityId);
-            }
-
-            if (jobTypes != null && jobTypes.Length > 0)
-            {
-                query = query.Where(x => jobTypes.Contains(x.JobType.WorkType));
-            }
-
-            List<PostJob> searchResults = await query.ToListAsync();
-
-            PostJobVM jobVM = new PostJobVM
-            {
-                Category = categories,
-                Positions = positions,
-                PostJobs = searchResults,
-                AppUsers = users,
-                Cities = cities
-            };
-
-            return PartialView("_SearchResultsPartial", jobVM);
-        }
-
+      
 
 
     }

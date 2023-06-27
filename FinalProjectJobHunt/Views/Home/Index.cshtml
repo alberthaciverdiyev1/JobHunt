@@ -17,13 +17,21 @@
                             <div class="job-search">
                                 <h3>The Easiest Way to Get Your New Job</h3>
                                 <span>Find Jobs, Employment & Career Opportunities</span>
-                                <form>
+                                <form  asp-action="Index"  asp-controller="Job" >
                                     <div class="row">
                                         <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
                                             <div class="job-field">
+                                                <input name="search"
+                                                       class="input-field"
+                                                       type="text"
+                                                       placeholder="Search"
+                                                       @*value="@(Model.Search==null?"":Model.Search)"*@ />
                                                 <input type="text" id="searchInput" placeholder="Job title, keywords or company name" />
-                                                <button type="button" onclick="search()">Search</button>
-                                                <i class="la la-keyboard-o"></i>
+@*                                             <button type="button" onclick="search()">Search</button>
+*@                                                <i class="la la-keyboard-o"></i>
+                                                <button class="widgets-searchbox-btn" type="submit">
+                                                    <i class="fa fa-search"></i>
+                                                </button>
                                             </div>
                                         </div>
                                         <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12">
@@ -342,16 +350,3 @@ else
         </div>
     </div>
 </section>
-<script>
-    function search() {
-        var value = document.getElementById('searchInput').value;
-        window.location.href = '/home/search?value=' + encodeURIComponent(value);
-    }
-
-    function changeCursor(element) {
-        element.style.cursor = 'pointer';
-    }
-    function redirectToAction(blogId) {
-        window.location.href = '/Blog/Singleblog?id=' + blogId;
-    }
-</script>

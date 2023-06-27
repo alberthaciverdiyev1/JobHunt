@@ -16,7 +16,7 @@ namespace FinalProjectJobHunt.Controllers
         {
             _context = context;
         }
-        public IActionResult Index(int count)
+        public async Task<IActionResult> Index(int count, string search)
         {
             var user = _context.Users.FirstOrDefault(u => u.UserName == User.Identity!.Name);
             if (User.Identity.IsAuthenticated)
@@ -30,14 +30,12 @@ namespace FinalProjectJobHunt.Controllers
 
                 }
             }
-
-            //ViewBag.User = _context.Users.FirstOrDefault(u => u.UserName == User.Identity!.Name).ImageURL;
+           
             List<Category> categories = _context.Categories.Take(8).ToList();
             List<Blog> blogs = _context.Blogs.ToList();
             List<AppUser> users = _context.Users.ToList();
             HomeVM homeVM = new HomeVM
             {
-
                 Categories = categories,
                 Blogs = blogs,
                 Users = users,

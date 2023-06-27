@@ -9,14 +9,20 @@
                         <div class="job-search-sec">
                             <div class="job-search">
                                 <h4>Explore Thousand Of Jobs With Just Simple Search...</h4>
-                                <div id="searchResults"></div>
                                 <div id="searchForm">
+                                       <form  asp-action="Index"  asp-controller="Job" >
                                     <div class="row">
                                         <div class="col-lg-7">
-                                            <div class="job-field">
-                                                <input type="text" id="SearchBox" placeholder="Job title, keywords or company name" />
-                                                <i class="la la-keyboard-o"></i>
-                                            </div>
+                                                <div class="job-field">
+                                                    <input name="search"
+                                                           class="input-field"
+                                                           type="text"
+                                                           placeholder="Search"
+                                                    @*value="@(Model.Search==null?"":Model.Search)"*@ />
+                                                    @*  <button type="button" onclick="search()">Search</button>
+                                                    *@     <i class="la la-keyboard-o"></i>
+                                             
+                                                </div>
                                         </div>
                                         <div class="col-lg-4">
                                             <div class="job-field">
@@ -34,6 +40,7 @@
                                             <button type="submit" onclick="searchJobs()"><i class="la la-search"></i></button>
                                         </div>
                                     </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -148,7 +155,7 @@
                         </div>
                     </div><!-- MOdern Job LIst -->
                     <div class="job-list-modern">
-                        <div class="job-listings-sec no-border">
+                        <div id="jobListings" class="job-listings-sec no-border">
                             @foreach (PostJob item in Model.PostJobs)
                             {
                                 var userImageURL = Model.AppUsers.FirstOrDefault(x => x.Id == item.AppUserId)?.ImageURL ?? "NoImage.png";
@@ -208,22 +215,10 @@
         </div>
     </div>
 </section>
+@*
 <script>
-    function searchJobs() {
-        var searchBoxValue = document.getElementById("SearchBox").value;
-        var selectedCity = document.querySelector(".chosen-city").value;
 
-        fetch(`/Job/Search?searchText=${searchBoxValue}&city=${selectedCity}`)
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById("searchResults").innerHTML = data;
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
-    }
-</script>
-<script>
+
     function searchJobs() {
         var searchBoxValue = document.getElementById("SearchBox").value;
         var selectedCity = document.querySelector(".chosen-city").value;
@@ -234,13 +229,18 @@
             selectedJobTypes.push(checkbox.getAttribute('data-job-type'));
         });
 
-        fetch(`/Job/Search?searchText=${searchBoxValue}&cityId=${selectedCity}&jobTypes=${selectedJobTypes.join(',')}`)
+        var jobListingsContainer = document.getElementById("jobListings");
+
+        fetch(`/Job/Index?search=${searchBoxValue}&cityId=${selectedCity}&jobTypes=${selectedJobTypes.join(',')}`)
             .then(response => response.text())
             .then(data => {
-                document.getElementById("searchResults").innerHTML = data;
+                // İş ilanları listesini güncelle
+                jobListingsContainer.innerHTML = data;
             })
             .catch(error => {
                 console.error('Error:', error);
             });
     }
-</script>
+
+
+</script>*@
