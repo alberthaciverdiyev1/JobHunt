@@ -1,4 +1,5 @@
-﻿@model HomeVM
+﻿@using FinalProjectJobHunt.Models.Job;
+@model HomeVM
 <style>
     .custom-div {
         cursor: pointer;
@@ -17,7 +18,7 @@
                             <div class="job-search">
                                 <h3>The Easiest Way to Get Your New Job</h3>
                                 <span>Find Jobs, Employment & Career Opportunities</span>
-                                <form  asp-action="Index"  asp-controller="Job" >
+                                <form asp-action="Index" asp-controller="Home">
                                     <div class="row">
                                         <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
                                             <div class="job-field">
@@ -25,22 +26,19 @@
                                                        class="input-field"
                                                        type="text"
                                                        placeholder="Search"
-                                                       @*value="@(Model.Search==null?"":Model.Search)"*@ />
-                                                <input type="text" id="searchInput" placeholder="Job title, keywords or company name" />
-@*                                             <button type="button" onclick="search()">Search</button>
-*@                                                <i class="la la-keyboard-o"></i>
-                                                <button class="widgets-searchbox-btn" type="submit">
-                                                    <i class="fa fa-search"></i>
-                                                </button>
+                                                @*value="@(Model.Search==null?"":Model.Search)"*@ />
+                                                @*                                             <button type="button" onclick="search()">Search</button>
+                                                *@                                                <i class="la la-keyboard-o"></i>
                                             </div>
                                         </div>
                                         <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12">
                                             <div class="job-field">
                                                 <select data-placeholder="City, province or region" class="chosen-city">
-                                                    <option>New York </option>
-                                                    <option>Istanbul</option>
-                                                    <option>London</option>
-                                                    <option>Russia</option>
+                                                    <option value="">Select City </option>
+                                                    @foreach (City city in Model.Cities)
+                                                    {
+                                                        <option value="@city.id">@city.CityName </option>
+                                                    }
                                                 </select>
                                                 <i class="la la-map-marker"></i>
                                             </div>
@@ -50,12 +48,10 @@
                                         </div>
                                     </div>
                                 </form>
-                                <div class="or-browser">
-                                    <span>Browse job offers by</span>
-                                    <a href="#" title="">Category</a>
-                                </div>
+
                             </div>
                         </div>
+
                         <div class="scroll-to">
                             <a href="#scroll-here" title=""><i class="la la-arrow-down"></i></a>
                         </div>
@@ -63,6 +59,85 @@
                 </div>
             </div>
         </div>
+    </div>
+</section>
+
+<section style="width:60%;" class="mx-auto">
+    <div id="jobListings" class="job-listings-sec no-border" style="margin-left:30%">
+
+        @foreach (PostJob item in Model.PostJobs)
+        {
+            var userImageURL = Model.Users.FirstOrDefault(x => x.Id == item.AppUserId)?.ImageURL ?? "NoImage.png";
+            var positionName = Model.Positions.FirstOrDefault(x => x.id == item.PositionId)?.PositionName ?? string.Empty;
+            var userName = Model.Users.FirstOrDefault(x => x.Id == item.AppUserId)?.Name;
+            <div class="job-listing wtabs" onclick="location.href='@Url.Action("CompanyJobDetail", "job", new { id = item.id })'" style="cursor: pointer;">
+                <div class="job-title-sec">
+                    <div class="c-logo">
+                        <img src="~/assets/images/User/@userImageURL" alt="" />
+
+                    </div><h6 style="color:red">Vacancy</h6>
+                    <h3> @positionName / @item.Category.Name</h3>
+                    <span>@userName</span>
+                    @if (item.Description.Length < 100)
+                    {
+                        <p class="job-lctn">@item.Description</p>
+
+                        <br />
+                    }
+                    else
+                    {
+                        <p class="job-lctn"> @item.Description.Substring(0,50)... </p>
+
+                        <br />
+
+                    }
+                    <div class="job-lctn"><i class="la la-map-marker"></i>@item.City.CityName</div>
+                </div>
+
+                <div class="job-style-bx">
+
+                    <i style="color:blueviolet">@item.Created</i>
+                </div>
+            </div>
+        }
+        @foreach (UserPostJob item in Model.UserPostJobs)
+        {
+
+            var userImageURL = Model.Users.FirstOrDefault(x => x.Id == item.AppUserId)?.ImageURL ?? "NoImage.png";
+            var positionName = Model.Positions.FirstOrDefault(x => x.id == item.PositionId)?.PositionName ?? string.Empty;
+            var userName = Model.Users.FirstOrDefault(x => x.Id == item.AppUserId)?.Name;
+            <div class="job-listing wtabs" onclick="location.href='@Url.Action("Detail", "job", new { id = item.id })'" style="cursor: pointer;">
+                <div class="job-title-sec">
+                    <div class="c-logo">
+                        <img src="~/assets/images/User/@userImageURL" alt="" />
+                    </div>
+                    <h6 style="color:red">Work Shared By The User</h6>
+
+                    <h3> @positionName / @item.Category.Name</h3>
+                    <span>@userName</span>
+                    @if (item.Description.Length < 100)
+                    {
+                        <p class="job-lctn">@item.Description</p>
+
+                        <br />
+                    }
+                    else
+                    {
+                        <p class="job-lctn"> @item.Description.Substring(0,50)... </p>
+
+                        <br />
+
+                    }
+                    <div class="job-lctn"><i class="la la-map-marker"></i>@item.City.CityName</div>
+                </div>
+
+                <div class="job-style-bx">
+
+                    <i style="color:blueviolet">@item.Created</i>
+                </div>
+            </div>
+        }
+
     </div>
 </section>
 
@@ -307,18 +382,18 @@ else
                                                 <span>@item.DateTime</span>
                                             </div>
                                         </div>
-                                            <div class="blog-details">
-                                                <h3><span>@item.Title</span></h3>
-                                                @if (item.Description.Length < 100)
-                                                {
-                                                    <p>@item.Description</p>
-                                                }
-                                                else
-                                                {
-                                                    <p> @item.Description.Substring(0,100)... </p>
-                                                }
-                                                <span>Read More <i class="la la-long-arrow-right"></i></span>
-                                            </div>
+                                        <div class="blog-details">
+                                            <h3><span>@item.Title</span></h3>
+                                            @if (item.Description.Length < 100)
+                                            {
+                                                <p>@item.Description</p>
+                                            }
+                                            else
+                                            {
+                                                <p> @item.Description.Substring(0,100)... </p>
+                                            }
+                                            <span>Read More <i class="la la-long-arrow-right"></i></span>
+                                        </div>
                                     </div>
                                 </div>
                             }

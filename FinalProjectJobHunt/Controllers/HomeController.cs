@@ -4,6 +4,7 @@ using FinalProjectJobHunt.DAL;
 using FinalProjectJobHunt.Models;
 using FinalProjectJobHunt.ViewModels;
 using System.Diagnostics;
+using FinalProjectJobHunt.Models.Job;
 
 namespace FinalProjectJobHunt.Controllers
 {
@@ -16,8 +17,24 @@ namespace FinalProjectJobHunt.Controllers
         {
             _context = context;
         }
-        public async Task<IActionResult> Index(int count, string search)
+        public async Task<IActionResult> Index(int page, string search)
         {
+            IQueryable<PostJob> query = null;
+            IQueryable<UserPostJob> queryUserPostJob = null;
+
+            if (search != null)
+            {
+                query = _context.PostJobs.Where(p => p.Description.ToLower().Contains(search.ToLower()) ||
+                                         p.Category.Name.ToLower().Contains(search.ToLower()) ||
+                                         p.City.CityName.ToLower().Contains(search.ToLower()) ||
+                                         p.JobType.WorkType.ToLower().Contains(search.ToLower()));
+
+                queryUserPostJob = _context.UserPostJobs.Where(p => p.Description.ToLower().Contains(search.ToLower()) ||
+                                                               p.Category.Name.ToLower().Contains(search.ToLower()) ||
+                                                               p.City.CityName.ToLower().Contains(search.ToLower()) ||
+                                                               p.JobType.WorkType.ToLower().Contains(search.ToLower()));
+            }
+
             var user = _context.Users.FirstOrDefault(u => u.UserName == User.Identity!.Name);
             if (User.Identity.IsAuthenticated)
             {
@@ -26,20 +43,26 @@ namespace FinalProjectJobHunt.Controllers
                 if (messages != null)
                 {
                     ViewBag.Messages = messages;
-
-
                 }
             }
-           
+
             List<Category> categories = _context.Categories.Take(8).ToList();
             List<Blog> blogs = _context.Blogs.ToList();
             List<AppUser> users = _context.Users.ToList();
+            List<City> cities = _context.Cities.Take(8).ToList();
+            List<Position> positions = _context.Positions.ToList();
+
             HomeVM homeVM = new HomeVM
             {
                 Categories = categories,
                 Blogs = blogs,
                 Users = users,
+                Cities = cities,
+                PostJobs = query != null ? await query.ToListAsync() : new List<PostJob>(),
+                UserPostJobs = queryUserPostJob != null ? await queryUserPostJob.ToListAsync() : new List<UserPostJob>(),
+                Positions=positions,
             };
+
             return View(homeVM);
         }
         public async Task<ActionResult> Categories()

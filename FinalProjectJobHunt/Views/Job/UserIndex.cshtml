@@ -13,30 +13,37 @@
                                 <h4>Explore Thousand Of Jobs With Just Simple Search...</h4>
                             
                                 <div id="searchForm">
-                                    <div class="row">
-                                        <div class="col-lg-6">
-                                            <div class="job-field">
-                                                <input type="text" id="SearchBox" placeholder="Job title, keywords or company name" />
-                                                <i class="la la-keyboard-o"></i>
+                                    <form asp-action="UserIndex" asp-controller="Job">
+                                        <div class="row">
+                                            <div class="col-lg-7">
+                                                <div class="job-field">
+                                                    <input name="search"
+                                                           class="input-field"
+                                                           type="text"
+                                                           placeholder="Search"
+                                                    @*value="@(Model.Search==null?"":Model.Search)"*@ />
+                                                    @*  <button type="button" onclick="search()">Search</button>
+                                                    *@     <i class="la la-keyboard-o"></i>
 
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <div class="job-field">
+                                                    <select data-placeholder="City, province or region" class="chosen-city">
+                                                        <option value="">Select City</option>
+                                                        @foreach (City item in Model.Cities)
+                                                        {
+                                                            <option>@item.CityName</option>
+                                                        }
+                                                    </select>
+                                                    <i class="la la-map-marker"></i>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-1">
+                                                <button type="submit" onclick="searchJobs()"><i class="la la-search"></i></button>
                                             </div>
                                         </div>
-                                        <div class="col-lg-4">
-                                            <div class="job-field">
-                                                <select data-placeholder="City, province or region" class="chosen-city">
-                                                    <option value="">Select City</option>
-                                                    @foreach (City item in Model.Cities)
-                                                    {
-                                                        <option>@item.CityName</option>
-                                                    }
-                                                </select>
-                                                <i class="la la-map-marker"></i>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-2">
-                                            <button type="submit" onclick="searchJobs()"><i class="la la-search"></i></button>
-                                        </div>
-                                    </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -159,7 +166,6 @@
                 <div class="col-lg-9 column">
                     <div class="modrn-joblist np">
                         <div class="filterbar">
-                            <span class="emlthis"><a href="mailto:example.com" title=""><i class="la la-envelope-o"></i> Email me Jobs Like These</a></span>
                             <div class="sortby-sec">
                                 <span>Sort by</span>
                                 <select data-placeholder="Most Recent" class="chosen">

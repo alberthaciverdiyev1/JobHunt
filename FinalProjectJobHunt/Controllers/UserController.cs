@@ -45,7 +45,7 @@ namespace FinalProjectJobHunt.Controllers
 
 
 
-            Profile Profile = new Profile
+            ProfileVM Profile = new ProfileVM
             {
                 Name = user.Name,
                 Surname = user.Surname,
@@ -73,7 +73,7 @@ namespace FinalProjectJobHunt.Controllers
         {
             var user = await _context.Users.FirstOrDefaultAsync(u => u.Id == id);
             if (user == null) return NotFound();
-            Profile Profile = new Profile
+            ProfileVM Profile = new ProfileVM
             {
                 Name = user.Name,
                 Surname = user.Surname,
@@ -105,7 +105,7 @@ namespace FinalProjectJobHunt.Controllers
             ViewBag.Education = await _context.Educations.ToListAsync();
 
             if (user == null) return NotFound();
-            Profile Profile = new Profile
+            ProfileVM Profile = new ProfileVM
             {
                 Name = user.Name,
                 Surname = user.Surname,
@@ -124,7 +124,7 @@ namespace FinalProjectJobHunt.Controllers
 
         }
         [HttpPost]
-        public async Task<IActionResult> Update(Profile profile)
+        public async Task<IActionResult> Update(ProfileVM profile)
         {
             var user = await _context.Users.FirstOrDefaultAsync(u => u.UserName == User.Identity!.Name);
             //if (!ModelState.IsValid)

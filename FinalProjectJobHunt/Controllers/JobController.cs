@@ -15,329 +15,320 @@ using System.Text.Json;
 
 namespace FinalProjectJobHunt.Controllers
 {
-	public class JobController : Controller
-	{
-		private readonly AppDbContext _context;
-		private readonly UserManager<AppUser> _userManager;
+    public class JobController : Controller
+    {
+        private readonly AppDbContext _context;
+        private readonly UserManager<AppUser> _userManager;
 
-		public JobController(AppDbContext context, UserManager<AppUser> userManager)
-		{
-			_context = context;
-			_userManager = userManager;
-		}
-
-
-		//public async Task<IActionResult> Index(int page, string? search)
-		//{
-		//	ViewBag.Page = page;
-		//	ViewBag.Total = Math.Ceiling((decimal)_context.PostJobs.Count() / 6);
-
-		//	List<Category> categories = await _context.Categories.ToListAsync();
-		//	List<Position> positions = await _context.Positions.ToListAsync();
-		//	List<AppUser> users = await _context.Users.ToListAsync();
-		//	List<City> cities = await _context.Cities.ToListAsync();
-		//	List<JobType> jobTypes = await _context.JobTypes.ToListAsync();
-
-		//	var postJobsQuery = _context.PostJobs.Include(x => x.JobType)
-		//										.Include(x => x.City)
-		//										.Include(x => x.Category)
-		//										.AsQueryable();
-
-		//	if (!string.IsNullOrEmpty(search))
-		//	{
-		//		postJobsQuery = postJobsQuery.Where(x => x.Description.Contains(search));
-		//	}
+        public JobController(AppDbContext context, UserManager<AppUser> userManager)
+        {
+            _context = context;
+            _userManager = userManager;
+        }
 
 
-		//	List<PostJob> postJobs = await postJobsQuery.Skip(page * 6).Take(6).ToListAsync();
+        public async Task<IActionResult> Index(int page, string? search, int? categoryId, int? order, int? city, int?[] jobtype)
+        {
+            IQueryable<PostJob> query = _context.PostJobs
+            .Include(p => p.AppUser).Include(x => x.Category).ThenInclude(x => x.Positions)
+            .Include(x => x.JobType).Skip(page * 6).Take(6)
+            .Include(x => x.City).AsQueryable();
+            switch (order)
+            {
+                case 1:
+                    query = query.OrderBy(p => p.Created);
+                    break;
+                case 2:
+                    query = query.OrderByDescending(p => p.Salary);
+                    break;
+                case 3:
+                    query = query.OrderBy(p => p.Salary);
+                    break;
+            }
+            if (city != null)
+            {
+                query = query.Where(p => p.City.id == city);
 
-		//	PostJobVM jobVM = new PostJobVM
-		//	{
-		//		Category = categories,
-		//		Positions = positions,
-		//		PostJobs = postJobs,
-		//		AppUsers = users,
-		//		Cities = cities,
-		//		JobTypes = jobTypes
-		//	};
-
-		//	return View(jobVM);
-		//}
-
-
-		public async Task<IActionResult> Index(int page, string? search)
-		{
-		        IQueryable<PostJob> query = _context.PostJobs
-				.Include(p => p.AppUser).Include(x=>x.Category).ThenInclude(x=>x.Positions)
-				.Include(x => x.JobType).Skip(page * 6).Take(6)
-                .Include(x => x.City).AsQueryable();
+            }
             if (search != null)
             {
                 query = query.Where(p => p.Description.ToLower().Contains(search.ToLower()) ||
-                                         p.Category.Name.ToLower().Contains(search.ToLower())||
-										 p.City.CityName.ToLower().Contains(search.ToLower())||
-										 p.JobType.WorkType.ToLower().Contains(search.ToLower()));
+                                         p.Category.Name.ToLower().Contains(search.ToLower()) ||
+                                         p.City.CityName.ToLower().Contains(search.ToLower()) ||
+                                         p.JobType.WorkType.ToLower().Contains(search.ToLower()));
             }
+            if (jobtype.Length != 0)
+            {
+                query = query.Where(p => jobtype.Contains(p.JobType.id));
+            }
+            if (categoryId != null)
+            {
+                query = query.Where(p => p.CategoryId == categoryId);
+            }
+
             ViewBag.Page = page;
-			ViewBag.Total = Math.Ceiling((decimal)_context.PostJobs.Count() / 6);
+            ViewBag.Total = Math.Ceiling((decimal)_context.PostJobs.Count() / 6);
             List<Position> positions = await _context.Positions.ToListAsync();
-			List<AppUser> users = await _context.Users.ToListAsync();
-			List<City> cities = await _context.Cities.ToListAsync();
-			List<JobType> jobTypes = await _context.JobTypes.ToListAsync();
-			PostJobVM jobVM = new PostJobVM
-			{
-				Category = await _context.Categories.Include(x => x.Positions).ToListAsync(),
-				Positions = positions,
-				PostJobs = await query.ToListAsync(),
+            List<AppUser> users = await _context.Users.ToListAsync();
+            List<City> cities = await _context.Cities.ToListAsync();
+            List<JobType> jobTypes = await _context.JobTypes.ToListAsync();
+            PostJobVM jobVM = new PostJobVM
+            {
+                Category = await _context.Categories.Include(x => x.Positions).ToListAsync(),
+                Positions = positions,
+                PostJobs = await query.ToListAsync(),
                 AppUsers = users,
-				Cities = cities,
-				JobTypes = jobTypes
+                Cities = cities,
+                JobTypes = jobTypes
 
-			};
+            };
 
-			return View(jobVM);
-		}
+            return View(jobVM);
+        }
 
-		public async Task<IActionResult> UserIndex(int page, string jobType)
-		{
-			ViewBag.Page = page;
-			ViewBag.Total = Math.Ceiling((decimal)_context.PostJobs.Count() / 6);
-
-			IQueryable<UserPostJob> postJobsQuery = _context.UserPostJobs
-				.Include(x => x.JobType)
-				.Include(x => x.City)
-				.Include(x => x.Category);
-
-			if (!string.IsNullOrEmpty(jobType))
-			{
-				postJobsQuery = postJobsQuery.Where(x => x.JobType.WorkType == jobType);
-			}
-
-			List<UserPostJob> postJobs = await postJobsQuery.ToListAsync();
-
-			List<Category> categories = await _context.Categories.ToListAsync();
-			List<Position> positions = await _context.Positions.ToListAsync();
-			List<AppUser> users = await _context.Users.ToListAsync();
-			List<City> cities = await _context.Cities.ToListAsync();
-			List<JobType> jobTypes = await _context.JobTypes.ToListAsync();
-
-			UserPostJobVM jobVM = new UserPostJobVM
-			{
-				Category = categories,
-				Positions = positions,
-				UserPostJobs = postJobs,
-				AppUsers = users,
-				Cities = cities,
-				JobTypes = jobTypes,
-			};
-
-			return View(jobVM);
-		}
-
-
-		public async Task<IActionResult> Detail(int id)
-		{
-
-			UserPostJob singleJob = await _context.UserPostJobs
-				.Include(x => x.Education)
-				.Include(x => x.WorkExperience)
-				.Include(x => x.Category)
-				.Include(x => x.JobType)
-				.Include(x => x.City)
-				.FirstOrDefaultAsync(x => x.id == id);
-			AppUser appUser = await _context.Users.FirstOrDefaultAsync(u => u.Id == singleJob.AppUserId);
-			Position positionName = await _context.Positions.FirstOrDefaultAsync(x => x.id == singleJob.PositionId);
-
-			DetailVM detail = new DetailVM
-			{
-				UserPostJob = singleJob,
-				AppUser = appUser,
-				Position = positionName
-			};
-			return View(detail);
-		}
-		public async Task<IActionResult> CompanyJobDetail(int id)
-		{
-
-			PostJob singleJob = await _context.PostJobs
-				.Include(x => x.Education)
-				.Include(x => x.WorkExperience)
-				.Include(x => x.Category)
-				.Include(x => x.JobType)
-				.Include(x => x.City)
-				.FirstOrDefaultAsync(x => x.id == id);
-			Position positionName = await _context.Positions.FirstOrDefaultAsync(x => x.id == singleJob.PositionId);
-
-			AppUser appUser = await _context.Users.FirstOrDefaultAsync(u => u.Id == singleJob.AppUserId);
-
-			DetailVM detail = new DetailVM
-			{
-				PostJob = singleJob,
-				AppUser = appUser,
-				Position = positionName
-			};
-			return View(detail);
-		}
-		[Authorize]
-
-		public async Task<IActionResult> PostJob()
-		{
-			if (User.Identity.IsAuthenticated)
-			{
-				string role = User.FindFirst(ClaimTypes.Role)?.Value;
-				if (role == "EMPLOYER")
-				{
-					return RedirectToAction("UserPostJob");
-				}
-			}
-			ViewBag.Categories = new SelectList(_context.Categories, "id", "Name");
-			ViewBag.City = new SelectList(_context.Cities, "id", "CityName");
-
-			List<Category> categories = await _context.Categories.ToListAsync();
-			List<City> cities = await _context.Cities.ToListAsync();
-			List<Language> languages = await _context.Languages.ToListAsync();
-			List<Education> education = await _context.Educations.ToListAsync();
-			List<WorkExperience> workExperiences = _context.WorkExperiences.ToList();
-			List<JobType> jobTypes = _context.JobTypes.ToList();
-			PostJobVM jobVM = new PostJobVM
-			{
-				Category = categories,
-				Languages = languages,
-				WorkExperiences = workExperiences,
-				JobTypes = jobTypes,
-				Educations = education,
-				Cities = cities,
-
-			};
-
-			//ViewBag.Category = await _context.Categories.ToListAsync();
-			//ViewBag.Position = await _context.Positions.ToListAsync();
-			//ViewBag.Language = await _context.Languages.ToListAsync();
-			//ViewBag.Education = await _context.Educations.ToListAsync();
-			//ViewBag.ExpeerienceYear = await _context.ExperienceYears.ToListAsync();
-			//ViewBag.WorkExperience = await _context.WorkExperiences.ToListAsync();
-			//ViewBag.City = await _context.Cities.ToListAsync();
-			//ViewBag.JobType = await _context.JobTypes.ToListAsync();
-			return View(jobVM);
-		}
-		[HttpPost]
-		public async Task<IActionResult> PostJob(PostJobVM job)
-		{
-			if (!ModelState.IsValid)
-			{
-				ModelState.AddModelError(string.Empty, "Bu Model State Errorudur");
-				return View();
-			}
-			var currentUser = await _userManager.GetUserAsync(User);
-
-			PostJob postJob = new PostJob
-			{
-				PhoneNumber = job.PhoneNumber,
-				LanguageId = job.LanguageId,
-				CategoryId = job.CategoryId,
-				MaxAge = job.MaxAge,
-				MinAge = job.MinAge,
-				EducationId = job.EducationId,
-				Email = job.Email,
-				Experience = job.Experience,
-				WorkExperienceId = job.WorkExperienceId,
-				Salary = job.Salary,
-				CityId = job.CityId,
-				Website = job.Website,
-				JobTypeId = job.JobTypeId,
-				Description = job.Description,
-				Created = DateTime.Now,
-				PositionId = job.PositionId,
-				AppUserId = currentUser.Id
-			};
-			await _context.AddAsync(postJob);
-			await _context.SaveChangesAsync();
+        public async Task<IActionResult> UserIndex(int page, string? search)
+        {
+            ViewBag.Page = page;
+            ViewBag.Total = Math.Ceiling((decimal)_context.PostJobs.Count() / 6);
 
 
 
-			return RedirectToAction("Index", "Job");
-		}
+            IQueryable<UserPostJob> query = _context.UserPostJobs
+            .Include(p => p.AppUser).Include(x => x.Category).ThenInclude(x => x.Positions)
+            .Include(x => x.JobType).Skip(page * 6).Take(6)
+            .Include(x => x.City).AsQueryable();
+            if (search != null)
+            {
+                query = query.Where(p => p.Description.ToLower().Contains(search.ToLower()) ||
+                                         p.Category.Name.ToLower().Contains(search.ToLower()) ||
+                                         p.City.CityName.ToLower().Contains(search.ToLower()) ||
+                                         p.JobType.WorkType.ToLower().Contains(search.ToLower()));
+            }
 
 
-		public async Task<IActionResult> UserPostJob()
-		{
+            List<Category> categories = await _context.Categories.ToListAsync();
+            List<Position> positions = await _context.Positions.ToListAsync();
+            List<AppUser> users = await _context.Users.ToListAsync();
+            List<City> cities = await _context.Cities.ToListAsync();
+            List<JobType> jobTypes = await _context.JobTypes.ToListAsync();
 
-			ViewBag.Categories = new SelectList(_context.Categories, "id", "Name");
+            UserPostJobVM jobVM = new UserPostJobVM
+            {
+                Category = categories,
+                Positions = positions,
+                UserPostJobs = await query.ToListAsync(),
+                AppUsers = users,
+                Cities = cities,
+                JobTypes = jobTypes,
+            };
 
-			List<Category> categories = await _context.Categories.ToListAsync();
-			List<City> cities = await _context.Cities.ToListAsync();
-			List<Language> languages = await _context.Languages.ToListAsync();
-			List<Education> education = await _context.Educations.ToListAsync();
-			List<WorkExperience> workExperiences = _context.WorkExperiences.ToList();
-			List<JobType> jobTypes = _context.JobTypes.ToList();
-			UserPostJobVM jobVM = new UserPostJobVM
-			{
-				Category = categories,
-				Languages = languages,
-				WorkExperiences = workExperiences,
-				JobTypes = jobTypes,
-				Educations = education,
-				Cities = cities,
-
-			};
-
-			return View(jobVM);
-
-		}
-		[HttpPost]
-		public async Task<IActionResult> UserPostJob(UserPostJobVM job)
-		{
-
-			if (!ModelState.IsValid)
-			{
-				ModelState.AddModelError(string.Empty, "Bu Model State Errorudur");
-				return View();
-			}
-			var currentUser = await _userManager.GetUserAsync(User);
-
-			UserPostJob postJob = new UserPostJob
-			{
-				PhoneNumber = job.PhoneNumber,
-				LanguageId = job.LanguageId,
-				CategoryId = job.CategoryId,
-				Age = job.Age,
-				EducationId = job.EducationId,
-				Email = job.Email,
-				Experience = job.Experience,
-				WorkExperienceId = job.WorkExperienceId,
-				Salary = job.Salary,
-				CityId = job.CityId,
-				JobTypeId = job.JobTypeId,
-				Description = job.Description,
-				Created = DateTime.Now,
-				AppUserId = currentUser.Id,
-				PositionId = job.PositionId,
-
-			};
-			await _context.AddAsync(postJob);
-			await _context.SaveChangesAsync();
-
-			return RedirectToAction("UserIndex", "Job");
-		}
-		[HttpPost]
-		public JsonResult GetProfessionsByCategory(int id)
-		{
-
-			try
-			{
-				List<Position> positions = _context.Positions.Where(p => p.CategoryId == id).ToList();
-
-				return Json(new SelectList(positions, "id", "PositionName"));
-
-			}
-			catch (Exception ex)
-			{
-				return Json(new { error = ex.Message });
-			}
+            return View(jobVM);
+        }
 
 
-		}
-      
+        public async Task<IActionResult> Detail(int id)
+        {
+
+            UserPostJob singleJob = await _context.UserPostJobs
+                .Include(x => x.Education)
+                .Include(x => x.WorkExperience)
+                .Include(x => x.Category)
+                .Include(x => x.JobType)
+                .Include(x => x.City)
+                .FirstOrDefaultAsync(x => x.id == id);
+            AppUser appUser = await _context.Users.FirstOrDefaultAsync(u => u.Id == singleJob.AppUserId);
+            Position positionName = await _context.Positions.FirstOrDefaultAsync(x => x.id == singleJob.PositionId);
+
+            DetailVM detail = new DetailVM
+            {
+                UserPostJob = singleJob,
+                AppUser = appUser,
+                Position = positionName
+            };
+            return View(detail);
+        }
+        public async Task<IActionResult> CompanyJobDetail(int id)
+        {
+
+            PostJob singleJob = await _context.PostJobs
+                .Include(x => x.Education)
+                .Include(x => x.WorkExperience)
+                .Include(x => x.Category)
+                .Include(x => x.JobType)
+                .Include(x => x.City)
+                .FirstOrDefaultAsync(x => x.id == id);
+            Position positionName = await _context.Positions.FirstOrDefaultAsync(x => x.id == singleJob.PositionId);
+
+            AppUser appUser = await _context.Users.FirstOrDefaultAsync(u => u.Id == singleJob.AppUserId);
+
+            DetailVM detail = new DetailVM
+            {
+                PostJob = singleJob,
+                AppUser = appUser,
+                Position = positionName
+            };
+            return View(detail);
+        }
+        [Authorize]
+
+        public async Task<IActionResult> PostJob()
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                string role = User.FindFirst(ClaimTypes.Role)?.Value;
+                if (role == "EMPLOYER")
+                {
+                    return RedirectToAction("UserPostJob");
+                }
+            }
+            ViewBag.Categories = new SelectList(_context.Categories, "id", "Name");
+            ViewBag.City = new SelectList(_context.Cities, "id", "CityName");
+
+            List<Category> categories = await _context.Categories.ToListAsync();
+            List<City> cities = await _context.Cities.ToListAsync();
+            List<Language> languages = await _context.Languages.ToListAsync();
+            List<Education> education = await _context.Educations.ToListAsync();
+            List<WorkExperience> workExperiences = _context.WorkExperiences.ToList();
+            List<JobType> jobTypes = _context.JobTypes.ToList();
+            PostJobVM jobVM = new PostJobVM
+            {
+                Category = categories,
+                Languages = languages,
+                WorkExperiences = workExperiences,
+                JobTypes = jobTypes,
+                Educations = education,
+                Cities = cities,
+
+            };
+
+            //ViewBag.Category = await _context.Categories.ToListAsync();
+            //ViewBag.Position = await _context.Positions.ToListAsync();
+            //ViewBag.Language = await _context.Languages.ToListAsync();
+            //ViewBag.Education = await _context.Educations.ToListAsync();
+            //ViewBag.ExpeerienceYear = await _context.ExperienceYears.ToListAsync();
+            //ViewBag.WorkExperience = await _context.WorkExperiences.ToListAsync();
+            //ViewBag.City = await _context.Cities.ToListAsync();
+            //ViewBag.JobType = await _context.JobTypes.ToListAsync();
+            return View(jobVM);
+        }
+        [HttpPost]
+        public async Task<IActionResult> PostJob(PostJobVM job)
+        {
+            if (!ModelState.IsValid)
+            {
+                ModelState.AddModelError(string.Empty, "Bu Model State Errorudur");
+                return View();
+            }
+            var currentUser = await _userManager.GetUserAsync(User);
+
+            PostJob postJob = new PostJob
+            {
+                PhoneNumber = job.PhoneNumber,
+                LanguageId = job.LanguageId,
+                CategoryId = job.CategoryId,
+                MaxAge = job.MaxAge,
+                MinAge = job.MinAge,
+                EducationId = job.EducationId,
+                Email = job.Email,
+                Experience = job.Experience,
+                WorkExperienceId = job.WorkExperienceId,
+                Salary = job.Salary,
+                CityId = job.CityId,
+                Website = job.Website,
+                JobTypeId = job.JobTypeId,
+                Description = job.Description,
+                Created = DateTime.Now,
+                PositionId = job.PositionId,
+                AppUserId = currentUser.Id
+            };
+            await _context.AddAsync(postJob);
+            await _context.SaveChangesAsync();
+
+
+
+            return RedirectToAction("Index", "Job");
+        }
+
+
+        public async Task<IActionResult> UserPostJob()
+        {
+
+            ViewBag.Categories = new SelectList(_context.Categories, "id", "Name");
+
+            List<Category> categories = await _context.Categories.ToListAsync();
+            List<City> cities = await _context.Cities.ToListAsync();
+            List<Language> languages = await _context.Languages.ToListAsync();
+            List<Education> education = await _context.Educations.ToListAsync();
+            List<WorkExperience> workExperiences = _context.WorkExperiences.ToList();
+            List<JobType> jobTypes = _context.JobTypes.ToList();
+            UserPostJobVM jobVM = new UserPostJobVM
+            {
+                Category = categories,
+                Languages = languages,
+                WorkExperiences = workExperiences,
+                JobTypes = jobTypes,
+                Educations = education,
+                Cities = cities,
+
+            };
+
+            return View(jobVM);
+
+        }
+        [HttpPost]
+        public async Task<IActionResult> UserPostJob(UserPostJobVM job)
+        {
+
+            if (!ModelState.IsValid)
+            {
+                ModelState.AddModelError(string.Empty, "Bu Model State Errorudur");
+                return View();
+            }
+            var currentUser = await _userManager.GetUserAsync(User);
+
+            UserPostJob postJob = new UserPostJob
+            {
+                PhoneNumber = job.PhoneNumber,
+                LanguageId = job.LanguageId,
+                CategoryId = job.CategoryId,
+                Age = job.Age,
+                EducationId = job.EducationId,
+                Email = job.Email,
+                Experience = job.Experience,
+                WorkExperienceId = job.WorkExperienceId,
+                Salary = job.Salary,
+                CityId = job.CityId,
+                JobTypeId = job.JobTypeId,
+                Description = job.Description,
+                Created = DateTime.Now,
+                AppUserId = currentUser.Id,
+                PositionId = job.PositionId,
+
+            };
+            await _context.AddAsync(postJob);
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction("UserIndex", "Job");
+        }
+        [HttpPost]
+        public JsonResult GetProfessionsByCategory(int id)
+        {
+
+            try
+            {
+                List<Position> positions = _context.Positions.Where(p => p.CategoryId == id).ToList();
+
+                return Json(new SelectList(positions, "id", "PositionName"));
+
+            }
+            catch (Exception ex)
+            {
+                return Json(new { error = ex.Message });
+            }
+
+
+        }
+
 
 
     }
