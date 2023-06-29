@@ -71,7 +71,7 @@ namespace FinalProjectJobHunt.Services
                 {
                     List<BasketItem> userItems = await _context.BasketItems
               .Where(b => b.AppUserId == user.Id)
-              .Include(b => b.PostJob)
+              .Include(b => b.PostJob).ThenInclude(c=>c.Category)
               .ToListAsync();
 
                     foreach (BasketItem item in userItems)

@@ -132,22 +132,36 @@ namespace JobHuntProject.Controllers
                     foreach (var error in result.Errors)
                     {
                         ModelState.AddModelError(string.Empty, error.Description);
-                    }
+                    }   
+                    ViewBag.Professions = _context.Positions.ToList();
+
+                    return View();
+
                 }
-
-                if (register.Role == false)
-                {
-
-                    await _userManager.AddToRoleAsync(user, UserRole.EMPLOYER);
-                }
-
                 else
                 {
-                    await _userManager.AddToRoleAsync(user, UserRole.EMPLOYEE);
+                    if (register.Role == false)
+                    {
+
+                        await _userManager.AddToRoleAsync(user, UserRole.EMPLOYER);
+                    }
+
+                    else
+                    {
+                        await _userManager.AddToRoleAsync(user, UserRole.EMPLOYEE);
+                    }
+
+
+                    var token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+                    var confirmationLink = Url.Action(nameof(ConfirmEmail), "Account", new { token, Email = user.Email }, Request.Scheme);
+
+                    await _emailService.SendEmail(user.Email, "Email Confirmation", confirmationLink);
                 }
 
 
-                await _signInManager.SignInAsync(user, isPersistent: true);
+                //await _signInManager.SignInAsync(user,false);
+
+                return RedirectToAction(nameof(SuccessfullyRegistered), "Account");
             }
             else
             {
@@ -157,9 +171,24 @@ namespace JobHuntProject.Controllers
                 return View();
 
             }
+        }
+        public async Task<IActionResult> ConfirmEmail(string token, string email)
+        {
+            AppUser user = await _userManager.FindByEmailAsync(email);
+            if (user == null) return NotFound();
+            var result = await _userManager.ConfirmEmailAsync(user, token);
 
-            return RedirectToAction("Index", "Home");
+            if (!result.Succeeded)
+            {
+                return BadRequest();
+            }
+            await _signInManager.SignInAsync(user, false);
+            return View();
+        }
 
+        public IActionResult SuccessfullyRegistered()
+        {
+            return View();
         }
         public IActionResult Login()
         {
@@ -172,7 +201,7 @@ namespace JobHuntProject.Controllers
         {
             if (!ModelState.IsValid)
             {
-                ModelState.AddModelError(string.Empty, "Kullanıcı adı, e-posta veya parola yanlış");
+                ModelState.AddModelError(string.Empty, "Username, Email or Password is Incorrect");
                 return View();
             }
 
@@ -182,15 +211,20 @@ namespace JobHuntProject.Controllers
                 user = await _userManager.FindByEmailAsync(login.UsernameOrEmail);
                 if (user == null)
                 {
-                    ModelState.AddModelError(string.Empty, "Kullanıcı adı, e-posta veya parola yanlış");
+                    ModelState.AddModelError(string.Empty, "Username, Email or Password is Incorrect");
                     return View();
                 }
             }
+            if (!user.EmailConfirmed)
+            {
+                ModelState.AddModelError(String.Empty, "Please confirm your email");
+                return View();
 
+            }
             var result = await _signInManager.PasswordSignInAsync(user, login.Password, login.RememberMe, false);
             if (!result.Succeeded)
             {
-                ModelState.AddModelError(string.Empty, "Kullanıcı adı, e-posta veya parola yanlış");
+                ModelState.AddModelError(string.Empty, "Username, Email or Password is Incorrect");
                 return View();
             }
 

@@ -4,6 +4,7 @@ using FinalProjectJobHunt.Models;
 using FinalProjectJobHunt.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using System;
 using System.Web.Mvc;
 
@@ -19,7 +20,12 @@ builder.Services.AddIdentity<AppUser, UserRole>(x =>
 	x.Password.RequiredUniqueChars = 0;
 	x.Password.RequireNonAlphanumeric = false;
 	x.Password.RequireUppercase = false;
-	x.Password.RequiredLength = 4;
+    x.Password.RequiredLength = 4;
+    x.SignIn.RequireConfirmedEmail = true;
+    x.User.RequireUniqueEmail = true;
+
+
+
 }).AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
 
 

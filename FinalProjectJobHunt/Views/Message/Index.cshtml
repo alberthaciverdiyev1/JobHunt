@@ -80,73 +80,157 @@
     </div>
 </section>
 
-<div class="job-listings-sec no-border">
-    <div id="searchResults"></div>
-    <h3>Messages</h3>
+@if (role == "EMPLOYEE")
+{
+    
+    <div class="job-listings-sec no-border">
+        <div id="searchResults"></div>
+        <h3>Messages</h3>
 
-    @foreach (var item in Model.RecieveMessages)
-    {
-        var userImageURL = Model.AppUsers.FirstOrDefault(x => x.Id == item.id)?.ImageURL ?? "NoImage.png";
-        var positionName = Model.Positions.FirstOrDefault(x => x.id == item.PositionId)?.PositionName ?? string.Empty;
-        var categoryName = Model.Categories.FirstOrDefault(x => x.id == item.CategoryId)?.Name ?? string.Empty;
-        var username = Model.AppUsers.FirstOrDefault(x => x.Id == item.SenderId).Name;
+        @foreach (var item in Model.RecieveMessages)
+        {
+            var userImageURL = Model.AppUsers.FirstOrDefault(x => x.Id == item.id)?.ImageURL ?? "NoImage.png";
+            var positionName = Model.Positions.FirstOrDefault(x => x.id == item.PositionId)?.PositionName ?? string.Empty;
+            var categoryName = Model.Categories.FirstOrDefault(x => x.id == item.CategoryId)?.Name ?? string.Empty;
+            var username = Model.AppUsers.FirstOrDefault(x => x.Id == item.SenderId).Name;
 
-       <div class="job-listing wtabs ml-5" onclick="location.href='@Url.Action("CompanyJobDetail", "job", new { Id = item.PostJobId })'">
-           <div class="c-logo">
-                <img src="~/assets/images/User/@userImageURL" alt="" />
-            </div>
-            <div class="job-title-sec">
-                <h3>@positionName / @categoryName</h3>
-                @if (item.Description.Length < 100)
-                {
-                    <p>@item.Description</p>
-                }
-                else
-                {
-                    <p>@item.Description.Substring(0, 100)... </p>
-                }            
-                <div class="job-style-bx">
-
-                    <a asp-action="Delete" asp-controller="Message" asp-route-id="@item.id" class="btn btn-danger waves-effect waves-light">Delete</a>                   
+            <div class="job-listing wtabs" onclick="location.href='@Url.Action("CompanyJobDetail", "job", new { id = item.PostJobId })'" style="cursor: pointer;">
+                <div class="c-logo">
+                    <img src="~/assets/images/User/@userImageURL" alt="" />
                 </div>
-                <span>Sent by: @username</span> 
-                <span style="color:red;">@item.Created</span>
-            </div>
-       </div>
-    }
-</div>
+                <div class="job-title-sec">
+                    <h3>@positionName / @categoryName</h3>
+                    @if (item.Description.Length < 100)
+                    {
+                        <p>@item.Description</p>
+                    }
+                    else
+                    {
+                        <p>@item.Description.Substring(0, 100)... </p>
+                    }
+                    <div class="job-style-bx">
 
-<div class="job-listings-sec no-border">
-    <div id="searchResults"></div>
-    <h3>Messages You Send</h3>
-    @foreach (var item in Model.SendMessages)
-    {
-        var userImageURL = Model.AppUsers.FirstOrDefault(x => x.Id == item.id)?.ImageURL ?? "NoImage.png";
-        var positionName = Model.Positions.FirstOrDefault(x => x.id == item.PositionId)?.PositionName ?? string.Empty;
-        var categoryName = Model.Categories.FirstOrDefault(x => x.id == item.CategoryId)?.Name ?? string.Empty;
-        var username = Model.AppUsers.FirstOrDefault(x => x.Id == item.SenderId).Name;
-
-        <div class="job-listing wtabs ml-5" onclick="location.href='@Url.Action(role == "EMPLOYEE" ? "CompanyJobDetail" : "Detail", "job", new { Id = role == "EMPLOYEE" ? item.PostJobId : item.UserPostJobId })'">
-            <div class="c-logo">
-                <img src="~/assets/images/User/@userImageURL" alt="" />
-            </div>
-            <div class="job-title-sec">
-                <h3>@positionName / @categoryName</h3>
-                @if (item.Description.Length < 100)
-                {
-                    <p>@item.Description</p>
-                }
-                else
-                {
-                    <p>@item.Description.Substring(0, 100)... </p>
-                }
-                <div class="job-style-bx">
-
-                    <a asp-action="Delete" asp-controller="Message" asp-route-id="@item.id" class="btn btn-danger waves-effect waves-light">Delete</a>
+                        <a asp-action="Delete" asp-controller="Message" asp-route-id="@item.id" class="btn btn-danger waves-effect waves-light">Delete</a>
+                    </div>
+                    <span>Sent by: @username</span>
+                    <span style="color:red;">@item.Created</span>
                 </div>
-                <span>Sent by: @username</span>
-                <span style="color:red;">@item.Created</span>
             </div>
-        </div>
-    }
-</div>
+        }
+    </div>
+
+    <div class="job-listings-sec no-border">
+        <div id="searchResults"></div>
+        <h3>Messages You Send</h3>
+        @foreach (var item in Model.SendMessages)
+        {
+            var userImageURL = Model.AppUsers.FirstOrDefault(x => x.Id == item.id)?.ImageURL ?? "NoImage.png";
+            var positionName = Model.Positions.FirstOrDefault(x => x.id == item.PositionId)?.PositionName ?? string.Empty;
+            var categoryName = Model.Categories.FirstOrDefault(x => x.id == item.CategoryId)?.Name ?? string.Empty;
+            var username = Model.AppUsers.FirstOrDefault(x => x.Id == item.SenderId).Name;
+
+            <div class="job-listing wtabs" onclick="location.href='@Url.Action("Detail", "job", new { id = item.UserPostJobId })'" style="cursor: pointer;">
+                <div class="c-logo">
+                    <img src="~/assets/images/User/@userImageURL" alt="" />
+                </div>
+                <div class="job-title-sec">
+                    <h3>@positionName / @categoryName</h3>
+                    @if (item.Description.Length < 100)
+                    {
+                        <p>@item.Description</p>
+                    }
+                    else
+                    {
+                        <p>@item.Description.Substring(0, 100)... </p>
+                    }
+                    <div class="job-style-bx">
+
+                        <a asp-action="Delete" asp-controller="Message" asp-route-id="@item.id" class="btn btn-danger waves-effect waves-light">Delete</a>
+                    </div>
+                    <span>Sent by: @username</span>
+                    <span style="color:red;">@item.Created</span>
+                </div>
+            </div>
+        }
+    </div>
+
+
+}
+
+
+else
+{
+    <div class="job-listings-sec no-border">
+        <div id="searchResults"></div>
+        <h3>Messages</h3>
+
+        @foreach (var item in Model.RecieveMessages)
+        {
+            var userImageURL = Model.AppUsers.FirstOrDefault(x => x.Id == item.id)?.ImageURL ?? "NoImage.png";
+            var positionName = Model.Positions.FirstOrDefault(x => x.id == item.PositionId)?.PositionName ?? string.Empty;
+            var categoryName = Model.Categories.FirstOrDefault(x => x.id == item.CategoryId)?.Name ?? string.Empty;
+            var username = Model.AppUsers.FirstOrDefault(x => x.Id == item.SenderId).Name;
+
+            <div class="job-listing wtabs" onclick="location.href='@Url.Action("Detail", "job", new { id = item.UserPostJobId })'" style="cursor: pointer;">
+                <div class="c-logo">
+                    <img src="~/assets/images/User/@userImageURL" alt="" />
+                </div>
+                <div class="job-title-sec">
+                    <h3>@positionName / @categoryName</h3>
+                    @if (item.Description.Length < 100)
+                    {
+                        <p>@item.Description</p>
+                    }
+                    else
+                    {
+                        <p>@item.Description.Substring(0, 100)... </p>
+                    }
+                    <div class="job-style-bx">
+
+                        <a asp-action="Delete" asp-controller="Message" asp-route-id="@item.id" class="btn btn-danger waves-effect waves-light">Delete</a>
+                    </div>
+                    <span>Sent by: @username</span>
+                    <span style="color:red;">@item.Created</span>
+                </div>
+            </div>
+        }
+    </div>
+
+    <div class="job-listings-sec no-border">
+        <div id="searchResults"></div>
+        <h3>Messages You Send</h3>
+        @foreach (var item in Model.SendMessages)
+        {
+            var userImageURL = Model.AppUsers.FirstOrDefault(x => x.Id == item.id)?.ImageURL ?? "NoImage.png";
+            var positionName = Model.Positions.FirstOrDefault(x => x.id == item.PositionId)?.PositionName ?? string.Empty;
+            var categoryName = Model.Categories.FirstOrDefault(x => x.id == item.CategoryId)?.Name ?? string.Empty;
+            var username = Model.AppUsers.FirstOrDefault(x => x.Id == item.SenderId).Name;
+
+            <div class="job-listing wtabs" onclick="location.href='@Url.Action("CompanyJobDetail", "job", new { id = item.PostJobId })'" style="cursor: pointer;">
+                <div class="c-logo">
+                    <img src="~/assets/images/User/@userImageURL" alt="" />
+                </div>
+                <div class="job-title-sec">
+                    <h3>@positionName / @categoryName</h3>
+                    @if (item.Description.Length < 100)
+                    {
+                        <p>@item.Description</p>
+                    }
+                    else
+                    {
+                        <p>@item.Description.Substring(0, 100)... </p>
+                    }
+                    <div class="job-style-bx">
+
+                        <a asp-action="Delete" asp-controller="Message" asp-route-id="@item.id" class="btn btn-danger waves-effect waves-light">Delete</a>
+                    </div>
+                    <span>Sent by: @username</span>
+                    <span style="color:red;">@item.Created</span>
+                    <br>
+                    <br>
+                </div>
+            </div>
+        }
+    </div>
+}
+
