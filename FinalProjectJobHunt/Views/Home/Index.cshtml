@@ -20,7 +20,7 @@
                                 <span>Find Jobs, Employment & Career Opportunities</span>
                                 <form asp-action="Index" asp-controller="Home">
                                     <div class="row">
-                                        <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                                        <div class="col-lg-7 col-md-5 col-sm-12 col-xs-12">
                                             <div class="job-field">
                                                 <input name="search"
                                                        class="input-field"
@@ -31,19 +31,7 @@
                                                 *@                                                <i class="la la-keyboard-o"></i>
                                             </div>
                                         </div>
-                                        <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12">
-                                            <div class="job-field">
-                                                <select data-placeholder="City, province or region" class="chosen-city">
-                                                    <option value="">Select City </option>
-                                                    @foreach (City city in Model.Cities)
-                                                    {
-                                                        <option value="@city.id">@city.CityName </option>
-                                                    }
-                                                </select>
-                                                <i class="la la-map-marker"></i>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-1 col-md-2 col-sm-12 col-xs-12">
+                                        <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
                                             <button type="submit"><i class="la la-search"></i></button>
                                         </div>
                                     </div>

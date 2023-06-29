@@ -33,12 +33,7 @@
                          
                         </div><!-- Job Head -->
                         <div class="job-details">
-                            <h3>Job Description</h3>
-                          <div class="row">
-                              <div class="col-lg-6">
-                                    <span style="width:40%;">@Model.PostJob.Description</span>
-                              </div>
-                          </div>
+                       
                             <div class="job-overview">
                                 <h3>Job Overview</h3>
                                 <ul>
@@ -51,6 +46,13 @@
                                     
                                 </ul>
                             </div><!-- Job Overview -->
+                            <h3>Job Description</h3>
+                            <div style="box-sizing:border-box; width:200px;">
+                                <p style="width:100%;overflow:revert;">@Model.PostJob.Description</p>
+
+                            </div>
+                          
+                             
                             <div class="share-bar">
                                 <span>Share</span>
                                 <a href="https://www.facebook.com" title="" class="share-fb"><i class="fa-brands fa-facebook"></i></a>
@@ -100,7 +102,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" onclick="sendInvite()">Send</button>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" id="customClose" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
@@ -146,8 +148,8 @@
             error: function (error) {
             }
         });
-
-        $("#inviteModal").modal("hide");
+        console.log("Finish")
+        $("#customClose").click();
     }
 
 </script>

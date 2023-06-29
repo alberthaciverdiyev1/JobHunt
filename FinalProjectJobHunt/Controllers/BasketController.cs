@@ -22,6 +22,7 @@ namespace FinalProjectJobHunt.Controllers
 			if (product == null) return NotFound();
 
 
+
 			return View();
 		}
 	}

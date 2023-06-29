@@ -43,5 +43,14 @@ namespace FinalProjectJobHunt.ViewModels
         [Required]
         public int JobTypeId { get; set; }
         public JobType? JobType { get; set; }
+
+
+        public string? Search;
+        public int? categoryId;
+        public int? Order;
+        public int? City;
+        public int?[] Jobtype;
+        public int? salary;
+        public int? ExperienceId;
     }
 }

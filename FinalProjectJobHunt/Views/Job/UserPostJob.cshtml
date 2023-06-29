@@ -30,22 +30,11 @@
                                 <div class="row">
 
 
-                                    @*    <div>
-                                    <select data-placeholder="Allow In Search">
-                                    @foreach (Category item in Model.Category)
-                                    {
-                                    {
-                                    <option value="@item.id">@item.Name</option>
-                                    <span asp-validation-for="CategoryId" class="text-danger"></span>
-                                    }
-
-                                    </select>
-                                    </div>*@
 
                                     <div class="col-lg-6">
                                         <span class="pf-title">Categories</span>
                                         <div class="pf-field">
-                                            <select id="ChooseCategory" asp-items="ViewBag.Categories" asp-for="CategoryId" class="chosen" style="display: none;" required>
+                                            <select id="ChooseCategory" onchange="ChangeCategory()" asp-items="ViewBag.Categories" asp-for="CategoryId" class="chosen" style="display: none;" required>
                                                 <option value="">-- Select Category --</option>
                                             </select>
                                         </div>
@@ -205,25 +194,26 @@
 
 <script>
 
-    $(function () {
-        $("#ChooseCategory").change(function () {
-            $("#PositionList").empty();
 
-            $.ajax({
-                url: '/Job/GetProfessionsByCategory',
-                type: 'POST',
-                dataType: 'json',
-                data: { id: $("#ChooseCategory").val() },
-                success: function (data) {
-                    console.log("Prenses");
+    function ChangeCategory() {
+        $("#PositionList").empty();
+        console.log("Success");
 
-                    $("#PositionList").append("<option value=-1> Select Profession</option>");
-                    $.each(data, (index, value) => {
-                        $("#PositionList").append(`<option value="${value.value}">${value.text}</option>`);
-                    });
-                }
-            })
-        });
-    })
+        $.ajax({
+            url: '/Job/GetProfessionsByCategory',
+            type: 'POST',
+            dataType: 'json',
+            data: { id: $("#ChooseCategory").val() },
+            success: function (data) {
+                console.log("Success");
+
+                $("#PositionList").append("<option value=-1> Choose Profession</option>");
+                $.each(data, (index, value) => {
+                    $("#PositionList").append(`<option value="${value.value}">${value.text}</option>`);
+                });
+            }
+        })
+    };
+
 
 </script>

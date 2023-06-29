@@ -12,6 +12,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Data;
 using System.Text.Json.Serialization;
 using System.Text.Json;
+using System.Net.Http.Json;
+using static System.Net.WebRequestMethods;
 
 namespace FinalProjectJobHunt.Controllers
 {
@@ -27,7 +29,7 @@ namespace FinalProjectJobHunt.Controllers
         }
 
 
-        public async Task<IActionResult> Index(int page, string? search, int? categoryId, int? order, int? city, int?[] jobtype)
+        public async Task<IActionResult> Index(int page, string? search, int? categoryId, int? order, int? city, int?[] jobtype, int? salary, int? experienceId)
         {
             IQueryable<PostJob> query = _context.PostJobs
             .Include(p => p.AppUser).Include(x => x.Category).ThenInclude(x => x.Positions)
@@ -36,7 +38,7 @@ namespace FinalProjectJobHunt.Controllers
             switch (order)
             {
                 case 1:
-                    query = query.OrderBy(p => p.Created);
+                    query = query.OrderByDescending(p => p.Created);
                     break;
                 case 2:
                     query = query.OrderByDescending(p => p.Salary);
@@ -45,9 +47,30 @@ namespace FinalProjectJobHunt.Controllers
                     query = query.OrderBy(p => p.Salary);
                     break;
             }
+            switch (salary)
+            {
+                case 1:
+                    query = query.Where(p => p.Salary < 500);
+                    break;
+                case 2:
+                    query = query.Where(p => p.Salary >= 500 && p.Salary < 1000);
+                    break;
+                case 3:
+                    query = query.Where(p => p.Salary >= 1000 && p.Salary < 1500);
+                    break;
+                case 4:
+                    query = query.Where(p => p.Salary >= 1000);
+                    break;
+            }
             if (city != null)
             {
                 query = query.Where(p => p.City.id == city);
+
+            }
+            if (experienceId != null)
+            {
+
+                query = query.Where(p => p.WorkExperienceId == experienceId);
 
             }
             if (search != null)
@@ -68,35 +91,76 @@ namespace FinalProjectJobHunt.Controllers
 
             ViewBag.Page = page;
             ViewBag.Total = Math.Ceiling((decimal)_context.PostJobs.Count() / 6);
-            List<Position> positions = await _context.Positions.ToListAsync();
-            List<AppUser> users = await _context.Users.ToListAsync();
-            List<City> cities = await _context.Cities.ToListAsync();
-            List<JobType> jobTypes = await _context.JobTypes.ToListAsync();
+
             PostJobVM jobVM = new PostJobVM
             {
                 Category = await _context.Categories.Include(x => x.Positions).ToListAsync(),
-                Positions = positions,
+                Positions = await _context.Positions.ToListAsync(),
                 PostJobs = await query.ToListAsync(),
-                AppUsers = users,
-                Cities = cities,
-                JobTypes = jobTypes
+                AppUsers = await _context.Users.ToListAsync(),
+                Cities = await _context.Cities.ToListAsync(),
+                JobTypes = await _context.JobTypes.ToListAsync(),
+                WorkExperiences = await _context.WorkExperiences.ToListAsync(),
+                Search = search,
+                categoryId = categoryId,
+                Order = order,
+                City = city,
+                Jobtype = jobtype,
+                salary = salary,
+                ExperienceId = experienceId
 
             };
 
             return View(jobVM);
         }
 
-        public async Task<IActionResult> UserIndex(int page, string? search)
+        public async Task<IActionResult> UserIndex(int page, string? search, int? categoryId, int? order, int? city, int?[] jobtype, int? salary, int? experienceId)
         {
             ViewBag.Page = page;
             ViewBag.Total = Math.Ceiling((decimal)_context.PostJobs.Count() / 6);
 
-
-
             IQueryable<UserPostJob> query = _context.UserPostJobs
-            .Include(p => p.AppUser).Include(x => x.Category).ThenInclude(x => x.Positions)
-            .Include(x => x.JobType).Skip(page * 6).Take(6)
-            .Include(x => x.City).AsQueryable();
+         .Include(p => p.AppUser).Include(x => x.Category).ThenInclude(x => x.Positions)
+         .Include(x => x.JobType).Skip(page * 6).Take(6)
+         .Include(x => x.City).AsQueryable();
+            switch (order)
+            {
+                case 1:
+                    query = query.OrderByDescending(p => p.Created);
+                    break;
+                case 2:
+                    query = query.OrderByDescending(p => p.Salary);
+                    break;
+                case 3:
+                    query = query.OrderBy(p => p.Salary);
+                    break;
+            }
+            switch (salary)
+            {
+                case 1:
+                    query = query.Where(p => p.Salary < 500);
+                    break;
+                case 2:
+                    query = query.Where(p => p.Salary >= 500 && p.Salary < 1000);
+                    break;
+                case 3:
+                    query = query.Where(p => p.Salary >= 1000 && p.Salary < 1500);
+                    break;
+                case 4:
+                    query = query.Where(p => p.Salary >= 1000);
+                    break;
+            }
+            if (city != null)
+            {
+                query = query.Where(p => p.City.id == city);
+
+            }
+            if (experienceId != null)
+            {
+
+                query = query.Where(p => p.WorkExperienceId == experienceId);
+
+            }
             if (search != null)
             {
                 query = query.Where(p => p.Description.ToLower().Contains(search.ToLower()) ||
@@ -104,22 +168,34 @@ namespace FinalProjectJobHunt.Controllers
                                          p.City.CityName.ToLower().Contains(search.ToLower()) ||
                                          p.JobType.WorkType.ToLower().Contains(search.ToLower()));
             }
+            if (jobtype.Length != 0)
+            {
+                query = query.Where(p => jobtype.Contains(p.JobType.id));
+            }
+            if (categoryId != null)
+            {
+                query = query.Where(p => p.CategoryId == categoryId);
+            }
 
 
-            List<Category> categories = await _context.Categories.ToListAsync();
-            List<Position> positions = await _context.Positions.ToListAsync();
-            List<AppUser> users = await _context.Users.ToListAsync();
-            List<City> cities = await _context.Cities.ToListAsync();
-            List<JobType> jobTypes = await _context.JobTypes.ToListAsync();
 
             UserPostJobVM jobVM = new UserPostJobVM
             {
-                Category = categories,
-                Positions = positions,
+
                 UserPostJobs = await query.ToListAsync(),
-                AppUsers = users,
-                Cities = cities,
-                JobTypes = jobTypes,
+                Category = await _context.Categories.Include(x => x.Positions).ToListAsync(),
+                Positions = await _context.Positions.ToListAsync(),
+                AppUsers = await _context.Users.ToListAsync(),
+                Cities = await _context.Cities.ToListAsync(),
+                JobTypes = await _context.JobTypes.ToListAsync(),
+                WorkExperiences = await _context.WorkExperiences.ToListAsync(),
+                Search = search,
+                categoryId = categoryId,
+                Order = order,
+                City = city,
+                Jobtype = jobtype,
+                salary = salary,
+                ExperienceId = experienceId
             };
 
             return View(jobVM);
@@ -200,15 +276,6 @@ namespace FinalProjectJobHunt.Controllers
                 Cities = cities,
 
             };
-
-            //ViewBag.Category = await _context.Categories.ToListAsync();
-            //ViewBag.Position = await _context.Positions.ToListAsync();
-            //ViewBag.Language = await _context.Languages.ToListAsync();
-            //ViewBag.Education = await _context.Educations.ToListAsync();
-            //ViewBag.ExpeerienceYear = await _context.ExperienceYears.ToListAsync();
-            //ViewBag.WorkExperience = await _context.WorkExperiences.ToListAsync();
-            //ViewBag.City = await _context.Cities.ToListAsync();
-            //ViewBag.JobType = await _context.JobTypes.ToListAsync();
             return View(jobVM);
         }
         [HttpPost]
@@ -329,6 +396,127 @@ namespace FinalProjectJobHunt.Controllers
 
         }
 
+        [Authorize]
+        public async Task<IActionResult> AddBasket(int? id)
+        {
+            if (id == null || id < 1) return BadRequest();
+
+
+
+            string role = User.FindFirst(ClaimTypes.Role)?.Value;
+
+            if (User.Identity.IsAuthenticated)
+            {
+                AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
+                if (user is null) return NotFound();
+
+                if (role == "EMPLOYEE")
+                {
+                    UserPostJob job = await _context.UserPostJobs.FirstOrDefaultAsync(p => p.id == id);
+                    if (job == null) return NotFound();
+                    BasketItem existedItem = await _context.BasketItems
+                       .FirstOrDefaultAsync(b => b.AppUserId == user.Id && b.UserPostJobId == job.id);
+                    if (existedItem is null)
+                    {
+                        existedItem = new BasketItem
+                        {
+                            AppUserId = user.Id,
+                            UserPostJobId = job.id,
+
+                        };
+                        await _context.BasketItems.AddAsync(existedItem);
+                    }
+                    else
+                    {
+                        _context.Remove(existedItem);
+                    }
+                }
+                else
+                {
+                    PostJob job = await _context.PostJobs.FirstOrDefaultAsync(p => p.id == id);
+                    if (job == null) return NotFound();
+                    BasketItem existedItem = await _context.BasketItems
+                        .FirstOrDefaultAsync(b => b.AppUserId == user.Id && b.PostJobId == job.id);
+                    if (existedItem is null)
+                    {
+                        existedItem = new BasketItem
+                        {
+                            AppUserId = user.Id,
+                            PostJobId = job.id,
+
+                        };
+                        await _context.BasketItems.AddAsync(existedItem);
+                    }
+                    else
+                    {
+                        _context.Remove(existedItem);
+
+                    }
+                }
+
+                await _context.SaveChangesAsync();
+            }
+            return Ok();
+        }
+        public async Task<IActionResult> GetBasket()
+        {
+            List<BasketItemVM> basketItems = new List<BasketItemVM>();
+            if (User.Identity.IsAuthenticated)
+            {
+                string role =User.FindFirst(ClaimTypes.Role)?.Value;
+                AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
+                if (user is null) throw new Exception("Exception");
+                basketItems = new List<BasketItemVM>();
+                if (role == "EMPLOYEE")
+                {
+                    List<BasketItem> userItems = await _context.BasketItems
+                    .Where(b => b.AppUserId == user.Id)
+                    .Include(b => b.UserPostJob)
+                    .ToListAsync();
+
+                    foreach (BasketItem item in userItems)
+                    {
+                        basketItems.Add(new BasketItemVM
+                        {
+                            Id = item.id,
+                            Salary = item.UserPostJob.Salary ?? 0m,
+                            Category = item.UserPostJob.Category.Name,
+                            //Position=item.UserPostJob.Positions.Where(p => p.id == ).
+                            Image = item.AppUser.ImageURL,
+                            UserPostJobId = item.UserPostJobId
+
+                        });
+                    }
+
+                    return PartialView("_BasketPartial", basketItems);
+                }
+                else
+                {
+                    List<BasketItem> userItems = await _context.BasketItems
+              .Where(b => b.AppUserId == user.Id)
+              .Include(b => b.PostJob)
+              .ToListAsync();
+
+                    foreach (BasketItem item in userItems)
+                    {
+                        basketItems.Add(new BasketItemVM
+                        {
+                            Id = item.id,
+                            Salary = item.PostJob.Salary ?? 0m,
+                            Category = item.PostJob.Category.Name,
+                            //Position=item.UserPostJob.Positions.Where(p => p.id == ).
+                            Image = item.AppUser.ImageURL,
+                            PostJobId = item.UserPostJobId
+
+                        });
+                    }
+
+                    return PartialView("_BasketPartial", basketItems);
+                }
+
+            }
+            return PartialView("_BasketPartial",basketItems);
+        }
 
 
     }

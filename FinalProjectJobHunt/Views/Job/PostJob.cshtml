@@ -44,7 +44,7 @@
                                     <div class="col-lg-6">
                                         <span class="pf-title">Categories</span>
                                         <div class="pf-field">
-                                            <select id="ChooseCategory" asp-items="ViewBag.Categories" asp-for="CategoryId" class="chosen" style="display: none;" required>
+                                            <select id="ChooseCategory" onchange="ChangeCategory()" asp-items="ViewBag.Categories" asp-for="CategoryId" class="chosen" style="display: none;" required>
                                                 <option value="">-- Select Category --</option>
                                             </select>
                                         </div>
@@ -209,9 +209,10 @@
 
 <script>
 
-    $(function () {
-        $("#ChooseCategory").change(function () {
+   
+        function ChangeCategory() {
             $("#PositionList").empty();
+            console.log("Success");
 
             $.ajax({
                 url: '/Job/GetProfessionsByCategory',
@@ -227,10 +228,11 @@
                     });
                 }
             })
-        });
-    })
+        };
+   
 
 </script>
+
 
 
 

@@ -34,6 +34,7 @@ namespace FinalProjectJobHunt.Models
         public AppUser? AppUser { get; set; }
         public List<BasketItem>? BasketItems { get; set; }
         public List<Message>? Messages { get; set; }
+        public List<Position>? Positions { get; set; }
 
 
 

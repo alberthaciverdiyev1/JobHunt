@@ -5,6 +5,8 @@ using FinalProjectJobHunt.Models;
 using FinalProjectJobHunt.ViewModels;
 using System.Diagnostics;
 using FinalProjectJobHunt.Models.Job;
+using FinalProjectJobHunt.Interfaces;
+using Microsoft.AspNetCore.Identity;
 
 namespace FinalProjectJobHunt.Controllers
 {
@@ -12,13 +14,18 @@ namespace FinalProjectJobHunt.Controllers
     {
 
         private readonly AppDbContext _context;
+        private readonly UserManager<AppUser> _userManager;
 
         public HomeController(AppDbContext context)
         {
             _context = context;
+        
         }
-        public async Task<IActionResult> Index(int page, string search)
+        public async Task<IActionResult> Index( string? search)
         {
+           
+           
+
             IQueryable<PostJob> query = null;
             IQueryable<UserPostJob> queryUserPostJob = null;
 
@@ -60,11 +67,13 @@ namespace FinalProjectJobHunt.Controllers
                 Cities = cities,
                 PostJobs = query != null ? await query.ToListAsync() : new List<PostJob>(),
                 UserPostJobs = queryUserPostJob != null ? await queryUserPostJob.ToListAsync() : new List<UserPostJob>(),
-                Positions=positions,
+                Positions = positions,
             };
 
             return View(homeVM);
         }
+
+        //JavaScript ucun idi
         public async Task<ActionResult> Categories()
         {
 
@@ -72,12 +81,12 @@ namespace FinalProjectJobHunt.Controllers
 
             return View(categories);
         }
-        public async Task<IActionResult> Search(string value)
-        {
-            var Values = await _context.Categories.Where(x => x.Name.Contains(value))
-                .Include(x => x.Positions).Where(x => x.Name.Contains(value)).ToListAsync();
-            return View(Values);
-        }
+        //public async Task<IActionResult> Search(string value)
+        //{
+        //    var Values = await _context.Categories.Where(x => x.Name.Contains(value))
+        //        .Include(x => x.Positions).Where(x => x.Name.Contains(value)).ToListAsync();
+        //    return View(Values);
+        //}
 
     }
 }

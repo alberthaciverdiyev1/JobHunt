@@ -1,6 +1,8 @@
 ﻿@using FinalProjectJobHunt.Models.Job;
 @model UserPostJobVM
-
+@{
+    string role = User.FindFirst(ClaimTypes.Role)?.Value;
+}
 <section class="overlape">
     <div class="block no-padding">
         <div data-velocity="-.1" style="background: url(../assets/images/resource/mslider1.jpg) repeat scroll 50% 422.28px transparent;" class="parallax scrolly-invisible no-parallax"></div><!-- PARALLAX BACKGROUND IMAGE -->
@@ -11,9 +13,16 @@
                         <div class="job-search-sec">
                             <div class="job-search">
                                 <h4>Explore Thousand Of Jobs With Just Simple Search...</h4>
-                            
                                 <div id="searchForm">
-                                    <form asp-action="UserIndex" asp-controller="Job">
+                                    <form asp-action="UserIndex" asp-controller="Job"
+                                          asp-route-categoryId="@Model.categoryId"
+                                          asp-route-order="@Model.Order"
+                                          asp-route-search="@Model.Search"
+                                          asp-route-City="@Model.City"
+                                          asp-route-Jobtype="@Model.Jobtype"
+                                          asp-route-salary="@Model.salary"
+                                          asp-route-ExperienceId="@Model.ExperienceId">
+                                        >
                                         <div class="row">
                                             <div class="col-lg-7">
                                                 <div class="job-field">
@@ -21,6 +30,7 @@
                                                            class="input-field"
                                                            type="text"
                                                            placeholder="Search"
+                                                           value="@(Model.Search==null?"":Model.Search)"
                                                     @*value="@(Model.Search==null?"":Model.Search)"*@ />
                                                     @*  <button type="button" onclick="search()">Search</button>
                                                     *@     <i class="la la-keyboard-o"></i>
@@ -29,11 +39,11 @@
                                             </div>
                                             <div class="col-lg-4">
                                                 <div class="job-field">
-                                                    <select data-placeholder="City, province or region" class="chosen-city">
+                                                    <select data-placeholder="City" name="city" province or region" class="chosen-city">
                                                         <option value="">Select City</option>
                                                         @foreach (City item in Model.Cities)
                                                         {
-                                                            <option>@item.CityName</option>
+                                                            <option value="@item.id">@item.CityName</option>
                                                         }
                                                     </select>
                                                     <i class="la la-map-marker"></i>
@@ -53,11 +63,7 @@
         </div>
     </div>
 </section>
-<section>
 
-  
-
-</section>
 <section>
 
     <div class="block remove-top">
@@ -65,99 +71,119 @@
             <div class="row no-gape">
                 <aside class="col-lg-3 column">
                     <div class="widget border">
-                        <h3 class="sb-title open">Date Posted</h3>
-                        <div class="posted_widget">
-                            <input type="radio" name="choose" id="232"><label for="232">Last Hour</label><br />
-                            <input type="radio" name="choose" id="wwqe"><label for="wwqe">Last 24 hours</label><br />
-                            <input type="radio" name="choose" id="erewr"><label for="erewr">Last 7 days</label><br />
-                            <input type="radio" name="choose" id="qwe"><label for="qwe">Last 14 days</label><br />
-                            <input type="radio" name="choose" id="wqe"><label for="wqe">Last 30 days</label><br />
-                            <input type="radio" name="choose" id="qweqw"><label class="nm" for="qweqw">All</label><br />
-                        </div>
-                    </div>
-                @*    <div class="widget border">
-                        <h3 class="sb-title open">Job Type</h3>
-                        <div class="type_widget">
-
-                          
-                            <form class="filterForm">
-                                <div class="job-types">
-                                    <ul>
-                                        @foreach (var jobType in Model.JobTypes)
-                                        {
-                                            <li>
-                                                <input type="checkbox" class="flchek" name="jobTypes" value="@jobType.WorkType">
-                                                <label>@jobType.WorkType</label>
-                                            </li>
-                                        }
-                                    </ul>
-                                </div>
-                            </form>
-                        </div>
-                    </div>*@
-                    <div class="widget border">
-                        <h3 class="sb-title open">Job Type</h3>
-                        <div class="type_widget">
-                            @foreach (var jobType in Model.JobTypes)
-                            {
-                                <p class="flchek">
-                                    <input type="checkbox" name="choosetype" id="@jobType.id" data-job-type="@jobType.WorkType">
-                                    <label for="@jobType.id">@jobType.WorkType</label>
-                                </p>
-                            }
-                        </div>
-                    </div>
-
-
-                    <div class="widget border">
                         <h3 class="sb-title open">Specialism</h3>
                         <div class="specialism_widget">
                             <div class="simple-checkbox">
-                                @foreach (Category item in Model.Category)
+
+                                <p>
+                                    <a asp-action="UserIndex" asp-controller="job">
+                                        <i class="fa fa-chevron-right"></i>
+                                        All
+                                    </a>
+                                </p>
+                                @foreach (Category category in Model.Category)
                                 {
-                                    <label>
-                                        <input type="checkbox" id="@item.id" name="selectedCategories" value="@item.id">
-                                        @item.Name
-                                    </label>
-                                    <br>
+                                    <p>
+                                        <a asp-action="UserIndex" asp-controller="job" asp-route-categoryId="@category.id"
+                                           asp-route-categoryId="@Model.categoryId"
+                                           asp-route-order="@Model.Order"
+                                           asp-route-search="@Model.Search"
+                                           asp-route-City="@Model.City"
+                                           asp-route-Jobtype="@Model.Jobtype"
+                                           asp-route-salary="@Model.salary"
+                                           asp-route-ExperienceId="@Model.ExperienceId">
+                                            <i class="fa fa-chevron-right"></i>
+                                            @category.Name
+                                        </a>
+                                    </p>
                                 }
+
                             </div>
+                        </div>
+                    </div> <div class="widget border">
+                        <h3 class="sb-title open">Job Type</h3>
+                        <div class="type_widget">
+                            <form asp-action="UserIndex" asp-controller="job"
+                                  asp-route-categoryId="@Model.categoryId"
+                                  asp-route-order="@Model.Order"
+                                  asp-route-search="@Model.Search"
+                                  asp-route-City="@Model.City"
+                                  asp-route-salary="@Model.salary"
+                                  asp-route-ExperienceId="@Model.ExperienceId"
+                                  style="display: inline-block;">
+                                @foreach (var jobType in Model.JobTypes)
+                                {
+                                    <p class="flchek">
+                                        <input type="checkbox" name="jobtype[]" id="@jobType.id" value="@jobType.id">
+                                        <label for="@jobType.id">@jobType.WorkType</label>
+                                    </p>
+                                }
+                                <button type="submit" style="padding: 5px 12px; font-size: 14px; float:left; border: none; background-color: #4CAF50; color: white;">Submit</button>
+                            </form>
                         </div>
                     </div>
 
                     <div class="widget border">
                         <h3 class="sb-title closed">Offerd Salary</h3>
                         <div class="specialism_widget">
-                            <div class="simple-checkbox">
-                                <p><input type="checkbox" name="smplechk" id="1"><label for="1">10k - 20k</label></p>
-                                <p><input type="checkbox" name="smplechk" id="2"><label for="2">20k - 30k</label></p>
-                                <p><input type="checkbox" name="smplechk" id="3"><label for="3">30k - 40k</label></p>
-                                <p><input type="checkbox" name="smplechk" id="4"><label for="4">40k - 50k</label></p>
-                            </div>
+                            <form asp-action="UserIndex" asp-controller="job"
+                                  asp-route-categoryId="@Model.categoryId"
+                                  asp-route-order="@Model.Order"
+                                  asp-route-search="@Model.Search"
+                                  asp-route-City="@Model.City"
+                                  asp-route-Jobtype="@Model.Jobtype"
+                                  asp-route-salary="@Model.salary"
+                                  asp-route-ExperienceId="@Model.ExperienceId">
+
+                                <div class="salary-range">
+                                    <p>
+                                        <input type="radio" name="salary" id="salary-1" value="1" onchange="this.form.submit()">
+                                        <label for="salary-1">0-500 <i class="fa-solid fa-dollar-sign"></i></label>
+                                    </p>
+                                    <p>
+                                        <input type="radio" name="salary" id="salary-2" value="2" onchange="this.form.submit()">
+                                        <label for="salary-2">500-1000 <i class="fa-solid fa-dollar-sign"></i></label>
+                                    </p>
+                                    <p>
+                                        <input type="radio" name="salary" id="salary-3" value="3" onchange="this.form.submit()">
+                                        <label for="salary-3">1000-1500 <i class="fa-solid fa-dollar-sign"></i></label>
+                                    </p>
+                                    <p>
+                                        <input type="radio" name="salary" id="salary-4" value="4" onchange="this.form.submit()">
+                                        <label for="salary-4">1500+ <i class="fa-solid fa-dollar-sign"></i></label>
+                                    </p>
+                                </div>
+                            </form>
                         </div>
                     </div>
+
                     <div class="widget border">
                         <h3 class="sb-title closed">Career Level</h3>
                         <div class="specialism_widget">
                             <div class="simple-checkbox">
-                                <p><input type="checkbox" name="smplechk" id="5"><label for="5">Intermediate</label></p>
-                                <p><input type="checkbox" name="smplechk" id="6"><label for="6">Normal</label></p>
-                                <p><input type="checkbox" name="smplechk" id="7"><label for="7">Special</label></p>
-                                <p><input type="checkbox" name="smplechk" id="8"><label for="8">Experienced</label></p>
+
+                                @foreach (WorkExperience experience in Model.WorkExperiences)
+                                {
+                                    <p>
+                                        <a asp-action="UserIndex" asp-controller="job"
+                                           asp-route-experienceId="@experience.id"
+                                           asp-route-categoryId="@Model.categoryId"
+                                           asp-route-order="@Model.Order"
+                                           asp-route-search="@Model.Search"
+                                           asp-route-City="@Model.City"
+                                           asp-route-Jobtype="@Model.Jobtype"
+                                           asp-route-salary="@Model.salary"
+                                           asp-route-ExperienceId="@Model.ExperienceId">
+
+                                            <i class="fa-solid fa-briefcase"></i>
+                                            @experience.Experience
+                                        </a>
+                                    </p>
+                                }
                             </div>
                         </div>
                     </div>
-                    <div class="widget border">
-                        <h3 class="sb-title closed">Experince</h3>
-                        <div class="specialism_widget">
-                            <div class="simple-checkbox">
-                                <p><input type="checkbox" name="smplechk" id="9"><label for="9">1Year to 2Year</label></p>
-                                <p><input type="checkbox" name="smplechk" id="10"><label for="10">2Year to 3Year</label></p>
-                                <p><input type="checkbox" name="smplechk" id="11"><label for="11">3Year to 4Year</label></p>
-                                <p><input type="checkbox" name="smplechk" id="12"><label for="12">4Year to 5Year</label></p>
-                            </div>
-                        </div>
-                    </div>
+
 
                     <div class="banner_widget">
                         <a href="#" title=""><img src="~/assets/images/resource/banner.png" alt="" /></a>
@@ -166,75 +192,86 @@
                 <div class="col-lg-9 column">
                     <div class="modrn-joblist np">
                         <div class="filterbar">
+
+
                             <div class="sortby-sec">
                                 <span>Sort by</span>
-                                <select data-placeholder="Most Recent" class="chosen">
-                                    <option>Most Recent</option>
-                                    <option>Most Recent</option>
-                                    <option>Most Recent</option>
-                                    <option>Most Recent</option>
-                                </select>
-                                <select data-placeholder="20 Per Page" class="chosen">
-                                    <option>30 Per Page</option>
-                                    <option>40 Per Page</option>
-                                    <option>50 Per Page</option>
-                                    <option>60 Per Page</option>
-                                </select>
+                                <form asp-action="UserIndex" asp-controller="job">
+                                    <select onchange="this.form.submit()" name="Order" data-placeholder="Most Recent" class="chosen">
+                                        <option value="">Suggested Sorting</option>
+                                        <option value="1">Sort by Time</option>
+                                        <option value="2">Sort by Highest Price</option>
+                                        <option value="3">Sort by Lowest Price</option>
+                                    </select>
+                                </form>
+
+
                             </div>
-                            <h5>@Model.UserPostJobs.Count() Jobs & Vacancies</h5>
+                            <h5>@Model.UserPostJobs.Count()  Jobs & Vacancies</h5>
                         </div>
                     </div><!-- MOdern Job LIst -->
                     <div class="job-list-modern">
-                        <div class="job-listings-sec no-border">
-                            <div id="searchResults"></div>
-                            @foreach (var item in Model.UserPostJobs)
+                        <div id="jobListings" class="job-listings-sec no-border">
+                            @foreach (UserPostJob item in Model.UserPostJobs)
                             {
                                 var userImageURL = Model.AppUsers.FirstOrDefault(x => x.Id == item.AppUserId)?.ImageURL ?? "NoImage.png";
                                 var positionName = Model.Positions.FirstOrDefault(x => x.id == item.PositionId)?.PositionName ?? string.Empty;
-                                var username = Model.AppUsers.FirstOrDefault(x => x.Id == item.AppUserId).Name;
-                                <div class="job-listing wtabs" onclick="location.href='@Url.Action("Detail", "job", new { id = item.id })'" style="cursor: pointer;">
-                                    <div class="job-title-sec">
+                                var userName = Model.AppUsers.FirstOrDefault(x => x.Id == item.AppUserId)?.Name;
+                                <div class="job-listing wtabs">
+                                    <div class="job-title-sec" onclick="location.href='@Url.Action("Detail", "job", new { id = item.id })'" style="cursor: pointer;">
                                         <div class="c-logo">
-                                            <img src="~/assets/images/User/@userImageURL" alt="" style="width:100%; height:90px;" />
+                                            <img src="~/assets/images/User/@userImageURL" alt="" />
                                         </div>
-                                        <h3 class="mr-4"> @positionName / @item.Category.Name</h3>
-                                        <span>@username</span>
+                                        <h3> @positionName / @item.Category.Name</h3>
+                                        <span>@userName</span>
                                         @if (item.Description.Length < 100)
                                         {
-                                            <p>@item.Description</p>
+                                            <p class="job-lctn">@item.Description</p>
+
+                                            <br />
                                         }
                                         else
                                         {
-                                            <p> @item.Description.Substring(0,50)... </p>
+                                            <p class="job-lctn"> @item.Description.Substring(0,50)... </p>
+
+                                            <br />
 
                                         }
-                                        <div class="job-lctn"><i class="la la-map-marker CustomLeft"></i>@item.City.CityName</div>
+                                        <div class="job-lctn"><i class="la la-map-marker"></i>@item.City.CityName</div>
                                     </div>
+
                                     <div class="job-style-bx">
+                                        <span style="color:red;">@item.Salary</span>
                                         <span class="job-is ft">@item.JobType.WorkType</span>
-                                        <span class="fav-job"><i class="la la-heart-o"></i></span>
+                                        @if (role == "EMPLOYEE")
+                                        {
+                                            <a asp-action="AddBasket" asp-controller="job" asp-route-id="@item.id" class="fav-job"><i class="la la-heart-o add-basket-btn"></i></a>
+
+
+                                        }
                                         <i>@item.Created</i>
                                     </div>
                                 </div>
                             }
-                       
+
                         </div>
+
                         <div class="pagination">
 
                             @if (ViewBag.Page > 0)
                             {
-                                <a asp-action="userindex" asp-controller="Job" asp-route-page="@(ViewBag.Page-1)" type="button" class="btn btn-secondary ">Previous</a>
+                                <a asp-action="UserIndex" asp-controller="Job" asp-route-page="@(ViewBag.Page-1)" type="button" class="btn btn-secondary ">Previous</a>
 
                             }
                             @for (int i = 0; i < ViewBag.Total; i++)
                             {
 
-                                <a asp-action="userindex" asp-controller="job" asp-route-page="@(i)" type="button" class="btn btn-secondary @(i==ViewBag.Page?"disabled":"")">@(i + 1)</a>
+                                <a asp-action="UserIndex" asp-controller="job" asp-route-page="@(i)" type="button" class="btn btn-secondary @(i==ViewBag.Page?"disabled":"")">@(i + 1)</a>
 
                             }
                             @if (ViewBag.Page + 1 < ViewBag.Total)
                             {
-                                <a asp-action="userindex" asp-controller="job" asp-route-page="@(ViewBag.Page+1)" type="button" class="btn btn-secondary">Next</a>
+                                <a asp-action="UserIndex" asp-controller="job" asp-route-page="@(ViewBag.Page+1)" type="button" class="btn btn-secondary">Next</a>
 
                             }
                         </div><!-- Pagination -->
@@ -244,7 +281,10 @@
         </div>
     </div>
 </section>
+@*
 <script>
+
+
     function searchJobs() {
         var searchBoxValue = document.getElementById("SearchBox").value;
         var selectedCity = document.querySelector(".chosen-city").value;
@@ -255,15 +295,77 @@
             selectedJobTypes.push(checkbox.getAttribute('data-job-type'));
         });
 
-        fetch(`/Job/Search?searchText=${searchBoxValue}&cityId=${selectedCity}&jobTypes=${selectedJobTypes.join(',')}`)
+        var jobListingsContainer = document.getElementById("jobListings");
+
+        fetch(`/Job/Index?search=${searchBoxValue}&cityId=${selectedCity}&jobTypes=${selectedJobTypes.join(',')}`)
             .then(response => response.text())
             .then(data => {
-                document.getElementById("searchResults").innerHTML = data;
+                jobListingsContainer.innerHTML = data;
             })
             .catch(error => {
                 console.error('Error:', error);
             });
     }
+
+
+</script>*@
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script>
+
+
+
+    //    let btns = document.querySelectorAll(".add-basket-btn")
+
+    //btns.forEach(b => {
+    //    b.addEventListener("click", function (e) {
+    //        e.preventDefault()
+    //        console.log("Salam Albert");
+
+    //        $.ajax({
+    //            type: "GET",
+    //            url: this.href,
+
+
+    //        }).done(data => {
+    //            console.log("Sagol Albert");
+
+    //            $("#basket-datas").html("")
+    //            $("#basket-datas").append(data)
+    //            console.log(data);
+
+
+    //        })
+    //    })
+    //})
+
+
+
+    $(document).ready(function () {
+        $(document).on("click", ".add-basket-btn", function (e) {
+            e.preventDefault();
+            console.log("Salam Albert");
+
+            var endpoint = $(this).parent().attr("href");
+            console.log(endpoint);
+
+            $.ajax({
+                type: "GET",
+                url: endpoint,
+                dataType: "json",
+                success: function (response) {
+                    if (response.status == 200) {
+                        console.log("Salam Albert");
+                        fetch("https://localhost:5153/job/getbasket")
+                            .then(response => response.text())
+                            .then(data => {
+                                $(".basket-datas").html(data);
+                            });
+                    }
+                }
+
+            });
+        });
+    });
 </script>
-
-

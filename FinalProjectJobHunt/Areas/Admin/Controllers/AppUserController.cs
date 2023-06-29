@@ -34,8 +34,8 @@ namespace FinalProjectJobHunt.Areas.Admin.Controllers
             {
                 return check;
             }
-          string filename = Guid.NewGuid().ToString() + user.ImageURL;
-                string path = Path.Combine(_env.WebRootPath, "assets/images/User", filename);
+          
+                string path = Path.Combine(_env.WebRootPath, "assets/images/User", user.ImageURL);
             if(System.IO.File.Exists(path))
             {
                 System.IO.File.Delete(path);

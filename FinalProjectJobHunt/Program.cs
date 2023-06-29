@@ -1,4 +1,5 @@
 using FinalProjectJobHunt.DAL;
+using FinalProjectJobHunt.Interfaces;
 using FinalProjectJobHunt.Models;
 using FinalProjectJobHunt.Services;
 using Microsoft.AspNetCore.Identity;
@@ -11,6 +12,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<LayoutService>();
+builder.Services.AddScoped<IEmailService, EmailService>();
 builder.Services.AddDbContext<AppDbContext>(x => x.UseSqlServer(builder.Configuration.GetConnectionString("Default")));
 builder.Services.AddIdentity<AppUser, UserRole>(x =>
 {
@@ -19,6 +21,7 @@ builder.Services.AddIdentity<AppUser, UserRole>(x =>
 	x.Password.RequireUppercase = false;
 	x.Password.RequiredLength = 4;
 }).AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
+
 
 
 var app = builder.Build();
