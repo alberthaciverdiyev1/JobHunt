@@ -1,5 +1,10 @@
 ﻿@using FinalProjectJobHunt.Models.Job;
 @model HomeVM
+@{
+    string role = User.FindFirst(ClaimTypes.Role)?.Value;
+
+
+}
 <style>
     .custom-div {
         cursor: pointer;
@@ -146,11 +151,21 @@
                                 <div class="col-lg-3 col-md-3 col-sm-6">
                                     <div class="p-category">
 
-                                        <a asp-action="index" asp-controller="job" title="">
-                                            @Html.Raw(item.Icon)
-                                            <span>@item.Name</span>
-                                            <p>(22 open positions)</p>
-                                        </a>
+                                        @if (role == "EMPLOYEE")
+                                        {
+                                            <a asp-action="userindex" asp-controller="job" asp-route-categoryId="@item.id">
+                                                @Html.Raw(item.Icon)
+                                                <span>@item.Name</span>
+                                                <p>(22 open positions)</p>
+                                            </a>
+                                        }
+                                        else
+                                        {   <a asp-action="index" asp-controller="job" asp-route-categoryId="@item.id">
+                                                @Html.Raw(item.Icon)
+                                                <span>@item.Name</span>
+                                                <p>(22 open positions)</p>
+                                            </a>
+                                        }
                                     </div>
                                 </div>
 

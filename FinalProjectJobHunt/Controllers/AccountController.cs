@@ -132,7 +132,7 @@ namespace JobHuntProject.Controllers
                     foreach (var error in result.Errors)
                     {
                         ModelState.AddModelError(string.Empty, error.Description);
-                    }   
+                    }
                     ViewBag.Professions = _context.Positions.ToList();
 
                     return View();
@@ -292,6 +292,93 @@ namespace JobHuntProject.Controllers
         {
             return View();
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ForgotPassword(ForgotPasswordVM forgotPassword)
+        {
+
+            if (!ModelState.IsValid) return View(forgotPassword);
+            AppUser user = await _userManager.FindByEmailAsync(forgotPassword.Email);
+            if (user == null)
+            {
+
+                user = await _userManager.FindByNameAsync(forgotPassword.Email);
+                if (user == null)
+                {
+                    ModelState.AddModelError(string.Empty, "Username, Email or Password is Incorrect");
+                    return View();
+                }
+
+            }
+
+            string token = await _userManager.GeneratePasswordResetTokenAsync(user);
+            string link = Url.Action("ResetPassword", "Account", new { userId = user.Id, token = token }, HttpContext.Request.Scheme);
+            string body = $@"<!DOCTYPE html>
+                                         <html>
+                                         <head>
+                                             <title>Security Warning</title>
+                                             <style>
+                                                 body {{
+                                                     font-family: Arial, sans-serif;
+                                                     background-color: #f9f9f9;
+                                                     margin: 0;
+                                                     padding: 0;
+                                                 }}
+                                                 
+                                                 .container {{
+                                                     max-width: 600px;
+                                                     margin: 20px auto;
+                                                     background-color: #ffffff;
+                                                     padding: 20px;
+                                                     border-radius: 5px;
+                                                     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+                                                 }}
+                                                 
+                                                 h1 {{
+                                                     font-size: 24px;
+                                                     color: #ff0000;
+                                                     margin-top: 0;
+                                                 }}
+                                                 
+                                                 p {{
+                                                     font-size: 16px;
+                                                     color: #333333;
+                                                 }}
+                                             </style>
+                                         </head>
+                                         <body>
+                                             <div class=""container"">
+                                                 <h1>Security Warning</h1>
+                                                 <p>You logged in on <span>{link}</span>.</p>
+                                             </div>
+                                         </body>
+                                         </html>
+                                         ";
+            await _emailService.SendEmail(user.Email, "Reset Password", body, true);
+            return RedirectToAction(nameof(Login));
+        }
+        public async Task<IActionResult> ResetPassword(string userId, string token)
+        {
+            if (string.IsNullOrWhiteSpace(userId) || string.IsNullOrWhiteSpace(token)) return BadRequest();
+            var user = await _userManager.FindByIdAsync(userId);
+            if (user == null) return NotFound();
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+
+        public async Task<IActionResult> ResetPassword(ResetPasswordVM resetPassword, string userId, string token)
+        {
+            if (string.IsNullOrWhiteSpace(userId) || string.IsNullOrWhiteSpace(token)) return BadRequest();
+            if (!ModelState.IsValid) return View(resetPassword);
+            var user = await _userManager.FindByIdAsync(userId);
+            if (user == null) return NotFound();
+            var identityUser = await _userManager.ResetPasswordAsync(user, token, resetPassword.ConfirmPassword);
+            return RedirectToAction(nameof(Login));
+
+
+        }
+
 
     }
 }
