@@ -37,6 +37,8 @@ namespace FinalProjectJobHunt.Controllers
                 AppUsers = users,
                 Positions = positions,
                 Categories = categories,
+                ReceiverId=user.Id,
+                SenderId=user.Id
 
             };
 

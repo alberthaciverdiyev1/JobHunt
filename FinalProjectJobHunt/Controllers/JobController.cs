@@ -32,7 +32,7 @@ namespace FinalProjectJobHunt.Controllers
         public async Task<IActionResult> Index(int page, string? search, int? categoryId, int? order, int? city, int?[] jobtype, int? salary, int? experienceId)
         {
             IQueryable<PostJob> query = _context.PostJobs
-            .Include(p => p.AppUser).Include(x => x.Category).ThenInclude(x => x.Positions)
+            .Include(p => p.AppUser).Include(x => x.Category).ThenInclude(y => y.Positions)
             .Include(x => x.JobType)
             .Include(x => x.City).Skip(page * 6).Take(6).AsQueryable();
              ViewBag.Page = page;
@@ -80,7 +80,8 @@ namespace FinalProjectJobHunt.Controllers
             if (search != null)
             {
                 query = query.Where(p => p.Description.ToLower().Contains(search.ToLower()) ||
-                                         p.Category.Name.ToLower().Contains(search.ToLower()) ||
+                                         //p.Category.||
+                                         p.Category.Name.Contains(search.ToLower()) ||
                                          p.City.CityName.ToLower().Contains(search.ToLower()) ||
                                          p.JobType.WorkType.ToLower().Contains(search.ToLower()));
             }
@@ -273,8 +274,8 @@ namespace FinalProjectJobHunt.Controllers
             List<City> cities = await _context.Cities.ToListAsync();
             List<Language> languages = await _context.Languages.ToListAsync();
             List<Education> education = await _context.Educations.ToListAsync();
-            List<WorkExperience> workExperiences = _context.WorkExperiences.ToList();
-            List<JobType> jobTypes = _context.JobTypes.ToList();
+            List<WorkExperience> workExperiences = await _context.WorkExperiences.ToListAsync();
+            List<JobType> jobTypes = await _context.JobTypes.ToListAsync();
             PostJobVM jobVM = new PostJobVM
             {
                 Category = categories,
@@ -290,10 +291,25 @@ namespace FinalProjectJobHunt.Controllers
         [HttpPost]
         public async Task<IActionResult> PostJob(PostJobVM job)
         {
+            ViewBag.Categories = new SelectList(_context.Categories, "id", "Name");
+            ViewBag.City = new SelectList(_context.Cities, "id", "CityName");
+            List<Category> categories = await _context.Categories.ToListAsync();
+            List<City> cities = await _context.Cities.ToListAsync();
+            List<Language> languages = await _context.Languages.ToListAsync();
+            List<Education> education = await _context.Educations.ToListAsync();
+            List<WorkExperience> workExperiences = await _context.WorkExperiences.ToListAsync();
+            List<JobType> jobTypes = await _context.JobTypes.ToListAsync();
+            job.Category= categories;
+            job.Languages= languages;
+            job.WorkExperiences= workExperiences;
+            job.JobTypes= jobTypes;
+            job.Educations= education;
+            job.Cities= cities;
             if (!ModelState.IsValid)
             {
+               
                 ModelState.AddModelError(string.Empty, "Bu Model State Errorudur");
-                return View();
+                return View(job);
             }
             var currentUser = await _userManager.GetUserAsync(User);
 
@@ -355,10 +371,25 @@ namespace FinalProjectJobHunt.Controllers
         public async Task<IActionResult> UserPostJob(UserPostJobVM job)
         {
 
+            ViewBag.Categories = new SelectList(_context.Categories, "id", "Name");
+            ViewBag.City = new SelectList(_context.Cities, "id", "CityName");
+            List<Category> categories = await _context.Categories.ToListAsync();
+            List<City> cities = await _context.Cities.ToListAsync();
+            List<Language> languages = await _context.Languages.ToListAsync();
+            List<Education> education = await _context.Educations.ToListAsync();
+            List<WorkExperience> workExperiences = await _context.WorkExperiences.ToListAsync();
+            List<JobType> jobTypes = await _context.JobTypes.ToListAsync();
+            job.Category = categories;
+            job.Languages = languages;
+            job.WorkExperiences = workExperiences;
+            job.JobTypes = jobTypes;
+            job.Educations = education;
+            job.Cities = cities;
             if (!ModelState.IsValid)
             {
+
                 ModelState.AddModelError(string.Empty, "Bu Model State Errorudur");
-                return View();
+                return View(job);
             }
             var currentUser = await _userManager.GetUserAsync(User);
 

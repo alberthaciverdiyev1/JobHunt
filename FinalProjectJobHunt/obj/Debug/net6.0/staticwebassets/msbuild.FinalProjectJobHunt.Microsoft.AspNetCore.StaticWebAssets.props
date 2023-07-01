@@ -3472,6 +3472,22 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\images\BlogImages\1f1c532a-aa97-4013-8465-eb34b7e1c05a1647550725.jpeg))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\images\BlogImages\2bc2742e-ad2e-4bf6-9e0b-d75e4e8f95d6freelance-is.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>FinalProjectJobHunt</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/FinalProjectJobHunt</BasePath>
+      <RelativePath>assets/images/BlogImages/2bc2742e-ad2e-4bf6-9e0b-d75e4e8f95d6freelance-is.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\images\BlogImages\2bc2742e-ad2e-4bf6-9e0b-d75e4e8f95d6freelance-is.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\images\BlogImages\38dca231-bffd-444b-b432-615fa369e5b51647550725.jpeg))">
       <SourceType>Package</SourceType>
       <SourceId>FinalProjectJobHunt</SourceId>

@@ -92,7 +92,7 @@
             var userImageURL = Model.AppUsers.FirstOrDefault(x => x.Id == item.id)?.ImageURL ?? "NoImage.png";
             var positionName = Model.Positions.FirstOrDefault(x => x.id == item.PositionId)?.PositionName ?? string.Empty;
             var categoryName = Model.Categories.FirstOrDefault(x => x.id == item.CategoryId)?.Name ?? string.Empty;
-            var username = Model.AppUsers.FirstOrDefault(x => x.Id == item.SenderId).Name;
+            var username = Model.AppUsers.FirstOrDefault(x => x.Id == item.SenderId)?.Name;
 
             <div class="job-listing wtabs" onclick="location.href='@Url.Action("CompanyJobDetail", "job", new { id = item.PostJobId })'" style="cursor: pointer;">
                 <div class="c-logo">
@@ -169,7 +169,7 @@ else
             var userImageURL = Model.AppUsers.FirstOrDefault(x => x.Id == item.id)?.ImageURL ?? "NoImage.png";
             var positionName = Model.Positions.FirstOrDefault(x => x.id == item.PositionId)?.PositionName ?? string.Empty;
             var categoryName = Model.Categories.FirstOrDefault(x => x.id == item.CategoryId)?.Name ?? string.Empty;
-            var username = Model.AppUsers.FirstOrDefault(x => x.Id == item.SenderId).Name;
+            var username = Model.AppUsers.FirstOrDefault(x => x.Id == item.SenderId)?.Name;
 
             <div class="job-listing wtabs" onclick="location.href='@Url.Action("Detail", "job", new { id = item.UserPostJobId })'" style="cursor: pointer;">
                 <div class="c-logo">
