@@ -33,8 +33,12 @@ namespace FinalProjectJobHunt.Controllers
         {
             IQueryable<PostJob> query = _context.PostJobs
             .Include(p => p.AppUser).Include(x => x.Category).ThenInclude(x => x.Positions)
-            .Include(x => x.JobType).Skip(page * 6).Take(6)
-            .Include(x => x.City).AsQueryable();
+            .Include(x => x.JobType)
+            .Include(x => x.City).Skip(page * 6).Take(6).AsQueryable();
+             ViewBag.Page = page;
+            ViewBag.Total = Math.Ceiling((decimal)_context.PostJobs.Count() / 6);
+            
+            
             switch (order)
             {
                 case 1:
@@ -89,8 +93,7 @@ namespace FinalProjectJobHunt.Controllers
                 query = query.Where(p => p.CategoryId == categoryId);
             }
 
-            ViewBag.Page = page;
-            ViewBag.Total = Math.Ceiling((decimal)_context.PostJobs.Count() / 6);
+           
 
             PostJobVM jobVM = new PostJobVM
             {
@@ -249,6 +252,12 @@ namespace FinalProjectJobHunt.Controllers
 
         public async Task<IActionResult> PostJob()
         {
+
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+            
             if (User.Identity.IsAuthenticated)
             {
                 string role = User.FindFirst(ClaimTypes.Role)?.Value;

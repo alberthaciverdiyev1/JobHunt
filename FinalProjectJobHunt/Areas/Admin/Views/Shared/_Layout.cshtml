@@ -301,33 +301,33 @@
                         <li class="menu-title">Main</li>
 
                         <li>
-                            <a href="index.html" class="waves-effect">
+                            <a asp-action="index" asp-area="admin" asp-controller="home" class="waves-effect">
                                 <i class="mdi mdi-view-dashboard"></i>
                                 <span>Dashboard</span>
                             </a>
                         </li>
                         <li>
                             <a asp-action="index" asp-area="admin" asp-controller="Category" class="waves-effect">
-                                <i class="ion ion-md-apps"></i>             
+                                <i class="ion ion-md-apps"></i>
                                 <span>Categories</span>
                             </a>
                         </li>
                         <li>
                             <a asp-action="index" asp-area="admin" asp-controller="Setting" class="waves-effect">
-                                <i class="ion ion-md-setting"></i>
+                                <i class="fa-solid fa-gear"></i>        
                                 <span>Setting</span>
                             </a>
                         </li>
 
                         <li>
                             <a asp-action="index" asp-area="ProjectJobHunt" asp-controller="Blog" class="waves-effect">
-                                <i class="ion ion-md-apps"></i>
+                                <i class="fa-solid fa-book-open"></i>       
                                 <span>Blogs</span>
                             </a>
                         </li>
                         <li>
                             <a asp-action="index" asp-area="admin" asp-controller="AppUser" class="waves-effect">
-                                <i class="ion ion-md-apps"></i>
+                                <i class="fa-solid fa-users"></i>                
                                 <span>Users</span>
                             </a>
                         </li>
@@ -573,34 +573,34 @@
                 </a>
             </div>
 
-   @*         <!-- Settings -->
+            @*         <!-- Settings -->
             <hr class="mt-0" />
             <h6 class="text-center mb-0">Choose Layouts</h6>
 
             <div class="p-4">
-                <div class="mb-2">
-                    <img src="~/adminAssets/images/layouts/layout-1.jpg" class="img-thumbnail" alt="">
-                </div>
-                <div class="form-check form-switch mb-3">
-                    <input type="checkbox" class="form-check-input theme-choice" id="light-mode-switch" checked />
-                    <label class="form-check-label" for="light-mode-switch">Light Mode</label>
-                </div>
+            <div class="mb-2">
+            <img src="~/adminAssets/images/layouts/layout-1.jpg" class="img-thumbnail" alt="">
+            </div>
+            <div class="form-check form-switch mb-3">
+            <input type="checkbox" class="form-check-input theme-choice" id="light-mode-switch" checked />
+            <label class="form-check-label" for="light-mode-switch">Light Mode</label>
+            </div>
 
-                <div class="mb-2">
-                    <img src="~/adminAssets/images/layouts/layout-2.jpg" class="img-thumbnail" alt="">
-                </div>
-                <div class="form-check form-switch mb-3">
-                    <input type="checkbox" class="form-check-input theme-choice" id="dark-mode-switch" data-bsStyle="~/adminAssets/css/bootstrap-dark.min.css" data-appStyle="~/adminAssets/css/app-dark.min.css" />
-                    <label class="form-check-label" for="dark-mode-switch">Dark Mode</label>
-                </div>
+            <div class="mb-2">
+            <img src="~/adminAssets/images/layouts/layout-2.jpg" class="img-thumbnail" alt="">
+            </div>
+            <div class="form-check form-switch mb-3">
+            <input type="checkbox" class="form-check-input theme-choice" id="dark-mode-switch" data-bsStyle="~/adminAssets/css/bootstrap-dark.min.css" data-appStyle="~/adminAssets/css/app-dark.min.css" />
+            <label class="form-check-label" for="dark-mode-switch">Dark Mode</label>
+            </div>
 
-                <div class="mb-2">
-                    <img src="~/adminAssets/images/layouts/layout-3.jpg" class="img-thumbnail" alt="">
-                </div>
-                <div class="form-check form-switch mb-5">
-                    <input type="checkbox" class="form-check-input theme-choice" id="rtl-mode-switch" data-appStyle="~/adminAssets/css/app-rtl.min.css" />
-                    <label class="form-check-label" for="rtl-mode-switch">RTL Mode</label>
-                </div>
+            <div class="mb-2">
+            <img src="~/adminAssets/images/layouts/layout-3.jpg" class="img-thumbnail" alt="">
+            </div>
+            <div class="form-check form-switch mb-5">
+            <input type="checkbox" class="form-check-input theme-choice" id="rtl-mode-switch" data-appStyle="~/adminAssets/css/app-rtl.min.css" />
+            <label class="form-check-label" for="rtl-mode-switch">RTL Mode</label>
+            </div>
 
 
             </div>*@

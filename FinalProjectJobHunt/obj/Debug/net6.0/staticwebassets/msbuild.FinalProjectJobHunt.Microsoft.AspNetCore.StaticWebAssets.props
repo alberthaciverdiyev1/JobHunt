@@ -6448,22 +6448,6 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\images\User\d9f2f7b4-88ef-4148-ab70-fa528771a6f9Monster.jpg))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\images\User\ef8ae854-915e-4f61-8b6b-0551fbc5ae011655043591.jpeg))">
-      <SourceType>Package</SourceType>
-      <SourceId>FinalProjectJobHunt</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/FinalProjectJobHunt</BasePath>
-      <RelativePath>assets/images/User/ef8ae854-915e-4f61-8b6b-0551fbc5ae011655043591.jpeg</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\images\User\ef8ae854-915e-4f61-8b6b-0551fbc5ae011655043591.jpeg))</OriginalItemSpec>
-    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\images\User\f6160da2-f387-4b79-a05d-9c12beb62a6eBig-Data-Analyticsq.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>FinalProjectJobHunt</SourceId>

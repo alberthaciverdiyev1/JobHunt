@@ -15,7 +15,7 @@ namespace FinalProjectJobHunt.Areas.Admin.Controllers
         private readonly IWebHostEnvironment _env;
         private readonly UserManager<AppUser> _userManager;
 
-        public AppUserController(AppDbContext context,IWebHostEnvironment env, UserManager<AppUser>userManager)
+        public AppUserController(AppDbContext context, IWebHostEnvironment env, UserManager<AppUser> userManager)
         {
             _context = context;
             _env = env;
@@ -34,12 +34,16 @@ namespace FinalProjectJobHunt.Areas.Admin.Controllers
             {
                 return check;
             }
-          
-                string path = Path.Combine(_env.WebRootPath, "assets/images/User", user.ImageURL);
-            if(System.IO.File.Exists(path))
+            if (user.ImageURL != "NoImage.png")
             {
-                System.IO.File.Delete(path);
+                string path = Path.Combine(_env.WebRootPath, "assets/images/User", user.ImageURL);
+                if (System.IO.File.Exists(path))
+                {
+                    System.IO.File.Delete(path);
+                }
             }
+
+
 
             _context.Users.Remove(user);
             _context.SaveChanges();

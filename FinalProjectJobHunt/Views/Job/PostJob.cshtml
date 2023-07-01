@@ -188,7 +188,9 @@
                                             <textarea asp-for="Description" placeholder="Description"></textarea>
                                             <span asp-validation-for="Description" style="color:rebeccapurple;"></span>
                                         </div>
+
                                     </div>
+                                    <div asp-validation-summary="ModelOnly"></div>
                                     <div class="col-lg-12">
                                         <ul>
                                             <li><button class="active" type="submit" value="post">Add Job</button></li>
