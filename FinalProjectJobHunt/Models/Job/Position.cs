@@ -12,12 +12,10 @@ namespace FinalProjectJobHunt.Models
         public string PositionName { get; set; }
         public Category? Category { get; set; }
         [Required]
-        public int CategoryId { get; set; }
-        public int? UserPostJobId { get; set; }
-        public UserPostJob? UserPostJob { get; set; }
-        public int? PostJobId { get; set; }
-        public PostJob? PostJob { get; set; }
+        public int? CategoryId { get; set; }
 
+        public List<PostJob>? PostJobs { get; set; }
+        public List<UserPostJob>? UserPostJobs { get; set; }
 
 
 

@@ -2,12 +2,13 @@
 {
     public class UserPostJob:BaseEntity
     {
-        public int CategoryId { get; set; }
+        public int? CategoryId { get; set; }
         public Category? Category { get; set; }
 
         public int JobTypeId { get; set; }
         public JobType? JobType { get; set; }
-        public int PositionId { get; set; }
+        public int? PositionId { get; set; }
+        public Position? Position { get; set; }
 
         public int? Experience { get; set; }
         public int? WorkExperienceId { get; set; }
@@ -30,7 +31,5 @@
         public AppUser? AppUser { get; set; }
         public List<BasketItem>? BasketItems { get; set; }
         public List<Message>? Messages { get; set; }
-        public List<Position>? Positions { get; set; }
-
     }
 }

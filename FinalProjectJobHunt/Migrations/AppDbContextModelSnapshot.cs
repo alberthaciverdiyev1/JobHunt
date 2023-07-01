@@ -251,7 +251,7 @@ namespace FinalProjectJobHunt.Migrations
                     b.Property<int>("AppUserId")
                         .HasColumnType("int");
 
-                    b.Property<int>("CategoryId")
+                    b.Property<int?>("CategoryId")
                         .HasColumnType("int");
 
                     b.Property<int?>("CityId")
@@ -283,7 +283,7 @@ namespace FinalProjectJobHunt.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("PositionId")
+                    b.Property<int?>("PositionId")
                         .HasColumnType("int");
 
                     b.Property<decimal?>("Salary")
@@ -305,6 +305,8 @@ namespace FinalProjectJobHunt.Migrations
                     b.HasIndex("JobTypeId");
 
                     b.HasIndex("LanguageId");
+
+                    b.HasIndex("PositionId");
 
                     b.HasIndex("WorkExperienceId");
 
@@ -417,26 +419,17 @@ namespace FinalProjectJobHunt.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"));
 
-                    b.Property<int>("CategoryId")
+                    b.Property<int?>("CategoryId")
+                        .IsRequired()
                         .HasColumnType("int");
 
                     b.Property<string>("PositionName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("PostJobId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("UserPostJobId")
-                        .HasColumnType("int");
-
                     b.HasKey("id");
 
                     b.HasIndex("CategoryId");
-
-                    b.HasIndex("PostJobId");
-
-                    b.HasIndex("UserPostJobId");
 
                     b.ToTable("Positions");
                 });
@@ -452,7 +445,7 @@ namespace FinalProjectJobHunt.Migrations
                     b.Property<int>("AppUserId")
                         .HasColumnType("int");
 
-                    b.Property<int>("CategoryId")
+                    b.Property<int?>("CategoryId")
                         .HasColumnType("int");
 
                     b.Property<int?>("CityId")
@@ -490,7 +483,7 @@ namespace FinalProjectJobHunt.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("PositionId")
+                    b.Property<int?>("PositionId")
                         .HasColumnType("int");
 
                     b.Property<decimal?>("Salary")
@@ -515,6 +508,8 @@ namespace FinalProjectJobHunt.Migrations
                     b.HasIndex("JobTypeId");
 
                     b.HasIndex("LanguageId");
+
+                    b.HasIndex("PositionId");
 
                     b.HasIndex("WorkExperienceId");
 
@@ -738,9 +733,7 @@ namespace FinalProjectJobHunt.Migrations
 
                     b.HasOne("FinalProjectJobHunt.Models.Category", "Category")
                         .WithMany()
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CategoryId");
 
                     b.HasOne("FinalProjectJobHunt.Models.City", "City")
                         .WithMany()
@@ -759,6 +752,10 @@ namespace FinalProjectJobHunt.Migrations
                     b.HasOne("FinalProjectJobHunt.Models.Language", "Language")
                         .WithMany()
                         .HasForeignKey("LanguageId");
+
+                    b.HasOne("FinalProjectJobHunt.Models.Position", null)
+                        .WithMany("UserPostJobs")
+                        .HasForeignKey("PositionId");
 
                     b.HasOne("FinalProjectJobHunt.Models.WorkExperience", "WorkExperience")
                         .WithMany()
@@ -798,19 +795,7 @@ namespace FinalProjectJobHunt.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("FinalProjectJobHunt.Models.PostJob", "PostJob")
-                        .WithMany("Positions")
-                        .HasForeignKey("PostJobId");
-
-                    b.HasOne("FinalProjectJobHunt.Models.Job.UserPostJob", "UserPostJob")
-                        .WithMany("Positions")
-                        .HasForeignKey("UserPostJobId");
-
                     b.Navigation("Category");
-
-                    b.Navigation("PostJob");
-
-                    b.Navigation("UserPostJob");
                 });
 
             modelBuilder.Entity("FinalProjectJobHunt.Models.PostJob", b =>
@@ -823,9 +808,7 @@ namespace FinalProjectJobHunt.Migrations
 
                     b.HasOne("FinalProjectJobHunt.Models.Category", "Category")
                         .WithMany("PostJobs")
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CategoryId");
 
                     b.HasOne("FinalProjectJobHunt.Models.City", "City")
                         .WithMany("PostJobs")
@@ -845,6 +828,10 @@ namespace FinalProjectJobHunt.Migrations
                         .WithMany("PostJobs")
                         .HasForeignKey("LanguageId");
 
+                    b.HasOne("FinalProjectJobHunt.Models.Position", "Position")
+                        .WithMany("PostJobs")
+                        .HasForeignKey("PositionId");
+
                     b.HasOne("FinalProjectJobHunt.Models.WorkExperience", "WorkExperience")
                         .WithMany("PostJobs")
                         .HasForeignKey("WorkExperienceId");
@@ -860,6 +847,8 @@ namespace FinalProjectJobHunt.Migrations
                     b.Navigation("JobType");
 
                     b.Navigation("Language");
+
+                    b.Navigation("Position");
 
                     b.Navigation("WorkExperience");
                 });
@@ -950,8 +939,6 @@ namespace FinalProjectJobHunt.Migrations
                     b.Navigation("BasketItems");
 
                     b.Navigation("Messages");
-
-                    b.Navigation("Positions");
                 });
 
             modelBuilder.Entity("FinalProjectJobHunt.Models.JobType", b =>
@@ -964,13 +951,18 @@ namespace FinalProjectJobHunt.Migrations
                     b.Navigation("PostJobs");
                 });
 
+            modelBuilder.Entity("FinalProjectJobHunt.Models.Position", b =>
+                {
+                    b.Navigation("PostJobs");
+
+                    b.Navigation("UserPostJobs");
+                });
+
             modelBuilder.Entity("FinalProjectJobHunt.Models.PostJob", b =>
                 {
                     b.Navigation("BasketItems");
 
                     b.Navigation("Messages");
-
-                    b.Navigation("Positions");
                 });
 
             modelBuilder.Entity("FinalProjectJobHunt.Models.WorkExperience", b =>
