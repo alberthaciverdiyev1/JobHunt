@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using FinalProjectJobHunt.DAL;
 using FinalProjectJobHunt.Models;
+using FinalProjectJobHunt.Utilities.Exceptions;
 
 namespace FinalProjectJobHunt.Areas.Admin.Controllers
 {
@@ -23,20 +24,20 @@ namespace FinalProjectJobHunt.Areas.Admin.Controllers
 
         public IActionResult Update(int id)
         {
-            if (id == null || id < 1) return BadRequest();
+            if (id == null || id < 0) throw new BadRequestException("No Setting Found With This ID");
 
             Setting settings = _context.Settings.FirstOrDefault(x => x.id == id);
-            if (settings == null) return BadRequest();
+            if (settings == null) throw new NotFoundException("We Could Not Find This Setting");
             return View(settings);
         }
         [HttpPost]
         public async Task<IActionResult> Update(int id, Setting setting)
         {
-            if (id == null || id < 1) return BadRequest();
+            if (id == null || id < 0) throw new BadRequestException("No Setting Found With This ID");
 
             Setting existed = await _context.Settings.FirstOrDefaultAsync(x => x.id == id);
-            if (existed == null) return BadRequest();
-            existed.Value=setting.Value;
+            if (existed == null) throw new NotFoundException("We Could Not Find This Setting");
+            existed.Value = setting.Value;
             await _context.SaveChangesAsync();
             return RedirectToAction("Index", "Setting");
 

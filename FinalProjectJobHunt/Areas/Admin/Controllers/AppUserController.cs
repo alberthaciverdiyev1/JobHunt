@@ -5,6 +5,7 @@ using FinalProjectJobHunt.Models;
 using FinalProjectJobHunt.Utilities.Extentions;
 using Microsoft.AspNetCore.Identity;
 using System.Security.Claims;
+using FinalProjectJobHunt.Utilities.Exceptions;
 
 namespace FinalProjectJobHunt.Areas.Admin.Controllers
 {
@@ -29,11 +30,8 @@ namespace FinalProjectJobHunt.Areas.Admin.Controllers
         public IActionResult Delete(int id)
         {
             AppUser user = _context.Users.FirstOrDefault(x => x.Id == id);
-            var check = this.CheckDbContext(user);
-            if (check != null)
-            {
-                return check;
-            }
+            if (id == null || id < 0) throw new BadRequestException("No User Found With This ID");
+
             if (user.ImageURL != "NoImage.png")
             {
                 string path = Path.Combine(_env.WebRootPath, "assets/images/User", user.ImageURL);

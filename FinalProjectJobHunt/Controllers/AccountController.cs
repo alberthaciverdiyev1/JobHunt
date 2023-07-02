@@ -6,6 +6,7 @@ using FinalProjectJobHunt.ViewModels;
 using System.Reflection.Metadata;
 using FinalProjectJobHunt.Utilities.Enums;
 using FinalProjectJobHunt.Interfaces;
+using FinalProjectJobHunt.Utilities.Exceptions;
 
 namespace JobHuntProject.Controllers
 {
@@ -175,12 +176,12 @@ namespace JobHuntProject.Controllers
         public async Task<IActionResult> ConfirmEmail(string token, string email)
         {
             AppUser user = await _userManager.FindByEmailAsync(email);
-            if (user == null) return NotFound();
+            if (user == null) throw new NotFoundException("We Could Not Find This User");
             var result = await _userManager.ConfirmEmailAsync(user, token);
 
             if (!result.Succeeded)
             {
-                return BadRequest();
+                throw new BadRequestException("Something Went Wrong");
             }
             await _signInManager.SignInAsync(user, false);
             return View();
@@ -305,7 +306,7 @@ namespace JobHuntProject.Controllers
                 user = await _userManager.FindByNameAsync(forgotPassword.Email);
                 if (user == null)
                 {
-                    ModelState.AddModelError(string.Empty, "Username, Email or Password is Incorrect");
+                    ModelState.AddModelError(string.Empty, "We Could Not Find User");
                     return View();
                 }
 

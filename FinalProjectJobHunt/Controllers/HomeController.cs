@@ -19,12 +19,12 @@ namespace FinalProjectJobHunt.Controllers
         public HomeController(AppDbContext context)
         {
             _context = context;
-        
+
         }
-        public async Task<IActionResult> Index( string? search)
+        public async Task<IActionResult> Index(string? search)
         {
-           
-           
+
+
 
             IQueryable<PostJob> query = null;
             IQueryable<UserPostJob> queryUserPostJob = null;
@@ -72,8 +72,6 @@ namespace FinalProjectJobHunt.Controllers
 
             return View(homeVM);
         }
-
-        //JavaScript ucun idi
         public async Task<ActionResult> Categories()
         {
 
@@ -81,6 +79,16 @@ namespace FinalProjectJobHunt.Controllers
 
             return View(categories);
         }
+
+
+        public IActionResult Error(string errormessage="Xeta Bas Verdi !!!")
+        {
+            return View(model:errormessage);
+        }
+
+
+        //JavaScript ucun idi
+
         //public async Task<IActionResult> Search(string value)
         //{
         //    var Values = await _context.Categories.Where(x => x.Name.Contains(value))

@@ -5,6 +5,8 @@ using FinalProjectJobHunt.Models;
 using FinalProjectJobHunt.Utilities.Extentions;
 using System.Data.Odbc;
 using System.Drawing.Printing;
+using FinalProjectJobHunt.Utilities.Exceptions;
+using System.Reflection.Metadata;
 
 namespace FinalProjectJobHunt.Areas.Admin.Controllers
 {
@@ -41,18 +43,12 @@ namespace FinalProjectJobHunt.Areas.Admin.Controllers
         }
         public IActionResult Update(int id)
         {
-            var check = this.CheckID(id);
-            if (check != null)
-            {
-                return check;
-            }
+            if (id == null || id < 0) throw new BadRequestException("No Category Found With This ID");
+
 
             Category category = _context.Categories.FirstOrDefault(x => x.id == id);
-            var checkContext = this.CheckDbContext(category);
-            if (checkContext != null)
-            {
-                return checkContext;
-            }
+            if (category == null) throw new NotFoundException("We Could Not Find This Category");
+
             return View(category);
         }
         [HttpPost]
@@ -64,17 +60,10 @@ namespace FinalProjectJobHunt.Areas.Admin.Controllers
                 return View();
             }
 
-            var check = this.CheckID(id);
-            if (check != null)
-            {
-                return check;
-            }
+            if (id == null || id < 0) throw new BadRequestException("No Category Found With This ID");
+
             Category existed = _context.Categories.FirstOrDefault(x => x.id == id);
-            var checkContext = this.CheckDbContext(existed);
-            if (checkContext != null)
-            {
-                return checkContext;
-            }
+            if (existed == null) throw new NotFoundException("We Could Not Find This Category");
             existed.Name = category.Name;
             existed.Icon = category.Icon;
             await _context.SaveChangesAsync();
@@ -82,17 +71,11 @@ namespace FinalProjectJobHunt.Areas.Admin.Controllers
         }
         public IActionResult Delete(int id)
         {
-            var check = this.CheckID(id);
-            if (check != null)
-            {
-                return check;
-            }
+            if (id == null || id < 0) throw new BadRequestException("No Category Found With This ID");
+
             Category existed = _context.Categories.FirstOrDefault(x => x.id == id);
-            var checkContext = this.CheckDbContext(existed);
-            if (checkContext != null)
-            {
-                return checkContext;
-            }
+            if (existed == null) throw new NotFoundException("We Could Not Find This Category");
+
             _context.Categories.Remove(existed);
             _context.SaveChanges();
             return RedirectToAction("Index", "Category");
@@ -100,12 +83,11 @@ namespace FinalProjectJobHunt.Areas.Admin.Controllers
         }
         public async Task<IActionResult> PositionIndex(int id)
         {
+            if (id == null || id < 0) throw new BadRequestException("No Category Found With This ID");
+
             List<Position> position = await _context.Positions.Where(x => x.CategoryId == id).Include(x => x.Category).ToListAsync();
-            var checkContext = this.CheckDbContext(position);
-            if (checkContext != null)
-            {
-                return checkContext;
-            }
+            if (position == null) throw new NotFoundException("We Could Not Find This Category");
+
             return View(position);
         }
 
@@ -136,7 +118,11 @@ namespace FinalProjectJobHunt.Areas.Admin.Controllers
         }
         public IActionResult UpdatePosition(int id)
         {
+            if (id == null || id < 0) throw new BadRequestException("No Position Found With This ID");
+
             Position position = _context.Positions.FirstOrDefault(x => x.id == id);
+            if (position == null) throw new NotFoundException("We Could Not Find This Position");
+
             ViewBag.Categories = _context.Categories.ToList();
 
             return View(position);
@@ -144,8 +130,11 @@ namespace FinalProjectJobHunt.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> UpdatePosition(int id, Position position)
         {
+            if (id == null || id < 0) throw new BadRequestException("No Position Found With This ID");
 
             Position existed = _context.Positions.FirstOrDefault(x => x.id == id);
+            if (existed == null) throw new NotFoundException("We Could Not Find This Position");
+
             ViewBag.Categories = _context.Categories.ToList();
             existed.PositionName = position.PositionName;
             existed.CategoryId = position.CategoryId;
@@ -155,11 +144,11 @@ namespace FinalProjectJobHunt.Areas.Admin.Controllers
         }
         public IActionResult DeletePosition(int id)
         {
-            var check = this.CheckID(id);
-            if (check != null) return check;
+            if (id == null || id < 0) throw new BadRequestException("No Position Found With This ID");
+
             Position existed = _context.Positions.FirstOrDefault(x => x.id == id);
-            var checkPosition = this.CheckDbContext(existed);
-            if (checkPosition != null) return checkPosition;
+            if (existed == null) throw new NotFoundException("We Could Not Find This Position");
+
             _context.Remove(existed);
             _context.SaveChanges();
             return RedirectToAction("PositionIndex", "Category");

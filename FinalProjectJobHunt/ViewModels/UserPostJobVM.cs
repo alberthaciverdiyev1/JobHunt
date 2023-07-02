@@ -7,6 +7,8 @@ namespace FinalProjectJobHunt.ViewModels
 {
     public class UserPostJobVM
     {
+        private sbyte _minAge = 16;
+
         public List<Category>? Category { get; set; }
         public List<Position>? Positions { get; set; }
         public List<City>? Cities { get; set; }
@@ -24,6 +26,7 @@ namespace FinalProjectJobHunt.ViewModels
         public int CityId { get; set; }
         public int? LanguageId { get; set; }
         public int? EducationId { get; set; }
+        [Range(0.01, double.MaxValue, ErrorMessage = "Salary Must Be Greater Than Zero")]
         public decimal? Salary { get; set; }
         public int? Experience { get; set; }
         public int? WorkExperienceId { get; set; }
@@ -36,8 +39,10 @@ namespace FinalProjectJobHunt.ViewModels
         [Required]
         public string Description { get; set; }
         [Required]
-        public int Age { get; set; }
-      
+        [Range(16, 90, ErrorMessage = "Age Must Be Between 16 and 90")]
+
+        public sbyte Age { get; set; }
+
         public DateTime Created { get; set; }
         [Required]
         public int JobTypeId { get; set; }

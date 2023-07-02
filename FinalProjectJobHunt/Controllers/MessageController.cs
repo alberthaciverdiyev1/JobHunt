@@ -1,11 +1,13 @@
 ﻿using FinalProjectJobHunt.DAL;
 using FinalProjectJobHunt.Models;
 using FinalProjectJobHunt.Models.Job;
+using FinalProjectJobHunt.Utilities.Exceptions;
 using FinalProjectJobHunt.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
+using System.Reflection.Metadata;
 using System.Security.Claims;
 
 namespace FinalProjectJobHunt.Controllers
@@ -114,9 +116,10 @@ namespace FinalProjectJobHunt.Controllers
         }
         public IActionResult Delete(int? id)
         {
-            if (id < 1 || id == null) return BadRequest();
+            if (id == null || id < 0) throw new BadRequestException("No Message Found With This ID");
+
             var message = _context.Messages.FirstOrDefault(x => x.id == id);
-            if (message == null) return NotFound();
+            if (message == null) throw new NotFoundException("We Could Not Find This Message");
             _context.Messages.Remove(message);
             _context.SaveChanges();
             return RedirectToAction("Index", "Message");

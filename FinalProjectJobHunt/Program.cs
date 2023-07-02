@@ -1,5 +1,6 @@
 using FinalProjectJobHunt.DAL;
 using FinalProjectJobHunt.Interfaces;
+using FinalProjectJobHunt.Middlewares;
 using FinalProjectJobHunt.Models;
 using FinalProjectJobHunt.Services;
 using Microsoft.AspNetCore.Identity;
@@ -37,7 +38,7 @@ app.UseStaticFiles();
 app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
-
+app.UseMiddleware<GlobalExceptionHandlerMiddleware>();
 app.UseEndpoints(endpoints =>
 {
 	endpoints.MapControllerRoute(

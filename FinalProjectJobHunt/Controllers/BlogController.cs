@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using FinalProjectJobHunt.DAL;
 using FinalProjectJobHunt.Models;
+using FinalProjectJobHunt.Utilities.Exceptions;
 
 namespace FinalProjectJobHunt.Controllers
 {
@@ -77,18 +78,20 @@ namespace FinalProjectJobHunt.Controllers
 
         public async Task<IActionResult> Update(int id)
         {
-            if (id < 1 || id == null) return RedirectToAction("Error", "Home");
+            if (id == null || id < 0) throw new BadRequestException("No Blog Found With This ID");
             Blog blog = await _context.Blogs.FirstOrDefaultAsync(x => x.id == id);
-            if (blog == null) return RedirectToAction("Error", "Home");
+            if (blog == null) throw new NotFoundException("We Could Not Find This Blog");
+
             return View(blog);
         }
         [HttpPost]
         public async Task<IActionResult> Update(int id, Blog blog)
         {
 
-            if (id == null || id < 1) return BadRequest();
+            if (id == null || id < 0) throw new BadRequestException("No Blog Found With This ID");
             Blog existed = _context.Blogs.FirstOrDefault(x => x.id == id);
-            if (existed == null) { return NotFound(); }
+            if (existed == null) throw new NotFoundException("We Could Not Find This Blog");
+
             //if (!ModelState.IsValid) return View();
             string filename = Guid.NewGuid().ToString() + blog.ImageURL;
             string path = Path.Combine(_env.WebRootPath, "assets/images/BlogImages", filename);
@@ -126,17 +129,17 @@ namespace FinalProjectJobHunt.Controllers
         }
         public async Task<IActionResult> SingleBlog(int id)
         {
-            if (id < 1 || id == null) return RedirectToAction("Error", "Home");
+            if (id == null || id < 0) throw new BadRequestException("No Blog Found With This ID");
             Blog blog = await _context.Blogs.FirstOrDefaultAsync(x => x.id == id);
-            if (blog == null) return RedirectToAction("Error", "Home");
+            if (blog == null) throw new NotFoundException("We Could Not Find This Blog");
             ViewBag.Recent = _context.Blogs.Take(7).OrderByDescending(x => x.DateTime).ToList();
             return View(blog);
         }
         public IActionResult Delete(int id)
         {
-            if (id < 1 || id == null) return RedirectToAction("Error", "Home");
+            if (id == null || id < 0) throw new BadRequestException("No Blog Found With This ID");
             Blog blog = _context.Blogs.FirstOrDefault(x => x.id == id);
-            if (blog == null) return RedirectToAction("Error", "Home");
+            if (blog == null) throw new NotFoundException("We Could Not Find This Blog");
             string filename = Guid.NewGuid().ToString() + blog.ImageURL;
             string path = Path.Combine(_env.WebRootPath, "assets/images/BlogImages", filename);
             System.IO.File.Delete(path);

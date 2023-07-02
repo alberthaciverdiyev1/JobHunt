@@ -8,6 +8,7 @@ using FinalProjectJobHunt.ViewModels;
 using System.Reflection.Metadata;
 using FinalProjectJobHunt.Models.Job;
 using System.Security.Claims;
+using FinalProjectJobHunt.Utilities.Exceptions;
 
 namespace FinalProjectJobHunt.Controllers
 {
@@ -71,8 +72,10 @@ namespace FinalProjectJobHunt.Controllers
         }
         public async Task<IActionResult> UserInfo(int id)
         {
+            if (id == null || id < 0) throw new BadRequestException("No User Found With This ID");
             var user = await _context.Users.FirstOrDefaultAsync(u => u.Id == id);
-            if (user == null) return NotFound();
+            if (user == null) throw new NotFoundException("We Could Not Find This User");
+
             ProfileVM Profile = new ProfileVM
             {
                 Name = user.Name,
@@ -179,7 +182,7 @@ namespace FinalProjectJobHunt.Controllers
 
         public IActionResult Delete(int id)
         {
-            if (id == null || id < 1) return BadRequest();
+            if (id == null || id < 0) throw new BadRequestException("No Blog Found With This ID");
             string role = User.FindFirst(ClaimTypes.Role)?.Value;
             if (role == "EMPLOYEE")
             {  PostJob job = _context.PostJobs.FirstOrDefault(x => x.id == id);

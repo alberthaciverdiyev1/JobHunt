@@ -14,8 +14,10 @@ using System.Text.Json.Serialization;
 using System.Text.Json;
 using System.Net.Http.Json;
 using static System.Net.WebRequestMethods;
+using FinalProjectJobHunt.Utilities.Exceptions;
 
 namespace FinalProjectJobHunt.Controllers
+
 {
     public class JobController : Controller
     {
@@ -215,7 +217,7 @@ namespace FinalProjectJobHunt.Controllers
 
         public async Task<IActionResult> Detail(int id)
         {
-
+            if (id == null || id < 0) throw new BadRequestException("No job found with this ID");
             UserPostJob singleJob = await _context.UserPostJobs
                 .Include(x => x.Education)
                 .Include(x => x.WorkExperience)
@@ -223,6 +225,7 @@ namespace FinalProjectJobHunt.Controllers
                 .Include(x => x.JobType)
                 .Include(x => x.City)
                 .FirstOrDefaultAsync(x => x.id == id);
+            if (singleJob == null) throw new NotFoundException("We Could Not Find This Job");
             AppUser appUser = await _context.Users.FirstOrDefaultAsync(u => u.Id == singleJob.AppUserId);
             Position positionName = await _context.Positions.FirstOrDefaultAsync(x => x.id == singleJob.PositionId);
 
@@ -236,6 +239,7 @@ namespace FinalProjectJobHunt.Controllers
         }
         public async Task<IActionResult> CompanyJobDetail(int id)
         {
+            if (id == null || id < 0) throw new BadRequestException("No job found with this ID");
 
             PostJob singleJob = await _context.PostJobs
                 .Include(x => x.Education)
@@ -244,6 +248,8 @@ namespace FinalProjectJobHunt.Controllers
                 .Include(x => x.JobType)
                 .Include(x => x.City)
                 .FirstOrDefaultAsync(x => x.id == id);
+            if (singleJob == null) throw new NotFoundException("We Could Not Find This Job");
+
             Position positionName = await _context.Positions.FirstOrDefaultAsync(x => x.id == singleJob.PositionId);
 
             AppUser appUser = await _context.Users.FirstOrDefaultAsync(u => u.Id == singleJob.AppUserId);
@@ -446,8 +452,8 @@ namespace FinalProjectJobHunt.Controllers
         [Authorize]
         public async Task<IActionResult> AddBasket(int? id)
         {
-            if (id == null || id < 1) return BadRequest();
 
+            if (id == null || id < 0) throw new BadRequestException("No job found with this ID");
 
 
             string role = User.FindFirst(ClaimTypes.Role)?.Value;
@@ -455,7 +461,7 @@ namespace FinalProjectJobHunt.Controllers
             if (User.Identity.IsAuthenticated)
             {
                 AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
-                if (user is null) return NotFound();
+                if (user == null) throw new NotFoundException("We Could Not Find This User");
 
                 if (role == "EMPLOYEE")
                 {
