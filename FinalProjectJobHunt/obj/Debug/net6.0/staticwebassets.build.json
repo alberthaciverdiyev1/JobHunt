@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "fvngNH2XY0XtvpKmZQWjg5+WXHBaRjrMQAOxWxBFzio=",
+  "Hash": "2GTeEKts7S+D9jvJ1IHz2mo+GXdPUwDPif+eWC66JhU=",
   "Source": "FinalProjectJobHunt",
   "BasePath": "_content/FinalProjectJobHunt",
   "Mode": "Default",
@@ -6834,6 +6834,23 @@
       "OriginalItemSpec": "wwwroot\\assets\\images\\User\\0618e754-0355-4f62-93bb-25e47b40f9181647550725.jpeg"
     },
     {
+      "Identity": "C:\\Users\\ASUS\\Desktop\\Job\\FinalProjectJobHunt\\wwwroot\\assets\\images\\User\\1c235379-aea4-4988-a05b-23d2defd4ebf360_F_364211147_1qgLVxv1Tcq0Ohz3FawUfrtONzz8nq3e.jpg",
+      "SourceId": "FinalProjectJobHunt",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ASUS\\Desktop\\Job\\FinalProjectJobHunt\\wwwroot\\",
+      "BasePath": "_content/FinalProjectJobHunt",
+      "RelativePath": "assets/images/User/1c235379-aea4-4988-a05b-23d2defd4ebf360_F_364211147_1qgLVxv1Tcq0Ohz3FawUfrtONzz8nq3e.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\images\\User\\1c235379-aea4-4988-a05b-23d2defd4ebf360_F_364211147_1qgLVxv1Tcq0Ohz3FawUfrtONzz8nq3e.jpg"
+    },
+    {
       "Identity": "C:\\Users\\ASUS\\Desktop\\Job\\FinalProjectJobHunt\\wwwroot\\assets\\images\\User\\1da0e76c-2ca9-4c66-820b-b215d1401a00Monster.jpg",
       "SourceId": "FinalProjectJobHunt",
       "SourceType": "Discovered",
@@ -7004,6 +7021,23 @@
       "OriginalItemSpec": "wwwroot\\assets\\images\\User\\a8a0ea5a-2afa-429a-b3b3-cbd0953ae4a6Monster.jpg"
     },
     {
+      "Identity": "C:\\Users\\ASUS\\Desktop\\Job\\FinalProjectJobHunt\\wwwroot\\assets\\images\\User\\adce794f-4c2f-4a99-a52f-5f696f348f6e1672846265.jpeg",
+      "SourceId": "FinalProjectJobHunt",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ASUS\\Desktop\\Job\\FinalProjectJobHunt\\wwwroot\\",
+      "BasePath": "_content/FinalProjectJobHunt",
+      "RelativePath": "assets/images/User/adce794f-4c2f-4a99-a52f-5f696f348f6e1672846265.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\images\\User\\adce794f-4c2f-4a99-a52f-5f696f348f6e1672846265.jpeg"
+    },
+    {
       "Identity": "C:\\Users\\ASUS\\Desktop\\Job\\FinalProjectJobHunt\\wwwroot\\assets\\images\\User\\b4b6f1d8-b04d-4784-bb78-b4d2f81b21411655043591.jpeg",
       "SourceId": "FinalProjectJobHunt",
       "SourceType": "Discovered",
@@ -7055,6 +7089,23 @@
       "OriginalItemSpec": "wwwroot\\assets\\images\\User\\d9f2f7b4-88ef-4148-ab70-fa528771a6f9Monster.jpg"
     },
     {
+      "Identity": "C:\\Users\\ASUS\\Desktop\\Job\\FinalProjectJobHunt\\wwwroot\\assets\\images\\User\\ef9c4dd0-b6c3-48c1-b4b8-9d5197fbe11anetworking-nedir.jpg",
+      "SourceId": "FinalProjectJobHunt",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ASUS\\Desktop\\Job\\FinalProjectJobHunt\\wwwroot\\",
+      "BasePath": "_content/FinalProjectJobHunt",
+      "RelativePath": "assets/images/User/ef9c4dd0-b6c3-48c1-b4b8-9d5197fbe11anetworking-nedir.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\images\\User\\ef9c4dd0-b6c3-48c1-b4b8-9d5197fbe11anetworking-nedir.jpg"
+    },
+    {
       "Identity": "C:\\Users\\ASUS\\Desktop\\Job\\FinalProjectJobHunt\\wwwroot\\assets\\images\\User\\f29125ee-0248-472c-8f0d-6f5331f85edcphoto_2023-06-02_12-51-28.jpg",
       "SourceId": "FinalProjectJobHunt",
       "SourceType": "Discovered",
@@ -7087,6 +7138,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\images\\User\\f6160da2-f387-4b79-a05d-9c12beb62a6eBig-Data-Analyticsq.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\ASUS\\Desktop\\Job\\FinalProjectJobHunt\\wwwroot\\assets\\images\\User\\f920f2c8-65bb-47b7-ab18-76841ab83b24cv-hazirlamaq.jpg",
+      "SourceId": "FinalProjectJobHunt",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ASUS\\Desktop\\Job\\FinalProjectJobHunt\\wwwroot\\",
+      "BasePath": "_content/FinalProjectJobHunt",
+      "RelativePath": "assets/images/User/f920f2c8-65bb-47b7-ab18-76841ab83b24cv-hazirlamaq.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\images\\User\\f920f2c8-65bb-47b7-ab18-76841ab83b24cv-hazirlamaq.jpg"
     },
     {
       "Identity": "C:\\Users\\ASUS\\Desktop\\Job\\FinalProjectJobHunt\\wwwroot\\assets\\images\\User\\f948661f-16d1-4146-9e07-4ac1afa850f0photo_2023-06-02_12-51-28.jpg",

@@ -31,12 +31,12 @@ namespace FinalProjectJobHunt.Controllers
 
             if (search != null)
             {
-                query = _context.PostJobs.Where(p => p.Description.ToLower().Contains(search.ToLower()) ||
+                query = _context.PostJobs.Include(c=>c.Category).Where(p => p.Description.ToLower().Contains(search.ToLower()) ||
                                          p.Category.Name.ToLower().Contains(search.ToLower()) ||
                                          p.City.CityName.ToLower().Contains(search.ToLower()) ||
                                          p.JobType.WorkType.ToLower().Contains(search.ToLower()));
 
-                queryUserPostJob = _context.UserPostJobs.Where(p => p.Description.ToLower().Contains(search.ToLower()) ||
+                queryUserPostJob = _context.UserPostJobs.Include(c => c.Category).Where(p => p.Description.ToLower().Contains(search.ToLower()) ||
                                                                p.Category.Name.ToLower().Contains(search.ToLower()) ||
                                                                p.City.CityName.ToLower().Contains(search.ToLower()) ||
                                                                p.JobType.WorkType.ToLower().Contains(search.ToLower()));
@@ -54,7 +54,7 @@ namespace FinalProjectJobHunt.Controllers
             }
 
             List<Category> categories = _context.Categories.Take(8).ToList();
-            List<Blog> blogs = _context.Blogs.ToList();
+            List<Blog> blogs = _context.Blogs.Take(6).ToList();
             List<AppUser> users = _context.Users.ToList();
             List<City> cities = _context.Cities.Take(8).ToList();
             List<Position> positions = _context.Positions.ToList();

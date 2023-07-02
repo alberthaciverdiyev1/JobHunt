@@ -92,7 +92,7 @@ namespace FinalProjectJobHunt.Controllers
             Blog existed = _context.Blogs.FirstOrDefault(x => x.id == id);
             if (existed == null) throw new NotFoundException("We Could Not Find This Blog");
 
-            //if (!ModelState.IsValid) return View();
+            if (!ModelState.IsValid) return View();
             string filename = Guid.NewGuid().ToString() + blog.ImageURL;
             string path = Path.Combine(_env.WebRootPath, "assets/images/BlogImages", filename);
             if (blog.Photo != null)

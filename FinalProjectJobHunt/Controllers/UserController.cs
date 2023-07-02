@@ -132,6 +132,13 @@ namespace FinalProjectJobHunt.Controllers
             var user = await _context.Users.FirstOrDefaultAsync(u => u.UserName == User.Identity!.Name);
             //if (!ModelState.IsValid)
             //{
+            //    ViewBag.Categories = _context.Categories.Select(c => new SelectListItem
+            //    {
+            //        Value = c.id.ToString(),
+            //        Text = c.Name
+            //    });
+
+            //    ViewBag.Education = await _context.Educations.ToListAsync();
             //    return View();
             //}
 
@@ -182,21 +189,44 @@ namespace FinalProjectJobHunt.Controllers
 
         public IActionResult Delete(int id)
         {
-            if (id == null || id < 0) throw new BadRequestException("No Blog Found With This ID");
+            if (id == null || id < 0) throw new BadRequestException("No Job Found With This ID");
             string role = User.FindFirst(ClaimTypes.Role)?.Value;
             if (role == "EMPLOYEE")
-            {  PostJob job = _context.PostJobs.FirstOrDefault(x => x.id == id);
-                if (job == null) return NotFound();
+            {
+                PostJob job = _context.PostJobs.Include(x => x.Messages).Include(x => x.BasketItems).FirstOrDefault(x => x.id == id);
+                if (job == null) throw new NotFoundException("We Could Not Find This Job");
+                var item = _context.BasketItems.FirstOrDefault(w => w.PostJobId == id);
+                var message = _context.Messages.FirstOrDefault(m => m.PostJobId == id);
+                if (message != null)
+                {
+                    _context.Remove(message);
+                }
+                if (item != null)
+                {
+                    _context.Remove(item);
+
+                }
                 _context.Remove(job);
             }
             else
             {
-                UserPostJob job = _context.UserPostJobs.FirstOrDefault(x => x.id == id);
-                if (job == null) return NotFound();
+                UserPostJob job = _context.UserPostJobs.Include(x => x.Messages).Include(x => x.BasketItems).FirstOrDefault(x => x.id == id);
+                if (job == null) throw new NotFoundException("We Could Not Find This Job");
+                var item = _context.BasketItems.FirstOrDefault(w => w.UserPostJobId == id);
+                var message = _context.Messages.FirstOrDefault(m => m.UserPostJobId == id);
+                if (message != null)
+                {
+                    _context.Remove(message);
+                }
+                if (item != null)
+                {
+                    _context.Remove(item);
+
+                }
                 _context.Remove(job);
             }
             _context.SaveChanges();
-            return RedirectToAction("Index","User");
+            return RedirectToAction("Index", "User");
         }
     }
 }

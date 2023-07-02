@@ -105,7 +105,7 @@ namespace FinalProjectJobHunt.Controllers
             {
                 Category = await _context.Categories.Include(x => x.Positions).ToListAsync(),
                 Positions = await _context.Positions.ToListAsync(),
-                PostJobs = await query.Skip(page * 6).Take(6).ToListAsync(),
+                PostJobs = await query.OrderByDescending(x=>x.Created).Skip(page * 6).Take(6).ToListAsync(),
                 AppUsers = await _context.Users.ToListAsync(),
                 Cities = await _context.Cities.ToListAsync(),
                 JobTypes = await _context.JobTypes.ToListAsync(),
@@ -195,7 +195,7 @@ namespace FinalProjectJobHunt.Controllers
             UserPostJobVM jobVM = new UserPostJobVM
             {
 
-                UserPostJobs = await query.Skip(page * 6).Take(6).ToListAsync(),
+                UserPostJobs = await query.Skip(page * 6).Take(6).OrderByDescending(x => x.Created).ToListAsync(),
                 Category = await _context.Categories.Include(x => x.Positions).ToListAsync(),
                 Positions = await _context.Positions.ToListAsync(),
                 AppUsers = await _context.Users.ToListAsync(),

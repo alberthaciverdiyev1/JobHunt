@@ -170,7 +170,6 @@ namespace FinalProjectJobHunt.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ImageURL")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Title")
@@ -753,7 +752,7 @@ namespace FinalProjectJobHunt.Migrations
                         .WithMany()
                         .HasForeignKey("LanguageId");
 
-                    b.HasOne("FinalProjectJobHunt.Models.Position", null)
+                    b.HasOne("FinalProjectJobHunt.Models.Position", "Position")
                         .WithMany("UserPostJobs")
                         .HasForeignKey("PositionId");
 
@@ -772,6 +771,8 @@ namespace FinalProjectJobHunt.Migrations
                     b.Navigation("JobType");
 
                     b.Navigation("Language");
+
+                    b.Navigation("Position");
 
                     b.Navigation("WorkExperience");
                 });
