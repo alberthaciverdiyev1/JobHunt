@@ -12,6 +12,7 @@ namespace FinalProjectJobHunt.Models
         public List<PostJob>? PostJobs { get; set; }
         public List<UserPostJob>? UserPostJobs { get; set; }
         public List<Position>? Positions { get; set; }
+        public List<PostJob>? IndexJob { get; set; }
 
 
 

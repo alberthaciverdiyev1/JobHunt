@@ -59,6 +59,7 @@ namespace FinalProjectJobHunt.Controllers
             List<City> cities = _context.Cities.Take(8).ToList();
             List<Position> positions = _context.Positions.ToList();
 
+
             HomeVM homeVM = new HomeVM
             {
                 Categories = categories,
@@ -67,6 +68,7 @@ namespace FinalProjectJobHunt.Controllers
                 Cities = cities,
                 PostJobs = query != null ? await query.ToListAsync() : new List<PostJob>(),
                 UserPostJobs = queryUserPostJob != null ? await queryUserPostJob.ToListAsync() : new List<UserPostJob>(),
+                IndexJob=await _context.PostJobs.Include(j=>j.JobType).Include(c=>c.Category).Include(c=>c.City).OrderByDescending(c=>c.Created).Take(8).ToListAsync(),
                 Positions = positions,
             };
 

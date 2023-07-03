@@ -24,7 +24,7 @@
                 <div class="col-lg-8 column">
                     <div class="job-single-sec">
                         <div class="job-single-head2">
-                            <div class="job-title2"><h3>@Model.PostJob.Category.Name / @Model.Position.PositionName</h3><span class="job-is ft">@Model.PostJob.JobType.WorkType</span><i class="la la-heart-o"></i></div>
+                            <div class="job-title2"><h3>@Model.PostJob.Category.Name / @Model.Position.PositionName</h3><span class="job-is ft">@Model.PostJob.JobType.WorkType</span></div>
                             <ul class="tags-jobs">
                                 <li><i class="la la-map-marker"></i> @Model.PostJob.City.CityName</li>
                                 <li><i class="la la-money"></i> Monthly Salary : <span>$@Model.PostJob.Salary</span></li>
@@ -33,7 +33,13 @@
                          
                         </div><!-- Job Head -->
                         <div class="job-details">
-                       
+                       <!-- Job Overview -->
+                            <h3>Job Description</h3>
+                            <div style="box-sizing:border-box; width:200px;">
+                                <p style="width:100%;overflow:revert;">@Model.PostJob.Description</p>
+
+                            </div>
+
                             <div class="job-overview">
                                 <h3>Job Overview</h3>
                                 <ul>
@@ -43,15 +49,9 @@
                                     <li><i class="fa-solid fa-child-reaching"></i><h3>Age</h3><span>@Model.PostJob.MinAge - @Model.PostJob.MaxAge Years </span></li>
                                     <li><i class="la la-puzzle-piece"></i><h3>Industry</h3><span>@Model.PostJob.Category.Name</span></li>
                                     <li><i class="la la-line-chart "></i><h3>Qualification</h3><span>@Model.Position.PositionName</span></li>
-                                    
-                                </ul>
-                            </div><!-- Job Overview -->
-                            <h3>Job Description</h3>
-                            <div style="box-sizing:border-box; width:200px;">
-                                <p style="width:100%;overflow:revert;">@Model.PostJob.Description</p>
 
+                                </ul>
                             </div>
-                          
                              
                             <div class="share-bar">
                                 <span>Share</span>
